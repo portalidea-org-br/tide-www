@@ -1,0 +1,42 @@
+.hero-main {
+  background: palette('red');
+
+  .hero-main__text {
+    @include container;
+    color: palette('white');
+    font-family: 'Roboto', monospace;
+
+    h1 {
+      margin: 0;
+      padding: 1em 0;
+      text-align: center;
+      color: inherit;
+      line-height: 1.2;
+    }
+
+    p {
+      display: none;
+    }
+  }
+}
+
+.hero-main__images {
+  @include container;
+  width: 20em;
+  position: relative;
+  height: 17em;
+
+
+  .trophy {
+    width: 5.56em;
+    position: absolute;
+    bottom: 5.375em;
+  }
+
+  .books-girl {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}

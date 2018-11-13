@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <HeaderComponent />
+    <HeroMain />
   </div>
 </template>
 
 <script>
 import HeaderComponent from '@/components/Header'
+import HeroMain from '@/components/HeroMain'
 
 export default {
   name: 'app',
   components: {
-    HeaderComponent
+    HeaderComponent,
+    HeroMain,
   }
 }
 </script>
