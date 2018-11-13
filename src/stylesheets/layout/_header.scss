@@ -119,12 +119,11 @@ header {
     display: none;
 
     @media screen and (min-width: breakpoint('desktop')) {
-      align-self: flex-end;
-      // background-image: url('../img/logo-tide-setubal.png');
-      background-color: blue;
+      background-image: url('../assets/images/logo-tide-setubal.svg');
       background-repeat: no-repeat;
       display: block;
       height: 3.75em;
+      text-indent: -999em;
       position: absolute;
       right: 3em;
       top: 3em;
