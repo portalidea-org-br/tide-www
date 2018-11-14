@@ -1,3 +1,5 @@
+const { basename } = require('path');
+
 module.exports = {
   chainWebpack: (config) => {
     const svgRule = config.module.rule('svg');
@@ -6,6 +8,18 @@ module.exports = {
 
     svgRule
       .use('vue-svg-loader')
-      .loader('vue-svg-loader');
+      .loader('vue-svg-loader')
+      .options({
+        svgo: {
+          plugins: [
+            {
+              prefixIds: {
+                prefix: (node, { path }) => basename(path, '.svg'),
+                delim: '-',
+              },
+            },
+          ],
+        },
+      });
   },
 };
