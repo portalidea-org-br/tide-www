@@ -1,5 +1,6 @@
 <template>
   <div class="bg-yellow">
+    <WaveYellow class="wave-yellow" />
     <section class="hero-secondary">
       <div class="hero-secondary__text">
         <h2>56<span class="hero-secondary__percentage">%</span></h2>
@@ -7,11 +8,13 @@
           dos recursos para investimento educacional é o que dispõe os municípios de nível socioeconômico baixo
           em relação aos municípios de nível socioeconômico mais alto
         </p>
+        <button class="button button--black">Saiba mais</button>
       </div>
-      <button class="button--black">Saiba mais</button>
 
-      <Mug class="mug" />
-      <LaderBoy class="lader-boy" />
+      <div class="hero-secondary__images">
+        <Mug class="mug" />
+        <LaderBoy class="lader-boy" />
+      </div>
 
       <div class="dots">
           <i class="dots__dot"></i>
@@ -22,6 +25,7 @@
 </template>
 
 <script>
+import WaveYellow from '@/assets/images/wave-yellow.svg'
 import Mug from '@/assets/images/mug.svg'
 import LaderBoy from '@/assets/images/lader-boy.svg'
 
@@ -32,6 +36,7 @@ export default {
   components: {
     Mug,
     LaderBoy,
+    WaveYellow,
   },
 };
 

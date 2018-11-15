@@ -13,7 +13,6 @@
       </div>
 
       <div class="hero-main__images">
-        <Trophy class="trophy" />
         <BooksGirl class="books-girl" />
       </div>
 
@@ -31,7 +30,6 @@
 </template>
 
 <script>
-import Trophy from '@/assets/images/trophy.svg'
 import BooksGirl from '@/assets/images/books-girl.svg'
 
 
@@ -39,7 +37,6 @@ export default {
   name: 'HeroMain',
 
   components: {
-    Trophy,
     BooksGirl,
   },
 };

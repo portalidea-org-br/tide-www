@@ -28,7 +28,6 @@ export default {
 
   methods: {
     toggleMenu () {
-      window.console.log('hello');
       this.menuIsVisible = !this.menuIsVisible;
     },
   },

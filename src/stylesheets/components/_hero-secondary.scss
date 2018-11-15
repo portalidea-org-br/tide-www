@@ -1,223 +1,96 @@
-.bg-yellow {
-  background: palette('yellow');
+.overflow {
+  overflow: hidden;
 }
 
-.hero-main {
+.bg-yellow {
+  background: palette('yellow');
+  // overflow-y: visible;
+}
+
+.wave-yellow {
+  width: 100%;
+  margin-top: -175px;
   position: relative;
-  padding-bottom: 12em;
-  background: palette('red');
+}
+
+.hero-secondary {
+  position: relative;
+  padding-bottom: 9em;
+  width: 320px;
+  margin: 0 auto;
+  display: flex;
+  // overflow-x: hidden;
 
   @media screen and (min-width: breakpoint('desktop')) {
-    // @include container;
+    width: auto;
     max-width: 1500px;
     margin: 0 auto;
     display: flex;
     flex-direction: row-reverse;
-    align-items: center;
+    padding-top: 3em;
   }
 
-  .hero-main__text {
+  .hero-secondary__text {
     @include container;
-    padding: 0 2.6em;
-    color: palette('white');
-    font-family: 'Roboto', monospace;
+    padding: 0 1.8em;
+    padding-right: 0.3em;
 
     @media screen and (min-width: breakpoint('desktop')) {
-      margin: 0;
-      max-width: 600px;
-      text-align: right;
-      padding-right: 2em;
+      max-width: 368px;
+      margin-left: 80px;
     }
 
-    h1 {
-      min-height: 5.5em;
+    h2 {
+      font-size: 4.5em;
+      padding: 0;
       margin: 0;
-      padding: 1em 0;
-      text-align: center;
-      color: inherit;
-      line-height: 1.2;
-      font-family: inherit;
+      color: palette('purple');
+      text-shadow: 1px 0 1px palette('red'), -1px 1px 0 palette('green');
 
       @media screen and (min-width: breakpoint('desktop')) {
-        text-align: inherit;
-        font-size: 54px;
-        line-height: 1;
-        padding-bottom: 10px;
+        font-size: 7.844em;
       }
     }
 
     p {
-      display: none;
-      // font-family: inherit;
+      font-size: 0.875em;
 
       @media screen and (min-width: breakpoint('desktop')) {
-        margin-top: 10px;
-        display: inline-block;
-        font-size: 18px;
-        width: 340px;
+        font-size: 1.125em;
       }
     }
   }
 
-  .dots {
-    position: absolute;
-    top: 0;
-    width: 20em;
-    left: calc(50% - 10em);
-    height: 100%;
-    pointer-events: none;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        width: 100%;
-        left: 0;
-      }
-
-    .dots__dot {
-      width: 0.4em;
-      height: 0.4em;
-      border-radius: 50%;
-      background: palette('white');
-      display: block;
-      position: absolute;
-      left: 8.8em;
-      top: 6.8em;
 
 
-      @media screen and (min-width: breakpoint('desktop')) {
-        width: 0.8em;
-        height: 0.8em;
-        left: 28.8em;
-        top: -0.7em;
-        z-index: 4;
-      }
-
-      @media screen and (min-width: breakpoint('wide')) {
-        top: -2.1em;
-      }
-  }
-
-    .dots__dot:nth-child(2) {
-      width: 0.55em;
-      height: 0.55em;
-      left: 4.7em;
-      top: 10.7em;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        width: 1em;
-        height: 1em;
-        left: 17.4em;
-        top: 2.6em;
-      }
-    }
-
-    .dots__dot:nth-child(3) {
-      width: 0.3em;
-      height: 0.3em;
-      left: 2.3em;
-      top: 13.2em;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        width: 0.55em;
-        height: 0.55em;
-        left: 12.6em;
-        top: 7.9em;
-      }
-    }
-
-    .dots__dot:nth-child(4) {
-      width: 0.35em;
-      height: 0.35em;
-      left: 10.6em;
-      top: 13.1em;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        width: 0.6em;
-        height: 0.6em;
-        left: 0.9em;
-        top: 23.1em;
-      }
-    }
-
-    .dots__dot:nth-child(5) {
-      display: none;
-      width: 1.1em;
-      height: 1.1em;
-      left: 33.2em;
-      top: 12.1em;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        display: block;
-        left: 33.2em;
-      }
-
-      @media screen and (min-width: breakpoint('wide')) {
-        left: 40.2em;
-      }
-    }
-
-    .dots__dot:nth-child(6) {
-      display: none;
-      width: 1.3em;
-      height: 1.3em;
-      left: 45.2em;
-      top: 19em;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        display: block;
-      }
-
-      @media screen and (min-width: breakpoint('wide')) {
-        top: 17.1em;
-      }
-    }
-
-    .dots__dot:nth-child(7) {
-      display: none;
-      width: 1.3em;
-      height: 1.3em;
-      left: auto;
-      right: 3em;
-      top: 46.1em;
-
-      @media screen and (min-width: breakpoint('wide')) {
-        display: block;
-      }
-    }
-  }
-}
-
-.hero-main__images {
-  @include container;
-  width: 20em;
-  position: relative;
-  height: 17em;
-
-  @media screen and (min-width: breakpoint('desktop')) {
-    margin-left: 0;
-    margin-top: 60px;
-    max-width: auto;
-    width: 700px;
-    height: 570px;
-  }
-
-
-  .trophy {
-    width: 5.56em;
-    position: absolute;
-    bottom: 5.375em;
+  .hero-secondary__images {
+    min-width: 122px;
 
     @media screen and (min-width: breakpoint('desktop')) {
-      width: 177px;
-      bottom: 188px;
-      left: 100px;
+      position: relative;
+    }
+
+    .mug {
+      position: absolute;
+      width: 145px;
+      height: 263px;
+      right: -35px;
+      bottom: 0;
+
+      @media screen and (min-width: breakpoint('desktop')) {
+        bottom: 0;
+        right: 0;
+        height: 510px;
+        width: 284px;
+      }
+    }
+
+    .lader-boy {
+      position: absolute;
+      width: 172px;
+      height: 528px;
+      right: 0;
+      bottom: 150px;
     }
   }
-
-  .books-girl {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-
 }

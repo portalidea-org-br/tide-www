@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <HeaderComponent />
-    <HeroMain />
-    <HeroSecondary />
+    <div class="overflow">
+      <HeroMain />
+      <HeroSecondary />
+    </div>
   </div>
 </template>
 

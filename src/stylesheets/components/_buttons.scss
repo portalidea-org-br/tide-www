@@ -1,0 +1,15 @@
+.button {
+  background: transparent;
+  border-radius: 24px;
+  border-color: inherit;
+  padding: 0.5em 1.3em;
+  font-family: $roboto-font-stack;
+  font-size: 1.125em;
+
+  &--black {
+    color: palette('black', 'lighter');
+    border-color: palette('black', 'lighter');
+  }
+}
+
+
