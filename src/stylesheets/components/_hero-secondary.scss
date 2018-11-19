@@ -9,13 +9,16 @@
 
 .wave-yellow {
   width: 100%;
-  margin-top: -175px;
+  // margin-top: -175px;
   position: relative;
+  @media screen and (min-width: breakpoint('desktop')) {
+    background: palette('yellow');
+  }
 }
 
 .hero-secondary {
   position: relative;
-  padding-bottom: 9em;
+  padding-bottom: 13em;
   width: 320px;
   margin: 0 auto;
   display: flex;
@@ -68,6 +71,9 @@
 
     @media screen and (min-width: breakpoint('desktop')) {
       position: relative;
+      min-width: 284px;
+      margin-left: 270px;
+      margin-bottom: -100px;
     }
 
     .mug {
@@ -91,6 +97,23 @@
       height: 528px;
       right: 0;
       bottom: 150px;
+
+      @media screen and (min-width: breakpoint('desktop')) {
+        width: 222px;
+        height: 578px;
+        right: 80px;
+        bottom: 320px;
+      }
     }
+  }
+}
+
+.wave-green {
+  width: 100%;
+  position: relative;
+  margin-top: -130px;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    margin-top: -160px;
   }
 }

@@ -26,11 +26,13 @@
           <i class="dots__dot"></i>
       </div>
     </section>
+    <WaveYellow class="wave-yellow" />
   </div>
 </template>
 
 <script>
 import BooksGirl from '@/assets/images/books-girl.svg'
+import WaveYellow from '@/assets/images/wave-yellow.svg'
 
 
 export default {
@@ -38,6 +40,7 @@ export default {
 
   components: {
     BooksGirl,
+    WaveYellow,
   },
 };
 

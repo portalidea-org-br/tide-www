@@ -1,6 +1,5 @@
 <template>
   <div class="bg-yellow">
-    <WaveYellow class="wave-yellow" />
     <section class="hero-secondary">
       <div class="hero-secondary__text">
         <h2>56<span class="hero-secondary__percentage">%</span></h2>
@@ -21,13 +20,14 @@
           <i class="dots__dot"></i>
       </div>
     </section>
+    <WaveGreen class="wave-green" />
   </div>
 </template>
 
 <script>
-import WaveYellow from '@/assets/images/wave-yellow.svg'
 import Mug from '@/assets/images/mug.svg'
 import LaderBoy from '@/assets/images/lader-boy.svg'
+import WaveGreen from '@/assets/images/wave-green.svg'
 
 
 export default {
@@ -36,7 +36,7 @@ export default {
   components: {
     Mug,
     LaderBoy,
-    WaveYellow,
+    WaveGreen,
   },
 };
 
