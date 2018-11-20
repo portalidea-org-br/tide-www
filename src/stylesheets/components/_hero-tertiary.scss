@@ -1,0 +1,133 @@
+.bg-green {
+  background: palette('green');
+}
+
+.hero-tertiary {
+  margin: 0 auto;
+  max-width: 17.500em;
+  position: relative;
+  padding-bottom: 13em;
+  width: 20em;
+  margin: 0 auto;
+  display: flex;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    width: auto;
+    max-width: 93.75em;
+    margin: 0 auto;
+    display: flex;
+    padding-top: 3em;
+  }
+
+  .hero-tertiary__text {
+    max-width: 8.875em;
+
+    @media screen and (min-width: breakpoint('desktop')) {
+      max-width: 23em;
+      margin-left: 5em;
+    }
+
+    h3 {
+      font-size: 4.125em;
+      letter-spacing: -1.65px;
+      line-height: 0.8;
+      padding: 0;
+      margin: 0 0 0.5em;
+      color: palette('white');
+      text-shadow: -1px -1px 0 palette('red', 'light'), 1px 1px 0 palette('green', 'light');
+
+      @media screen and (min-width: breakpoint('desktop')) {
+        font-size: 7.844em;
+      }
+
+      span {
+        display: block;
+      }
+    }
+
+    p {
+      color: palette('white');
+      font-size: 0.875em;
+
+      @media screen and (min-width: breakpoint('desktop')) {
+        font-size: 1.125em;
+      }
+    }
+  }
+
+  .hero-tertiary__images {
+    position: relative;
+    margin-left: -2.688em;
+    min-width: 12.562em;
+
+    @media screen and (min-width: breakpoint('desktop')) {
+      position: relative;
+      min-width: 17.750em;
+      margin-left: 16.875em;
+      margin-bottom: -6.250em;
+    }
+
+    .girl-with-book {
+      position: absolute;
+      width: 5em;
+      height: 13em;
+      right: 1.875em;
+      bottom: 7.500em;
+
+      @media screen and (min-width: breakpoint('desktop')) {
+        bottom: 0;
+        right: 0;
+        height: 31.875em;
+        width: 17.750em;
+      }
+    }
+
+    .big-way {
+      display: none;
+      position: absolute;
+      width: 46em;
+      height: 27.625em;
+      right: 0;
+      bottom: 0;
+
+      @media screen and (min-width: breakpoint('desktop')) {
+        // display: block;
+      }
+    }
+  }
+
+  .dots {
+    position: absolute;
+    top: 0;
+    width: 20em;
+    left: calc(50% - 10em);
+    height: 100%;
+    pointer-events: none;
+
+      @media screen and (min-width: breakpoint('desktop')) {
+        width: 100%;
+        left: 0;
+      }
+
+    .dots__dot {
+      width: 0.4em;
+      height: 0.4em;
+      border-radius: 50%;
+      background: palette('white');
+      display: block;
+      position: absolute;
+      left: 8.8em;
+      top: 6.8em;
+    }
+  }
+}
+
+.wave-blue {
+  width: 100%;
+  position: relative;
+  margin-top: -8.125em;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    margin-top: -10em;
+  }
+}

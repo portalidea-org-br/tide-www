@@ -4,6 +4,7 @@
     <div class="overflow">
       <HeroMain />
       <HeroSecondary />
+      <HeroTertiary />
     </div>
   </div>
 </template>
@@ -12,6 +13,7 @@
 import HeaderComponent from '@/components/Header'
 import HeroMain from '@/components/HeroMain'
 import HeroSecondary from '@/components/HeroSecondary'
+import HeroTertiary from '@/components/HeroTertiary'
 
 export default {
   name: 'app',
@@ -19,6 +21,7 @@ export default {
     HeaderComponent,
     HeroMain,
     HeroSecondary,
+    HeroTertiary,
   }
 }
 </script>
