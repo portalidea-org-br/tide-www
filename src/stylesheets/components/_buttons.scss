@@ -3,19 +3,24 @@
   border-radius: 24px;
   border-color: inherit;
   border-style: solid;
-  padding: 0.5em 1.3em;
+  border-width: 2px;
+  padding: 0.5em 1em;
   font-family: $roboto-font-stack;
-  font-size: 1.125em;
-
-  &--black {
-    color: palette('black', 'lighter');
-    border-color: palette('black', 'lighter');
-  }
-
-  &--white {
-    color: palette('white');
-    border-color: palette('white');
-  }
+  font-size: ms(0);
 }
 
+.button--black {
+  color: palette('black', 'lighter');
+  border-color: palette('black', 'lighter');
+}
+
+.button-white {
+  color: palette('white');
+  border-color: palette('white');
+}
+
+.button-dark-blue {
+  color: palette('blue', 'dark');
+  border-color: palette('blue', 'dark');
+}
 

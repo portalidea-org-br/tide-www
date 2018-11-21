@@ -1,8 +1,8 @@
-.bg-green {
-  background: palette('green');
+.bg-blue {
+  background: palette('blue');
 }
 
-.hero-tertiary {
+.hero-water {
   margin: 0 auto;
   max-width: 17.500em;
   position: relative;
@@ -18,13 +18,13 @@
     padding-top: 3em;
   }
 
-  .hero-tertiary__text {
-    max-width: 8.875em;
+  .hero-water__text {
+    // max-width: 8.875em;
 
-    @media screen and (min-width: breakpoint('desktop')) {
-      max-width: 23em;
-      margin-left: 5em;
-    }
+    // @media screen and (min-width: breakpoint('desktop')) {
+    //   max-width: 23em;
+    //   margin-left: 5em;
+    // }
 
     h3 {
       font-size: ms(4);
@@ -36,11 +36,11 @@
       text-shadow: -1px -1px 0 palette('red', 'light'), 1px 1px 0 palette('green', 'light');
 
       @media screen and (min-width: breakpoint('desktop')) {
-        font-size: ms(5);
+        font-size: ms(-5);
       }
 
       span {
-        display: block;
+        // display: block;
       }
     }
 
@@ -54,10 +54,11 @@
     }
   }
 
-  .hero-tertiary__images {
+  .hero-water__images {
+    display: none;
     position: relative;
-    margin-left: -2.688em;
-    min-width: 12.562em;
+    // margin-left: -2.688em;
+    //// min-width: 12.562em;
 
     @media screen and (min-width: breakpoint('desktop')) {
       position: relative;

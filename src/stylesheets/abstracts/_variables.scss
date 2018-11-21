@@ -86,6 +86,7 @@ $line-lengths: (
 ///
 /// @link http://www.modularscale.com/?1&rem&1.25
 $modularscale: (
+	// base: 1rem,
 	base: 1rem,
 	ratio: 1.25
 );
@@ -99,7 +100,7 @@ $modularscale: (
 /// @todo Customize the colors or add new ones to match your design needs.
 $palette: (
 	'red': (
-    'light': rgb(252, 124, 108),
+		'light': rgb(252, 124, 108),
 		'base': rgb(237, 84, 84),
 		'opacity': rgba(237, 84, 84, 0.95),
 	),
@@ -112,6 +113,10 @@ $palette: (
 	'green': (
 		'light': rgb(149, 255, 7),
 		'base': rgb(16, 130, 88),
+	),
+	'blue': (
+		'base': rgb(0, 204, 255),
+		'dark': rgb(37, 37, 37),
 	),
 	'gray': (
 		'x-light': tint(rgb(229, 231, 234), 10%),
