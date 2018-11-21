@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <title>tide</title>
+
+    {{ partial "head.html" . }}
+
+    <body>
+
+      {{ partial "header.html" . }}
+
+      <div class="bg-red">
+        <section class="hero-main">
+          <div class="hero-main__text">
+            <h1 class="h1">
+              A desigualdade educacional no
+              centro do debate
+            </h1>
+            <p>
+              O projeto Indicador de Desigualdades Educacionais é movido por uma convicção: a defesa do direito à
+              educação requer a construção de instrumentos de verificação da realização desse direito
+            </p>
+          </div>
+
+          <div class="hero-main__images">
+            {{ partial "svg/books-girl.svg" (dict "class" "books-girl") }}
+          </div>
+
+          <div class="dots">
+            <i class="dots__dot"></i>
+            <i class="dots__dot"></i>
+            <i class="dots__dot"></i>
+            <i class="dots__dot"></i>
+            <i class="dots__dot"></i>
+            <i class="dots__dot"></i>
+            <i class="dots__dot"></i>
+          </div>
+        </section>
+        {{ partial "svg/wave-yellow.svg" (dict "class" "wave-yellow") }}
+      </div>
+
+      <div class="bg-yellow">
+        <section class="hero-secondary">
+          <div class="hero-secondary__text">
+            <h2>56<span class="hero-secondary__percentage">%</span></h2>
+            <p>
+              dos recursos para investimento educacional é o que dispõe os municípios de nível socioeconômico baixo
+              em relação aos municípios de nível socioeconômico mais alto
+            </p>
+            <button class="button button--black">Saiba mais</button>
+          </div>
+
+          <div class="hero-secondary__images">
+            {{ partial "svg/mug.svg" (dict "class" "mug") }}
+            {{ partial "svg/lader-boy.svg" (dict "class" "lader-boy") }}
+          </div>
+
+          <div class="dots">
+            <i class="dots__dot"></i>
+            <i class="dots__dot"></i>
+          </div>
+        </section>
+        {{ partial "svg/wave-green.svg" (dict "class" "wave-green") }}
+      </div>
+
+      <div class="bg-green">
+        <section class="hero-tertiary">
+          <div class="hero-tertiary__text">
+            <h3>300 <span>reais</span></h3>
+            <p>
+              é o custo médio mensal de um aluno do ensino médio na rede pública.
+              Enquanto que em uma escola particular esse custo salta para, em média, R$ 700 por aluno
+            </p>
+            <button class="button button--white">Saiba mais</button>
+          </div>
+          <div class="hero-tertiary__images">
+            {{ partial "svg/girl-with-book.svg" (dict "class" "girl-with-book") }}
+            {{ partial "svg/big-way.svg" (dict "class" "big-way") }}
+          </div>
+
+          <div class="dots">
+            <i class="dots__dot"></i>
+          </div>
+        </section>
+        {{ partial "svg/wave-blue.svg" (dict "class" "wave-blue") }}
+      </div>
+
+      <div class="bg-blue">
+        <section class="hero-water">
+          <div class="hero-water__text">
+            <h3>86 <span>%</span></h3>
+            <p>
+              das crianças de 4 e 5 anos que vêm de famílias com renda até um quarto de salário mínimo estão na escola.
+              Entre famílias que ganham pelo menos um salário mínimo, a taxa sobe para 94,8%
+            </p>
+            <button class="button button--dark-blue">Saiba mais</button>
+          </div>
+          <div class="hero-water__images">
+            {{ partial "svg/book.svg" (dict "class" "book") }}
+            {{ partial "svg/boat.svg" (dict "class" "boat") }}
+            {{ partial "svg/book2.svg" (dict "class" "book2") }}
+          </div>
+        </section>
+      </div>
+
+    </body>
+</html>

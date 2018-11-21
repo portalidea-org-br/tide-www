@@ -1,0 +1,164 @@
+<svg class="{{ .class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89.97 258.56">
+  <defs>
+    <style>
+      .bg-fc{fill:#3c2958}.bg-sc{fill:#704b4a}.bg-mc{fill:#e09742}.cls-12{fill:#543330}
+    </style>
+  </defs>
+  <circle class="bg-fc" cx="56.84" cy="49.51" r="4.69"/>
+  <circle class="bg-fc" cx="62.75" cy="38.55" r="4.69"/>
+  <circle class="bg-fc" cx="54.85" cy="46.3" r="4.69"/>
+  <circle class="bg-fc" cx="49.09" cy="48.29" r="4.69"/>
+  <circle class="bg-fc" cx="58.36" cy="36.91" r="4.69"/>
+  <circle class="bg-fc" cx="56.71" cy="41.3" r="4.69"/>
+  <circle class="bg-fc" cx="61.15" cy="32.94" r="4.69"/>
+  <circle class="bg-fc" cx="54.73" cy="33.2" r="4.69"/>
+  <circle class="bg-fc" cx="54.78" cy="28.2" r="4.69"/>
+  <circle class="bg-fc" cx="52.02" cy="22.16" r="4.69"/>
+  <circle class="bg-fc" cx="45.12" cy="31.27" r="4.69"/>
+  <circle class="bg-fc" cx="47.59" cy="36.46" r="4.69"/>
+  <circle class="bg-fc" cx="47.63" cy="20.52" r="4.69"/>
+  <circle class="bg-fc" cx="54.23" cy="18.02" r="4.69"/>
+  <circle class="bg-fc" cx="44.85" cy="27.95" r="4.69"/>
+  <circle class="bg-fc" cx="51.4" cy="29.29" r="4.69"/>
+  <circle class="bg-fc" cx="64.77" cy="29.62" r="4.69"/>
+  <circle class="bg-fc" cx="59.38" cy="23.2" r="4.69"/>
+  <circle class="bg-fc" cx="38.95" cy="30.34" r="4.69"/>
+  <circle class="bg-fc" cx="37.6" cy="26.93" r="4.69"/>
+  <circle class="bg-fc" cx="40.1" cy="16.19" r="4.69"/>
+  <circle class="bg-fc" cx="37.32" cy="23.62" r="4.69"/>
+  <circle class="bg-fc" cx="58.74" cy="27.37" r="4.69"/>
+  <circle class="bg-fc" cx="40.05" cy="20.38" r="4.69"/>
+  <circle class="bg-fc" cx="35.09" cy="19.1" r="4.69"/>
+  <circle class="bg-fc" cx="34.18" cy="31.45" r="4.69"/>
+  <circle class="bg-fc" cx="46.11" cy="17.29" r="4.69"/>
+  <circle class="bg-fc" cx="31.42" cy="26.01" r="4.69"/>
+  <circle class="bg-fc" cx="42.29" cy="36.6" r="4.69"/>
+  <circle class="bg-fc" cx="57.2" cy="50.22" r="4.69"/>
+  <circle class="bg-fc" cx="62.84" cy="35.13" r="4.69"/>
+  <circle class="bg-fc" cx="62.89" cy="30.13" r="4.69"/>
+  <circle class="bg-fc" cx="60.14" cy="24.09" r="4.69"/>
+  <circle class="bg-fc" cx="53.24" cy="33.19" r="4.69"/>
+  <circle class="bg-fc" cx="55.7" cy="38.39" r="4.69"/>
+  <circle class="bg-fc" cx="55.74" cy="22.45" r="4.69"/>
+  <circle class="bg-fc" cx="62.34" cy="19.94" r="4.69"/>
+  <circle class="bg-fc" cx="52.96" cy="29.88" r="4.69"/>
+  <circle class="bg-fc" cx="67.49" cy="25.13" r="4.69"/>
+  <circle class="bg-fc" cx="47.06" cy="32.27" r="4.69"/>
+  <circle class="bg-fc" cx="45.71" cy="28.86" r="4.69"/>
+  <circle class="bg-fc" cx="48.21" cy="18.11" r="4.69"/>
+  <circle class="bg-fc" cx="45.44" cy="25.55" r="4.69"/>
+  <circle class="bg-fc" cx="73.06" cy="34.02" r="4.69"/>
+  <circle class="bg-fc" cx="68.88" cy="32.37" r="4.69"/>
+  <circle class="bg-fc" cx="62.66" cy="46.42" r="4.69"/>
+  <circle class="bg-fc" cx="66.28" cy="43.1" r="4.69"/>
+  <circle class="bg-fc" cx="64.35" cy="48.6" r="4.69"/>
+  <circle class="bg-fc" cx="64.4" cy="43.61" r="4.69"/>
+  <circle class="bg-fc" cx="70.28" cy="37.27" r="4.69"/>
+  <circle class="bg-fc" cx="48.16" cy="22.31" r="4.69"/>
+  <circle class="bg-fc" cx="43.2" cy="21.03" r="4.69"/>
+  <circle class="bg-fc" cx="42.29" cy="33.37" r="4.69"/>
+  <circle class="bg-fc" cx="54.22" cy="19.22" r="4.69"/>
+  <circle class="bg-fc" cx="55.61" cy="24.5" r="4.69"/>
+  <circle class="bg-fc" cx="49.24" cy="19.77" r="4.69"/>
+  <circle class="bg-fc" cx="46.49" cy="13.73" r="4.69"/>
+  <circle class="bg-fc" cx="42.09" cy="12.08" r="4.69"/>
+  <circle class="bg-fc" cx="48.69" cy="9.58" r="4.69"/>
+  <circle class="bg-fc" cx="45.86" cy="20.86" r="4.69"/>
+  <circle class="bg-fc" cx="59.23" cy="21.19" r="4.69"/>
+  <circle class="bg-fc" cx="53.84" cy="14.76" r="4.69"/>
+  <circle class="bg-fc" cx="34.56" cy="7.75" r="4.69"/>
+  <circle class="bg-fc" cx="31.79" cy="15.18" r="4.69"/>
+  <circle class="bg-fc" cx="53.2" cy="18.93" r="4.69"/>
+  <circle class="bg-fc" cx="34.51" cy="11.95" r="4.69"/>
+  <circle class="bg-fc" cx="29.55" cy="10.66" r="4.69"/>
+  <circle class="bg-fc" cx="40.57" cy="8.86" r="4.69"/>
+  <circle class="bg-fc" cx="71.96" cy="26.51" r="4.69"/>
+  <circle class="bg-fc" cx="57.35" cy="21.69" r="4.69"/>
+  <circle class="bg-fc" cx="54.6" cy="15.65" r="4.69"/>
+  <circle class="bg-fc" cx="50.2" cy="14.01" r="4.69"/>
+  <circle class="bg-fc" cx="56.8" cy="11.51" r="4.69"/>
+  <circle class="bg-fc" cx="47.42" cy="21.44" r="4.69"/>
+  <circle class="bg-fc" cx="69.55" cy="18.97" r="4.69"/>
+  <circle class="bg-fc" cx="61.95" cy="16.69" r="4.69"/>
+  <circle class="bg-fc" cx="42.68" cy="9.68" r="4.69"/>
+  <circle class="bg-fc" cx="39.9" cy="17.11" r="4.69"/>
+  <circle class="bg-fc" cx="61.31" cy="20.86" r="4.69"/>
+  <circle class="bg-fc" cx="42.62" cy="13.87" r="4.69"/>
+  <circle class="bg-fc" cx="37.66" cy="12.59" r="4.69"/>
+  <circle class="bg-fc" cx="48.68" cy="10.79" r="4.69"/>
+  <circle class="bg-fc" cx="35.41" cy="25.06" r="4.69"/>
+  <circle class="bg-fc" cx="27.88" cy="20.72" r="4.69"/>
+  <circle class="bg-fc" cx="25.1" cy="28.16" r="4.69"/>
+  <circle class="bg-fc" cx="27.83" cy="24.92" r="4.69"/>
+  <circle class="bg-fc" cx="33.89" cy="21.83" r="4.69"/>
+  <circle class="bg-fc" cx="35.99" cy="22.65" r="4.69"/>
+  <circle class="bg-fc" cx="33.21" cy="30.08" r="4.69"/>
+  <circle class="bg-fc" cx="35.94" cy="26.85" r="4.69"/>
+  <circle class="bg-fc" cx="30.98" cy="25.56" r="4.69"/>
+  <circle class="bg-fc" cx="37.02" cy="24.3" r="4.69"/>
+  <circle class="bg-fc" cx="34.26" cy="18.26" r="4.69"/>
+  <circle class="bg-fc" cx="29.87" cy="16.62" r="4.69"/>
+  <circle class="bg-fc" cx="36.47" cy="14.12" r="4.69"/>
+  <circle class="bg-fc" cx="33.64" cy="25.39" r="4.69"/>
+  <circle class="bg-fc" cx="35.2" cy="25.98" r="4.69"/>
+  <circle class="bg-fc" cx="30.45" cy="14.21" r="4.69"/>
+  <circle class="bg-fc" cx="27.68" cy="21.65" r="4.69"/>
+  <circle class="bg-fc" cx="30.4" cy="18.41" r="4.69"/>
+  <circle class="bg-fc" cx="36.46" cy="15.32" r="4.69"/>
+  <circle class="bg-fc" cx="30.12" cy="22.25" r="4.69"/>
+  <circle class="bg-fc" cx="29.6" cy="10.9" r="4.69"/>
+  <circle class="bg-fc" cx="26.82" cy="18.33" r="4.69"/>
+  <circle class="bg-fc" cx="29.55" cy="15.09" r="4.69"/>
+  <circle class="bg-fc" cx="25.84" cy="14.21" r="4.69"/>
+  <circle class="bg-fc" cx="35.61" cy="12" r="4.69"/>
+  <circle class="bg-fc" cx="39.49" cy="4.7" r="4.69"/>
+  <circle class="bg-fc" cx="29.3" cy="21.41" r="4.69"/>
+  <circle class="bg-fc" cx="24.9" cy="19.76" r="4.69"/>
+  <circle class="bg-fc" cx="31.5" cy="17.26" r="4.69"/>
+  <circle class="bg-fc" cx="33.01" cy="21.69" r="4.69"/>
+  <circle class="bg-fc" cx="25.44" cy="21.56" r="4.69"/>
+  <circle class="bg-fc" cx="31.5" cy="18.47" r="4.69"/>
+  <circle class="bg-fc" cx="59.38" cy="15.56" r="4.69"/>
+  <circle class="bg-fc" cx="59.33" cy="19.75" r="4.69"/>
+  <circle class="bg-fc" cx="54.36" cy="18.47" r="4.69"/>
+  <circle class="bg-fc" cx="65.39" cy="16.67" r="4.69"/>
+  <circle class="bg-fc" cx="64.34" cy="11.67" r="4.69"/>
+  <circle class="bg-fc" cx="53.84" cy="7.12" r="4.69"/>
+  <circle class="bg-fc" cx="51.06" cy="14.55" r="4.69"/>
+  <circle class="bg-fc" cx="53.79" cy="11.32" r="4.69"/>
+  <circle class="bg-fc" cx="48.83" cy="10.03" r="4.69"/>
+  <circle class="bg-fc" cx="59.85" cy="8.23" r="4.69"/>
+  <circle class="bg-fc" cx="59.17" cy="16.48" r="4.69"/>
+  <circle class="bg-fc" cx="61.9" cy="13.25" r="4.69"/>
+  <circle class="bg-fc" cx="56.94" cy="11.96" r="4.69"/>
+  <circle class="bg-fc" cx="53.54" cy="17.63" r="4.69"/>
+  <circle class="bg-fc" cx="49.14" cy="15.99" r="4.69"/>
+  <circle class="bg-fc" cx="55.74" cy="13.49" r="4.69"/>
+  <circle class="bg-fc" cx="49.73" cy="13.59" r="4.69"/>
+  <circle class="bg-fc" cx="49.68" cy="17.78" r="4.69"/>
+  <circle class="bg-fc" cx="55.74" cy="14.69" r="4.69"/>
+  <circle class="bg-fc" cx="48.88" cy="10.27" r="4.69"/>
+  <circle class="bg-fc" cx="28.14" cy="35.07" r="4.69"/>
+  <circle class="bg-fc" cx="45.02" cy="5.26" r="4.69"/>
+  <circle class="bg-fc" cx="54.89" cy="11.37" r="4.69"/>
+  <circle class="bg-fc" cx="51.97" cy="15.11" r="4.69"/>
+  <circle class="bg-fc" cx="50.78" cy="16.63" r="4.69"/>
+  <circle class="bg-fc" cx="50.89" cy="6.64" r="4.69"/>
+  <circle class="bg-fc" cx="39.53" cy="27.93" r="4.69"/>
+  <circle class="bg-fc" cx="50.4" cy="38.53" r="4.69"/>
+  <path d="M152.85 323.69L143 434s-11.4 6.38-11.78 5.2c-.74-2.33 7.29-9.45 7.29-9.45s-8.78-78.22-9.58-106.53c-.22-8.16 7.18-21.17 7.18-21.17l17.34.8z" transform="translate(-106.48 -180.82)" fill="#704c4a"/>
+  <path class="bg-sc" d="M174.48 323.69L164.6 434s-11.4 6.38-11.77 5.2c-.74-2.33 7.28-9.45 7.28-9.45s-8.78-78.22-9.57-106.53c-.23-8.16 7.18-21.17 7.18-21.17l5.22 5.46zM118.7 293.69s.1 11.73 7.54 15.75l2.64-3.58-5.59-13zM132.91 248.33s-7.38 6.48-11.39 27.79l6.52 5.76 10.3-24.41z" transform="translate(-106.48 -180.82)"/>
+  <path class="bg-mc" d="M171.86 316.28l13.3.8s6.27 37.52 6.8 45.31-19.6 9.05-19.6 9.05z" transform="translate(-106.48 -180.82)"/>
+  <path class="bg-sc" d="M196.42 298c-1-15.91-13.23-39.9-21.75-48.43-1.26-1.25-3.53-1.32-5.27-1a3.92 3.92 0 0 0-1.69.93c-2.92 2.34.54 7.74-1 11.16a4.91 4.91 0 0 0-.48 3.69 5.74 5.74 0 0 0 2.12 2.26 56.79 56.79 0 0 1 20.7 30.81c3.53 13.51.43 24.58-3 37.49 8.05 1.25 10.7-31.48 10.37-36.91z" transform="translate(-106.48 -180.82)"/>
+  <path class="bg-sc" d="M183.53 339.06a1.55 1.55 0 0 0-.27.84c0 .3.29.6.58.54a.83.83 0 0 0 .34-.22l1.6-1.49c-.18 1.18-.35 2.36-.53 3.54-.12.84-.46 2.51.51 2.35.43-.55 1.08-3.87 1.38-4.5-.19.54-.65 4.93.08 4.31.54-.06.74-4.07 1.11-4.78-.23.21.1 4.07.64 3.67s.66-3.45.66-3.76c.09.34 0 3.28.54 2.83 2-4.27.42-8.56 1.43-13.16-1.95 1.55-3.57-1.82-4.1.32a34 34 0 0 1-3.97 9.51z" transform="translate(-106.48 -180.82)"/>
+  <path d="M136.33 220.37c-.59 3.23-1.18 6.63-.15 9.75a10.21 10.21 0 0 0 13 6c.36 4 .73 1.54 1.09 5.53-3 .81-11.34 3.89-14.3 4.7 1.17 3.93 15.55 10 17.41 13.63 6.36-2.84 6.82-9.34 13.17-12.18.86-.38.37-2.07-.12-2.87a1.66 1.66 0 0 0-1.12-.62l-4.31-1.03c-.4-6.91-.14-7.41.79-14.27 3.32-.41 6.55-3.17 6.39-6.51s-5-5.67-7.16-3.12c-1.67-3.37 1-5.9-1.25-8.87a7.2 7.2 0 0 0-4.09-2.21c-4.25-1.1-14.05-3.22-17.43.7-1.65 1.88-1.42 8.68-1.92 11.37z" transform="translate(-106.48 -180.82)" fill="#6f4b49"/>
+  <path d="M163.6 243.36h.17z" transform="translate(-106.48 -180.82)" fill="#2f384f"/>
+  <path d="M133.42 301.72s-15.51 15.55-8.51 56.18c0 0 27.2 6.62 53.65.7 0 0 5.54-38.55-9.95-59.06l-15.61-.68z" transform="translate(-106.48 -180.82)" fill="#5962a9"/>
+  <path d="M170.41 267.76l-1.94-7.49 7.7-10.73c-6.52-5.76-10.64-5.74-11.64-5.91-13.65 8.85-20-.9-20-.9a77.6 77.6 0 0 0-13.31 5.54l5.58 12.31a68.43 68.43 0 0 0-1.75 9.52c-.18 3.21 3.54 20.48-.56 30.61l-.73 1.59c12.81 8.86 37.15.51 37.15.51-7-14.75 1.03-29.16-.5-35.05z" transform="translate(-106.48 -180.82)" fill="#ce5455"/>
+  <path class="bg-mc" d="M140.09 243.47c4.7 13.42 12.06 26.23 18.46 38.88 6.66 13.15 13 26.86 21 39.24a.68.68 0 0 0 1.17-.69c-6.91-12.66-13.46-25.56-20-38.42s-14.04-25.87-18.83-39.48c-.4-1.13-2.21-.64-1.8.5z" transform="translate(-106.48 -180.82)"/>
+  <path fill="#bc8235" d="M0 99.35L15.83 86.6l15.31 29.76-9.88 9.38L0 99.35z"/>
+  <path d="M132.64 310.72l-23.29-31 14.06-13.62s17.74 30.18 17.08 30.41-7.85 14.21-7.85 14.21z" transform="translate(-106.48 -180.82)" fill="#eaad53"/>
+  <path d="M109.35 279.7l-2.87.47 23.07 31c-.67-.66 3.09-.47 3.09-.47z" transform="translate(-106.48 -180.82)" fill="#fdc669"/>
+  <path class="bg-sc" d="M125.94 300.06c.07-.07.18-.14.26-.08s0 .12 0 .2a11.06 11.06 0 0 1-.56 2.39 1 1 0 0 0-.07.41.27.27 0 0 0 .28.26.28.28 0 0 0 .13 0c2.1-1.05 3.61-3.08 5.76-4a2.24 2.24 0 0 1 1.36-.24c.11 0 .23.08.25.18a.31.31 0 0 1 0 .19 6.66 6.66 0 0 1-2.52 2.33c-.78.52-1.53 1.07-2.26 1.65a1.86 1.86 0 0 0-.66.76.25.25 0 0 0 0 .17c0 .13.22.12.36.09 1.78-.44 3.16-1.82 4.73-2.77a2 2 0 0 1 1.94-.3 10.63 10.63 0 0 1-4.24 3.33c-.7.31-1.51.6-1.81 1.3a.42.42 0 0 0 0 .24c.08.22.4.16.6 0l3-1.63a13 13 0 0 1 1.35-.67.92.92 0 0 1 .43-.09.32.32 0 0 1 .3.28.47.47 0 0 1-.16.32 9.82 9.82 0 0 1-3.4 2.41 3.68 3.68 0 0 0-1.56.93.13.13 0 0 0 0 .09c0 .12.18.12.29.07a10.61 10.61 0 0 1 2.93-.8c.1 0 .23 0 .28.08a.25.25 0 0 1 0 .22 3.72 3.72 0 0 1-2.2 1.84c-.73.23-1.42.53-2.17.73-1.87.49-3.33-.63-4.51-4-.6-1.37 1.04-5.04 1.87-5.89z" transform="translate(-106.48 -180.82)"/>
+  <path class="bg-fc2" d="M138.48 429.75s-9.14 7.84-8.49 9.38 13.17-4.63 13.17-4.63l2.12-18.78-9.43-.13zM160.11 429.75s-9.13 7.84-8.48 9.38 13.16-4.63 13.16-4.63l2.12-18.78-9.43-.13z" transform="translate(-106.48 -180.82)"/>
+</svg>
