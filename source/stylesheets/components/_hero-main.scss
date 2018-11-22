@@ -4,45 +4,61 @@
 
 .hero-main {
   position: relative;
+
   margin-bottom: -9em;
+
   background: palette('red');
 
   @media screen and (min-width: breakpoint('desktop')) {
     // @include container;
-    max-width: 93.75em;
-    margin: 0 auto;
     display: flex;
-    flex-direction: row-reverse;
+
     align-items: center;
+    flex-direction: row-reverse;
+
+    max-width: 93.75em;
+
+    margin: 0 auto;
   }
 
   .hero-main__text {
     @include container;
+
     padding: 0 2.6em;
-    color: palette('white');
+
     font-family: 'Roboto', monospace;
 
+    color: palette('white');
+
     @media screen and (min-width: breakpoint('desktop')) {
-      margin: 0;
       max-width: 37.5em;
-      text-align: right;
+
       padding-right: 2em;
+      margin: 0;
+
+      text-align: right;
     }
 
     h1 {
       min-height: 5.5em;
-      margin: 0;
+
       padding: 1em 0;
-      text-align: center;
-      color: inherit;
+      margin: 0;
+
       line-height: 1.2;
       font-family: inherit;
 
+      text-align: center;
+
+      color: inherit;
+
       @media screen and (min-width: breakpoint('desktop')) {
-        text-align: inherit;
+        padding-bottom: 0.625em;
+
         font-size: ms(3);
         line-height: 1;
-        padding-bottom: 0.625em;
+
+        text-align: inherit;
       }
     }
 
@@ -51,10 +67,13 @@
       // font-family: inherit;
 
       @media screen and (min-width: breakpoint('desktop')) {
-        margin-top: 0.625em;
         display: inline-block;
-        font-size: ms(0);
+
         width: 21.25em;
+
+        margin-top: 0.625em;
+
+        font-size: ms(0);
       }
     }
   }
@@ -62,92 +81,109 @@
   .dots {
     position: absolute;
     top: 0;
-    width: 20em;
     left: calc(50% - 10em);
+
+    width: 20em;
     height: 100%;
+
     pointer-events: none;
 
-      @media screen and (min-width: breakpoint('desktop')) {
-        width: 100%;
-        left: 0;
-      }
+    @media screen and (min-width: breakpoint('desktop')) {
+      left: 0;
+
+      width: 100%;
+    }
 
     .dots__dot {
+      position: absolute;
+      top: 6.8em;
+      left: 8.8em;
+
+      display: block;
+
       width: 0.4em;
       height: 0.4em;
-      border-radius: 50%;
-      background: palette('white');
-      display: block;
-      position: absolute;
-      left: 8.8em;
-      top: 6.8em;
 
+      background: palette('white');
+
+      border-radius: 50%;
 
       @media screen and (min-width: breakpoint('desktop')) {
+        top: -0.7em;
+        left: 28.8em;
+
+        z-index: 4;
+
         width: 0.8em;
         height: 0.8em;
-        left: 28.8em;
-        top: -0.7em;
-        z-index: 4;
       }
 
       @media screen and (min-width: breakpoint('wide')) {
         top: -2.1em;
       }
-  }
+    }
 
     .dots__dot:nth-child(2) {
+      top: 10.7em;
+      left: 4.7em;
+
       width: 0.55em;
       height: 0.55em;
-      left: 4.7em;
-      top: 10.7em;
 
       @media screen and (min-width: breakpoint('desktop')) {
+        top: 2.6em;
+        left: 17.4em;
+
         width: 1em;
         height: 1em;
-        left: 17.4em;
-        top: 2.6em;
       }
     }
 
     .dots__dot:nth-child(3) {
+      top: 13.2em;
+      left: 2.3em;
+
       width: 0.3em;
       height: 0.3em;
-      left: 2.3em;
-      top: 13.2em;
 
       @media screen and (min-width: breakpoint('desktop')) {
+        top: 7.9em;
+        left: 12.6em;
+
         width: 0.55em;
         height: 0.55em;
-        left: 12.6em;
-        top: 7.9em;
       }
     }
 
     .dots__dot:nth-child(4) {
+      top: 13.1em;
+      left: 10.6em;
+
       width: 0.35em;
       height: 0.35em;
-      left: 10.6em;
-      top: 13.1em;
 
       @media screen and (min-width: breakpoint('desktop')) {
+        top: 23.1em;
+        left: 0.9em;
+
         width: 0.6em;
         height: 0.6em;
-        left: 0.9em;
-        top: 23.1em;
       }
     }
 
     .dots__dot:nth-child(5) {
+      top: 12.1em;
+      left: 33.2em;
+
       display: none;
+
       width: 1.1em;
       height: 1.1em;
-      left: 33.2em;
-      top: 12.1em;
 
       @media screen and (min-width: breakpoint('desktop')) {
-        display: block;
         left: 33.2em;
+
+        display: block;
       }
 
       @media screen and (min-width: breakpoint('wide')) {
@@ -156,11 +192,13 @@
     }
 
     .dots__dot:nth-child(6) {
+      top: 19em;
+      left: 45.2em;
+
       display: none;
+
       width: 1.3em;
       height: 1.3em;
-      left: 45.2em;
-      top: 19em;
 
       @media screen and (min-width: breakpoint('desktop')) {
         display: block;
@@ -172,12 +210,14 @@
     }
 
     .dots__dot:nth-child(7) {
+      top: 46.1em;
+      right: 3em;
+      left: auto;
+
       display: none;
+
       width: 1.3em;
       height: 1.3em;
-      left: auto;
-      right: 3em;
-      top: 46.1em;
 
       @media screen and (min-width: breakpoint('wide')) {
         display: block;
@@ -188,28 +228,33 @@
 
 .hero-main__images {
   @include container;
-  width: 20em;
+
   position: relative;
+
+  width: 20em;
   height: 17em;
 
   @media screen and (min-width: breakpoint('desktop')) {
-    margin-left: 0;
-    margin-top: 60px;
+    width: 43.75em;
+    height: 35.625em;
     max-width: auto;
-    width: 700px;
-    height: 570px;
+
+    margin-top: 60px;
+    margin-left: 0;
   }
 
 
   .trophy {
-    width: 5.56em;
     position: absolute;
     bottom: 5.375em;
 
+    width: 5.56em;
+
     @media screen and (min-width: breakpoint('desktop')) {
-      width: 177px;
       bottom: 188px;
       left: 100px;
+
+      width: 11.062em;
     }
   }
 
@@ -217,6 +262,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
+
     width: 100%;
   }
 

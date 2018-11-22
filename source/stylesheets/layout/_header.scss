@@ -3,57 +3,81 @@
 }
 
 header {
+  position: relative;
+
   display: flex;
-  max-width: 62.5em;
+
   flex-direction: column;
   justify-content: center;
-  position: relative;
+
+  max-width: 62.5em;
+
   padding-top: 3em;
   margin: 0 auto;
 
   .logo {
     display: block;
+
     width: 4.7em;
-    margin: 0 auto;
-    text-transform: lowercase;
-    text-align: right;
-    font-family: 'Montserrat Alternates', sans-serif;
-    line-height: 0.7;
-    letter-spacing: -2.2px;
-    color: palette('white');
-    font-size: 2.15em;
+
     padding-bottom: 0.5em;
+    margin: 0 auto;
+
+    font-size: 2.15em;
+    line-height: 0.7;
+    font-family: 'Montserrat Alternates', sans-serif;
+    letter-spacing: -2.2px;
+
+    text-align: right;
+    text-transform: lowercase;
+
+    color: palette('white');
 
     i {
-      text-align: left;
       display: block;
+
       letter-spacing: -4.3px;
+
+      text-align: left;
     }
   }
 
   .main-nav {
+    font-family: 'Roboto', monospace;
+
+    text-align: center;
+
     button {
-      text-indent: -999em;
       position: absolute;
+      top: 5.7em;
+      left: 2.1em;
+
       display: block;
+      z-index: 5;
+
       width: 1em;
       height: 0.3em;
-      border: none;
-      left: 2.1em;
-      top: 5.7em;
-      z-index: 5;
+
+      text-indent: -999em;
+
       background: palette('white');
+
+      border: 0;
 
       &::before,
       &::after {
-        background: palette('white');
-        content: '';
-        display: block;
-        width: 2em;
-        height: 0.3em;
         position: absolute;
         top: -8px;
         left: 0;
+
+        display: block;
+
+        width: 2em;
+        height: 0.3em;
+
+        background: palette('white');
+
+        content: '';
       }
 
       &::after {
@@ -66,33 +90,39 @@ header {
       }
     }
 
-    font-family: 'Roboto', monospace;
-    text-align: center;
-
     a {
-      color: palette('white');
-      text-decoration: none;
       font-size: 1.6em;
+
+      text-decoration: none;
+
+      color: palette('white');
     }
   }
 
   ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1em 0;
     position: absolute;
     top: -300%;
-    transition: top .3s;
-    width: 100%;
-    background: palette('red', 'opacity');
+
+    display: flex;
     z-index: 4;
+
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 1em 0;
+
+    background: palette('red', 'opacity');
+
+    transition: top 0.3s;
 
 
 
     @media screen and (min-width: breakpoint('desktop')) {
-      flex-direction: row;
       position: relative;
+
+      flex-direction: row;
     }
 
     &.active {
@@ -120,16 +150,19 @@ header {
     display: none;
 
     @media screen and (min-width: breakpoint('desktop')) {
+      position: absolute;
+      top: 3em;
+      right: 3em;
+
+      display: block;
+
+      width: 6.563em;
+      height: 3.75em;
+
+      text-indent: -999em;
+
       background-image: url('../assets/images/logo-tide-setubal.svg');
       background-repeat: no-repeat;
-      display: block;
-      height: 3.75em;
-      text-indent: -999em;
-      position: absolute;
-      right: 3em;
-      top: 3em;
-      width: 6.563em;
     }
   }
 }
-

@@ -3,19 +3,24 @@
 }
 
 .hero-water {
-  margin: 0 auto;
-  max-width: 17.500em;
   position: relative;
-  padding-bottom: 13em;
-  width: 20em;
+
   display: flex;
 
+  width: 20em;
+  max-width: 17.5em;
+
+  padding-bottom: 13em;
+  margin: 0 auto;
+
   @media screen and (min-width: breakpoint('desktop')) {
+    display: flex;
+
     width: auto;
     max-width: 93.75em;
-    margin: 0 auto;
-    display: flex;
+
     padding-top: 3em;
+    margin: 0 auto;
   }
 
   .hero-water__text {
@@ -27,13 +32,16 @@
     // }
 
     h3 {
-      font-size: ms(4);
-      letter-spacing: -1.65px;
-      line-height: 0.8;
       padding: 0;
       margin: 0 0 0.5em;
-      color: palette('white');
+
+      font-size: ms(4);
+      line-height: 0.8;
+      letter-spacing: -1.65px;
+
       text-shadow: -1px -1px 0 palette('red', 'light'), 1px 1px 0 palette('green', 'light');
+
+      color: palette('white');
 
       @media screen and (min-width: breakpoint('desktop')) {
         font-size: ms(-5);
@@ -45,8 +53,9 @@
     }
 
     p {
-      color: palette('white');
       font-size: ms(0);
+
+      color: palette('white');
 
       @media screen and (min-width: breakpoint('desktop')) {
         font-size: ms(1);
@@ -55,40 +64,47 @@
   }
 
   .hero-water__images {
-    display: none;
     position: relative;
+
+    display: none;
     // margin-left: -2.688em;
     //// min-width: 12.562em;
 
     @media screen and (min-width: breakpoint('desktop')) {
       position: relative;
-      min-width: 17.750em;
+
+      min-width: 17.75em;
+
+      margin-bottom: -6.25em;
       margin-left: 16.875em;
-      margin-bottom: -6.250em;
     }
 
     .girl-with-book {
       position: absolute;
+      right: 1.875em;
+      bottom: 7.5em;
+
       width: 5em;
       height: 13em;
-      right: 1.875em;
-      bottom: 7.500em;
 
       @media screen and (min-width: breakpoint('desktop')) {
-        bottom: 0;
         right: 0;
+        bottom: 0;
+
+        width: 17.75em;
         height: 31.875em;
-        width: 17.750em;
       }
     }
 
     .big-way {
-      display: none;
       position: absolute;
-      width: 46em;
-      height: 27.625em;
       right: 0;
       bottom: 0;
+
+      display: none;
+
+      width: 46em;
+      height: 27.625em;
 
       @media screen and (min-width: breakpoint('desktop')) {
         // display: block;
@@ -99,32 +115,41 @@
   .dots {
     position: absolute;
     top: 0;
-    width: 20em;
     left: calc(50% - 10em);
+
+    width: 20em;
     height: 100%;
+
     pointer-events: none;
 
-      @media screen and (min-width: breakpoint('desktop')) {
-        width: 100%;
-        left: 0;
-      }
+    @media screen and (min-width: breakpoint('desktop')) {
+      left: 0;
+
+      width: 100%;
+    }
 
     .dots__dot {
+      position: absolute;
+      top: 6.8em;
+      left: 8.8em;
+
+      display: block;
+
       width: 0.4em;
       height: 0.4em;
-      border-radius: 50%;
+
       background: palette('white');
-      display: block;
-      position: absolute;
-      left: 8.8em;
-      top: 6.8em;
+
+      border-radius: 50%;
     }
   }
 }
 
 .wave-blue {
-  width: 100%;
   position: relative;
+
+  width: 100%;
+
   margin-top: -8.125em;
 
   @media screen and (min-width: breakpoint('desktop')) {
