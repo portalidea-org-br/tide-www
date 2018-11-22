@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<testsuites>
-<testsuite package="org.eslint" time="0" tests="1" errors="1" name="./source/stylesheets/components/_hero-water.scss">
-<testcase time="0" name="org.eslint.no-trailing-zero"><failure message="Don&#39;t include trailing zeros on numbers"><![CDATA[line 94, col 16, Warning - Don&#39;t include trailing zeros on numbers (no-trailing-zero)]]></failure></testcase>
-</testsuite>
-</testsuites>

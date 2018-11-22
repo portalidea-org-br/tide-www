@@ -106,5 +106,13 @@
         </section>
       </div>
 
+      {{ $vendorJS := resources.Get "assets/scripts/vendor.js" }}
+      {{ $secureVendorJS := $vendorJS | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureVendorJS.RelPermalink }}" integrity="{{ $secureVendorJS.Data.Integrity }}"></script>
+
+      {{ $js := resources.Get "assets/scripts/index.js" }}
+      {{ $secureJS := $js | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+
     </body>
 </html>
