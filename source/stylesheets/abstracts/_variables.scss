@@ -87,7 +87,7 @@ $line-lengths: (
 /// @link http://www.modularscale.com/?1&rem&1.25
 $modularscale: (
   // base: 1rem,
-  base: 1rem,
+  base: 1em,
   ratio: 1.25
 );
 
@@ -115,6 +115,7 @@ $palette: (
     'base': rgb(16, 130, 88),
   ),
   'blue': (
+    'light': rgb(162, 239, 255),
     'base': rgb(0, 204, 255),
     'dark': rgb(37, 37, 37),
   ),

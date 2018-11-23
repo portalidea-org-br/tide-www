@@ -1,5 +1,5 @@
 .button {
-  padding: 0.5em 1em;
+  padding: 0.5em 0.8em;
 
   font-size: ms(0);
   font-family: $roboto-font-stack;
@@ -18,13 +18,13 @@
   border-color: palette('black', 'lighter');
 }
 
-.button-white {
+.button--white {
   color: palette('white');
 
   border-color: palette('white');
 }
 
-.button-dark-blue {
+.button--dark-blue {
   color: palette('blue', 'dark');
 
   border-color: palette('blue', 'dark');

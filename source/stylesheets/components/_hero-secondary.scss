@@ -6,8 +6,25 @@
 }
 
 .bg-yellow {
+  position: relative;
   background: palette('yellow');
-  // overflow-y: visible;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    display: none;
+    width: 100%;
+    height: 8.75em;
+    background-image: image('wave-green.svg');
+    background-size: 100%;
+    content: ' ';
+
+    @media screen and (min-width: breakpoint('desktop')) {
+      height: 19.75em;
+      background-size: cover;
+    }
+  }
 }
 
 .wave-yellow {
@@ -94,7 +111,7 @@
     .mug {
       position: absolute;
       right: -2.188em;
-      bottom: 0;
+      bottom: 0.6em;
 
       width: 9.062em;
       height: 16.438em;
@@ -111,7 +128,7 @@
     .lader-boy {
       position: absolute;
       right: 0;
-      bottom: 9.375em;
+      bottom: 10em;
 
       width: 10.75em;
       height: 33em;
@@ -129,6 +146,7 @@
 
 .wave-green {
   position: relative;
+  display: none;
 
   width: 100%;
 

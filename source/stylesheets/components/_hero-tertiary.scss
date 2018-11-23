@@ -1,5 +1,37 @@
 .bg-green {
-  background: palette('green');
+  position: relative;
+  padding-top: 5em;
+  margin-top: -6em;
+  background-image: image('wave-green.svg');
+  background-position: 50% 0;
+  background-size: cover;
+
+  @media screen and (min-width: breakpoint('tablet')) {
+    // margin-top: -10em;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: -13.875em;
+    left: 3em;
+    display: none;
+    width: 6.375em;
+    height: 13.875em;
+    background: image('tree.png');
+    background-size: contain;
+    content: '';
+
+    @media screen and (min-width: breakpoint('tablet')) {
+      display: block;
+    }
+  }
+
+  &::after {
+    top: -10em;
+    right: 3em;
+    left: auto;
+  }
 }
 
 .hero-tertiary {
@@ -24,7 +56,7 @@
   }
 
   .hero-tertiary__text {
-    max-width: 8.875em;
+    min-width: 8.875em;
 
     @media screen and (min-width: breakpoint('desktop')) {
       max-width: 23em;
@@ -96,21 +128,6 @@
         height: 31.875em;
       }
     }
-
-    .big-way {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-
-      display: none;
-
-      width: 46em;
-      height: 27.625em;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        // display: block;
-      }
-    }
   }
 
   .dots {
@@ -148,6 +165,7 @@
 
 .wave-blue {
   position: relative;
+  display: none;
 
   width: 100%;
 
