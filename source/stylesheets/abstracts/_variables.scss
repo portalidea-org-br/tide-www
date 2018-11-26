@@ -88,7 +88,7 @@ $line-lengths: (
 $modularscale: (
   // base: 1rem,
   base: 1em,
-  ratio: 1.25
+  ratio: 1.125
 );
 
 /// List all available colors and tones.
@@ -117,7 +117,8 @@ $palette: (
   'blue': (
     'light': rgb(162, 239, 255),
     'base': rgb(0, 204, 255),
-    'dark': rgb(37, 37, 37),
+    'dark': rgb(1, 69, 147),
+    'x-dark': rgb(37, 37, 37),
   ),
   'gray': (
     'x-light': tint(rgb(229, 231, 234), 10%),
