@@ -113,10 +113,15 @@
             <h4>Depoimentos</h4>
             <div class="slider">
               <blockquote>
+                <div class="testimonials__content">
+                  <figure>
+                    <img src="https://placekitten.com/210/210" alt="Maria Victoria Benevides.">
+                  </figure>
                   <p>
                     Proin nec dui id ipsum interdum convallis. Nam et tempus augue, dapibus imperdiet quam. Pellentesque tortor nisl, ornare et tristique at, vehicula vel tortor.
                   </p>
                   <footer><cite>Maria Victoria Benevides</cite></footer>
+                </div>
               </blockquote>
 
               <blockquote>
@@ -144,6 +149,20 @@
       {{ $js := resources.Get "assets/scripts/index.js" }}
       {{ $secureJS := $js | resources.Minify | resources.Fingerprint "sha512" }}
       <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.8/tiny-slider.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.8/min/tiny-slider.js"></script>
+      <script type="module">
+        const slider = tns({
+          container: '.slider',
+          controls: false,
+          navPosition: 'bottom',
+          autoplayButtonOutput: false,
+          // autoplay: true,
+          autoplay: false
+        });
+      </script>
 
     </body>
 </html>

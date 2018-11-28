@@ -7,6 +7,7 @@ var _menuToggle2 = _interopRequireDefault(_menuToggle);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import initSlider from './slider';
 (0, _menuToggle2.default)();
 
 },{"./menuToggle":2}],2:[function(require,module,exports){
@@ -20,17 +21,14 @@ exports.default = initMenuToggle;
 function initMenuToggle() {
   var menuButton = document.querySelector('.js-menu-toggle');
   var menuList = document.querySelector('.js-menu-list');
-  console.log(menuList);
 
   function toggleMenu() {
     menuList.classList.toggle('active');
   }
 
-  if (menuButton) {
-    menuButton.addEventListener('click', function () {
-      toggleMenu();
-    });
-  }
+  menuButton.addEventListener('click', function () {
+    toggleMenu();
+  });
 }
 
 },{}]},{},[1]);
