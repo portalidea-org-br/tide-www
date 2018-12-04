@@ -1,5 +1,6 @@
 .bg-white {
   position: relative;
+  padding-bottom: 5rem;
 
   &::before {
     position: absolute;
@@ -17,6 +18,7 @@
 .testimonials {
   @include container;
   max-width: 20em;
+  padding-bottom: 4rem;
 
   @media screen and (min-width: breakpoint('desktop')) {
     max-width: 93.75em;
@@ -169,7 +171,6 @@
 .testimonials blockquote:nth-child(4) .testimonials__text::after, {
   filter: invert(56%) sepia(94%) saturate(3439%) hue-rotate(334deg) brightness(102%) contrast(83%);
 }
-
 
 .testimonials blockquote:nth-child(4) footer {
   @media screen and (min-width: breakpoint('desktop')) {

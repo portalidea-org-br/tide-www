@@ -29,3 +29,38 @@
 
   border-color: palette('blue', 'x-dark');
 }
+
+.button--arrow-icon {
+  position: relative;
+  float: right;
+  padding: 0 2.5rem 0 0 ;
+  font-weight: bold;
+  font-size: ms(5);
+  color: palette('blue', 'dark');
+  background: transparent;
+  border: 0;
+
+  &::before {
+    position: absolute;
+    top: 38%;
+    right: 0;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 7.5px solid transparent;
+    border-bottom: 7.5px solid transparent;
+    border-left: 7.5px solid palette('blue', 'dark');
+    content: '';
+  }
+
+  &::after {
+    position: absolute;
+    top: 53%;
+    right: 0.325rem;
+    display: block;
+    width: 1.875rem;
+    height: 0.125rem;
+    background: palette('blue', 'dark');
+    content: '';
+  }
+}

@@ -1,0 +1,52 @@
+.bg-alabaster {
+  padding: 3rem 0 2rem;
+  overflow: hidden;
+  background: palette('alabaster');
+}
+
+form {
+  @include container;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+form h1 {
+  font-size: ms(8);
+  text-shadow: 1px -1px 1px palette('yellow'), -1px 1px 0 palette('green');
+  color: palette('blue', 'dark');
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    font-size: ms(10);
+  }
+}
+
+form label {
+  display: block;
+  margin-top: 0.5em;
+  text-transform: lowercase;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    font-size: ms(3);
+  }
+}
+
+form input,
+form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+  font-size: ms(1);
+  color: palette('black', 'lighter');
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid palette('black', 'opacity');
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    font-size: ms(3);
+  }
+}
+
+form textarea {
+  resize: vertical;
+}
+
