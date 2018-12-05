@@ -360,6 +360,16 @@ del {
 ///
 
 blockquote {
+  font-size: ms(3);
+  text-align: center;
+  color: palette('black');
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    padding-top: 2em;
+    padding-right: 3em;
+    padding-bottom: 2em;
+    padding-left: 3em;
+  }
 }
 
 blockquote > p {
@@ -380,8 +390,7 @@ blockquote {
 }
 
 cite {
-  font-style: italic;
-  font-size: 1em;
+  font-size: ms(-2);
 }
 
 blockquote footer {

@@ -1,18 +1,18 @@
-footer {
+.site-footer {
   padding-top: 2em;
   padding-bottom: 1em;
   font-family: $roboto-font-stack;
   background: palette('red');
 }
 
-.footer__content {
+.site-footer__content {
   @include container;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-footer .logo {
+.site-footer .logo {
   display: block;
 
   width: 4.7em;
@@ -61,7 +61,7 @@ footer .logo {
 }
 
 
-footer nav {
+.site-footer nav {
   width: 100%;
 
   @media screen and (min-width: breakpoint('desktop')) {
@@ -71,11 +71,11 @@ footer nav {
   }
 }
 
-footer nav ul {
+.site-footer nav ul {
   padding: 0;
 }
 
-footer li {
+.site-footer li {
   margin: 0 0.2em;
   list-style: none;
 
@@ -85,7 +85,7 @@ footer li {
   }
 }
 
-footer nav li a:link {
+.site-footer nav li a:link {
   margin-bottom: 0.5em;
   text-decoration: none;
   color: palette('white');

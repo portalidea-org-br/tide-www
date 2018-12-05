@@ -2,6 +2,14 @@
   background: palette('red');
 }
 
+.intern-header {
+  padding-bottom: 2em;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    padding-bottom: 4rem;
+  }
+}
+
 header {
   position: relative;
 

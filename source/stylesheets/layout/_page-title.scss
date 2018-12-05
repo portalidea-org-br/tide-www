@@ -1,0 +1,52 @@
+.page-title {
+  position: relative;
+  margin-bottom: 3rem;
+  color: palette('white');
+  background-color: palette('blue', 'dark');
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    font-size: ms(6);
+  }
+}
+
+.page-title::before {
+  position: absolute;
+  top: -2rem;
+  right: 0;
+  width: 100%;
+  height: 3rem;
+  background-image: image('wave-dark-blue.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  content: '';
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    top: -5rem;
+    height: 5rem;
+  }
+}
+
+.page-title > .container::after {
+  position: absolute;
+  top: -2.2rem;
+  right: 0;
+  width: 6.875em;
+  height: 6.875em;
+  background-image: image('mug.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  content: '';
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    top: auto;
+    bottom: -2.5rem;
+    width: 15.188rem;
+    height: 12.375rem;
+  }
+}
+
+.page-title > .container {
+  @media screen and (min-width: breakpoint('desktop')) {
+    position: relative;
+  }
+}
