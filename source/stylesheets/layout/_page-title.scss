@@ -26,6 +26,20 @@
   }
 }
 
+.page-title--green {
+  background: palette('green');
+}
+
+.page-title--green::before {
+  background-image: image('wave-dark-green.svg');
+}
+
+.page-title > .container {
+  @media screen and (min-width: breakpoint('desktop')) {
+    position: relative;
+  }
+}
+
 .page-title > .container::after {
   position: absolute;
   top: -2.2rem;
@@ -45,8 +59,7 @@
   }
 }
 
-.page-title > .container {
-  @media screen and (min-width: breakpoint('desktop')) {
-    position: relative;
-  }
+
+.page-title--green > .container::after {
+  background-image: image('books-girl.svg');
 }

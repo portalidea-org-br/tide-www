@@ -15,6 +15,12 @@
   }
 }
 
+.intern-bg-white {
+  &::before {
+    display: none;
+  }
+}
+
 .testimonials {
   @include container;
   max-width: 20em;
@@ -45,7 +51,10 @@
 
 .testimonials blockquote {
   position: relative;
+  padding: 0;
   margin: 0;
+  font-size: ms(0);
+  text-align: left;
 
   @media screen and (min-width: breakpoint('desktop')) {
     padding-top: 4.5em;

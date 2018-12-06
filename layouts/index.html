@@ -108,76 +108,10 @@
           </section>
         </div>
 
-        <div class="bg-white">
-          <section class="testimonials">
-            <h4>Depoimentos</h4>
-            <div class="slider">
-              <blockquote>
-                <div class="testimonials__content">
-                  <figure>
-                    <img src="https://placekitten.com/295/295" alt="Maria Victoria Benevides.">
-                  </figure>
-                  <p class="testimonials__text">
-                    Proin nec dui id ipsum interdum convallis. Nam et tempus augue, dapibus imperdiet quam. Pellentesque tortor nisl, ornare et tristique at, vehicula vel tortor.
-                  </p>
-                  <footer><cite>Maria Victoria Benevides</cite></footer>
-                </div>
-              </blockquote>
-              <blockquote>
-                <div class="testimonials__content">
-                  <figure>
-                    <img src="https://placekitten.com/432/432" alt="Maria Victoria Benevides.">
-                  </figure>
-                  <p class="testimonials__text">
-                    Proin nec dui id ipsum interdum convallis. Nam et tempus augue, dapibus imperdiet quam. Pellentesque tortor nisl, ornare et tristique at, vehicula vel tortor.
-                  </p>
-                  <footer><cite>Maria Victoria Benevides</cite></footer>
-                </div>
-              </blockquote>
-              <blockquote>
-                <div class="testimonials__content">
-                  <figure>
-                    <img src="https://placekitten.com/295/295" alt="Maria Victoria Benevides.">
-                  </figure>
-                  <p class="testimonials__text">
-                    Proin nec dui id ipsum interdum convallis. Nam et tempus augue, dapibus imperdiet quam. Pellentesque tortor nisl, ornare et tristique at, vehicula vel tortor.
-                  </p>
-                  <footer><cite>Maria Victoria Benevides</cite></footer>
-                </div>
-              </blockquote>
-            </div>
-          </section>
-        </div>
+        {{ partial "testimonials.html" . }}
 
-        <div class="bg-alabaster">
-          <form action="" method="post" id="contato">
-            <h1>Contato</h1>
-            <label for="name">
-              <span>Nome: </span>
-              <strong><abbr title="Campo Obrigatório">*</abbr></strong>
-            </label>
-            <input type="text" id="name" name="nome">
+        {{ partial "contact.html" . }}
 
-            <label for="email">
-              <span>Email: </span>
-              <strong><abbr title="Campo Obrigatório">*</abbr></strong>
-            </label>
-            <input type="text" id="email" name="email">
-
-            <label for="phone">
-              <span>Telefone: </span>
-              <strong><abbr title="Campo Obrigatório">*</abbr></strong>
-            </label>
-            <input type="phone" id="phone" name="email">
-
-            <label for="mensagem">
-              <span>Mensagem: </span>
-              <strong><abbr title="Campo Obrigatório">*</abbr></strong>
-            </label>
-            <textarea name="message" id="message"></textarea>
-            <button type="submit" class="button--arrow-icon">enviar</button>
-          </form>
-        </div>
       </div>
 
       {{ partial "footer.html" . }}
