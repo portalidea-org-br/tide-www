@@ -34,6 +34,15 @@
   background-image: image('wave-dark-green.svg');
 }
 
+.page-title--yellow {
+  background: palette('yellow');
+}
+
+.page-title--yellow::before {
+  display: none;
+  background-image: none;
+}
+
 .page-title > .container {
   @media screen and (min-width: breakpoint('desktop')) {
     position: relative;
@@ -62,4 +71,9 @@
 
 .page-title--green > .container::after {
   background-image: image('books-girl.svg');
+}
+
+.page-title--yellow > .container::after {
+  display: none;
+  background-image: none;
 }
