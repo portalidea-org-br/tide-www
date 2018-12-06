@@ -4,11 +4,15 @@
     <a href="https://fundacaotidesetubal.org.br/" class="setubal-logo">Fundação Tide Setubal</a>
     <nav>
       <ul>
-        <li><a href="/home">Home</a></li>
-        <li><a href="pesquisa">Pesquisa</a></li>
-        <li><a href="sobre">Sobre</a></li>
-        <li><a href="biblioteca">Biblioteca</a></li>
-        <li><a href="/#contato">Contato</a></li>
+        {{ with .Site.Menus.header }}
+          {{ range . }}
+          <li>
+            <a href="{{ .URL }}">
+              {{ .Name }}
+            </a>
+          </li>
+          {{ end }}
+        {{ end }}
       </ul>
     </nav>
     <span class="disclaimer">Portal Tide Setubal &middot; Copyright &copy; 2018</span>

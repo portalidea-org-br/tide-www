@@ -5,11 +5,15 @@
     <nav class="main-nav">
       <button class="js-menu-toggle">Menu</button>
       <ul class="js-menu-list">
-        <li><a href="">Home</a></li>
-        <li><a href="">Pesquisa</a></li>
-        <li><a href="">Sobre</a></li>
-        <li><a href="">Biblioteca</a></li>
-        <li><a href="">Contato</a></li>
+        {{ with .Site.Menus.header }}
+          {{ range . }}
+          <li>
+            <a href="{{ .URL }}">
+              {{ .Name }}
+            </a>
+          </li>
+          {{ end }}
+        {{ end }}
       </ul>
     </nav>
   </header>

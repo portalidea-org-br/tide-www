@@ -21,15 +21,15 @@ menu:
     weight: 1
   - identifier: "research"
     name: "Pesquisa"
-    url: "pesquisa"
+    url: "/pesquisa"
     weight: 2
   - identifier: "about"
     name: "Sobre"
-    url: "sobre"
+    url: "/sobre"
     weight: 3
   - identifier: "library"
     name: "Biblioteca"
-    url: "biblioteca"
+    url: "/biblioteca"
     weight: 4
   - identifier: "contact"
     name: "Contato"

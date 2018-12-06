@@ -85,7 +85,8 @@
   }
 }
 
-.site-footer nav li a:link {
+.site-footer nav li a:link,
+.site-footer nav li a:visited {
   margin-bottom: 0.5em;
   text-decoration: none;
   color: palette('white');
