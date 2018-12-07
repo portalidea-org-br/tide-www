@@ -113,6 +113,7 @@ $palette: (
   ),
   'purple': (
     'base': rgb(105, 57, 150),
+    // 'purple': rgb(102, 51, 204),
   ),
   'green': (
     'light': rgb(149, 255, 7),
@@ -125,7 +126,7 @@ $palette: (
     'x-dark': rgb(37, 37, 37),
   ),
   'gray': (
-    'x-light': tint(rgb(229, 231, 234), 10%),
+    'x-light': rgb(248, 248, 248),
     'light': rgb(229, 231, 234),
     'base': rgb(151, 153, 156),
     'dark': rgb(64, 68, 71),
