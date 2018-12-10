@@ -5,10 +5,10 @@
 /* CLASSES
 ============================================================================ */
 %loading-bg {
-  background-image: url('#{$base-url}loading.svg');
+  background-image: image('loading.svg');
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-color: palette('loading', 'background');
+  background-color: palette('loading', 'foreground');
 }
 
 %loading-el {

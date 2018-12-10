@@ -57,6 +57,9 @@
 }
 
 .chart__main {
+  @extend %loading-bg;
+
+  display: block;
   width: 100%;
   min-height: 25em;
 
