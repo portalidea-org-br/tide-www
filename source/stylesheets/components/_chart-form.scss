@@ -3,6 +3,10 @@
   background: palette('gray', 'x-light');
 }
 
+.charts {
+  margin-bottom: 5rem;
+}
+
 .chart-form {
   display: flex;
   flex-wrap: wrap;
@@ -69,4 +73,3 @@
   border: 0;
   appearance: none;
 }
-

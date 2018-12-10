@@ -74,3 +74,21 @@
   color: palette('purple');
   border-bottom: 1px solid palette('gray');
 }
+
+.chart:nth-child(2) .chart__table h2 {
+  @media screen and (min-width: breakpoint('desktop')) {
+    display: none;
+  }
+}
+
+.chart:nth-child(2) .chart__table {
+  @media screen and (min-width: breakpoint('desktop')) {
+    padding-top: 1.32rem;
+    margin-top: 3.4rem;
+    border-top: 1px solid palette('gray');
+  }
+}
+
+.chart__table td:nth-child(2n) {
+  text-align: right;
+}
