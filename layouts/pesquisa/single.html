@@ -21,13 +21,13 @@
 
       <div class="bg-light-gray">
         <div class="container">
-          <form action="" method="post" class="chart-form">
+          <form action="" method="post" id="js-chart-form" class="chart-form">
             <div class="chart-form__group--inline">
               <label for="grade">
                 Série
                 <select name="grade" id="grade">
                   <option value="5">5</option>
-                  <option value="8">8</option>
+                  <option value="9">9</option>
                 </select>
               </label>
               <label for="city">
@@ -70,6 +70,7 @@
                 </select>
               </label>
             </div>
+            <button type="submit" class="button">Filtrar</button>
           </form>
         </div>
       </div>
@@ -187,6 +188,16 @@
           }
         });
 
+        populateChartData();
+
+        //Filter charts
+        document.getElementById('js-chart-form').addEventListener('submit', (event) => {
+          event.preventDefault();
+          const formData = new FormData(event.target);
+          const grade = formData.get('grade');
+          populateChartData(grade);
+        });
+
         //Download charts
         document.querySelector('.js-download-pt-chart').addEventListener('click', () => {
           let chartDom = document.getElementById('pt-chart');
@@ -270,9 +281,6 @@
           chartDom.closest('.chart').classList.remove('expanded');
           matChart.reflow();
         })
-
-
-
 
         function drawPtChart(data) {
           return Highcharts.chart('pt-chart', {
@@ -424,9 +432,9 @@
           });
         }
 
-        (async () => {
+        async function populateChartData(grade) {
           try {
-            const chartData = await getChartData();
+            const chartData = await getChartData(grade);
             const ptItems = chartData.filter(item => item.subject === 'Português');
             const matItems = chartData.filter(item => item.subject === 'Matemática');
 
@@ -451,7 +459,7 @@
           } catch (err) {
             console.log(err);
           }
-        })();
+        };
 
         function getChartData(grade, xAxis) {
           grade = grade || 5;
