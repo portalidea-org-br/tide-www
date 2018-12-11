@@ -80,7 +80,7 @@
             <div class="chart__header">
               <h1>Português</h1>
               <div class="chart__buttons">
-                <button class="js-download-chart chart__button chart__button--download">Download do gráfico</button>
+                <button class="js-download-pt-chart chart__button chart__button--download">Download do gráfico</button>
                 <button class="js-expand-chart chart__button chart__button--expand">Download do gráfico</button>
                 <button class="js-shrink-chart chart__button chart__button--shrink">Download do gráfico</button>
               </div>
@@ -118,9 +118,9 @@
             <div class="chart__header">
               <h1>Matemática</h1>
               <div class="chart__buttons">
-                <button class="chart__button chart__button--download">Download do gráfico</button>
-                <button class="chart__button chart__button--expand">Download do gráfico</button>
-                <button class="chart__button chart__button--shrink">Download do gráfico</button>
+                <button class="js-download-mat-chart chart__button chart__button--download">Download do gráfico</button>
+                <button class="js-expand-chart chart__button chart__button--expand">Download do gráfico</button>
+                <button class="js-shrink-chart chart__button chart__button--shrink">Download do gráfico</button>
               </div>
             </div>
             <div class="chart__main" id="mat-chart"></div>
@@ -171,103 +171,218 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"></script>
 
-      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
       <script type="text/javascript">
-        google.charts.load('current', {'packages': ['corechart']});
-        // google.charts.setOnLoadCallback(drawPtChart);
-        // google.charts.setOnLoadCallback(drawMatChart);
+        Highcharts.setOptions({
+          lang: {
+            printChart: 'Imprimir gráfico',
+            resetZoom: 'Resetar zoom',
+          },
+          tooltip: {
+            formatter: function() {
+              return this.point.options.city;
+            }
+          }
+        });
+
+        document.querySelector('.js-download-pt-chart').addEventListener('click', () => {
+          let chartDom = document.getElementById('pt-chart');
+          let ptChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')]
+          ptChart.exportChart({
+            type: 'application/pdf',
+            filename: 'Português'
+          });
+        })
+
+        document.querySelector('.js-download-mat-chart').addEventListener('click', () => {
+          let chartDom = document.getElementById('mat-chart');
+          let ptChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')]
+          ptChart.exportChart({
+            type: 'application/pdf',
+            filename: 'Matemática'
+          });
+        })
+
+        function drawPtChart(data) {
+          return Highcharts.chart('pt-chart', {
+            chart: {
+              type: 'scatter',
+              zoomType: 'xy'
+            },
+            credits: false,
+            legend: {
+              enabled: false
+            },
+            turboThreshold: 0,
+            title: { text: '' },
+            subtitle: '',
+            xAxis: {
+              title: {
+                enabled: true,
+                text: 'Português | Raça [Desigualdade]'
+              },
+              max: 2,
+              min: -2,
+              startOnTick: true,
+              endOnTick: true,
+              showLastLabel: true,
+              plotLines:[{
+                value: 0,
+                color:'#e6e6e6',
+                dashStyle: 'solid',
+                width:1,
+              }],
+            },
+            yAxis: {
+              title: { text: 'Português [Nível de aprendizado]' },
+              lineWidth: 1,
+              gridZIndex: 0,
+              max: 2,
+              min: -2,
+              plotLines:[{
+                value: 0,
+                color: '#666',
+                dashStyle: 'solid',
+                width: 1,
+              }],
+            },
+            plotOptions: {
+              scatter: {
+                marker: {
+                  radius: 5,
+                  states: {
+                    hover: {
+                      enabled: true,
+                      lineColor: 'rgb(100,100,100)'
+                    }
+                  }
+                },
+                states: {
+                  hover: {
+                    marker: {
+                      enabled: false
+                    }
+                  }
+                },
+                tooltip: {
+                  headerFormat: 'Cidade: <b>{point.options.city}</b>',
+                }
+              },
+              series:{
+                turboThreshold: 0
+              },
+            },
+            series: [{
+              data: data,
+            }]
+          });
+        }
+
+        function drawMatChart(data) {
+          Highcharts.chart('mat-chart', {
+            chart: {
+              type: 'scatter',
+              zoomType: 'xy'
+            },
+            credits: false,
+            legend: {
+              enabled: false
+            },
+            turboThreshold: 0,
+            title: { text: '' },
+            subtitle: '',
+            xAxis: {
+              title: {
+                enabled: true,
+                text: 'Português | Raça [Desigualdade]'
+              },
+              max: 2,
+              min: -2,
+              startOnTick: true,
+              endOnTick: true,
+              showLastLabel: true,
+              plotLines:[{
+                value: 0,
+                color:'#e6e6e6',
+                dashStyle: 'solid',
+                width:1,
+              }],
+            },
+            yAxis: {
+              title: { text: 'Português [Nível de aprendizado]' },
+              lineWidth: 1,
+              gridZIndex: 0,
+              max: 2,
+              min: -2,
+              plotLines:[{
+                value: 0,
+                color: '#666',
+                dashStyle: 'solid',
+                width: 1,
+              }],
+            },
+            plotOptions: {
+              scatter: {
+                marker: {
+                  radius: 5,
+                  states: {
+                    hover: {
+                      enabled: true,
+                      lineColor: 'rgb(100,100,100)'
+                    }
+                  }
+                },
+                states: {
+                  hover: {
+                    marker: {
+                      enabled: false
+                    }
+                  }
+                },
+                tooltip: {
+                  headerFormat: 'Cidade: <b>{point.options.city}</b>',
+                }
+              },
+              series:{
+                turboThreshold: 0
+              },
+            },
+            series: [{
+              data: data,
+            }]
+          });
+        }
 
         (async () => {
           try {
             const chartData = await getChartData();
-            google.charts.setOnLoadCallback(drawPtChart(chartData));
-            google.charts.setOnLoadCallback(drawMatChart(chartData));
+            const ptItems = chartData.filter(item => item.subject === 'Português');
+            const matItems = chartData.filter(item => item.subject === 'Matemática');
+
+            formatedPtItems = Object.keys(ptItems).map(function (item) {
+              return {
+                x: Number(ptItems[item].x),
+                y: Number(ptItems[item].y),
+                city: ptItems[item].city.name,
+              }
+            });
+
+            formatedMatItems = Object.keys(matItems).map(function (item) {
+              return {
+                x: Number(matItems[item].x),
+                y: Number(matItems[item].y),
+                city: matItems[item].city.name,
+              }
+            });
+
+            drawPtChart(formatedPtItems);
+            drawMatChart(formatedMatItems);
           } catch (err) {
             console.log(err);
           }
         })();
-
-        function drawPtChart(chartData) {
-          var data = new google.visualization.DataTable();
-          data.addColumn('number', 'Português | Raça [Desigualdade]');
-          data.addColumn('number', 'Português [Nível de aprendizado]');
-          data.addColumn({type: 'string', role: 'tooltip'});
-
-          var items = chartData.filter(item => item.subject === 'Português');
-          formatedItems = items.map(item => [Number(item.x) , Number(item.y), item.city.name])
-          data.addRows(formatedItems)
-
-          var options = {
-            theme: 'material',
-            width: '100%',
-            chartArea:{
-              left: 20,
-              top: 10,
-              width: '90%',
-              height: '350',
-            },
-            colors: ['#63c'],
-            explorer: {
-              actions: ['dragToZoom', 'rightClickToReset'],
-              axis: 'horizontal',
-              keepInBounds: true
-            },
-            legend: 'none',
-            chart: {
-              title: 'tide',
-              subtitle: 'plot'
-            },
-            explorer: {},
-            hAxis: { title: 'Português | Raça [Desigualdade]', minValue: -2, maxValue: 2 },
-            vAxis: { title: 'Português [Nível de aprendizado]', minValue: -2, maxValue: 2 },
-          };
-
-
-          const chart = new google.visualization.ScatterChart(document.getElementById('pt-chart'));
-
-          chart.draw(data, options);
-        }
-
-        function drawMatChart(chartData) {
-          var data = new google.visualization.DataTable();
-          data.addColumn('number', 'Português | Raça [Desigualdade]');
-          data.addColumn('number', 'Português [Nível de aprendizado]');
-          data.addColumn({type: 'string', role: 'tooltip'});
-
-          var items = chartData.filter(item => item.subject === 'Matemática');
-          formatedItems = items.map(item => [Number(item.x) , Number(item.y), item.city.name])
-          data.addRows(formatedItems)
-
-          var options = {
-            theme: 'material',
-            width: '100%',
-            chartArea:{
-              left: 20,
-              top: 10,
-              width: '90%',
-              height: '350',
-            },
-            colors: ['#63c'],
-            explorer: {
-              actions: ['dragToZoom', 'rightClickToReset'],
-              axis: 'horizontal',
-              keepInBounds: true
-            },
-            legend: 'none',
-            chart: {
-              title: 'tide',
-              subtitle: 'plot'
-            },
-            explorer: {},
-            hAxis: { title: 'Português | Raça [Desigualdade]', minValue: -2, maxValue: 2 },
-            vAxis: { title: 'Português [Nível de aprendizado]', minValue: -2, maxValue: 2 },
-          };
-
-
-          const chart = new google.visualization.ScatterChart(document.getElementById('mat-chart'));
-
-          chart.draw(data, options);
-        }
 
         function getChartData(grade, xAxis) {
           grade = grade || 5;
