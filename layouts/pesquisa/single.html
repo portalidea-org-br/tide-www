@@ -81,8 +81,8 @@
               <h1>Português</h1>
               <div class="chart__buttons">
                 <button class="js-download-pt-chart chart__button chart__button--download">Download do gráfico</button>
-                <button class="js-expand-chart chart__button chart__button--expand">Download do gráfico</button>
-                <button class="js-shrink-chart chart__button chart__button--shrink">Download do gráfico</button>
+                <button class="js-expand-pt-chart chart__button chart__button--expand">Expandir gráfico</button>
+                <button class="js-shrink-pt-chart chart__button chart__button--shrink">Reduzir gráfico</button>
               </div>
             </div>
             <div class="chart__main" id="pt-chart"></div>
@@ -119,8 +119,8 @@
               <h1>Matemática</h1>
               <div class="chart__buttons">
                 <button class="js-download-mat-chart chart__button chart__button--download">Download do gráfico</button>
-                <button class="js-expand-chart chart__button chart__button--expand">Download do gráfico</button>
-                <button class="js-shrink-chart chart__button chart__button--shrink">Download do gráfico</button>
+                <button class="js-expand-mat-chart chart__button chart__button--expand">Expandir gráfico</button>
+                <button class="js-shrink-mat-chart chart__button chart__button--shrink">Reduzir gráfico</button>
               </div>
             </div>
             <div class="chart__main" id="mat-chart"></div>
@@ -187,6 +187,7 @@
           }
         });
 
+        //Download charts
         document.querySelector('.js-download-pt-chart').addEventListener('click', () => {
           let chartDom = document.getElementById('pt-chart');
           let ptChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')]
@@ -198,12 +199,80 @@
 
         document.querySelector('.js-download-mat-chart').addEventListener('click', () => {
           let chartDom = document.getElementById('mat-chart');
-          let ptChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')]
-          ptChart.exportChart({
+          let matChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')]
+          matChart.exportChart({
             type: 'application/pdf',
             filename: 'Matemática'
           });
         })
+
+        //Expand and shrink pt charts
+        document.querySelector('.js-expand-pt-chart').addEventListener('click', () => {
+          let chartDom = document.getElementById('pt-chart');
+          let ptChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')]
+          const charts = document.querySelectorAll('.chart');
+          const chartContainer = chartDom.closest('.chart');
+
+          Array.prototype.forEach.call(charts, (chart) => {
+            chart.classList.add('hidden');
+          });
+
+          chartContainer.classList.add('expanded');
+          chartContainer.classList.remove('hidden');
+
+          chartContainer.addEventListener('transitionend', (event) => {
+            ptChart.reflow();
+          }, false);
+        });
+
+        document.querySelector('.js-shrink-pt-chart').addEventListener('click', () => {
+          let chartDom = document.getElementById('pt-chart');
+          let ptChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')]
+          const charts = document.querySelectorAll('.chart');
+
+          Array.prototype.forEach.call(charts, (chart) => {
+            chart.classList.remove('hidden');
+          });
+
+          chartDom.closest('.chart').classList.remove('expanded');
+          ptChart.reflow();
+        })
+
+
+        //Expand and shrink mat charts
+        document.querySelector('.js-expand-mat-chart').addEventListener('click', () => {
+          let chartDom = document.getElementById('mat-chart');
+          let matChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')]
+          const charts = document.querySelectorAll('.chart');
+          const chartContainer = chartDom.closest('.chart');
+
+          Array.prototype.forEach.call(charts, (chart) => {
+            chart.classList.add('hidden');
+          });
+
+          chartContainer.classList.add('expanded');
+          chartContainer.classList.remove('hidden');
+
+          chartContainer.addEventListener('transitionend', (event) => {
+            matChart.reflow();
+          }, false);
+        });
+
+        document.querySelector('.js-shrink-mat-chart').addEventListener('click', () => {
+          let chartDom = document.getElementById('mat-chart');
+          let matChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')]
+          const charts = document.querySelectorAll('.chart');
+
+          Array.prototype.forEach.call(charts, (chart) => {
+            chart.classList.remove('hidden');
+          });
+
+          chartDom.closest('.chart').classList.remove('expanded');
+          matChart.reflow();
+        })
+
+
+
 
         function drawPtChart(data) {
           return Highcharts.chart('pt-chart', {

@@ -6,10 +6,36 @@
 
 .chart {
   width: 100%;
+  transition: all 0.3s;
 
   @media screen and (min-width: breakpoint('desktop')) {
     width: 50%;
     padding: 0 2rem;
+  }
+}
+
+.chart.hidden {
+  width: 0;
+  height: 0;
+  transform: scale(0);
+  transform-origin: center;
+}
+
+.chart.expanded {
+  display: block;
+  width: 100%;
+  padding: 0 2rem;
+  transform: scale(1);
+  transform-origin: center;
+}
+
+.chart.expanded .chart__button--shrink {
+  display: inline-block;
+}
+
+.chart.expanded .chart__button--expand {
+  @media screen and (min-width: breakpoint('desktop')) {
+    display: none;
   }
 }
 
@@ -94,4 +120,21 @@
 
 .chart__table td:nth-child(2n) {
   text-align: right;
+}
+
+.chart.expanded .chart__table tbody {
+  display: flex;
+}
+
+.chart.expanded .chart__table tr {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chart.expanded .chart__table td {
+  width: 100%;
+}
+
+.chart.expanded .chart__table td:nth-child(2n) {
+  text-align: left;
 }
