@@ -138,3 +138,16 @@
 .chart.expanded .chart__table td:nth-child(2n) {
   text-align: left;
 }
+
+.highcharts-point-hover {
+  fill: red;
+  stroke: #000;
+  z-index: 9999;
+  stroke-width: 2px;
+  position: absolute;
+}
+
+.highcharts-point-select {
+  fill: red;
+  stroke: #000;
+}

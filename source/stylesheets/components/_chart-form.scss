@@ -63,6 +63,16 @@
   text-transform: uppercase;
 }
 
+.chart-form .awesomplete {
+  display: block;
+  width: 85%;
+  margin-bottom: 0;
+}
+
+.chart-form .awesomplete > ul > li {
+  margin-bottom: 0;
+}
+
 .chart-form select {
   width: 100%;
   padding: 0.8em 0;

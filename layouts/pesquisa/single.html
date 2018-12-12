@@ -32,15 +32,15 @@
               </label>
               <label for="city">
                 Município
-                <input type="text" name="city" id="city" placeholder="Ex. São Paulo">
+                <input id="city" placeholder="Ex. São Paulo" />
               </label>
             </div>
             <div class="chart-form__group">
               <label for="x">
                 Comparar por
-                <select name="x" id="x">
+                <select name="xAxis" id="xAxis">
+                  <option value="racial">Etinia</option>
                   <option value="sex">Sexo (Meninas - Meninos)</option>
-                  <option value="ethnicity">Etinia</option>
                   <option value="nse">Nível Sócio Econômico</option>
                 </select>
               </label>
@@ -87,7 +87,7 @@
               </div>
             </div>
             <div class="chart__main" id="pt-chart"></div>
-            <div class="chart__table">
+            <div class="js-pt-table chart__table">
               <h2>Pedra Azul &middot; MG</h2>
               <table>
                 <tbody>
@@ -125,7 +125,7 @@
               </div>
             </div>
             <div class="chart__main" id="mat-chart"></div>
-            <div class="chart__table">
+            <div class="js-mat-table chart__table">
               <h2>Pedra Azul &middot; MG</h2>
               <table>
                 <tbody>
@@ -175,7 +175,13 @@
       <script src="https://code.highcharts.com/highcharts.js"></script>
       <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.base.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.theme.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.min.js"></script>
+
       <script type="text/javascript">
+        let data;
+
         Highcharts.setOptions({
           lang: {
             printChart: 'Imprimir gráfico',
@@ -189,13 +195,58 @@
         });
 
         populateChartData();
+        populateCitiesList();
+
+        async function populateCitiesList() {
+          const citiesList = document.getElementById('cities-list');
+          const cities = await getCities();
+          cityNames = cities.map(function(city) {
+            return { label: `${city.name} - ${city.state.name}`, value: city.id }
+          });
+
+          const awesomplete = new Awesomplete(document.querySelector('#city'), {
+            nChars: 1,
+            maxItems: 5,
+            autoFirst: true,
+            replace: function (suggestion) {
+              this.input.value = suggestion.label;
+            },
+          });
+          awesomplete.list = cityNames;
+        }
+
+        // document.getElementById('city').addEventListener('awesomplete-selectcomplete', highlightPoint(this.value));
+        document.getElementById('city').addEventListener('awesomplete-selectcomplete', function(event){
+          console.log(event.text.value);
+          highlightPoint(event.text.value)
+        }, false);
+
+        //Highlight city
+        function highlightPoint(id) {
+          const ptChartDom = document.getElementById('pt-chart');
+          const matChartDom = document.getElementById('mat-chart');
+          const ptChart = Highcharts.charts[Highcharts.attr(ptChartDom, 'data-highcharts-chart')]
+          const matChart = Highcharts.charts[Highcharts.attr(matChartDom, 'data-highcharts-chart')]
+
+          ptChart.get(id).graphic.toFront();
+          ptChart.get(id).select();
+
+          matChart.get(id).graphic.toFront();
+          matChart.get(id).select();
+        }
 
         //Filter charts
         document.getElementById('js-chart-form').addEventListener('submit', (event) => {
           event.preventDefault();
           const formData = new FormData(event.target);
-          const grade = formData.get('grade');
-          populateChartData(grade);
+          const payload = {};
+
+          payload.grade = formData.get('grade');
+          payload.xAxis = formData.get('xAxis');
+
+          toggleLoading();
+          populateChartData(payload);
+          toggleLoading();
         });
 
         //Download charts
@@ -345,13 +396,19 @@
                 },
                 tooltip: {
                   headerFormat: 'Cidade: <b>{point.options.city}</b>',
-                }
-              },
-              series:{
-                turboThreshold: 0
+                },
               },
             },
             series: [{
+              turboThreshold: 0,
+              cursor: 'pointer',
+              point: {
+                events: {
+                  click: function () {
+                    updateTableInfo(this.id)
+                  },
+                },
+              },
               data: data,
             }]
           });
@@ -432,9 +489,48 @@
           });
         }
 
-        async function populateChartData(grade) {
+        function updateTableInfo(id) {
+          const newInfo = getCityInfo(id);
+          setCityInfo(newInfo);
+        };
+
+        function getCityInfo(id) {
+          return data.filter((item) => item.city.id === id);
+        };
+
+        function setCityInfo(info) {
+          const ptTable = document.querySelector('.js-pt-table');
+          const matTable = document.querySelector('.js-mat-table');
+          const ptInfo = info.find(item => item.subject === 'Português');
+          const matInfo = info.find(item => item.subject === 'Matemática');
+
+          //pt table
+          ptTable.getElementsByTagName('h2')[0].textContent = ptInfo.city.name;
+
+          //mat table
+          matTable.getElementsByTagName('h2')[0].textContent = matInfo.city.name;
+        }
+
+        function toggleLoading() {
+          let isLoading = false;
+          const ptChartDom = document.getElementById('pt-chart');
+          const matChartDom = document.getElementById('mat-chart');
+          const ptChart = Highcharts.charts[Highcharts.attr(ptChartDom, 'data-highcharts-chart')]
+          const matChart = Highcharts.charts[Highcharts.attr(matChartDom, 'data-highcharts-chart')]
+
+          if (!isLoading) {
+            ptChart.showLoading();
+            matChart.showLoading();
+          } else {
+            ptChart.hideLoading();
+            matChart.hideLoading();
+          }
+          isLoading = !isLoading;
+        }
+
+        async function populateChartData(payload) {
           try {
-            const chartData = await getChartData(grade);
+            const chartData = await getChartData(payload);
             const ptItems = chartData.filter(item => item.subject === 'Português');
             const matItems = chartData.filter(item => item.subject === 'Matemática');
 
@@ -442,6 +538,7 @@
               return {
                 x: Number(ptItems[item].x),
                 y: Number(ptItems[item].y),
+                id: Number(ptItems[item].city.id),
                 city: ptItems[item].city.name,
               }
             });
@@ -450,25 +547,40 @@
               return {
                 x: Number(matItems[item].x),
                 y: Number(matItems[item].y),
+                id: Number(matItems[item].city.id),
                 city: matItems[item].city.name,
               }
             });
 
             drawPtChart(formatedPtItems);
             drawMatChart(formatedMatItems);
+
           } catch (err) {
             console.log(err);
+            toggleLoading();
           }
         };
 
-        function getChartData(grade, xAxis) {
-          grade = grade || 5;
-          xAxis = xAxis || 'racial';
-          const url = `https:\/\/dapitide.eokoe.com/api/data?school_grade=${grade}&x=${xAxis}`
+        function getChartData(payload) {
+          let url = `https:\/\/dapitide.eokoe.com/api/data?school_grade=5&x=racial`
+
+          if (payload !== undefined) {
+            url = `https:\/\/dapitide.eokoe.com/api/data?school_grade=${payload.grade}&x=${payload.xAxis}`
+          }
 
           return axios.get(url)
             .then(response => {
               data = response.data.data;
+              return data;
+            });
+        }
+
+        function getCities() {
+          const url = `https:\/\/dapitide.eokoe.com/api/cities`
+
+          return axios.get(url)
+            .then(response => {
+              data = response.data.cities;
               return data;
             });
         }
