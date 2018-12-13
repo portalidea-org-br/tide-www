@@ -6,7 +6,7 @@
 
 .chart {
   width: 100%;
-  transition: all 0.3s;
+  transition: width 0.3s ease-out, height 0.5s, transform 0.5s;
 
   @media screen and (min-width: breakpoint('desktop')) {
     width: 50%;
@@ -139,15 +139,9 @@
   text-align: left;
 }
 
-.highcharts-point-hover {
-  fill: red;
-  stroke: #000;
-  z-index: 9999;
-  stroke-width: 2px;
-  position: absolute;
-}
-
+.highcharts-point-hover,
 .highcharts-point-select {
-  fill: red;
-  stroke: #000;
+  fill: palette('red');
+  stroke: palette('black');
+  stroke-width: 2px;
 }

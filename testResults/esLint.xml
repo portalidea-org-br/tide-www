@@ -3,6 +3,12 @@
 <testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/eduruiz/Code/tide/source/scripts/index.js">
 <testcase time="0" name="/Users/eduruiz/Code/tide/source/scripts/index.js" />
 </testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/eduruiz/Code/tide/source/scripts/menuToggle/index.js">
+<testcase time="0" name="/Users/eduruiz/Code/tide/source/scripts/menuToggle/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/eduruiz/Code/tide/source/scripts/slider/index.js">
+<testcase time="0" name="/Users/eduruiz/Code/tide/source/scripts/slider/index.js" />
+</testsuite>
 <testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/eduruiz/Code/tide/source/scripts/vendor.js">
 <testcase time="0" name="/Users/eduruiz/Code/tide/source/scripts/vendor.js" />
 </testsuite>
