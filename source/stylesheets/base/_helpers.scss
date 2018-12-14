@@ -60,6 +60,10 @@
   }
 }
 
+[hidden] {
+  display: none;
+}
+
 img:not([src$='.png']):not([src$='.gif']),
 embed {
   @extend %loading-bg;

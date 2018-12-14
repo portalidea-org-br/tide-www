@@ -65,6 +65,7 @@
                 Município
                 <input id="city" placeholder="Ex. São Paulo" />
               </label>
+              <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>
               <button type="submit" class="button">Filtrar</button>
             </div>
           </form>
@@ -126,24 +127,24 @@
               <table>
                 <tbody>
                   <tr>
-                    <td>Português | Raça</td>
-                    <td>-0.19</td>
+                    <td>Matemática | <span class="js-xAxis-text"></span></td>
+                    <td class="js-xAxis"></td>
                   </tr>
                   <tr>
-                    <td>Português</td>
-                    <td>-0.19</td>
+                    <td>Matemática</td>
+                    <td class="js-yAxis"></td>
                   </tr>
                   <tr>
                     <td>Número de alunos</td>
-                    <td>4455</td>
+                    <td class="js-total-students"></td>
                   </tr>
                   <tr>
-                    <td>nPreto</td>
-                    <td>299</td>
+                    <td class="js-unprivileged-title"></td>
+                    <td class="js-unprivileged-value"></td>
                   </tr>
                   <tr>
-                    <td>nBranco</td>
-                    <td>2014</td>
+                    <td class="js-privileged-title"></td>
+                    <td class="js-privileged-value"></td>
                   </tr>
                 </tbody>
               </table>
@@ -178,6 +179,7 @@
       <script type="text/javascript">
         let data;
         let xAxis;
+        let xAxisText
 
         Highcharts.setOptions({
           lang: {
@@ -212,13 +214,26 @@
           awesomplete.list = cityNames;
         }
 
+        document.getElementById('city').addEventListener('input', function(event){
+          hideNoMatchesAlert();
+        }, false);
+
         document.getElementById('city').addEventListener('awesomplete-selectcomplete', function(event){
           highlightPoint(event.text.value)
+          updateTableInfo(event.text.value);
         }, false);
 
         document.getElementById('highlight').addEventListener('change', function(event){
           highlightPoints(event.target.value)
         }, false);
+
+        function hideNoMatchesAlert(){
+          document.querySelector('.js-no-matches').setAttribute('hidden', true);
+        }
+
+        function showNoMatchesAlert(){
+          document.querySelector('.js-no-matches').removeAttribute('hidden');
+        }
 
         //Highlight city
         function highlightPoint(id) {
@@ -227,11 +242,18 @@
           const ptChart = Highcharts.charts[Highcharts.attr(ptChartDom, 'data-highcharts-chart')]
           const matChart = Highcharts.charts[Highcharts.attr(matChartDom, 'data-highcharts-chart')]
 
-          ptChart.get(id).graphic.toFront();
-          ptChart.get(id).select();
+          const ptPoint = ptChart.get(id);
+          const matPoint = matChart.get(id);
 
-          matChart.get(id).graphic.toFront();
-          matChart.get(id).select();
+          if(ptPoint === undefined || matPoint === undefined) {
+            return showNoMatchesAlert();
+          }
+
+          ptPoint.graphic.toFront();
+          ptPoint.select();
+
+          matPoint.graphic.toFront();
+          matPoint.select();
         }
 
         //Filter charts
@@ -253,11 +275,12 @@
         });
 
         function highlightPoints(parameter) {
-
           const ptChartDom = document.getElementById('pt-chart');
           const matChartDom = document.getElementById('mat-chart');
           const ptChart = Highcharts.charts[Highcharts.attr(ptChartDom, 'data-highcharts-chart')]
           const matChart = Highcharts.charts[Highcharts.attr(matChartDom, 'data-highcharts-chart')]
+
+          clearHighlightedPoints();
 
           if(parameter === 'big-cities') {
             ptChart.series[0].points.forEach((point) => {
@@ -292,12 +315,23 @@
           }
 
           if(parameter === 'none') {
-            const selectedPtPoints = ptChart.getSelectedPoints();
-            const selectedMatPoints = matChart.getSelectedPoints();
+            clearHighlightedPoints();
+          }
+
+        }
+
+        function clearHighlightedPoints() {
+          const ptChartDom = document.getElementById('pt-chart');
+          const matChartDom = document.getElementById('mat-chart');
+          const ptChart = Highcharts.charts[Highcharts.attr(ptChartDom, 'data-highcharts-chart')]
+          const matChart = Highcharts.charts[Highcharts.attr(matChartDom, 'data-highcharts-chart')]
+          const selectedPtPoints = ptChart.getSelectedPoints();
+          const selectedMatPoints = matChart.getSelectedPoints();
+
+          if (selectedPtPoints[0]) {
             selectedPtPoints[0].select();
             selectedMatPoints[0].select();
           }
-
         }
 
         // function highlightRegion(region) {
@@ -429,10 +463,10 @@
             xAxis: {
               title: {
                 enabled: true,
-                text: 'Português | Raça [Desigualdade]'
+                text: `${xAxisText} | [Desigualdade]}`
               },
-              max: 2,
-              min: -2,
+              // max: 2,
+              // min: -2,
               startOnTick: true,
               endOnTick: true,
               showLastLabel: true,
@@ -444,11 +478,93 @@
               }],
             },
             yAxis: {
-              title: { text: 'Português [Nível de aprendizado]' },
+              title: { text: `Português | [Nível de aprendizado]` },
               lineWidth: 1,
               gridZIndex: 0,
-              max: 2,
-              min: -2,
+              // max: 2,
+              // min: -2,
+              // plotLines:[{
+              //   value: 0,
+              //   color: '#666',
+              //   dashStyle: 'solid',
+              //   width: 1,
+              // }],
+            },
+            plotOptions: {
+              scatter: {
+                marker: {
+                  radius: 5,
+                  states: {
+                    hover: {
+                      enabled: true,
+                      lineColor: 'rgb(100,100,100)'
+                    }
+                  }
+                },
+                states: {
+                  hover: {
+                    marker: {
+                      enabled: false
+                    }
+                  }
+                },
+                tooltip: {
+                  headerFormat: 'Cidade: <b>{point.options.city}</b>',
+                },
+              },
+            },
+            series: [{
+              turboThreshold: 0,
+              cursor: 'pointer',
+              point: {
+                events: {
+                  click: function () {
+                    highlightPoint(this.id);
+                    updateTableInfo(this.id);
+                  },
+                },
+              },
+              data: data,
+            }]
+          });
+        }
+
+        function drawMatChart(data) {
+          Highcharts.chart('mat-chart', {
+            chart: {
+              type: 'scatter',
+              zoomType: 'xy'
+            },
+            credits: false,
+            legend: {
+              enabled: false
+            },
+            turboThreshold: 0,
+            title: { text: '' },
+            subtitle: '',
+            xAxis: {
+              title: {
+                enabled: true,
+                text: `${xAxisText} [Desigualdade]}`
+              },
+              // max: 2,
+              // min: -2,
+              startOnTick: true,
+              endOnTick: true,
+              showLastLabel: true,
+              plotLines:[{
+                value: 0,
+                color:'#e6e6e6',
+                dashStyle: 'solid',
+                width:1,
+              }],
+            },
+            yAxis: {
+              title: { text: `Matemática | [Nível de aprendizado]` },
+              lineWidth: 1,
+              gridZIndex: 0,
+              // max: 2,
+              // min: -2,
               plotLines:[{
                 value: 0,
                 color: '#666',
@@ -485,85 +601,11 @@
               point: {
                 events: {
                   click: function () {
-                    updateTableInfo(this.id)
+                    highlightPoint(this.id);
+                    updateTableInfo(this.id);
                   },
                 },
               },
-              data: data,
-            }]
-          });
-        }
-
-        function drawMatChart(data) {
-          Highcharts.chart('mat-chart', {
-            chart: {
-              type: 'scatter',
-              zoomType: 'xy'
-            },
-            credits: false,
-            legend: {
-              enabled: false
-            },
-            turboThreshold: 0,
-            title: { text: '' },
-            subtitle: '',
-            xAxis: {
-              title: {
-                enabled: true,
-                text: 'Português | Raça [Desigualdade]'
-              },
-              max: 2,
-              min: -2,
-              startOnTick: true,
-              endOnTick: true,
-              showLastLabel: true,
-              plotLines:[{
-                value: 0,
-                color:'#e6e6e6',
-                dashStyle: 'solid',
-                width:1,
-              }],
-            },
-            yAxis: {
-              title: { text: 'Português [Nível de aprendizado]' },
-              lineWidth: 1,
-              gridZIndex: 0,
-              max: 2,
-              min: -2,
-              plotLines:[{
-                value: 0,
-                color: '#666',
-                dashStyle: 'solid',
-                width: 1,
-              }],
-            },
-            plotOptions: {
-              scatter: {
-                marker: {
-                  radius: 5,
-                  states: {
-                    hover: {
-                      enabled: true,
-                      lineColor: 'rgb(100,100,100)'
-                    }
-                  }
-                },
-                states: {
-                  hover: {
-                    marker: {
-                      enabled: false
-                    }
-                  }
-                },
-                tooltip: {
-                  headerFormat: 'Cidade: <b>{point.options.city}</b>',
-                }
-              },
-              series:{
-                turboThreshold: 0
-              },
-            },
-            series: [{
               data: data,
             }]
           });
@@ -584,24 +626,83 @@
           const ptInfo = info.find(item => item.subject === 'Português');
           const matInfo = info.find(item => item.subject === 'Matemática');
 
-          //pt table
-          ptTable.getElementsByTagName('h2')[0].textContent = ptInfo.city.name;
-          if(xAxis === 'racial') {
-            ptTable.querySelector('.js-unprivileged-title').textContent = 'nPretos';
-            ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_blacks;
-
-            ptTable.querySelector('.js-privileged-title').textContent = 'nBrancos';
-            ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_whites;
-
-            ptTable.querySelector('.js-xAxis-text').textContent = 'Raça';
+          if(ptInfo === undefined || matInfo === undefined) {
+            return;
           }
+
+          ptTable.getElementsByTagName('h2')[0].textContent = ptInfo.city.name;
+          matTable.getElementsByTagName('h2')[0].textContent = matInfo.city.name;
+
+
+          if(xAxis === 'racial') {
+            ptTable.querySelector('.js-unprivileged-title').textContent = 'Npretos';
+            ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
+
+            ptTable.querySelector('.js-privileged-title').textContent = 'Nbrancos';
+            ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
+
+            document.querySelectorAll('.js-xAxis-text').forEach(span => span.textContent = 'Raça');
+          }
+
+          if(xAxis === 'sex') {
+            ptTable.querySelector('.js-unprivileged-title').textContent = 'Nmulheres';
+            ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
+
+            ptTable.querySelector('.js-privileged-title').textContent = 'Nhomens';
+            ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
+
+            document.querySelectorAll('.js-xAxis-text').forEach(span => span.textContent = 'Sexo');
+          }
+
+          if(xAxis === 'nse') {
+            ptTable.querySelector('.js-unprivileged-title').textContent = 'nNSE1';
+            ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
+
+            ptTable.querySelector('.js-privileged-title').textContent = 'nNSE5';
+            ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
+
+            document.querySelectorAll('.js-xAxis-text').forEach(span => span.textContent = 'NSE');
+          }
+
           ptTable.querySelector('.js-total-students').textContent = ptInfo.count_total;
 
           ptTable.querySelector('.js-xAxis').textContent = Number(ptInfo.x).toFixed(2);
           ptTable.querySelector('.js-yAxis').textContent = Number(ptInfo.y).toFixed(2);
 
-          //mat table
-          matTable.getElementsByTagName('h2')[0].textContent = matInfo.city.name;
+          if(xAxis === 'racial') {
+            matTable.querySelector('.js-unprivileged-title').textContent = 'Npretos';
+            matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_first_group;
+
+            matTable.querySelector('.js-privileged-title').textContent = 'Nbrancos';
+            matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group;
+
+            matTable.querySelector('.js-xAxis-text').textContent = 'Raça';
+          }
+
+          if(xAxis === 'sex') {
+            matTable.querySelector('.js-unprivileged-title').textContent = 'Nmulheres';
+            matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_first_group;
+
+            matTable.querySelector('.js-privileged-title').textContent = 'Nhomens';
+            matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group;
+
+            matTable.querySelector('.js-xAxis-text').textContent = 'Sexo';
+          }
+
+          if(xAxis === 'nse') {
+            matTable.querySelector('.js-unprivileged-title').textContent = 'nNSE1';
+            matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_first_group;
+
+            matTable.querySelector('.js-privileged-title').textContent = 'nNSE5';
+            matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group;
+
+            matTable.querySelector('.js-xAxis-text').textContent = 'NSE';
+          }
+
+          matTable.querySelector('.js-total-students').textContent = matInfo.count_total;
+
+          matTable.querySelector('.js-xAxis').textContent = Number(matInfo.x).toFixed(2);
+          matTable.querySelector('.js-yAxis').textContent = Number(matInfo.y).toFixed(2);
         }
 
         function toggleLoading() {
@@ -633,8 +734,8 @@
                 y: Number(ptItems[item].y),
                 id: Number(ptItems[item].city.id),
                 city: ptItems[item].city.name,
-                is_big_town: matItems[item].city.is_big_town,
-                is_capital: matItems[item].city.is_capital,
+                is_big_town: ptItems[item].city.is_big_town,
+                is_capital: ptItems[item].city.is_capital,
               }
             });
 
@@ -648,6 +749,18 @@
                 is_capital: matItems[item].city.is_capital,
               }
             });
+
+            if(xAxis === 'racial') {
+              xAxisText = 'Raça';
+            }
+
+            if(xAxis === 'sex') {
+              xAxisText = 'Sexo';
+            }
+
+            if(xAxis === 'nse') {
+              xAxisText = 'NSE';
+            }
 
             drawPtChart(formatedPtItems);
             drawMatChart(formatedMatItems);
