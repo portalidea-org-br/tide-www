@@ -16,12 +16,18 @@
 
   &::before {
     position: absolute;
-    top: -8.75em;
+    top: -5.5em;
     display: block;
     width: 100%;
-    height: 8.75em;
+    height: 5.5em;
     background-image: image('wave-yellow.svg');
+    background-size: cover;
     content: ' ';
+
+    @media screen and (min-width: breakpoint('tablet')) {
+      top: -7em;
+      height: 7em;
+    }
 
     @media screen and (min-width: breakpoint('desktop')) {
       top: -27.2em;
@@ -40,6 +46,8 @@
   width: 20em;
 
   padding-bottom: 11em;
+
+  margin: 0 auto;
 
   @media screen and (min-width: breakpoint('desktop')) {
     flex-direction: row-reverse;

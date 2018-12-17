@@ -37,6 +37,8 @@
 
   padding-bottom: 13em;
 
+  margin: 0 auto;
+
   @media screen and (min-width: breakpoint('desktop')) {
     flex-direction: row-reverse;
     justify-content: flex-start;
@@ -94,7 +96,7 @@
 .hero-water__images {
   position: absolute;
   top: 190px;
-  right: -1.875em;
+  right: 0;
   width: 11.875em;
   height: 25em;
 
