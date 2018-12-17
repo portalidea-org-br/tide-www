@@ -1,3 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg">
-    <path fill="#FC3" fill-rule="evenodd" d="M0 0s85.675 139 378 139 437-99.813 690 57c185.825 123.814 262.675 139.183 372 120v524H0V0z"/>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1440 321.2" style="enable-background:new 0 0 1440 321.2;" xml:space="preserve">
+<style type="text/css">
+	.inside-wave-yellow{fill-rule:evenodd;clip-rule:evenodd;fill:#FFCC33;}
+</style>
+<g>
+	<g>
+		<path class="inside-wave-yellow" d="M0,0c0,0,85.7,139,378,139s437-99.8,690,57c185.8,123.8,259.1,120,372,120v5.2H0V0z"/>
+	</g>
+</g>
 </svg>
