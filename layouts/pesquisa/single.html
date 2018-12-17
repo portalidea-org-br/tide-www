@@ -38,6 +38,10 @@
                   <option value="nse">Nível Sócio Econômico</option>
                 </select>
               </label>
+              <div class="chart-form__buttons">
+                <button type="submit" class="button">Filtrar</button>
+                <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>
+              </div>
             </div>
             <div class="chart-form__group">
               <label for="region">
@@ -59,14 +63,10 @@
                   <option value="capital">Capitais</option>
                 </select>
               </label>
-            </div>
-            <div class="chart-form__group">
               <label for="city">
                 Município
                 <input id="city" placeholder="Ex. São Paulo" />
               </label>
-              <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>
-              <button type="submit" class="button">Filtrar</button>
             </div>
           </form>
         </div>

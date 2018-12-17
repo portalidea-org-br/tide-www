@@ -21,20 +21,24 @@
   @media screen and (min-width: breakpoint('tablet')) {
     width: 50%;
   }
-
-  @media screen and (min-width: breakpoint('desktop')) {
-    width: 33.3%;
-  }
+  //
+  // @media screen and (min-width: breakpoint('desktop')) {
+  //   width: 33.3%;
+  // }
 }
 
 .chart-form__group--inline {
   display: flex;
+  align-items: center;
   flex-wrap: nowrap;
   width: 100%;
 
   @media screen and (min-width: breakpoint('desktop')) {
     flex-wrap: wrap;
-    width: 33.3%;
+    width: calc(50% - 2rem);
+    margin-right: 1rem;
+    padding-right: 1rem;
+    border-right: 1px solid palette('gray');
   }
 }
 
@@ -92,6 +96,7 @@
 .chart-form__alert {
   width: 85%;
   padding: 0.8em 1em 0.8em 2.3em;
+  margin-top: 0.8em;
   margin-bottom: 0.8em;
   font-size: ms(-1);
   line-height: 1;
