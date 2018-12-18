@@ -40,10 +40,9 @@
               </label>
               <div class="chart-form__buttons">
                 <button type="submit" class="button">Filtrar</button>
-                <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>
               </div>
             </div>
-            <div class="chart-form__group">
+            <div class="js-form-filter chart-form__group">
               <label for="region">
                 Região Brasileira
                 <select name="region" id="region">
@@ -65,8 +64,9 @@
               </label>
               <label for="city">
                 Município
-                <input id="city" placeholder="Ex. São Paulo" />
+                <input id="city" type="text" placeholder="Ex. São Paulo" />
               </label>
+              <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>
             </div>
           </form>
         </div>
@@ -271,8 +271,20 @@
 
           toggleLoading();
           populateChartData(payload);
+          clearFilters();
+          hideNoMatchesAlert();
           toggleLoading();
         });
+
+        function clearFilters(excpetion) {
+          const formContainer = document.querySelector('.js-form-filter');
+          formContainer.querySelectorAll('select').forEach((input) => {
+            input.selectedIndex = 0;
+          })
+          formContainer.querySelectorAll('input[type="text"]').forEach((input) => {
+            input.value = '';
+          })
+        }
 
         function highlightPoints(parameter, value) {
           const ptChartDom = document.getElementById('pt-chart');
@@ -762,7 +774,7 @@
                 id: Number(matItems[item].city.id),
                 city: matItems[item].city.name,
                 state: matItems[item].state.uf,
-                state_id: ptItems[item].state.id,
+                state_id: matItems[item].state.id,
                 region: matItems[item].region.id,
                 is_big_town: matItems[item].city.is_big_town,
                 is_capital: matItems[item].city.is_capital,
