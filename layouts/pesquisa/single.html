@@ -316,8 +316,6 @@
 
           if(parameter === 'region') {
             ptChart.series[0].points.forEach((point) => {
-              console.log(point.options.region);
-              console.log(value);
               if(point.options.region === Number(value)) {
                 point.select(true, true)
                 point.graphic.toFront();
