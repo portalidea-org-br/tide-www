@@ -219,15 +219,18 @@
         }, false);
 
         document.getElementById('city').addEventListener('awesomplete-selectcomplete', function(event){
+          clearFilters(event.target.id);
           highlightPoint(event.text.value)
           updateTableInfo(event.text.value);
         }, false);
 
         document.getElementById('highlight').addEventListener('change', function(event){
+          clearFilters(event.target.id);
           highlightPoints(event.target.value)
         }, false);
 
         document.getElementById('region').addEventListener('change', function(event){
+          clearFilters(event.target.id);
           highlightPoints('region', event.target.value)
         }, false);
 
@@ -276,13 +279,17 @@
           toggleLoading();
         });
 
-        function clearFilters(excpetion) {
+        function clearFilters(exception) {
           const formContainer = document.querySelector('.js-form-filter');
-          formContainer.querySelectorAll('select').forEach((input) => {
-            input.selectedIndex = 0;
+          formContainer.querySelectorAll('select').forEach((select) => {
+            if(select.id !== exception) {
+              select.selectedIndex = 0;
+            }
           })
           formContainer.querySelectorAll('input[type="text"]').forEach((input) => {
-            input.value = '';
+            if(input.id !== exception) {
+              input.value = '';
+            }
           })
         }
 
@@ -547,6 +554,7 @@
               point: {
                 events: {
                   click: function () {
+                    clearFilters();
                     highlightPoint(this.id);
                     updateTableInfo(this.id);
                   },
@@ -626,6 +634,7 @@
               point: {
                 events: {
                   click: function () {
+                    clearFilters();
                     highlightPoint(this.id);
                     updateTableInfo(this.id);
                   },
