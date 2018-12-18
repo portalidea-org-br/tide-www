@@ -48,11 +48,11 @@
                 Região Brasileira
                 <select name="region" id="region">
                   <option value="">Nenhuma</option>
-                  <option value="centro-oeste">Centro</option>
-                  <option value="nordeste">Nordeste</option>
-                  <option value="norte">Norte</option>
-                  <option value="sudeste">Sudeste</option>
-                  <option value="sul">Sul</option>
+                  <option value="1">Centro Oeste</option>
+                  <option value="2">Nordeste</option>
+                  <option value="3">Norte</option>
+                  <option value="4">Sudeste</option>
+                  <option value="5">Sul</option>
                 </select>
               </label>
               <label for="region">
@@ -227,6 +227,10 @@
           highlightPoints(event.target.value)
         }, false);
 
+        document.getElementById('region').addEventListener('change', function(event){
+          highlightPoints('region', event.target.value)
+        }, false);
+
         function hideNoMatchesAlert(){
           document.querySelector('.js-no-matches').setAttribute('hidden', true);
         }
@@ -265,16 +269,12 @@
           payload.grade = formData.get('grade');
           payload.xAxis = formData.get('xAxis');
 
-          // if(formData.get('region')) {
-          //   highlightRegion(formData.get('region'));
-          // }
-
           toggleLoading();
           populateChartData(payload);
           toggleLoading();
         });
 
-        function highlightPoints(parameter) {
+        function highlightPoints(parameter, value) {
           const ptChartDom = document.getElementById('pt-chart');
           const matChartDom = document.getElementById('mat-chart');
           const ptChart = Highcharts.charts[Highcharts.attr(ptChartDom, 'data-highcharts-chart')]
@@ -308,6 +308,24 @@
 
             matChart.series[0].points.forEach((point) => {
               if(point.options.is_capital === 1) {
+                point.select(true, true)
+                point.graphic.toFront();
+              }
+            });
+          }
+
+          if(parameter === 'region') {
+            ptChart.series[0].points.forEach((point) => {
+              console.log(point.options.region);
+              console.log(value);
+              if(point.options.region === Number(value)) {
+                point.select(true, true)
+                point.graphic.toFront();
+              }
+            });
+
+            matChart.series[0].points.forEach((point) => {
+              if(point.options.region === Number(value)) {
                 point.select(true, true)
                 point.graphic.toFront();
               }
@@ -590,9 +608,6 @@
                     }
                   }
                 },
-                tooltip: {
-                  headerFormat: 'Cidade: <b>{point.options.city} &middot; {point.options.state}</b>',
-                },
               },
             },
             series: [{
@@ -735,6 +750,7 @@
                 id: Number(ptItems[item].city.id),
                 city: ptItems[item].city.name,
                 state: ptItems[item].state.uf,
+                state_id: ptItems[item].state.id,
                 region: ptItems[item].region.id,
                 is_big_town: ptItems[item].city.is_big_town,
                 is_capital: ptItems[item].city.is_capital,
@@ -748,6 +764,7 @@
                 id: Number(matItems[item].city.id),
                 city: matItems[item].city.name,
                 state: matItems[item].state.uf,
+                state_id: ptItems[item].state.id,
                 region: matItems[item].region.id,
                 is_big_town: matItems[item].city.is_big_town,
                 is_capital: matItems[item].city.is_capital,
