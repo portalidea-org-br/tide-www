@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <testsuites>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/eduruiz/Code/tide/source/scripts/config.js">
+<testcase time="0" name="/Users/eduruiz/Code/tide/source/scripts/config.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/eduruiz/Code/tide/source/scripts/contactForm/index.js">
+<testcase time="0" name="/Users/eduruiz/Code/tide/source/scripts/contactForm/index.js" />
+</testsuite>
 <testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/eduruiz/Code/tide/source/scripts/index.js">
 <testcase time="0" name="/Users/eduruiz/Code/tide/source/scripts/index.js" />
 </testsuite>

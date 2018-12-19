@@ -21,10 +21,6 @@
   @media screen and (min-width: breakpoint('tablet')) {
     width: 50%;
   }
-  //
-  // @media screen and (min-width: breakpoint('desktop')) {
-  //   width: 33.3%;
-  // }
 }
 
 .chart-form__group--inline {
@@ -36,8 +32,8 @@
   @media screen and (min-width: breakpoint('desktop')) {
     flex-wrap: wrap;
     width: calc(50% - 2rem);
-    margin-right: 1rem;
     padding-right: 1rem;
+    margin-right: 1rem;
     border-right: 1px solid palette('gray');
   }
 }

@@ -11,6 +11,7 @@ export default function initContactForm() {
   const message = form.querySelector('#js-response-message');
   const phone = document.getElementById('phone');
   const maskOptions = { mask: '+00 (00) 000000000' };
+  // eslint-disable-next-line
   const mask = new IMask(phone, maskOptions);
 
   function clearPhone(dirtyPhone) {
@@ -56,19 +57,18 @@ export default function initContactForm() {
       data: qs.stringify(data),
       baseURL: config.api.domain,
     })
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         showSuccess();
         clearForm();
         toggleLoading();
       })
-      .catch((error) => {
+      .catch(() => {
         showError();
-        console.error(error);
         toggleLoading();
       });
   }
 
+  // eslint-disable-next-line
   const validate = new Bouncer('form', {
     disableSubmit: true,
     // Error messages by error type
@@ -106,7 +106,6 @@ export default function initContactForm() {
   }, false);
 
   document.addEventListener('bouncerFormValid', (event) => {
-    console.log(event);
     submitForm(event);
   }, false);
 }

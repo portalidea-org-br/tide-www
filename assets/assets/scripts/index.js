@@ -6631,7 +6631,8 @@ function initContactForm() {
   var phone = document.getElementById('phone');
   var maskOptions = {
     mask: '+00 (00) 000000000'
-  };
+  }; // eslint-disable-next-line
+
   var mask = new _imask2.default(phone, maskOptions);
 
   function clearPhone(dirtyPhone) {
@@ -6676,17 +6677,16 @@ function initContactForm() {
       url: 'contact',
       data: _qs2.default.stringify(data),
       baseURL: _config2.default.api.domain
-    }).then(function (response) {
-      console.log(response);
+    }).then(function () {
       showSuccess();
       clearForm();
       toggleLoading();
-    }).catch(function (error) {
+    }).catch(function () {
       showError();
-      console.error(error);
       toggleLoading();
     });
-  }
+  } // eslint-disable-next-line
+
 
   var validate = new _bouncer2.default('form', {
     disableSubmit: true,
@@ -6723,7 +6723,6 @@ function initContactForm() {
     window.scrollTo(0, event.detail.errors[0].offsetTop - 30);
   }, false);
   document.addEventListener('bouncerFormValid', function (event) {
-    console.log(event);
     submitForm(event);
   }, false);
 }
