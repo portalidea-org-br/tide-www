@@ -50,3 +50,24 @@ form textarea {
   resize: vertical;
 }
 
+form .error-message {
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+  font-size: ms(-1);
+  color: palette('red');
+}
+
+.response-message {
+  padding: 0.51rem;
+  color: palette('white');
+  border-radius: 7px;
+}
+
+.response-message--success {
+  background-color: palette('label', 'success');
+}
+
+.response-message--error {
+  background-color: palette('label', 'danger');
+}
+

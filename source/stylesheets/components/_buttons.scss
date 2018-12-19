@@ -32,8 +32,9 @@
 
 .button--arrow-icon {
   position: relative;
-  float: right;
+  display: block;
   padding: 0 2.5rem 0 0 ;
+  margin-left: auto;
   font-weight: bold;
   font-size: ms(5);
   color: palette('blue', 'dark');

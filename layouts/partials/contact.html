@@ -1,29 +1,30 @@
 <div class="bg-alabaster">
-  <form action="" method="post" id="contato">
+  <form action="" method="post" id="js-contato">
     <h1>Contato</h1>
     <label for="name">
       <span>Nome: </span>
       <strong><abbr title="Campo Obrigatório">*</abbr></strong>
     </label>
-    <input type="text" id="name" name="nome">
+    <input type="text" id="name" name="name" required>
 
     <label for="email">
       <span>Email: </span>
       <strong><abbr title="Campo Obrigatório">*</abbr></strong>
     </label>
-    <input type="text" id="email" name="email">
+    <input type="email" id="email" name="email" required>
 
     <label for="phone">
       <span>Telefone: </span>
       <strong><abbr title="Campo Obrigatório">*</abbr></strong>
     </label>
-    <input type="phone" id="phone" name="email">
+    <input type="tel" id="phone" name="phone" required>
 
     <label for="mensagem">
       <span>Mensagem: </span>
       <strong><abbr title="Campo Obrigatório">*</abbr></strong>
     </label>
-    <textarea name="message" id="message"></textarea>
+    <textarea name="message" id="message" required></textarea>
+    <div id="js-response-message" class="response-message" hidden></div>
     <button type="submit" class="button--arrow-icon">enviar</button>
   </form>
 </div>
