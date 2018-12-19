@@ -1,4 +1,5 @@
 import initMenuToggle from './menuToggle';
-// import initSlider from './slider';
+import startChartFunctionalities from './chart';
 
 initMenuToggle();
+startChartFunctionalities();
