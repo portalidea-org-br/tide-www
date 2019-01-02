@@ -6,7 +6,7 @@
     min-height: 30em;
   }
 
-  &:before {
+  &::before {
     position: absolute;
     top: -6em;
     right: 0;

@@ -1,3 +1,7 @@
 .container {
   @include container;
 }
+
+html {
+  scroll-behavior: smooth;
+}

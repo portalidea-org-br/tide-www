@@ -25,6 +25,7 @@
   @include container;
   max-width: 20em;
   padding-bottom: 4rem;
+  margin: 0 auto;
 
   @media screen and (min-width: breakpoint('desktop')) {
     max-width: 93.75em;

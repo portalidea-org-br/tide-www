@@ -5,28 +5,34 @@ Exporting(Highcharts);
 
 export default function sizeToggle() {
   // Expand and shrink pt charts
-  document.querySelector('.js-expand-pt-chart').addEventListener('click', () => {
-    const chartDom = document.getElementById('pt-chart');
-    const ptChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')];
-    const charts = document.querySelectorAll('.chart');
-    const chartContainer = chartDom.closest('.chart');
+  const expandPtChartButton = document.querySelector('.js-expand-pt-chart');
+  const shrinkPtChartButton = document.querySelector('.js-shrink-pt-chart');
 
-    console.log(Highcharts)
-    console.log('ptChart: ', ptChart);
+  if (expandPtChartButton) {
+    expandPtChartButton.addEventListener('click', () => {
+      console.log()
+      const chartDom = document.getElementById('pt-chart');
+      const ptChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')];
+      const charts = document.querySelectorAll('.chart');
+      const chartContainer = chartDom.closest('.chart');
 
-    Array.prototype.forEach.call(charts, (chart) => {
-      chart.classList.add('hidden');
+      console.log(Highcharts)
+      console.log('ptChart: ', ptChart);
+
+      Array.prototype.forEach.call(charts, (chart) => {
+        chart.classList.add('hidden');
+      });
+
+      chartContainer.classList.add('expanded');
+      chartContainer.classList.remove('hidden');
+
+      chartContainer.addEventListener('transitionend', () => {
+        ptChart.reflow();
+      }, false);
     });
+  }
 
-    chartContainer.classList.add('expanded');
-    chartContainer.classList.remove('hidden');
-
-    chartContainer.addEventListener('transitionend', () => {
-      ptChart.reflow();
-    }, false);
-  });
-
-  document.querySelector('.js-shrink-pt-chart').addEventListener('click', () => {
+  shrinkPtChartButton.addEventListener('click', () => {
     const chartDom = document.getElementById('pt-chart');
     const ptChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')];
     const charts = document.querySelectorAll('.chart');
