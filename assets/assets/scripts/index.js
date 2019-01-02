@@ -6625,7 +6625,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function initContactForm() {
   // Mask phone number
-  var form = document.getElementById('js-contato');
+  var form = document.querySelector('.js-contato');
   var loading = false;
   var message = form.querySelector('#js-response-message');
   var phone = document.getElementById('phone');

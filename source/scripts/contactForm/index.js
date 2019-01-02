@@ -6,7 +6,7 @@ import config from '../config';
 
 export default function initContactForm() {
   // Mask phone number
-  const form = document.getElementById('js-contato');
+  const form = document.querySelector('.js-contato');
   let loading = false;
   const message = form.querySelector('#js-response-message');
   const phone = document.getElementById('phone');
