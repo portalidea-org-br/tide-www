@@ -10,14 +10,10 @@ export default function sizeToggle() {
 
   if (expandPtChartButton) {
     expandPtChartButton.addEventListener('click', () => {
-      console.log()
       const chartDom = document.getElementById('pt-chart');
       const ptChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')];
       const charts = document.querySelectorAll('.chart');
       const chartContainer = chartDom.closest('.chart');
-
-      console.log(Highcharts)
-      console.log('ptChart: ', ptChart);
 
       Array.prototype.forEach.call(charts, (chart) => {
         chart.classList.add('hidden');

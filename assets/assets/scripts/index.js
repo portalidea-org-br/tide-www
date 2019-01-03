@@ -7065,24 +7065,30 @@ var _sizeToggle = require("./sizeToggle");
 
 var _sizeToggle2 = _interopRequireDefault(_sizeToggle);
 
-var _rest = require("./rest");
+var _plotCharts = require("./plotCharts");
 
-var _rest2 = _interopRequireDefault(_rest);
+var _plotCharts2 = _interopRequireDefault(_plotCharts);
+
+var _updateTableInfo = require("./updateTableInfo");
+
+var _updateTableInfo2 = _interopRequireDefault(_updateTableInfo);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import rest from './rest';
 function startChartFunctionalities() {
+  (0, _plotCharts2.default)();
   (0, _sizeToggle2.default)();
-  (0, _rest2.default)();
+  (0, _updateTableInfo2.default)(); // rest();
 }
 
-},{"./rest":38,"./sizeToggle":39}],38:[function(require,module,exports){
+},{"./plotCharts":38,"./sizeToggle":39,"./updateTableInfo":40}],38:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = rest;
+exports.default = plotCharts;
 
 var _highcharts = require("highcharts");
 
@@ -7092,144 +7098,23 @@ var _exporting = require("highcharts/modules/exporting");
 
 var _exporting2 = _interopRequireDefault(_exporting);
 
+var _axios = require("axios");
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _updateTableInfo = require("./updateTableInfo");
+
+var _updateTableInfo2 = _interopRequireDefault(_updateTableInfo);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+(0, _exporting2.default)(_highcharts2.default);
 
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function rest() {
-  var populateCitiesList = function () {
-    var _ref = _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee() {
-      var citiesList, cities, cityNames, awesomplete;
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              citiesList = document.getElementById('cities-list');
-              _context.next = 3;
-              return getCities();
-
-            case 3:
-              cities = _context.sent;
-              cityNames = cities.map(function (city) {
-                return {
-                  label: city.name + " - " + city.state.name,
-                  value: city.id
-                };
-              });
-              awesomplete = new Awesomplete(document.querySelector('#city'), {
-                nChars: 1,
-                maxItems: 5,
-                autoFirst: true,
-                replace: function replace(suggestion) {
-                  this.input.value = suggestion.label;
-                }
-              });
-              awesomplete.list = cityNames;
-
-            case 7:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee, this);
-    }));
-
-    return function populateCitiesList() {
-      return _ref.apply(this, arguments);
-    };
-  }();
-
-  var populateChartData = function () {
-    var _ref2 = _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee2(payload) {
-      var chartData, ptItems, matItems;
-      return regeneratorRuntime.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _context2.prev = 0;
-              _context2.next = 3;
-              return getChartData(payload);
-
-            case 3:
-              chartData = _context2.sent;
-              ptItems = chartData.filter(function (item) {
-                return item.subject === 'Português';
-              });
-              matItems = chartData.filter(function (item) {
-                return item.subject === 'Matemática';
-              });
-              formatedPtItems = Object.keys(ptItems).map(function (item) {
-                return {
-                  x: Number(ptItems[item].x),
-                  y: Number(ptItems[item].y),
-                  id: Number(ptItems[item].city.id),
-                  city: ptItems[item].city.name,
-                  state: ptItems[item].state.uf,
-                  state_id: ptItems[item].state.id,
-                  region: ptItems[item].region.id,
-                  is_big_town: ptItems[item].city.is_big_town,
-                  is_capital: ptItems[item].city.is_capital
-                };
-              });
-              formatedMatItems = Object.keys(matItems).map(function (item) {
-                return {
-                  x: Number(matItems[item].x),
-                  y: Number(matItems[item].y),
-                  id: Number(matItems[item].city.id),
-                  city: matItems[item].city.name,
-                  state: matItems[item].state.uf,
-                  state_id: matItems[item].state.id,
-                  region: matItems[item].region.id,
-                  is_big_town: matItems[item].city.is_big_town,
-                  is_capital: matItems[item].city.is_capital
-                };
-              });
-
-              if (xAxis === 'racial') {
-                xAxisText = 'Raça';
-              }
-
-              if (xAxis === 'sex') {
-                xAxisText = 'Sexo';
-              }
-
-              if (xAxis === 'nse') {
-                xAxisText = 'NSE';
-              }
-
-              drawPtChart(formatedPtItems);
-              drawMatChart(formatedMatItems);
-              _context2.next = 19;
-              break;
-
-            case 15:
-              _context2.prev = 15;
-              _context2.t0 = _context2["catch"](0);
-              console.log(_context2.t0);
-              toggleLoading();
-
-            case 19:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2, this, [[0, 15]]);
-    }));
-
-    return function populateChartData(_x) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-
-  var data = void 0;
-  var xAxis = void 0;
-  var xAxisText = void 0;
+function plotCharts() {
+  let xAxis;
+  let xAxisText;
+  let url;
+  let data;
 
   _highcharts2.default.setOptions({
     lang: {
@@ -7237,187 +7122,51 @@ function rest() {
       resetZoom: 'Resetar zoom'
     },
     tooltip: {
-      formatter: function formatter() {
-        return this.point.options.city + " - " + this.point.options.state;
+      formatter() {
+        return `${this.point.options.city} - ${this.point.options.state}`;
       }
+
     }
   });
 
-  populateChartData();
-  populateCitiesList();
-  document.getElementById('city').addEventListener('input', function (event) {
-    hideNoMatchesAlert();
-  }, false);
-  document.getElementById('city').addEventListener('awesomplete-selectcomplete', function (event) {
-    clearFilters(event.target.id);
-    highlightPoint(event.text.value);
-    updateTableInfo(event.text.value);
-  }, false);
-  document.getElementById('highlight').addEventListener('change', function (event) {
-    clearFilters(event.target.id);
-    highlightPoints(event.target.value);
-  }, false);
-  document.getElementById('region').addEventListener('change', function (event) {
-    clearFilters(event.target.id);
-    highlightPoints('region', event.target.value);
-  }, false);
+  function getChartData(receivedPayload) {
+    let payload;
 
-  function hideNoMatchesAlert() {
-    document.querySelector('.js-no-matches').setAttribute('hidden', true);
+    if (receivedPayload === undefined) {
+      payload = {
+        grade: 5,
+        xAxis: 'racial'
+      };
+    } else {
+      payload = receivedPayload;
+    }
+
+    url = `https://dapitide.eokoe.com/api/data?school_grade=${payload.grade}&x=${payload.xAxis}`;
+    ({
+      xAxis
+    } = payload.xAxis);
+    return _axios2.default.get(url).then(response => response.data.data);
   }
 
-  function showNoMatchesAlert() {
-    document.querySelector('.js-no-matches').removeAttribute('hidden');
-  } // Highlight city
+  function toggleLoading() {
+    let isLoading = false;
+    const ptChartDom = document.getElementById('pt-chart');
+    const matChartDom = document.getElementById('mat-chart');
 
+    const ptChart = _highcharts2.default.charts[_highcharts2.default.attr(ptChartDom, 'data-highcharts-chart')];
 
-  function highlightPoint(id) {
-    var ptChartDom = document.getElementById('pt-chart');
-    var matChartDom = document.getElementById('mat-chart');
+    const matChart = _highcharts2.default.charts[_highcharts2.default.attr(matChartDom, 'data-highcharts-chart')];
 
-    var ptChart = _highcharts2.default.charts[_highcharts2.default.attr(ptChartDom, 'data-highcharts-chart')];
-
-    var matChart = _highcharts2.default.charts[_highcharts2.default.attr(matChartDom, 'data-highcharts-chart')];
-
-    var ptPoint = ptChart.get(id);
-    var matPoint = matChart.get(id);
-
-    if (ptPoint === undefined || matPoint === undefined) {
-      return showNoMatchesAlert();
+    if (!isLoading) {
+      ptChart.showLoading();
+      matChart.showLoading();
+    } else {
+      ptChart.hideLoading();
+      matChart.hideLoading();
     }
 
-    ptPoint.graphic.toFront();
-    ptPoint.select();
-    matPoint.graphic.toFront();
-    matPoint.select();
-  } // Filter charts
-
-
-  document.getElementById('js-chart-form').addEventListener('submit', function (event) {
-    event.preventDefault();
-    var formData = new FormData(event.target);
-    var payload = {};
-    payload.grade = formData.get('grade');
-    payload.xAxis = formData.get('xAxis');
-    toggleLoading();
-    populateChartData(payload);
-    clearFilters();
-    hideNoMatchesAlert();
-    toggleLoading();
-  });
-
-  function clearFilters(exception) {
-    var formContainer = document.querySelector('.js-form-filter');
-    formContainer.querySelectorAll('select').forEach(function (select) {
-      if (select.id !== exception) {
-        select.selectedIndex = 0;
-      }
-    });
-    formContainer.querySelectorAll('input[type="text"]').forEach(function (input) {
-      if (input.id !== exception) {
-        input.value = '';
-      }
-    });
+    isLoading = !isLoading;
   }
-
-  function highlightPoints(parameter, value) {
-    var ptChartDom = document.getElementById('pt-chart');
-    var matChartDom = document.getElementById('mat-chart');
-
-    var ptChart = _highcharts2.default.charts[_highcharts2.default.attr(ptChartDom, 'data-highcharts-chart')];
-
-    var matChart = _highcharts2.default.charts[_highcharts2.default.attr(matChartDom, 'data-highcharts-chart')];
-
-    clearHighlightedPoints();
-
-    if (parameter === 'big-cities') {
-      ptChart.series[0].points.forEach(function (point) {
-        if (point.options.is_big_town === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-      matChart.series[0].points.forEach(function (point) {
-        if (point.options.is_big_town === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'capital') {
-      ptChart.series[0].points.forEach(function (point) {
-        if (point.options.is_capital === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-      matChart.series[0].points.forEach(function (point) {
-        if (point.options.is_capital === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'region') {
-      ptChart.series[0].points.forEach(function (point) {
-        if (point.options.region === Number(value)) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-      matChart.series[0].points.forEach(function (point) {
-        if (point.options.region === Number(value)) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'none') {
-      clearHighlightedPoints();
-    }
-  }
-
-  function clearHighlightedPoints() {
-    var ptChartDom = document.getElementById('pt-chart');
-    var matChartDom = document.getElementById('mat-chart');
-
-    var ptChart = _highcharts2.default.charts[_highcharts2.default.attr(ptChartDom, 'data-highcharts-chart')];
-
-    var matChart = _highcharts2.default.charts[_highcharts2.default.attr(matChartDom, 'data-highcharts-chart')];
-
-    var selectedPtPoints = ptChart.getSelectedPoints();
-    var selectedMatPoints = matChart.getSelectedPoints();
-
-    if (selectedPtPoints[0]) {
-      selectedPtPoints[0].select();
-      selectedMatPoints[0].select();
-    }
-  } // Download charts
-
-
-  document.querySelector('.js-download-pt-chart').addEventListener('click', function () {
-    var chartDom = document.getElementById('pt-chart');
-
-    var ptChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
-
-    ptChart.exportChart({
-      type: 'application/pdf',
-      filename: 'Português'
-    });
-  });
-  document.querySelector('.js-download-mat-chart').addEventListener('click', function () {
-    var chartDom = document.getElementById('mat-chart');
-
-    var matChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
-
-    matChart.exportChart({
-      type: 'application/pdf',
-      filename: 'Matemática'
-    });
-  });
 
   function drawPtChart(data) {
     return _highcharts2.default.chart('pt-chart', {
@@ -7437,7 +7186,7 @@ function rest() {
       xAxis: {
         title: {
           enabled: true,
-          text: xAxisText + " | [Desigualdade]"
+          text: `${xAxisText} | [Desigualdade]`
         },
         // max: 2,
         // min: -2,
@@ -7494,14 +7243,15 @@ function rest() {
         cursor: 'pointer',
         point: {
           events: {
-            click: function click() {
-              clearFilters();
-              highlightPoint(this.id);
-              updateTableInfo(this.id);
+            click() {
+              // clearFilters();
+              // highlightPoint(this.id);
+              (0, _updateTableInfo2.default)(this.id, xAxis, data);
             }
+
           }
         },
-        data: data
+        data
       }]
     });
   }
@@ -7524,7 +7274,7 @@ function rest() {
       xAxis: {
         title: {
           enabled: true,
-          text: xAxisText + " | [Desigualdade]"
+          text: `${xAxisText} | [Desigualdade]`
         },
         // max: 2,
         // min: -2,
@@ -7578,54 +7328,192 @@ function rest() {
         cursor: 'pointer',
         point: {
           events: {
-            click: function click() {
+            click() {
               clearFilters();
               highlightPoint(this.id);
-              updateTableInfo(this.id);
+              (0, _updateTableInfo2.default)(this.id);
             }
+
           }
         },
-        data: data
+        data
       }]
     });
   }
 
-  function updateTableInfo(id) {
-    var newInfo = getCityInfo(id);
-    setCityInfo(newInfo);
+  function formatItemsToHighCharts(items) {
+    return Object.keys(items).map(item => ({
+      x: Number(items[item].x),
+      y: Number(items[item].y),
+      id: Number(items[item].city.id),
+      city: items[item].city.name,
+      state: items[item].state.uf,
+      state_id: items[item].state.id,
+      region: items[item].region.id,
+      is_big_town: items[item].city.is_big_town,
+      is_capital: items[item].city.is_capital
+    }));
   }
 
-  function getCityInfo(id) {
-    return data.filter(function (item) {
-      return item.city.id === id;
+  async function populateChartData(payload) {
+    try {
+      const chartData = await getChartData(payload);
+      const ptItems = chartData.filter(item => item.subject === 'Português');
+      const matItems = chartData.filter(item => item.subject === 'Matemática');
+      const formatedPtItems = formatItemsToHighCharts(ptItems);
+      const formatedMatItems = formatItemsToHighCharts(matItems);
+
+      if (xAxis === 'racial') {
+        xAxisText = 'Raça';
+      }
+
+      if (xAxis === 'sex') {
+        xAxisText = 'Sexo';
+      }
+
+      if (xAxis === 'nse') {
+        xAxisText = 'NSE';
+      }
+
+      drawPtChart(formatedPtItems);
+      drawMatChart(formatedMatItems);
+    } catch (err) {
+      console.log(err);
+      toggleLoading();
+    }
+  }
+
+  populateChartData();
+  (0, _updateTableInfo2.default)(this.id, xAxis, formatedPtItems);
+}
+
+},{"./updateTableInfo":40,"axios":1,"highcharts":27,"highcharts/modules/exporting":28}],39:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = sizeToggle;
+
+var _highcharts = require("highcharts");
+
+var _highcharts2 = _interopRequireDefault(_highcharts);
+
+var _exporting = require("highcharts/modules/exporting");
+
+var _exporting2 = _interopRequireDefault(_exporting);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _exporting2.default)(_highcharts2.default);
+
+function sizeToggle() {
+  // Expand and shrink pt charts
+  const expandPtChartButton = document.querySelector('.js-expand-pt-chart');
+  const shrinkPtChartButton = document.querySelector('.js-shrink-pt-chart');
+
+  if (expandPtChartButton) {
+    expandPtChartButton.addEventListener('click', () => {
+      const chartDom = document.getElementById('pt-chart');
+
+      const ptChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
+
+      const charts = document.querySelectorAll('.chart');
+      const chartContainer = chartDom.closest('.chart');
+      Array.prototype.forEach.call(charts, chart => {
+        chart.classList.add('hidden');
+      });
+      chartContainer.classList.add('expanded');
+      chartContainer.classList.remove('hidden');
+      chartContainer.addEventListener('transitionend', () => {
+        ptChart.reflow();
+      }, false);
     });
   }
 
+  shrinkPtChartButton.addEventListener('click', () => {
+    const chartDom = document.getElementById('pt-chart');
+
+    const ptChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
+
+    const charts = document.querySelectorAll('.chart');
+    Array.prototype.forEach.call(charts, chart => {
+      chart.classList.remove('hidden');
+    });
+    chartDom.closest('.chart').classList.remove('expanded');
+    ptChart.reflow();
+  }); // Expand and shrink mat charts
+
+  document.querySelector('.js-expand-mat-chart').addEventListener('click', () => {
+    const chartDom = document.getElementById('mat-chart');
+
+    const matChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
+
+    const charts = document.querySelectorAll('.chart');
+    const chartContainer = chartDom.closest('.chart');
+    Array.prototype.forEach.call(charts, chart => {
+      chart.classList.add('hidden');
+    });
+    chartContainer.classList.add('expanded');
+    chartContainer.classList.remove('hidden');
+    chartContainer.addEventListener('transitionend', event => {
+      matChart.reflow();
+    }, false);
+  });
+  document.querySelector('.js-shrink-mat-chart').addEventListener('click', () => {
+    const chartDom = document.getElementById('mat-chart');
+
+    const matChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
+
+    const charts = document.querySelectorAll('.chart');
+    Array.prototype.forEach.call(charts, chart => {
+      chart.classList.remove('hidden');
+    });
+    chartDom.closest('.chart').classList.remove('expanded');
+    matChart.reflow();
+  });
+}
+
+},{"highcharts":27,"highcharts/modules/exporting":28}],40:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = updateTableInfo;
+
+var _highcharts = require("highcharts");
+
+var _highcharts2 = _interopRequireDefault(_highcharts);
+
+var _exporting = require("highcharts/modules/exporting");
+
+var _exporting2 = _interopRequireDefault(_exporting);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _exporting2.default)(_highcharts2.default);
+
+function updateTableInfo(id, xAxis, data) {
   function setCityInfo(info) {
-    var ptTable = document.querySelector('.js-pt-table');
-    var matTable = document.querySelector('.js-mat-table');
-    var ptInfo = info.find(function (item) {
-      return item.subject === 'Português';
-    });
-    var matInfo = info.find(function (item) {
-      return item.subject === 'Matemática';
-    });
+    const ptTable = document.querySelector('.js-pt-table');
+    const matTable = document.querySelector('.js-mat-table');
+    const ptInfo = info.find(item => item.subject === 'Português');
+    const matInfo = info.find(item => item.subject === 'Matemática');
 
     if (ptInfo === undefined || matInfo === undefined) {
       return;
     }
 
-    ptTable.getElementsByTagName('h2')[0].textContent = ptInfo.city.name + " - " + ptInfo.state.uf;
-    matTable.getElementsByTagName('h2')[0].textContent = matInfo.city.name + " - " + matInfo.state.uf;
+    ptTable.getElementsByTagName('h2')[0].textContent = `${ptInfo.city.name} - ${ptInfo.state.uf}`;
+    matTable.getElementsByTagName('h2')[0].textContent = `${matInfo.city.name} - ${matInfo.state.uf}`;
 
     if (xAxis === 'racial') {
       ptTable.querySelector('.js-unprivileged-title').textContent = 'Npretos';
       ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
       ptTable.querySelector('.js-privileged-title').textContent = 'Nbrancos';
       ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
-      document.querySelectorAll('.js-xAxis-text').forEach(function (span) {
-        return span.textContent = 'Raça';
-      });
+      document.querySelectorAll('.js-xAxis-text').forEach(span => span.textContent = 'Raça');
     }
 
     if (xAxis === 'sex') {
@@ -7633,9 +7521,7 @@ function rest() {
       ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
       ptTable.querySelector('.js-privileged-title').textContent = 'Nhomens';
       ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
-      document.querySelectorAll('.js-xAxis-text').forEach(function (span) {
-        return span.textContent = 'Sexo';
-      });
+      document.querySelectorAll('.js-xAxis-text').forEach(span => span.textContent = 'Sexo');
     }
 
     if (xAxis === 'nse') {
@@ -7643,9 +7529,7 @@ function rest() {
       ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
       ptTable.querySelector('.js-privileged-title').textContent = 'nNSE5';
       ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
-      document.querySelectorAll('.js-xAxis-text').forEach(function (span) {
-        return span.textContent = 'NSE';
-      });
+      document.querySelectorAll('.js-xAxis-text').forEach(span => span.textContent = 'NSE');
     }
 
     ptTable.querySelector('.js-total-students').textContent = ptInfo.count_total;
@@ -7681,142 +7565,15 @@ function rest() {
     matTable.querySelector('.js-yAxis').textContent = Number(matInfo.y).toFixed(2);
   }
 
-  function toggleLoading() {
-    var isLoading = false;
-    var ptChartDom = document.getElementById('pt-chart');
-    var matChartDom = document.getElementById('mat-chart');
+  function getCityInfo(cityId) {
+    return data.filter(item => item.city.id === cityId);
+  } // newInfo = getCityInfo(id);
 
-    var ptChart = _highcharts2.default.charts[_highcharts2.default.attr(ptChartDom, 'data-highcharts-chart')];
 
-    var matChart = _highcharts2.default.charts[_highcharts2.default.attr(matChartDom, 'data-highcharts-chart')];
-
-    if (!isLoading) {
-      ptChart.showLoading();
-      matChart.showLoading();
-    } else {
-      ptChart.hideLoading();
-      matChart.hideLoading();
-    }
-
-    isLoading = !isLoading;
-  }
-
-  function getChartData(payload) {
-    if (payload === undefined) {
-      payload = {
-        grade: 5,
-        xAxis: 'racial'
-      };
-    }
-
-    url = "https://dapitide.eokoe.com/api/data?school_grade=" + payload.grade + "&x=" + payload.xAxis;
-    xAxis = payload.xAxis;
-    return axios.get(url).then(function (response) {
-      data = response.data.data;
-      return data;
-    });
-  }
-
-  function getCities() {
-    var url = 'https:\/\/dapitide.eokoe.com/api/cities';
-    return axios.get(url).then(function (response) {
-      data = response.data.cities;
-      return data;
-    });
-  }
+  setCityInfo(getCityInfo(id));
 }
 
-},{"highcharts":27,"highcharts/modules/exporting":28}],39:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = sizeToggle;
-
-var _highcharts = require("highcharts");
-
-var _highcharts2 = _interopRequireDefault(_highcharts);
-
-var _exporting = require("highcharts/modules/exporting");
-
-var _exporting2 = _interopRequireDefault(_exporting);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(0, _exporting2.default)(_highcharts2.default);
-
-function sizeToggle() {
-  // Expand and shrink pt charts
-  var expandPtChartButton = document.querySelector('.js-expand-pt-chart');
-  var shrinkPtChartButton = document.querySelector('.js-shrink-pt-chart');
-
-  if (expandPtChartButton) {
-    expandPtChartButton.addEventListener('click', function () {
-      console.log();
-      var chartDom = document.getElementById('pt-chart');
-
-      var ptChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
-
-      var charts = document.querySelectorAll('.chart');
-      var chartContainer = chartDom.closest('.chart');
-      console.log(_highcharts2.default);
-      console.log('ptChart: ', ptChart);
-      Array.prototype.forEach.call(charts, function (chart) {
-        chart.classList.add('hidden');
-      });
-      chartContainer.classList.add('expanded');
-      chartContainer.classList.remove('hidden');
-      chartContainer.addEventListener('transitionend', function () {
-        ptChart.reflow();
-      }, false);
-    });
-  }
-
-  shrinkPtChartButton.addEventListener('click', function () {
-    var chartDom = document.getElementById('pt-chart');
-
-    var ptChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
-
-    var charts = document.querySelectorAll('.chart');
-    Array.prototype.forEach.call(charts, function (chart) {
-      chart.classList.remove('hidden');
-    });
-    chartDom.closest('.chart').classList.remove('expanded');
-    ptChart.reflow();
-  }); // Expand and shrink mat charts
-
-  document.querySelector('.js-expand-mat-chart').addEventListener('click', function () {
-    var chartDom = document.getElementById('mat-chart');
-
-    var matChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
-
-    var charts = document.querySelectorAll('.chart');
-    var chartContainer = chartDom.closest('.chart');
-    Array.prototype.forEach.call(charts, function (chart) {
-      chart.classList.add('hidden');
-    });
-    chartContainer.classList.add('expanded');
-    chartContainer.classList.remove('hidden');
-    chartContainer.addEventListener('transitionend', function (event) {
-      matChart.reflow();
-    }, false);
-  });
-  document.querySelector('.js-shrink-mat-chart').addEventListener('click', function () {
-    var chartDom = document.getElementById('mat-chart');
-
-    var matChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
-
-    var charts = document.querySelectorAll('.chart');
-    Array.prototype.forEach.call(charts, function (chart) {
-      chart.classList.remove('hidden');
-    });
-    chartDom.closest('.chart').classList.remove('expanded');
-    matChart.reflow();
-  });
-}
-
-},{"highcharts":27,"highcharts/modules/exporting":28}],40:[function(require,module,exports){
+},{"highcharts":27,"highcharts/modules/exporting":28}],41:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7828,7 +7585,7 @@ exports.default = {
   }
 };
 
-},{}],41:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7860,15 +7617,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function initContactForm() {
   // Mask phone number
-  var form = document.querySelector('.js-contato');
-  var loading = false;
-  var message = form.querySelector('#js-response-message');
-  var phone = document.getElementById('phone');
-  var maskOptions = {
+  const form = document.querySelector('.js-contato');
+  let loading = false;
+  const message = form ? form.querySelector('#js-response-message') : '';
+  const phone = document.getElementById('phone');
+  const maskOptions = {
     mask: '+00 (00) 000000000'
   }; // eslint-disable-next-line
 
-  var mask = new _imask2.default(phone, maskOptions);
+  let mask;
+
+  if (phone) {
+    mask = new _imask2.default(phone, maskOptions);
+  }
 
   function clearPhone(dirtyPhone) {
     return dirtyPhone.replace(/[^0-9$+]/g, '');
@@ -7898,7 +7659,7 @@ function initContactForm() {
   function submitForm(event) {
     // const formData = new FormData(event.target);
     toggleLoading();
-    var data = {
+    const data = {
       name: event.target.name.value,
       email: event.target.email.value,
       phone: clearPhone(event.target.phone.value),
@@ -7912,18 +7673,18 @@ function initContactForm() {
       url: 'contact',
       data: _qs2.default.stringify(data),
       baseURL: _config2.default.api.domain
-    }).then(function () {
+    }).then(() => {
       showSuccess();
       clearForm();
       toggleLoading();
-    }).catch(function () {
+    }).catch(() => {
       showError();
       toggleLoading();
     });
   } // eslint-disable-next-line
 
 
-  var validate = new _bouncer2.default('form', {
+  const validate = new _bouncer2.default('form', {
     disableSubmit: true,
     // Error messages by error type
     messages: {
@@ -7954,15 +7715,15 @@ function initContactForm() {
       }
     }
   });
-  document.addEventListener('bouncerFormInvalid', function (event) {
+  document.addEventListener('bouncerFormInvalid', event => {
     window.scrollTo(0, event.detail.errors[0].offsetTop - 30);
   }, false);
-  document.addEventListener('bouncerFormValid', function (event) {
+  document.addEventListener('bouncerFormValid', event => {
     submitForm(event);
   }, false);
 }
 
-},{"../config":40,"axios":1,"bouncer":26,"imask":29,"qs":33}],42:[function(require,module,exports){
+},{"../config":41,"axios":1,"bouncer":26,"imask":29,"qs":33}],43:[function(require,module,exports){
 "use strict";
 
 var _menuToggle = require("./menuToggle");
@@ -7983,7 +7744,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _chart2.default)();
 (0, _contactForm2.default)();
 
-},{"./chart":37,"./contactForm":41,"./menuToggle":43}],43:[function(require,module,exports){
+},{"./chart":37,"./contactForm":42,"./menuToggle":44}],44:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7992,16 +7753,16 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = initMenuToggle;
 
 function initMenuToggle() {
-  var menuButton = document.querySelector('.js-menu-toggle');
-  var menuList = document.querySelector('.js-menu-list');
+  const menuButton = document.querySelector('.js-menu-toggle');
+  const menuList = document.querySelector('.js-menu-list');
 
   function toggleMenu() {
     menuList.classList.toggle('active');
   }
 
-  menuButton.addEventListener('click', function () {
+  menuButton.addEventListener('click', () => {
     toggleMenu();
   });
 }
 
-},{}]},{},[42]);
+},{}]},{},[43]);

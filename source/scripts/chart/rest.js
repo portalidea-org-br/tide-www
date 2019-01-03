@@ -1,10 +1,12 @@
 import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
+import axios from 'axios';
 
 export default function rest() {
   let data;
   let xAxis;
   let xAxisText;
+  let url;
 
   Highcharts.setOptions({
     lang: {
@@ -18,7 +20,6 @@ export default function rest() {
     },
   });
 
-  populateChartData();
   populateCitiesList();
 
   async function populateCitiesList() {

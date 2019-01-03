@@ -8,11 +8,14 @@ export default function initContactForm() {
   // Mask phone number
   const form = document.querySelector('.js-contato');
   let loading = false;
-  const message = form.querySelector('#js-response-message');
+  const message = form ? form.querySelector('#js-response-message') : '';
   const phone = document.getElementById('phone');
   const maskOptions = { mask: '+00 (00) 000000000' };
   // eslint-disable-next-line
-  const mask = new IMask(phone, maskOptions);
+  let mask;
+  if (phone) {
+    mask = new IMask(phone, maskOptions);
+  }
 
   function clearPhone(dirtyPhone) {
     return dirtyPhone.replace(/[^0-9$+]/g, '');
