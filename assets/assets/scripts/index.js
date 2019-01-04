@@ -7059,6 +7059,49 @@ module.exports = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = downloadCharts;
+
+var _highcharts = require("highcharts");
+
+var _highcharts2 = _interopRequireDefault(_highcharts);
+
+var _exporting = require("highcharts/modules/exporting");
+
+var _exporting2 = _interopRequireDefault(_exporting);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _exporting2.default)(_highcharts2.default);
+
+function downloadCharts() {
+  document.querySelector('.js-download-pt-chart').addEventListener('click', () => {
+    const chartDom = document.getElementById('pt-chart');
+
+    const ptChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
+
+    ptChart.exportChart({
+      type: 'application/pdf',
+      filename: 'Português'
+    });
+  });
+  document.querySelector('.js-download-mat-chart').addEventListener('click', () => {
+    const chartDom = document.getElementById('mat-chart');
+
+    const matChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
+
+    matChart.exportChart({
+      type: 'application/pdf',
+      filename: 'Matemática'
+    });
+  });
+}
+
+},{"highcharts":27,"highcharts/modules/exporting":28}],38:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.default = startChartFunctionalities;
 
 var _sizeToggle = require("./sizeToggle");
@@ -7069,19 +7112,21 @@ var _plotCharts = require("./plotCharts");
 
 var _plotCharts2 = _interopRequireDefault(_plotCharts);
 
-var _updateTableInfo = require("./updateTableInfo");
+var _downloadCharts = require("./downloadCharts");
 
-var _updateTableInfo2 = _interopRequireDefault(_updateTableInfo);
+var _downloadCharts2 = _interopRequireDefault(_downloadCharts);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import updateTableInfo from './updateTableInfo';
 // import rest from './rest';
 function startChartFunctionalities() {
   (0, _plotCharts2.default)();
+  (0, _downloadCharts2.default)();
   (0, _sizeToggle2.default)(); // rest();
 }
 
-},{"./plotCharts":38,"./sizeToggle":39,"./updateTableInfo":40}],38:[function(require,module,exports){
+},{"./downloadCharts":37,"./plotCharts":39,"./sizeToggle":40}],39:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7143,7 +7188,6 @@ function plotCharts() {
     url = `https://dapitide.eokoe.com/api/data?school_grade=${payload.grade}&x=${payload.xAxis}`;
     const newXAxis = payload.xAxis;
     xAxis = newXAxis;
-    console.log(xAxis);
     return _axios2.default.get(url).then(response => response.data.data);
   }
 
@@ -7375,7 +7419,6 @@ function plotCharts() {
         xAxisText = 'NSE';
       }
 
-      console.log('before drawptchart', xAxis);
       drawPtChart(formatedPtItems);
       drawMatChart(formatedMatItems);
     } catch (err) {
@@ -7387,7 +7430,7 @@ function plotCharts() {
   populateChartData(); // updateTableInfo(this.id, xAxis, formatedPtItems);
 }
 
-},{"./updateTableInfo":40,"axios":1,"highcharts":27,"highcharts/modules/exporting":28}],39:[function(require,module,exports){
+},{"./updateTableInfo":41,"axios":1,"highcharts":27,"highcharts/modules/exporting":28}],40:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7474,7 +7517,7 @@ function sizeToggle() {
   });
 }
 
-},{"highcharts":27,"highcharts/modules/exporting":28}],40:[function(require,module,exports){
+},{"highcharts":27,"highcharts/modules/exporting":28}],41:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7582,7 +7625,7 @@ function updateTableInfo(id, xAxis, data) {
   setCityInfo(newInfo);
 }
 
-},{"highcharts":27,"highcharts/modules/exporting":28}],41:[function(require,module,exports){
+},{"highcharts":27,"highcharts/modules/exporting":28}],42:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7594,7 +7637,7 @@ exports.default = {
   }
 };
 
-},{}],42:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7732,7 +7775,7 @@ function initContactForm() {
   }, false);
 }
 
-},{"../config":41,"axios":1,"bouncer":26,"imask":29,"qs":33}],43:[function(require,module,exports){
+},{"../config":42,"axios":1,"bouncer":26,"imask":29,"qs":33}],44:[function(require,module,exports){
 "use strict";
 
 var _menuToggle = require("./menuToggle");
@@ -7753,7 +7796,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _chart2.default)();
 (0, _contactForm2.default)();
 
-},{"./chart":37,"./contactForm":42,"./menuToggle":44}],44:[function(require,module,exports){
+},{"./chart":38,"./contactForm":43,"./menuToggle":45}],45:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7774,4 +7817,4 @@ function initMenuToggle() {
   });
 }
 
-},{}]},{},[43]);
+},{}]},{},[44]);
