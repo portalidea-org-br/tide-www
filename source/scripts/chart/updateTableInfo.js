@@ -25,7 +25,10 @@ export default function updateTableInfo(id, xAxis, data) {
       ptTable.querySelector('.js-privileged-title').textContent = 'Nbrancos';
       ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
 
-      document.querySelectorAll('.js-xAxis-text').forEach(span => span.textContent = 'Raça');
+      document.querySelectorAll('.js-xAxis-text').forEach((span) => {
+        const domSpan = span;
+        domSpan.textContent = 'Raça';
+      });
     }
 
     if (xAxis === 'sex') {
@@ -35,7 +38,10 @@ export default function updateTableInfo(id, xAxis, data) {
       ptTable.querySelector('.js-privileged-title').textContent = 'Nhomens';
       ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
 
-      document.querySelectorAll('.js-xAxis-text').forEach(span => span.textContent = 'Sexo');
+      document.querySelectorAll('.js-xAxis-text').forEach((span) => {
+        const domSpan = span;
+        domSpan.textContent = 'Sexo';
+      });
     }
 
     if (xAxis === 'nse') {
@@ -45,7 +51,10 @@ export default function updateTableInfo(id, xAxis, data) {
       ptTable.querySelector('.js-privileged-title').textContent = 'nNSE5';
       ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
 
-      document.querySelectorAll('.js-xAxis-text').forEach(span => span.textContent = 'NSE');
+      document.querySelectorAll('.js-xAxis-text').forEach((span) => {
+        const domSpan = span;
+        domSpan.textContent = 'NSE';
+      });
     }
 
     ptTable.querySelector('.js-total-students').textContent = ptInfo.count_total;
@@ -93,6 +102,6 @@ export default function updateTableInfo(id, xAxis, data) {
     return data.filter(item => item.city.id === cityId);
   }
 
-  // newInfo = getCityInfo(id);
-  setCityInfo(getCityInfo(id));
+  const newInfo = getCityInfo(id);
+  setCityInfo(newInfo);
 }

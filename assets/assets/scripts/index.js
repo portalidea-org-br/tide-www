@@ -7078,8 +7078,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // import rest from './rest';
 function startChartFunctionalities() {
   (0, _plotCharts2.default)();
-  (0, _sizeToggle2.default)();
-  (0, _updateTableInfo2.default)(); // rest();
+  (0, _sizeToggle2.default)(); // rest();
 }
 
 },{"./plotCharts":38,"./sizeToggle":39,"./updateTableInfo":40}],38:[function(require,module,exports){
@@ -7142,9 +7141,9 @@ function plotCharts() {
     }
 
     url = `https://dapitide.eokoe.com/api/data?school_grade=${payload.grade}&x=${payload.xAxis}`;
-    ({
-      xAxis
-    } = payload.xAxis);
+    const newXAxis = payload.xAxis;
+    xAxis = newXAxis;
+    console.log(xAxis);
     return _axios2.default.get(url).then(response => response.data.data);
   }
 
@@ -7168,7 +7167,7 @@ function plotCharts() {
     isLoading = !isLoading;
   }
 
-  function drawPtChart(data) {
+  function drawPtChart(chartData) {
     return _highcharts2.default.chart('pt-chart', {
       chart: {
         type: 'scatter',
@@ -7251,12 +7250,12 @@ function plotCharts() {
 
           }
         },
-        data
+        data: chartData
       }]
     });
   }
 
-  function drawMatChart(data) {
+  function drawMatChart(chartData) {
     _highcharts2.default.chart('mat-chart', {
       chart: {
         type: 'scatter',
@@ -7329,14 +7328,14 @@ function plotCharts() {
         point: {
           events: {
             click() {
-              clearFilters();
-              highlightPoint(this.id);
-              (0, _updateTableInfo2.default)(this.id);
+              // clearFilters();
+              // highlightPoint(this.id);
+              (0, _updateTableInfo2.default)(this.id, xAxis, data);
             }
 
           }
         },
-        data
+        data: chartData
       }]
     });
   }
@@ -7358,6 +7357,7 @@ function plotCharts() {
   async function populateChartData(payload) {
     try {
       const chartData = await getChartData(payload);
+      data = chartData;
       const ptItems = chartData.filter(item => item.subject === 'Português');
       const matItems = chartData.filter(item => item.subject === 'Matemática');
       const formatedPtItems = formatItemsToHighCharts(ptItems);
@@ -7375,6 +7375,7 @@ function plotCharts() {
         xAxisText = 'NSE';
       }
 
+      console.log('before drawptchart', xAxis);
       drawPtChart(formatedPtItems);
       drawMatChart(formatedMatItems);
     } catch (err) {
@@ -7383,8 +7384,7 @@ function plotCharts() {
     }
   }
 
-  populateChartData();
-  (0, _updateTableInfo2.default)(this.id, xAxis, formatedPtItems);
+  populateChartData(); // updateTableInfo(this.id, xAxis, formatedPtItems);
 }
 
 },{"./updateTableInfo":40,"axios":1,"highcharts":27,"highcharts/modules/exporting":28}],39:[function(require,module,exports){
@@ -7513,7 +7513,10 @@ function updateTableInfo(id, xAxis, data) {
       ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
       ptTable.querySelector('.js-privileged-title').textContent = 'Nbrancos';
       ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
-      document.querySelectorAll('.js-xAxis-text').forEach(span => span.textContent = 'Raça');
+      document.querySelectorAll('.js-xAxis-text').forEach(span => {
+        const domSpan = span;
+        domSpan.textContent = 'Raça';
+      });
     }
 
     if (xAxis === 'sex') {
@@ -7521,7 +7524,10 @@ function updateTableInfo(id, xAxis, data) {
       ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
       ptTable.querySelector('.js-privileged-title').textContent = 'Nhomens';
       ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
-      document.querySelectorAll('.js-xAxis-text').forEach(span => span.textContent = 'Sexo');
+      document.querySelectorAll('.js-xAxis-text').forEach(span => {
+        const domSpan = span;
+        domSpan.textContent = 'Sexo';
+      });
     }
 
     if (xAxis === 'nse') {
@@ -7529,7 +7535,10 @@ function updateTableInfo(id, xAxis, data) {
       ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
       ptTable.querySelector('.js-privileged-title').textContent = 'nNSE5';
       ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
-      document.querySelectorAll('.js-xAxis-text').forEach(span => span.textContent = 'NSE');
+      document.querySelectorAll('.js-xAxis-text').forEach(span => {
+        const domSpan = span;
+        domSpan.textContent = 'NSE';
+      });
     }
 
     ptTable.querySelector('.js-total-students').textContent = ptInfo.count_total;
@@ -7567,10 +7576,10 @@ function updateTableInfo(id, xAxis, data) {
 
   function getCityInfo(cityId) {
     return data.filter(item => item.city.id === cityId);
-  } // newInfo = getCityInfo(id);
+  }
 
-
-  setCityInfo(getCityInfo(id));
+  const newInfo = getCityInfo(id);
+  setCityInfo(newInfo);
 }
 
 },{"highcharts":27,"highcharts/modules/exporting":28}],41:[function(require,module,exports){

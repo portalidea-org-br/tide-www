@@ -6,6 +6,5 @@ import updateTableInfo from './updateTableInfo';
 export default function startChartFunctionalities() {
   plotCharts();
   sizeToggle();
-  updateTableInfo();
   // rest();
 }

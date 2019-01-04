@@ -36,7 +36,11 @@ export default function plotCharts() {
     }
 
     url = `https://dapitide.eokoe.com/api/data?school_grade=${payload.grade}&x=${payload.xAxis}`;
-    ({ xAxis } = payload.xAxis);
+
+    const newXAxis = payload.xAxis;
+    xAxis = newXAxis;
+
+    console.log(xAxis);
 
     return axios.get(url)
       .then(response => response.data.data);
@@ -59,7 +63,7 @@ export default function plotCharts() {
     isLoading = !isLoading;
   }
 
-  function drawPtChart(data) {
+  function drawPtChart(chartData) {
     return Highcharts.chart('pt-chart', {
       chart: {
         type: 'scatter',
@@ -137,12 +141,12 @@ export default function plotCharts() {
             },
           },
         },
-        data,
+        data: chartData,
       }],
     });
   }
 
-  function drawMatChart(data) {
+  function drawMatChart(chartData) {
     Highcharts.chart('mat-chart', {
       chart: {
         type: 'scatter',
@@ -211,13 +215,13 @@ export default function plotCharts() {
         point: {
           events: {
             click() {
-              clearFilters();
-              highlightPoint(this.id);
-              updateTableInfo(this.id);
+              // clearFilters();
+              // highlightPoint(this.id);
+              updateTableInfo(this.id, xAxis, data);
             },
           },
         },
-        data,
+        data: chartData,
       }],
     });
   }
@@ -239,6 +243,9 @@ export default function plotCharts() {
   async function populateChartData(payload) {
     try {
       const chartData = await getChartData(payload);
+
+      data = chartData;
+
       const ptItems = chartData.filter(item => item.subject === 'Português');
       const matItems = chartData.filter(item => item.subject === 'Matemática');
 
@@ -257,6 +264,8 @@ export default function plotCharts() {
         xAxisText = 'NSE';
       }
 
+      console.log('before drawptchart', xAxis);
+
       drawPtChart(formatedPtItems);
       drawMatChart(formatedMatItems);
     } catch (err) {
@@ -266,5 +275,5 @@ export default function plotCharts() {
   }
 
   populateChartData();
-  updateTableInfo(this.id, xAxis, formatedPtItems);
+  // updateTableInfo(this.id, xAxis, formatedPtItems);
 }
