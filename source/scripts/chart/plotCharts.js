@@ -40,8 +40,6 @@ export default function plotCharts() {
     const newXAxis = payload.xAxis;
     xAxis = newXAxis;
 
-    console.log(xAxis);
-
     return axios.get(url)
       .then(response => response.data.data);
   }
@@ -263,8 +261,6 @@ export default function plotCharts() {
       if (xAxis === 'nse') {
         xAxisText = 'NSE';
       }
-
-      console.log('before drawptchart', xAxis);
 
       drawPtChart(formatedPtItems);
       drawMatChart(formatedMatItems);
