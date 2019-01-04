@@ -37,14 +37,15 @@ export default function initContactForm() {
     form.reset();
   }
 
-  function toggleLoading() {
+  function toggleFormLoading() {
+    console.log('hello from contact form');
     form.setAttribute('aria-busy', !(form.getAttribute('aria-busy') === 'true'));
     loading = !loading;
   }
 
   function submitForm(event) {
     // const formData = new FormData(event.target);
-    toggleLoading();
+    toggleFormLoading();
 
     const data = {
       name: event.target.name.value,
@@ -63,7 +64,7 @@ export default function initContactForm() {
       .then(() => {
         showSuccess();
         clearForm();
-        toggleLoading();
+        toggleFormLoading();
       })
       .catch(() => {
         showError();

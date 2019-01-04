@@ -1,6 +1,554 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+/**
+ * Simple, lightweight, usable local autocomplete library for modern browsers
+ * Because there weren’t enough autocomplete scripts in the world? Because I’m completely insane and have NIH syndrome? Probably both. :P
+ * @author Lea Verou http://leaverou.github.io/awesomplete
+ * MIT license
+ */
+
+(function () {
+
+var _ = function (input, o) {
+	var me = this;
+
+    // Keep track of number of instances for unique IDs
+    _.count = (_.count || 0) + 1;
+    this.count = _.count;
+
+	// Setup
+
+	this.isOpened = false;
+
+	this.input = $(input);
+	this.input.setAttribute("autocomplete", "awesomplete");
+	this.input.setAttribute("aria-owns", "awesomplete_list_" + this.count);
+	this.input.setAttribute("role", "combobox");
+
+	// store constructor options in case we need to distinguish
+	// between default and customized behavior later on
+	this.options = o = o || {};
+
+	configure(this, {
+		minChars: 2,
+		maxItems: 10,
+		autoFirst: false,
+		data: _.DATA,
+		filter: _.FILTER_CONTAINS,
+		sort: o.sort === false ? false : _.SORT_BYLENGTH,
+		container: _.CONTAINER,
+		item: _.ITEM,
+		replace: _.REPLACE,
+		tabSelect: false
+	}, o);
+
+	this.index = -1;
+
+	// Create necessary elements
+
+	this.container = this.container(input);
+
+	this.ul = $.create("ul", {
+		hidden: "hidden",
+        role: "listbox",
+        id: "awesomplete_list_" + this.count,
+		inside: this.container
+	});
+
+	this.status = $.create("span", {
+		className: "visually-hidden",
+		role: "status",
+		"aria-live": "assertive",
+        "aria-atomic": true,
+        inside: this.container,
+        textContent: this.minChars != 0 ? ("Type " + this.minChars + " or more characters for results.") : "Begin typing for results."
+	});
+
+	// Bind events
+
+	this._events = {
+		input: {
+			"input": this.evaluate.bind(this),
+			"blur": this.close.bind(this, { reason: "blur" }),
+			"keydown": function(evt) {
+				var c = evt.keyCode;
+
+				// If the dropdown `ul` is in view, then act on keydown for the following keys:
+				// Enter / Esc / Up / Down
+				if(me.opened) {
+					if (c === 13 && me.selected) { // Enter
+						evt.preventDefault();
+						me.select();
+					}
+					else if (c === 9 && me.selected && me.tabSelect) {
+						me.select();
+					}
+					else if (c === 27) { // Esc
+						me.close({ reason: "esc" });
+					}
+					else if (c === 38 || c === 40) { // Down/Up arrow
+						evt.preventDefault();
+						me[c === 38? "previous" : "next"]();
+					}
+				}
+			}
+		},
+		form: {
+			"submit": this.close.bind(this, { reason: "submit" })
+		},
+		ul: {
+			// Prevent the default mousedowm, which ensures the input is not blurred.
+			// The actual selection will happen on click. This also ensures dragging the
+			// cursor away from the list item will cancel the selection
+			"mousedown": function(evt) {
+				evt.preventDefault();
+			},
+			// The click event is fired even if the corresponding mousedown event has called preventDefault
+			"click": function(evt) {
+				var li = evt.target;
+
+				if (li !== this) {
+
+					while (li && !/li/i.test(li.nodeName)) {
+						li = li.parentNode;
+					}
+
+					if (li && evt.button === 0) {  // Only select on left click
+						evt.preventDefault();
+						me.select(li, evt.target);
+					}
+				}
+			}
+		}
+	};
+
+	$.bind(this.input, this._events.input);
+	$.bind(this.input.form, this._events.form);
+	$.bind(this.ul, this._events.ul);
+
+	if (this.input.hasAttribute("list")) {
+		this.list = "#" + this.input.getAttribute("list");
+		this.input.removeAttribute("list");
+	}
+	else {
+		this.list = this.input.getAttribute("data-list") || o.list || [];
+	}
+
+	_.all.push(this);
+};
+
+_.prototype = {
+	set list(list) {
+		if (Array.isArray(list)) {
+			this._list = list;
+		}
+		else if (typeof list === "string" && list.indexOf(",") > -1) {
+				this._list = list.split(/\s*,\s*/);
+		}
+		else { // Element or CSS selector
+			list = $(list);
+
+			if (list && list.children) {
+				var items = [];
+				slice.apply(list.children).forEach(function (el) {
+					if (!el.disabled) {
+						var text = el.textContent.trim();
+						var value = el.value || text;
+						var label = el.label || text;
+						if (value !== "") {
+							items.push({ label: label, value: value });
+						}
+					}
+				});
+				this._list = items;
+			}
+		}
+
+		if (document.activeElement === this.input) {
+			this.evaluate();
+		}
+	},
+
+	get selected() {
+		return this.index > -1;
+	},
+
+	get opened() {
+		return this.isOpened;
+	},
+
+	close: function (o) {
+		if (!this.opened) {
+			return;
+		}
+
+		this.ul.setAttribute("hidden", "");
+		this.isOpened = false;
+		this.index = -1;
+
+		this.status.setAttribute("hidden", "");
+
+		$.fire(this.input, "awesomplete-close", o || {});
+	},
+
+	open: function () {
+		this.ul.removeAttribute("hidden");
+		this.isOpened = true;
+
+		this.status.removeAttribute("hidden");
+
+		if (this.autoFirst && this.index === -1) {
+			this.goto(0);
+		}
+
+		$.fire(this.input, "awesomplete-open");
+	},
+
+	destroy: function() {
+		//remove events from the input and its form
+		$.unbind(this.input, this._events.input);
+		$.unbind(this.input.form, this._events.form);
+
+		// cleanup container if it was created by Awesomplete but leave it alone otherwise
+		if (!this.options.container) {
+			//move the input out of the awesomplete container and remove the container and its children
+			var parentNode = this.container.parentNode;
+
+			parentNode.insertBefore(this.input, this.container);
+			parentNode.removeChild(this.container);
+		}
+
+		//remove autocomplete and aria-autocomplete attributes
+		this.input.removeAttribute("autocomplete");
+		this.input.removeAttribute("aria-autocomplete");
+
+		//remove this awesomeplete instance from the global array of instances
+		var indexOfAwesomplete = _.all.indexOf(this);
+
+		if (indexOfAwesomplete !== -1) {
+			_.all.splice(indexOfAwesomplete, 1);
+		}
+	},
+
+	next: function () {
+		var count = this.ul.children.length;
+		this.goto(this.index < count - 1 ? this.index + 1 : (count ? 0 : -1) );
+	},
+
+	previous: function () {
+		var count = this.ul.children.length;
+		var pos = this.index - 1;
+
+		this.goto(this.selected && pos !== -1 ? pos : count - 1);
+	},
+
+	// Should not be used, highlights specific item without any checks!
+	goto: function (i) {
+		var lis = this.ul.children;
+
+		if (this.selected) {
+			lis[this.index].setAttribute("aria-selected", "false");
+		}
+
+		this.index = i;
+
+		if (i > -1 && lis.length > 0) {
+			lis[i].setAttribute("aria-selected", "true");
+
+			this.status.textContent = lis[i].textContent + ", list item " + (i + 1) + " of " + lis.length;
+
+            this.input.setAttribute("aria-activedescendant", this.ul.id + "_item_" + this.index);
+
+			// scroll to highlighted element in case parent's height is fixed
+			this.ul.scrollTop = lis[i].offsetTop - this.ul.clientHeight + lis[i].clientHeight;
+
+			$.fire(this.input, "awesomplete-highlight", {
+				text: this.suggestions[this.index]
+			});
+		}
+	},
+
+	select: function (selected, origin) {
+		if (selected) {
+			this.index = $.siblingIndex(selected);
+		} else {
+			selected = this.ul.children[this.index];
+		}
+
+		if (selected) {
+			var suggestion = this.suggestions[this.index];
+
+			var allowed = $.fire(this.input, "awesomplete-select", {
+				text: suggestion,
+				origin: origin || selected
+			});
+
+			if (allowed) {
+				this.replace(suggestion);
+				this.close({ reason: "select" });
+				$.fire(this.input, "awesomplete-selectcomplete", {
+					text: suggestion
+				});
+			}
+		}
+	},
+
+	evaluate: function() {
+		var me = this;
+		var value = this.input.value;
+
+		if (value.length >= this.minChars && this._list && this._list.length > 0) {
+			this.index = -1;
+			// Populate list with options that match
+			this.ul.innerHTML = "";
+
+			this.suggestions = this._list
+				.map(function(item) {
+					return new Suggestion(me.data(item, value));
+				})
+				.filter(function(item) {
+					return me.filter(item, value);
+				});
+
+			if (this.sort !== false) {
+				this.suggestions = this.suggestions.sort(this.sort);
+			}
+
+			this.suggestions = this.suggestions.slice(0, this.maxItems);
+
+			this.suggestions.forEach(function(text, index) {
+					me.ul.appendChild(me.item(text, value, index));
+				});
+
+			if (this.ul.children.length === 0) {
+
+                this.status.textContent = "No results found";
+
+				this.close({ reason: "nomatches" });
+
+			} else {
+				this.open();
+
+                this.status.textContent = this.ul.children.length + " results found";
+			}
+		}
+		else {
+			this.close({ reason: "nomatches" });
+
+                this.status.textContent = "No results found";
+		}
+	}
+};
+
+// Static methods/properties
+
+_.all = [];
+
+_.FILTER_CONTAINS = function (text, input) {
+	return RegExp($.regExpEscape(input.trim()), "i").test(text);
+};
+
+_.FILTER_STARTSWITH = function (text, input) {
+	return RegExp("^" + $.regExpEscape(input.trim()), "i").test(text);
+};
+
+_.SORT_BYLENGTH = function (a, b) {
+	if (a.length !== b.length) {
+		return a.length - b.length;
+	}
+
+	return a < b? -1 : 1;
+};
+
+_.CONTAINER = function (input) {
+	return $.create("div", {
+		className: "awesomplete",
+		around: input
+	});
+}
+
+_.ITEM = function (text, input, item_id) {
+	var html = input.trim() === "" ? text : text.replace(RegExp($.regExpEscape(input.trim()), "gi"), "<mark>$&</mark>");
+	return $.create("li", {
+		innerHTML: html,
+		"aria-selected": "false",
+        "id": "awesomplete_list_" + this.count + "_item_" + item_id
+	});
+};
+
+_.REPLACE = function (text) {
+	this.input.value = text.value;
+};
+
+_.DATA = function (item/*, input*/) { return item; };
+
+// Private functions
+
+function Suggestion(data) {
+	var o = Array.isArray(data)
+	  ? { label: data[0], value: data[1] }
+	  : typeof data === "object" && "label" in data && "value" in data ? data : { label: data, value: data };
+
+	this.label = o.label || o.value;
+	this.value = o.value;
+}
+Object.defineProperty(Suggestion.prototype = Object.create(String.prototype), "length", {
+	get: function() { return this.label.length; }
+});
+Suggestion.prototype.toString = Suggestion.prototype.valueOf = function () {
+	return "" + this.label;
+};
+
+function configure(instance, properties, o) {
+	for (var i in properties) {
+		var initial = properties[i],
+		    attrValue = instance.input.getAttribute("data-" + i.toLowerCase());
+
+		if (typeof initial === "number") {
+			instance[i] = parseInt(attrValue);
+		}
+		else if (initial === false) { // Boolean options must be false by default anyway
+			instance[i] = attrValue !== null;
+		}
+		else if (initial instanceof Function) {
+			instance[i] = null;
+		}
+		else {
+			instance[i] = attrValue;
+		}
+
+		if (!instance[i] && instance[i] !== 0) {
+			instance[i] = (i in o)? o[i] : initial;
+		}
+	}
+}
+
+// Helpers
+
+var slice = Array.prototype.slice;
+
+function $(expr, con) {
+	return typeof expr === "string"? (con || document).querySelector(expr) : expr || null;
+}
+
+function $$(expr, con) {
+	return slice.call((con || document).querySelectorAll(expr));
+}
+
+$.create = function(tag, o) {
+	var element = document.createElement(tag);
+
+	for (var i in o) {
+		var val = o[i];
+
+		if (i === "inside") {
+			$(val).appendChild(element);
+		}
+		else if (i === "around") {
+			var ref = $(val);
+			ref.parentNode.insertBefore(element, ref);
+			element.appendChild(ref);
+
+			if (ref.getAttribute("autofocus") != null) {
+				ref.focus();
+			}
+		}
+		else if (i in element) {
+			element[i] = val;
+		}
+		else {
+			element.setAttribute(i, val);
+		}
+	}
+
+	return element;
+};
+
+$.bind = function(element, o) {
+	if (element) {
+		for (var event in o) {
+			var callback = o[event];
+
+			event.split(/\s+/).forEach(function (event) {
+				element.addEventListener(event, callback);
+			});
+		}
+	}
+};
+
+$.unbind = function(element, o) {
+	if (element) {
+		for (var event in o) {
+			var callback = o[event];
+
+			event.split(/\s+/).forEach(function(event) {
+				element.removeEventListener(event, callback);
+			});
+		}
+	}
+};
+
+$.fire = function(target, type, properties) {
+	var evt = document.createEvent("HTMLEvents");
+
+	evt.initEvent(type, true, true );
+
+	for (var j in properties) {
+		evt[j] = properties[j];
+	}
+
+	return target.dispatchEvent(evt);
+};
+
+$.regExpEscape = function (s) {
+	return s.replace(/[-\\^$*+?.()|[\]{}]/g, "\\$&");
+};
+
+$.siblingIndex = function (el) {
+	/* eslint-disable no-cond-assign */
+	for (var i = 0; el = el.previousElementSibling; i++);
+	return i;
+};
+
+// Initialization
+
+function init() {
+	$$("input.awesomplete").forEach(function (input) {
+		new _(input);
+	});
+}
+
+// Make sure to export Awesomplete on self when in a browser
+if (typeof self !== "undefined") {
+	self.Awesomplete = _;
+}
+
+// Are we in a browser? Check for Document constructor
+if (typeof Document !== "undefined") {
+	// DOM already loaded?
+	if (document.readyState !== "loading") {
+		init();
+	}
+	else {
+		// Wait for it
+		document.addEventListener("DOMContentLoaded", init);
+	}
+}
+
+_.$ = $;
+_.$$ = $$;
+
+// Expose Awesomplete as a CJS module
+if (typeof module === "object" && module.exports) {
+	module.exports = _;
+}
+
+return _;
+
+}());
+
+},{}],2:[function(require,module,exports){
 module.exports = require('./lib/axios');
-},{"./lib/axios":3}],2:[function(require,module,exports){
+},{"./lib/axios":4}],3:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -184,7 +732,7 @@ module.exports = function xhrAdapter(config) {
 };
 
 }).call(this,require('_process'))
-},{"../core/createError":9,"./../core/settle":12,"./../helpers/btoa":16,"./../helpers/buildURL":17,"./../helpers/cookies":19,"./../helpers/isURLSameOrigin":21,"./../helpers/parseHeaders":23,"./../utils":25,"_process":31}],3:[function(require,module,exports){
+},{"../core/createError":10,"./../core/settle":13,"./../helpers/btoa":17,"./../helpers/buildURL":18,"./../helpers/cookies":20,"./../helpers/isURLSameOrigin":22,"./../helpers/parseHeaders":24,"./../utils":26,"_process":32}],4:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -238,7 +786,7 @@ module.exports = axios;
 // Allow use of default import syntax in TypeScript
 module.exports.default = axios;
 
-},{"./cancel/Cancel":4,"./cancel/CancelToken":5,"./cancel/isCancel":6,"./core/Axios":7,"./defaults":14,"./helpers/bind":15,"./helpers/spread":24,"./utils":25}],4:[function(require,module,exports){
+},{"./cancel/Cancel":5,"./cancel/CancelToken":6,"./cancel/isCancel":7,"./core/Axios":8,"./defaults":15,"./helpers/bind":16,"./helpers/spread":25,"./utils":26}],5:[function(require,module,exports){
 'use strict';
 
 /**
@@ -259,7 +807,7 @@ Cancel.prototype.__CANCEL__ = true;
 
 module.exports = Cancel;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 'use strict';
 
 var Cancel = require('./Cancel');
@@ -318,14 +866,14 @@ CancelToken.source = function source() {
 
 module.exports = CancelToken;
 
-},{"./Cancel":4}],6:[function(require,module,exports){
+},{"./Cancel":5}],7:[function(require,module,exports){
 'use strict';
 
 module.exports = function isCancel(value) {
   return !!(value && value.__CANCEL__);
 };
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 var defaults = require('./../defaults');
@@ -406,7 +954,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = Axios;
 
-},{"./../defaults":14,"./../utils":25,"./InterceptorManager":8,"./dispatchRequest":10}],8:[function(require,module,exports){
+},{"./../defaults":15,"./../utils":26,"./InterceptorManager":9,"./dispatchRequest":11}],9:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -460,7 +1008,7 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 
 module.exports = InterceptorManager;
 
-},{"./../utils":25}],9:[function(require,module,exports){
+},{"./../utils":26}],10:[function(require,module,exports){
 'use strict';
 
 var enhanceError = require('./enhanceError');
@@ -480,7 +1028,7 @@ module.exports = function createError(message, config, code, request, response) 
   return enhanceError(error, config, code, request, response);
 };
 
-},{"./enhanceError":11}],10:[function(require,module,exports){
+},{"./enhanceError":12}],11:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -568,7 +1116,7 @@ module.exports = function dispatchRequest(config) {
   });
 };
 
-},{"../cancel/isCancel":6,"../defaults":14,"./../helpers/combineURLs":18,"./../helpers/isAbsoluteURL":20,"./../utils":25,"./transformData":13}],11:[function(require,module,exports){
+},{"../cancel/isCancel":7,"../defaults":15,"./../helpers/combineURLs":19,"./../helpers/isAbsoluteURL":21,"./../utils":26,"./transformData":14}],12:[function(require,module,exports){
 'use strict';
 
 /**
@@ -591,7 +1139,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
   return error;
 };
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
 var createError = require('./createError');
@@ -619,7 +1167,7 @@ module.exports = function settle(resolve, reject, response) {
   }
 };
 
-},{"./createError":9}],13:[function(require,module,exports){
+},{"./createError":10}],14:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -641,7 +1189,7 @@ module.exports = function transformData(data, headers, fns) {
   return data;
 };
 
-},{"./../utils":25}],14:[function(require,module,exports){
+},{"./../utils":26}],15:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -741,7 +1289,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 }).call(this,require('_process'))
-},{"./adapters/http":2,"./adapters/xhr":2,"./helpers/normalizeHeaderName":22,"./utils":25,"_process":31}],15:[function(require,module,exports){
+},{"./adapters/http":3,"./adapters/xhr":3,"./helpers/normalizeHeaderName":23,"./utils":26,"_process":32}],16:[function(require,module,exports){
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -754,7 +1302,7 @@ module.exports = function bind(fn, thisArg) {
   };
 };
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 // btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
@@ -792,7 +1340,7 @@ function btoa(input) {
 
 module.exports = btoa;
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -860,7 +1408,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
   return url;
 };
 
-},{"./../utils":25}],18:[function(require,module,exports){
+},{"./../utils":26}],19:[function(require,module,exports){
 'use strict';
 
 /**
@@ -876,7 +1424,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
     : baseURL;
 };
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -931,7 +1479,7 @@ module.exports = (
   })()
 );
 
-},{"./../utils":25}],20:[function(require,module,exports){
+},{"./../utils":26}],21:[function(require,module,exports){
 'use strict';
 
 /**
@@ -947,7 +1495,7 @@ module.exports = function isAbsoluteURL(url) {
   return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
 };
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -1017,7 +1565,7 @@ module.exports = (
   })()
 );
 
-},{"./../utils":25}],22:[function(require,module,exports){
+},{"./../utils":26}],23:[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -1031,7 +1579,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
   });
 };
 
-},{"../utils":25}],23:[function(require,module,exports){
+},{"../utils":26}],24:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -1086,7 +1634,7 @@ module.exports = function parseHeaders(headers) {
   return parsed;
 };
 
-},{"./../utils":25}],24:[function(require,module,exports){
+},{"./../utils":26}],25:[function(require,module,exports){
 'use strict';
 
 /**
@@ -1115,7 +1663,7 @@ module.exports = function spread(callback) {
   };
 };
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 var bind = require('./helpers/bind');
@@ -1420,12 +1968,12 @@ module.exports = {
   trim: trim
 };
 
-},{"./helpers/bind":15,"is-buffer":30}],26:[function(require,module,exports){
+},{"./helpers/bind":16,"is-buffer":31}],27:[function(require,module,exports){
 (function (global){
 /*! bouncer v1.4.2 | (c) 2018 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/bouncer */
 "document"in self&&("classList"in document.createElement("_")&&(!document.createElementNS||"classList"in document.createElementNS("http://www.w3.org/2000/svg","g"))||(function(e){"use strict";if("Element"in e){var t="classList",r="prototype",n=e.Element[r],a=Object,i=String[r].trim||function(){return this.replace(/^\s+|\s+$/g,"")},o=Array[r].indexOf||function(e){for(var t=0,r=this.length;t<r;t++)if(t in this&&this[t]===e)return t;return-1},l=function(e,t){this.name=e,this.code=DOMException[e],this.message=t},u=function(e,t){if(""===t)throw new l("SYNTAX_ERR","An invalid or illegal string was specified");if(/\s/.test(t))throw new l("INVALID_CHARACTER_ERR","String contains an invalid character");return o.call(e,t)},s=function(e){for(var t=i.call(e.getAttribute("class")||""),r=t?t.split(/\s+/):[],n=0,a=r.length;n<a;n++)this.push(r[n]);this._updateClassName=function(){e.setAttribute("class",this.toString())}},c=s[r]=[],f=function(){return new s(this)};if(l[r]=Error[r],c.item=function(e){return this[e]||null},c.contains=function(e){return-1!==u(this,e+="")},c.add=function(){for(var e,t=arguments,r=0,n=t.length,a=!1;e=t[r]+"",-1===u(this,e)&&(this.push(e),a=!0),++r<n;);a&&this._updateClassName()},c.remove=function(){var e,t,r=arguments,n=0,a=r.length,i=!1;do{for(e=r[n]+"",t=u(this,e);-1!==t;)this.splice(t,1),i=!0,t=u(this,e)}while(++n<a);i&&this._updateClassName()},c.toggle=function(e,t){e+="";var r=this.contains(e),n=r?!0!==t&&"remove":!1!==t&&"add";return n&&this[n](e),!0===t||!1===t?t:!r},c.toString=function(){return this.join(" ")},a.defineProperty){var m={get:f,enumerable:!0,configurable:!0};try{a.defineProperty(n,t,m)}catch(e){void 0!==e.number&&-2146823252!==e.number||(m.enumerable=!1,a.defineProperty(n,t,m))}}else a[r].__defineGetter__&&n.__defineGetter__(t,f)}})(self),(function(){"use strict";var e=document.createElement("_");if(e.classList.add("c1","c2"),!e.classList.contains("c2")){var t=function(e){var n=DOMTokenList.prototype[e];DOMTokenList.prototype[e]=function(e){var t,r=arguments.length;for(t=0;t<r;t++)e=arguments[t],n.call(this,e)}};t("add"),t("remove")}if(e.classList.toggle("c3",!1),e.classList.contains("c3")){var r=DOMTokenList.prototype.toggle;DOMTokenList.prototype.toggle=function(e,t){return 1 in arguments&&!this.contains(e)==!t?t:r.call(this,e)}}e=null})()),Element.prototype.closest||(Element.prototype.matches||(Element.prototype.matches=Element.prototype.msMatchesSelector||Element.prototype.webkitMatchesSelector),Element.prototype.closest=function(e){var t=this;if(!document.documentElement.contains(this))return null;do{if(t.matches(e))return t;t=t.parentElement}while(null!==t);return null}),(function(){if("function"==typeof window.CustomEvent)return;function e(e,t){t=t||{bubbles:!1,cancelable:!1,detail:void 0};var r=document.createEvent("CustomEvent");return r.initCustomEvent(e,t.bubbles,t.cancelable,t.detail),r}e.prototype=window.Event.prototype,window.CustomEvent=e})(),Element.prototype.matches||(Element.prototype.matches=Element.prototype.msMatchesSelector||Element.prototype.webkitMatchesSelector),(function(e,t){"function"==typeof define&&define.amd?define([],(function(){return t(e)})):"object"==typeof exports?module.exports=t(e):e.Bouncer=t(e)})("undefined"!=typeof global?global:"undefined"!=typeof window?window:this,(function(a){"use strict";var u={fieldClass:"error",errorClass:"error-message",fieldPrefix:"bouncer-field_",errorPrefix:"bouncer-error_",patterns:{email:/^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$/,url:/^(?:(?:https?|HTTPS?|ftp|FTP):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-zA-Z\u00a1-\uffff0-9]-*)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]-*)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$/,number:/^(?:[-+]?[0-9]*[.,]?[0-9]+)$/,color:/^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/,date:/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))/,time:/^(?:(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]))$/,month:/^(?:(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])))$/},customValidations:{},messageAfterField:!0,messageCustom:"data-bouncer-message",messageTarget:"data-bouncer-target",messages:{missingValue:{checkbox:"This field is required.",radio:"Please select a value.",select:"Please select a value.","select-multiple":"Please select at least one value.",default:"Please fill out this field."},patternMismatch:{email:"Please enter a valid email address.",url:"Please enter a URL.",number:"Please enter a number",color:"Please match the following format: #rrggbb",date:"Please use the YYYY-MM-DD format",time:"Please use the 24-hour time format. Ex. 23:00",month:"Please use the YYYY-MM format",default:"Please match the requested format."},outOfRange:{over:"Please select a value that is no more than {max}.",under:"Please select a value that is no less than {min}."},wrongLength:{over:"Please shorten this text to no more than {maxLength} characters. You are currently using {length} characters.",under:"Please lengthen this text to {minLength} characters or more. You are currently using {length} characters."},fallback:"There was an error with this field."},disableSubmit:!1,emitEvents:!0},s=function(e,t){Array.prototype.forEach.call(e,t)},c=function(){var r={};return s(arguments,(function(e){for(var t in e){if(!e.hasOwnProperty(t))return;"[object Object]"===Object.prototype.toString.call(e[t])?r[t]=c(r[t],e[t]):r[t]=e[t]}})),r},f=function(e,t,r){if("function"==typeof a.CustomEvent){var n=new CustomEvent(t,{bubbles:!0,detail:r||{}});e.dispatchEvent(n)}},m=function(e,t){return{missingValue:(function(e){if(!e.hasAttribute("required"))return!1;if("checkbox"===e.type)return!e.checked;var t=e.value.length;return"radio"===e.type&&(t=Array.prototype.filter.call(e.form.querySelectorAll('[name="'+d(e.name)+'"]'),(function(e){return e.checked})).length),t<1})(e),patternMismatch:(r=e,n=t,a=r.getAttribute("pattern"),!(!(a=a?new RegExp("^(?:"+a+")$"):n.patterns[r.type])||!r.value||r.value.length<1||r.value.match(a))),outOfRange:(function(e){if(!e.value||e.value.length<1)return!1;var t=e.getAttribute("max"),r=e.getAttribute("min"),n=parseFloat(e.value);return t&&t<n?"over":!!(r&&n<r)&&"under"})(e),wrongLength:(function(e){if(!e.value||e.value.length<1)return!1;var t=e.getAttribute("maxlength"),r=e.getAttribute("minlength"),n=e.value.length;return t&&t<n?"over":!!(r&&n<r)&&"under"})(e)};var r,n,a},d=function(e){for(var t,r=String(e),n=r.length,a=-1,i="",o=r.charCodeAt(0);++a<n;){if(0===(t=r.charCodeAt(a)))throw new InvalidCharacterError("Invalid character: the input contains U+0000.");1<=t&&t<=31||127==t||0===a&&48<=t&&t<=57||1===a&&48<=t&&t<=57&&45===o?i+="\\"+t.toString(16)+" ":i+=128<=t||45===t||95===t||48<=t&&t<=57||65<=t&&t<=90||97<=t&&t<=122?r.charAt(a):"\\"+r.charAt(a)}return i},h=function(e,t,r){var n=e.name?e.name:e.id;return!n&&r&&(n=t.fieldPrefix+Math.floor(999*Math.random()),e.id=n),"checkbox"===e.type&&(n+="_"+(e.value||e.id)),n},x=function(e,t){var r=document.createElement("div");r.className=t.errorClass,r.id=t.errorPrefix+h(e,t,!0);var n=(function(e,t,r){var n=e.getAttribute(r.messageTarget);if(n){var a=e.form.querySelector(n);if(a)return a}return r.messageAfterField?t.nextSibling:t})(e,(function(e){if("radio"===e.type&&e.name){var t=e.form.querySelectorAll('[name="'+d(e.name)+'"]');e=t[t.length-1]}"radio"!==e.type&&"checkbox"!==e.type||(e=e.closest("label")||e.form.querySelector('[for="'+e.id+'"]')||e);return e})(e),t);return n.parentNode.insertBefore(r,n),r},v=function(e,t,r){e.classList.add(r.fieldClass),e.setAttribute("aria-describedby",t.id),e.setAttribute("aria-invalid",!0)},g=function(e,t,r){var n,a,i,o=e.form.querySelector("#"+d(r.errorPrefix+h(e,r)))||x(e,r),l=(function(e,t,r){var n=r.messages;if(t.missingValue)return n.missingValue[e.type]||n.missingValue.default;if(t.outOfRange)return n.outOfRange[t.outOfRange].replace("{max}",e.getAttribute("max")).replace("{min}",e.getAttribute("min")).replace("{length}",e.value.length);if(t.wrongLength)return n.wrongLength[t.wrongLength].replace("{maxLength}",e.getAttribute("maxlength")).replace("{minLength}",e.getAttribute("minlength")).replace("{length}",e.value.length);if(t.patternMismatch){var a=e.getAttribute(r.messageCustom);return a||n.patternMismatch[e.type]||n.patternMismatch.default}for(var i in r.customValidations)if(r.customValidations.hasOwnProperty(i)&&t[i]&&n[i])return n[i];return n.fallback})(e,t,r);o.textContent="function"==typeof l?l(e,r):l,a=o,i=r,"radio"===(n=e).type&&n.name&&Array.prototype.forEach.call(document.querySelectorAll('[name="'+n.name+'"]'),(function(e){v(e,a,i)})),v(n,a,i),r.emitEvents&&f(e,"bouncerShowError",{errors:t})},i=function(e,t){e.classList.remove(t.fieldClass),e.removeAttribute("aria-describedby"),e.removeAttribute("aria-invalid")},p=function(e,t){var r,n,a=e.form.querySelector("#"+d(t.errorPrefix+h(e,t)));a&&(a.parentNode.removeChild(a),n=t,"radio"===(r=e).type&&r.name?Array.prototype.forEach.call(document.querySelectorAll('[name="'+r.name+'"]'),(function(e){i(e,n)})):i(r,n),t.emitEvents&&f(e,"bouncerRemoveError"))};return function(n,e){var l,r={};r.validate=function(e,t){if(!e.disabled&&!e.readOnly&&"reset"!==e.type&&"submit"!==e.type&&"button"!==e.type){var r,n,a,i=c(l,t||{}),o=(a=m(r=e,n=i),{valid:!(function(e){for(var t in e)if(e[t])return!0;return!1})(a=(function(e,t,r,n){for(var a in r)r.hasOwnProperty(a)&&(t[a]=r[a](e,n));return t})(r,a,n.customValidations,n)),errors:a});if(!o.valid)return g(e,o.errors,i),o;p(e,i)}},r.validateAll=function(e){return Array.prototype.filter.call(e.querySelectorAll("input, select, textarea"),(function(e){var t=r.validate(e);return t&&!t.valid}))};var a=function(e){e.target.form&&e.target.form.matches(n)&&r.validate(e.target)},i=function(e){e.target.form&&e.target.form.matches(n)&&e.target.classList.contains(l.fieldClass)&&r.validate(e.target)},o=function(e){if(e.target.matches(n)){e.preventDefault();var t=r.validateAll(e.target);if(0<t.length)return t[0].focus(),void f(e.target,"bouncerFormInvalid",{errors:t});l.disableSubmit||e.target.submit(),l.emitEvents&&f(e.target,"bouncerFormValid")}};r.destroy=function(){var e,t,r;document.removeEventListener("blur",a,!0),document.removeEventListener("input",i,!1),document.removeEventListener("click",i,!1),document.removeEventListener("submit",o,!1),e=n,t=l,s(document.querySelectorAll(e),(function(e){formEach(e.querySelectorAll("input, select, textarea"),(function(e){p(e,t)}))})),r=n,s(document.querySelectorAll(r),(function(e){e.removeAttribute("novalidate")})),l.emitEvents&&f(document,"bouncerDestroyed",{settings:l}),l=null};var t;return l=c(u,e||{}),t=n,s(document.querySelectorAll(t),(function(e){e.setAttribute("novalidate",!0)})),document.addEventListener("blur",a,!0),document.addEventListener("input",i,!1),document.addEventListener("click",i,!1),document.addEventListener("submit",o,!1),l.emitEvents&&f(document,"bouncerInitialized",{settings:l}),r}}));
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 /*
  Highcharts JS v7.0.0 (2018-12-11)
 
@@ -1862,7 +2410,7 @@ this.options.responsive,r=[],w=this.currentResponsive;h&&h.rules&&h.rules.forEac
 function(a,d){var r=a.condition;(r.callback||function(){return this.chartWidth<=h(r.maxWidth,Number.MAX_VALUE)&&this.chartHeight<=h(r.maxHeight,Number.MAX_VALUE)&&this.chartWidth>=h(r.minWidth,0)&&this.chartHeight>=h(r.minHeight,0)}).call(this)&&d.push(a._id)};y.prototype.currentOptions=function(h){function r(h,n,g,c){var m;a.objectEach(h,function(a,b){if(!c&&-1<["series","xAxis","yAxis"].indexOf(b))for(a=d(a),g[b]=[],m=0;m<a.length;m++)n[b][m]&&(g[b][m]={},r(a[m],n[b][m],g[b][m],c+1));else E(a)?
 (g[b]=G(a)?[]:{},r(a,n[b]||{},g[b],c+1)):g[b]=n[b]||null})}var v={};r(h,this.options,v,0);return v}})(J);return J});
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 /*
  Highcharts JS v7.0.0 (2018-12-11)
  Exporting module
@@ -1897,7 +2445,7 @@ l=d.inlineWhitelist,h=d.unstyledElements,e={},n,k,d=z.createElement("iframe");r(
 2;return b=b.concat(this.circle(d-c,a,c,c),this.circle(d-c,a+c+4,c,c),this.circle(d-c,a+2*(c+4),c,c))};l.prototype.renderExporting=function(){var b=this,a=b.options.exporting,d=a.buttons,c=b.isDirtyExporting||!b.exportSVGElements;b.buttonOffset=0;b.isDirtyExporting&&b.destroyExport();c&&!1!==a.enabled&&(b.exportEvents=[],b.exportingGroup=b.exportingGroup||b.renderer.g("exporting-group").attr({zIndex:3}).add(),E(d,function(a){b.addButton(a)}),b.isDirtyExporting=!1);q(b,"destroy",b.destroyExport)};
 q(l,"init",function(){var b=this;["exporting","navigation"].forEach(function(a){b[a]={update:function(d,c){b.isDirtyExporting=!0;p(!0,b.options[a],d);u(c,!0)&&b.redraw()}}})});l.prototype.callbacks.push(function(b){b.renderExporting();q(b,"redraw",b.renderExporting)})})(l)});
 
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 (function (global){
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -6109,7 +6657,7 @@ q(l,"init",function(){var b=this;["exporting","navigation"].forEach(function(a){
 
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -6132,7 +6680,7 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -6318,7 +6866,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 'use strict';
 
 var replace = String.prototype.replace;
@@ -6338,7 +6886,7 @@ module.exports = {
     RFC3986: 'RFC3986'
 };
 
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 'use strict';
 
 var stringify = require('./stringify');
@@ -6351,7 +6899,7 @@ module.exports = {
     stringify: stringify
 };
 
-},{"./formats":32,"./parse":34,"./stringify":35}],34:[function(require,module,exports){
+},{"./formats":33,"./parse":35,"./stringify":36}],35:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -6579,7 +7127,7 @@ module.exports = function (str, opts) {
     return utils.compact(obj);
 };
 
-},{"./utils":36}],35:[function(require,module,exports){
+},{"./utils":37}],36:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -6823,7 +7371,7 @@ module.exports = function (object, opts) {
     return joined.length > 0 ? prefix + joined : '';
 };
 
-},{"./formats":32,"./utils":36}],36:[function(require,module,exports){
+},{"./formats":33,"./utils":37}],37:[function(require,module,exports){
 'use strict';
 
 var has = Object.prototype.hasOwnProperty;
@@ -7053,7 +7601,7 @@ module.exports = {
     merge: merge
 };
 
-},{}],37:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7096,7 +7644,224 @@ function downloadCharts() {
   });
 }
 
-},{"highcharts":27,"highcharts/modules/exporting":28}],38:[function(require,module,exports){
+},{"highcharts":28,"highcharts/modules/exporting":29}],39:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = handleChartFilters;
+
+var _highcharts = require("highcharts");
+
+var _highcharts2 = _interopRequireDefault(_highcharts);
+
+var _exporting = require("highcharts/modules/exporting");
+
+var _exporting2 = _interopRequireDefault(_exporting);
+
+var _axios = require("axios");
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _awesomplete = require("awesomplete");
+
+var _awesomplete2 = _interopRequireDefault(_awesomplete);
+
+var _updateTableInfo = require("./updateTableInfo");
+
+var _updateTableInfo2 = _interopRequireDefault(_updateTableInfo);
+
+var _plotCharts = require("./plotCharts");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _exporting2.default)(_highcharts2.default);
+
+function handleChartFilters() {
+  function getCities() {
+    const url = 'https://dapitide.eokoe.com/api/cities';
+    return _axios2.default.get(url).then(response => response.data.cities); // .then((response) => {
+    //   data = response.data.cities;
+    //   return data;
+    // });
+  }
+
+  async function populateCitiesList() {
+    // const citiesList = document.getElementById('cities-list');
+    const cities = await getCities();
+    const cityNames = cities.map(city => ({
+      label: `${city.name} - ${city.state.name}`,
+      value: city.id
+    }));
+    const awesomplete = new _awesomplete2.default(document.querySelector('#city'), {
+      nChars: 1,
+      maxItems: 5,
+      autoFirst: true,
+
+      replace(suggestion) {
+        this.input.value = suggestion.label;
+      }
+
+    });
+    awesomplete.list = cityNames;
+  }
+
+  function hideNoMatchesAlert() {
+    document.querySelector('.js-no-matches').setAttribute('hidden', true);
+  }
+
+  function showNoMatchesAlert() {
+    document.querySelector('.js-no-matches').removeAttribute('hidden');
+  } // Highlight city
+
+
+  function highlightPoint(id) {
+    const ptChartDom = document.getElementById('pt-chart');
+    const matChartDom = document.getElementById('mat-chart');
+
+    const ptChart = _highcharts2.default.charts[_highcharts2.default.attr(ptChartDom, 'data-highcharts-chart')];
+
+    const matChart = _highcharts2.default.charts[_highcharts2.default.attr(matChartDom, 'data-highcharts-chart')];
+
+    const ptPoint = ptChart.get(id);
+    const matPoint = matChart.get(id);
+
+    if (ptPoint === undefined || matPoint === undefined) {
+      return showNoMatchesAlert();
+    }
+
+    ptPoint.graphic.toFront();
+    ptPoint.select();
+    matPoint.graphic.toFront();
+    matPoint.select();
+    return true;
+  }
+
+  function clearHighlightedPoints() {
+    const ptChartDom = document.getElementById('pt-chart');
+    const matChartDom = document.getElementById('mat-chart');
+
+    const ptChart = _highcharts2.default.charts[_highcharts2.default.attr(ptChartDom, 'data-highcharts-chart')];
+
+    const matChart = _highcharts2.default.charts[_highcharts2.default.attr(matChartDom, 'data-highcharts-chart')];
+
+    const selectedPtPoints = ptChart.getSelectedPoints();
+    const selectedMatPoints = matChart.getSelectedPoints();
+
+    if (selectedPtPoints[0]) {
+      selectedPtPoints[0].select();
+      selectedMatPoints[0].select();
+    }
+  }
+
+  function clearFilters(exception) {
+    const formContainer = document.querySelector('.js-form-filter');
+    formContainer.querySelectorAll('select').forEach(select => {
+      if (select.id !== exception) {
+        select.selectedIndex = 0;
+      }
+    });
+    formContainer.querySelectorAll('input[type="text"]').forEach(input => {
+      if (input.id !== exception) {
+        input.value = '';
+      }
+    });
+  }
+
+  document.getElementById('js-chart-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const payload = {};
+    payload.grade = formData.get('grade');
+    payload.xAxis = formData.get('xAxis');
+    (0, _plotCharts.toggleLoading)();
+    (0, _plotCharts.populateChartData)(payload);
+    clearFilters();
+    hideNoMatchesAlert();
+    (0, _plotCharts.toggleLoading)();
+  });
+
+  function highlightPoints(parameter, value) {
+    const ptChartDom = document.getElementById('pt-chart');
+    const matChartDom = document.getElementById('mat-chart');
+
+    const ptChart = _highcharts2.default.charts[_highcharts2.default.attr(ptChartDom, 'data-highcharts-chart')];
+
+    const matChart = _highcharts2.default.charts[_highcharts2.default.attr(matChartDom, 'data-highcharts-chart')];
+
+    clearHighlightedPoints();
+
+    if (parameter === 'big-cities') {
+      ptChart.series[0].points.forEach(point => {
+        if (point.options.is_big_town === 1) {
+          point.select(true, true);
+          point.graphic.toFront();
+        }
+      });
+      matChart.series[0].points.forEach(point => {
+        if (point.options.is_big_town === 1) {
+          point.select(true, true);
+          point.graphic.toFront();
+        }
+      });
+    }
+
+    if (parameter === 'capital') {
+      ptChart.series[0].points.forEach(point => {
+        if (point.options.is_capital === 1) {
+          point.select(true, true);
+          point.graphic.toFront();
+        }
+      });
+      matChart.series[0].points.forEach(point => {
+        if (point.options.is_capital === 1) {
+          point.select(true, true);
+          point.graphic.toFront();
+        }
+      });
+    }
+
+    if (parameter === 'region') {
+      ptChart.series[0].points.forEach(point => {
+        if (point.options.region === Number(value)) {
+          point.select(true, true);
+          point.graphic.toFront();
+        }
+      });
+      matChart.series[0].points.forEach(point => {
+        if (point.options.region === Number(value)) {
+          point.select(true, true);
+          point.graphic.toFront();
+        }
+      });
+    }
+
+    if (parameter === 'none') {
+      clearHighlightedPoints();
+    }
+  }
+
+  document.getElementById('city').addEventListener('input', () => {
+    hideNoMatchesAlert();
+  }, false);
+  document.getElementById('city').addEventListener('awesomplete-selectcomplete', event => {
+    clearFilters(event.target.id);
+    highlightPoint(event.text.value);
+    (0, _updateTableInfo2.default)(event.text.value);
+  }, false);
+  document.getElementById('highlight').addEventListener('change', event => {
+    clearFilters(event.target.id);
+    highlightPoints(event.target.value);
+  }, false);
+  document.getElementById('region').addEventListener('change', event => {
+    clearFilters(event.target.id);
+    highlightPoints('region', event.target.value);
+  }, false);
+  populateCitiesList();
+}
+
+},{"./plotCharts":41,"./updateTableInfo":43,"awesomplete":1,"axios":2,"highcharts":28,"highcharts/modules/exporting":29}],40:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7110,29 +7875,33 @@ var _sizeToggle2 = _interopRequireDefault(_sizeToggle);
 
 var _plotCharts = require("./plotCharts");
 
-var _plotCharts2 = _interopRequireDefault(_plotCharts);
-
 var _downloadCharts = require("./downloadCharts");
 
 var _downloadCharts2 = _interopRequireDefault(_downloadCharts);
 
+var _filter = require("./filter");
+
+var _filter2 = _interopRequireDefault(_filter);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import populateChartData from './plotCharts';
 // import updateTableInfo from './updateTableInfo';
 // import rest from './rest';
 function startChartFunctionalities() {
-  (0, _plotCharts2.default)();
+  (0, _plotCharts.populateChartData)();
   (0, _downloadCharts2.default)();
-  (0, _sizeToggle2.default)(); // rest();
+  (0, _sizeToggle2.default)();
+  (0, _filter2.default)(); // rest();
 }
 
-},{"./downloadCharts":37,"./plotCharts":39,"./sizeToggle":40}],39:[function(require,module,exports){
+},{"./downloadCharts":38,"./filter":39,"./plotCharts":41,"./sizeToggle":42}],41:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = plotCharts;
+exports.toggleLoading = exports.populateChartData = undefined;
 
 var _highcharts = require("highcharts");
 
@@ -7153,284 +7922,286 @@ var _updateTableInfo2 = _interopRequireDefault(_updateTableInfo);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _exporting2.default)(_highcharts2.default);
+let xAxis;
+let xAxisText;
+let url;
+let data;
 
-function plotCharts() {
-  let xAxis;
-  let xAxisText;
-  let url;
-  let data;
-
-  _highcharts2.default.setOptions({
-    lang: {
-      printChart: 'Imprimir gráfico',
-      resetZoom: 'Resetar zoom'
-    },
-    tooltip: {
-      formatter() {
-        return `${this.point.options.city} - ${this.point.options.state}`;
-      }
-
-    }
-  });
-
-  function getChartData(receivedPayload) {
-    let payload;
-
-    if (receivedPayload === undefined) {
-      payload = {
-        grade: 5,
-        xAxis: 'racial'
-      };
-    } else {
-      payload = receivedPayload;
+_highcharts2.default.setOptions({
+  lang: {
+    printChart: 'Imprimir gráfico',
+    resetZoom: 'Resetar zoom'
+  },
+  tooltip: {
+    formatter() {
+      return `${this.point.options.city} - ${this.point.options.state}`;
     }
 
-    url = `https://dapitide.eokoe.com/api/data?school_grade=${payload.grade}&x=${payload.xAxis}`;
-    const newXAxis = payload.xAxis;
-    xAxis = newXAxis;
-    return _axios2.default.get(url).then(response => response.data.data);
+  }
+});
+
+function getChartData(receivedPayload) {
+  let payload;
+
+  if (receivedPayload === undefined) {
+    payload = {
+      grade: 5,
+      xAxis: 'racial'
+    };
+  } else {
+    payload = receivedPayload;
   }
 
-  function toggleLoading() {
-    let isLoading = false;
-    const ptChartDom = document.getElementById('pt-chart');
-    const matChartDom = document.getElementById('mat-chart');
-
-    const ptChart = _highcharts2.default.charts[_highcharts2.default.attr(ptChartDom, 'data-highcharts-chart')];
-
-    const matChart = _highcharts2.default.charts[_highcharts2.default.attr(matChartDom, 'data-highcharts-chart')];
-
-    if (!isLoading) {
-      ptChart.showLoading();
-      matChart.showLoading();
-    } else {
-      ptChart.hideLoading();
-      matChart.hideLoading();
-    }
-
-    isLoading = !isLoading;
-  }
-
-  function drawPtChart(chartData) {
-    return _highcharts2.default.chart('pt-chart', {
-      chart: {
-        type: 'scatter',
-        zoomType: 'xy'
-      },
-      credits: false,
-      legend: {
-        enabled: false
-      },
-      turboThreshold: 0,
-      title: {
-        text: ''
-      },
-      subtitle: '',
-      xAxis: {
-        title: {
-          enabled: true,
-          text: `${xAxisText} | [Desigualdade]`
-        },
-        // max: 2,
-        // min: -2,
-        startOnTick: true,
-        endOnTick: true,
-        showLastLabel: true,
-        plotLines: [{
-          value: 0,
-          color: '#e6e6e6',
-          dashStyle: 'solid',
-          width: 1
-        }]
-      },
-      yAxis: {
-        title: {
-          text: 'Português | [Nível de aprendizado]'
-        },
-        lineWidth: 1,
-        gridZIndex: 0 // max: 2,
-        // min: -2,
-        // plotLines:[{
-        //   value: 0,
-        //   color: '#666',
-        //   dashStyle: 'solid',
-        //   width: 1,
-        // }],
-
-      },
-      plotOptions: {
-        scatter: {
-          marker: {
-            radius: 5,
-            states: {
-              hover: {
-                enabled: true,
-                lineColor: 'rgb(100,100,100)'
-              }
-            }
-          },
-          states: {
-            hover: {
-              marker: {
-                enabled: false
-              }
-            }
-          },
-          tooltip: {
-            headerFormat: 'Cidade: <b>{point.options.city}</b>'
-          }
-        }
-      },
-      series: [{
-        turboThreshold: 0,
-        cursor: 'pointer',
-        point: {
-          events: {
-            click() {
-              // clearFilters();
-              // highlightPoint(this.id);
-              (0, _updateTableInfo2.default)(this.id, xAxis, data);
-            }
-
-          }
-        },
-        data: chartData
-      }]
-    });
-  }
-
-  function drawMatChart(chartData) {
-    _highcharts2.default.chart('mat-chart', {
-      chart: {
-        type: 'scatter',
-        zoomType: 'xy'
-      },
-      credits: false,
-      legend: {
-        enabled: false
-      },
-      turboThreshold: 0,
-      title: {
-        text: ''
-      },
-      subtitle: '',
-      xAxis: {
-        title: {
-          enabled: true,
-          text: `${xAxisText} | [Desigualdade]`
-        },
-        // max: 2,
-        // min: -2,
-        startOnTick: true,
-        endOnTick: true,
-        showLastLabel: true,
-        plotLines: [{
-          value: 0,
-          color: '#e6e6e6',
-          dashStyle: 'solid',
-          width: 1
-        }]
-      },
-      yAxis: {
-        title: {
-          text: 'Matemática | [Nível de aprendizado]'
-        },
-        lineWidth: 1,
-        gridZIndex: 0,
-        // max: 2,
-        // min: -2,
-        plotLines: [{
-          value: 0,
-          color: '#666',
-          dashStyle: 'solid',
-          width: 1
-        }]
-      },
-      plotOptions: {
-        scatter: {
-          marker: {
-            radius: 5,
-            states: {
-              hover: {
-                enabled: true,
-                lineColor: 'rgb(100,100,100)'
-              }
-            }
-          },
-          states: {
-            hover: {
-              marker: {
-                enabled: false
-              }
-            }
-          }
-        }
-      },
-      series: [{
-        turboThreshold: 0,
-        cursor: 'pointer',
-        point: {
-          events: {
-            click() {
-              // clearFilters();
-              // highlightPoint(this.id);
-              (0, _updateTableInfo2.default)(this.id, xAxis, data);
-            }
-
-          }
-        },
-        data: chartData
-      }]
-    });
-  }
-
-  function formatItemsToHighCharts(items) {
-    return Object.keys(items).map(item => ({
-      x: Number(items[item].x),
-      y: Number(items[item].y),
-      id: Number(items[item].city.id),
-      city: items[item].city.name,
-      state: items[item].state.uf,
-      state_id: items[item].state.id,
-      region: items[item].region.id,
-      is_big_town: items[item].city.is_big_town,
-      is_capital: items[item].city.is_capital
-    }));
-  }
-
-  async function populateChartData(payload) {
-    try {
-      const chartData = await getChartData(payload);
-      data = chartData;
-      const ptItems = chartData.filter(item => item.subject === 'Português');
-      const matItems = chartData.filter(item => item.subject === 'Matemática');
-      const formatedPtItems = formatItemsToHighCharts(ptItems);
-      const formatedMatItems = formatItemsToHighCharts(matItems);
-
-      if (xAxis === 'racial') {
-        xAxisText = 'Raça';
-      }
-
-      if (xAxis === 'sex') {
-        xAxisText = 'Sexo';
-      }
-
-      if (xAxis === 'nse') {
-        xAxisText = 'NSE';
-      }
-
-      drawPtChart(formatedPtItems);
-      drawMatChart(formatedMatItems);
-    } catch (err) {
-      console.log(err);
-      toggleLoading();
-    }
-  }
-
-  populateChartData(); // updateTableInfo(this.id, xAxis, formatedPtItems);
+  url = `https://dapitide.eokoe.com/api/data?school_grade=${payload.grade}&x=${payload.xAxis}`;
+  const newXAxis = payload.xAxis;
+  xAxis = newXAxis;
+  return _axios2.default.get(url).then(response => response.data.data);
 }
 
-},{"./updateTableInfo":41,"axios":1,"highcharts":27,"highcharts/modules/exporting":28}],40:[function(require,module,exports){
+function drawPtChart(chartData) {
+  return _highcharts2.default.chart('pt-chart', {
+    chart: {
+      type: 'scatter',
+      zoomType: 'xy'
+    },
+    credits: false,
+    legend: {
+      enabled: false
+    },
+    turboThreshold: 0,
+    title: {
+      text: ''
+    },
+    subtitle: '',
+    xAxis: {
+      title: {
+        enabled: true,
+        text: `${xAxisText} | [Desigualdade]`
+      },
+      // max: 2,
+      // min: -2,
+      startOnTick: true,
+      endOnTick: true,
+      showLastLabel: true,
+      plotLines: [{
+        value: 0,
+        color: '#e6e6e6',
+        dashStyle: 'solid',
+        width: 1
+      }]
+    },
+    yAxis: {
+      title: {
+        text: 'Português | [Nível de aprendizado]'
+      },
+      lineWidth: 1,
+      gridZIndex: 0 // max: 2,
+      // min: -2,
+      // plotLines:[{
+      //   value: 0,
+      //   color: '#666',
+      //   dashStyle: 'solid',
+      //   width: 1,
+      // }],
+
+    },
+    plotOptions: {
+      scatter: {
+        marker: {
+          radius: 5,
+          states: {
+            hover: {
+              enabled: true,
+              lineColor: 'rgb(100,100,100)'
+            }
+          }
+        },
+        states: {
+          hover: {
+            marker: {
+              enabled: false
+            }
+          }
+        },
+        tooltip: {
+          headerFormat: 'Cidade: <b>{point.options.city}</b>'
+        }
+      }
+    },
+    series: [{
+      turboThreshold: 0,
+      cursor: 'pointer',
+      point: {
+        events: {
+          click() {
+            // clearFilters();
+            // highlightPoint(this.id);
+            (0, _updateTableInfo2.default)(this.id, xAxis, data);
+          }
+
+        }
+      },
+      data: chartData
+    }]
+  });
+}
+
+function drawMatChart(chartData) {
+  _highcharts2.default.chart('mat-chart', {
+    chart: {
+      type: 'scatter',
+      zoomType: 'xy'
+    },
+    credits: false,
+    legend: {
+      enabled: false
+    },
+    turboThreshold: 0,
+    title: {
+      text: ''
+    },
+    subtitle: '',
+    xAxis: {
+      title: {
+        enabled: true,
+        text: `${xAxisText} | [Desigualdade]`
+      },
+      // max: 2,
+      // min: -2,
+      startOnTick: true,
+      endOnTick: true,
+      showLastLabel: true,
+      plotLines: [{
+        value: 0,
+        color: '#e6e6e6',
+        dashStyle: 'solid',
+        width: 1
+      }]
+    },
+    yAxis: {
+      title: {
+        text: 'Matemática | [Nível de aprendizado]'
+      },
+      lineWidth: 1,
+      gridZIndex: 0,
+      // max: 2,
+      // min: -2,
+      plotLines: [{
+        value: 0,
+        color: '#666',
+        dashStyle: 'solid',
+        width: 1
+      }]
+    },
+    plotOptions: {
+      scatter: {
+        marker: {
+          radius: 5,
+          states: {
+            hover: {
+              enabled: true,
+              lineColor: 'rgb(100,100,100)'
+            }
+          }
+        },
+        states: {
+          hover: {
+            marker: {
+              enabled: false
+            }
+          }
+        }
+      }
+    },
+    series: [{
+      turboThreshold: 0,
+      cursor: 'pointer',
+      point: {
+        events: {
+          click() {
+            // clearFilters();
+            // highlightPoint(this.id);
+            (0, _updateTableInfo2.default)(this.id, xAxis, data);
+          }
+
+        }
+      },
+      data: chartData
+    }]
+  });
+}
+
+function formatItemsToHighCharts(items) {
+  return Object.keys(items).map(item => ({
+    x: Number(items[item].x),
+    y: Number(items[item].y),
+    id: Number(items[item].city.id),
+    city: items[item].city.name,
+    state: items[item].state.uf,
+    state_id: items[item].state.id,
+    region: items[item].region.id,
+    is_big_town: items[item].city.is_big_town,
+    is_capital: items[item].city.is_capital
+  }));
+}
+
+function toggleLoading() {
+  console.log('hello');
+  let isLoading = false;
+  const ptChartDom = document.getElementById('pt-chart');
+  const matChartDom = document.getElementById('mat-chart');
+
+  const ptChart = _highcharts2.default.charts[_highcharts2.default.attr(ptChartDom, 'data-highcharts-chart')];
+
+  const matChart = _highcharts2.default.charts[_highcharts2.default.attr(matChartDom, 'data-highcharts-chart')];
+
+  if (!isLoading) {
+    ptChart.showLoading();
+    matChart.showLoading();
+  } else {
+    ptChart.hideLoading();
+    matChart.hideLoading();
+  }
+
+  isLoading = !isLoading;
+}
+
+async function populateChartData(payload) {
+  try {
+    const chartData = await getChartData(payload);
+    data = chartData;
+    const ptItems = chartData.filter(item => item.subject === 'Português');
+    const matItems = chartData.filter(item => item.subject === 'Matemática');
+    const formatedPtItems = formatItemsToHighCharts(ptItems);
+    const formatedMatItems = formatItemsToHighCharts(matItems);
+
+    if (xAxis === 'racial') {
+      xAxisText = 'Raça';
+    }
+
+    if (xAxis === 'sex') {
+      xAxisText = 'Sexo';
+    }
+
+    if (xAxis === 'nse') {
+      xAxisText = 'NSE';
+    }
+
+    drawPtChart(formatedPtItems);
+    drawMatChart(formatedMatItems);
+  } catch (err) {
+    console.log(err);
+    toggleLoading();
+  }
+} // populateChartData();
+// updateTableInfo(this.id, xAxis, formatedPtItems);
+// export { populateChartData, toggleLoading, foo };
+
+
+exports.populateChartData = populateChartData;
+exports.toggleLoading = toggleLoading;
+
+},{"./updateTableInfo":43,"axios":2,"highcharts":28,"highcharts/modules/exporting":29}],42:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7517,7 +8288,7 @@ function sizeToggle() {
   });
 }
 
-},{"highcharts":27,"highcharts/modules/exporting":28}],41:[function(require,module,exports){
+},{"highcharts":28,"highcharts/modules/exporting":29}],43:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7618,6 +8389,7 @@ function updateTableInfo(id, xAxis, data) {
   }
 
   function getCityInfo(cityId) {
+    console.log(cityId);
     return data.filter(item => item.city.id === cityId);
   }
 
@@ -7625,7 +8397,7 @@ function updateTableInfo(id, xAxis, data) {
   setCityInfo(newInfo);
 }
 
-},{"highcharts":27,"highcharts/modules/exporting":28}],42:[function(require,module,exports){
+},{"highcharts":28,"highcharts/modules/exporting":29}],44:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7637,7 +8409,7 @@ exports.default = {
   }
 };
 
-},{}],43:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7703,14 +8475,15 @@ function initContactForm() {
     form.reset();
   }
 
-  function toggleLoading() {
+  function toggleFormLoading() {
+    console.log('hello from contact form');
     form.setAttribute('aria-busy', !(form.getAttribute('aria-busy') === 'true'));
     loading = !loading;
   }
 
   function submitForm(event) {
     // const formData = new FormData(event.target);
-    toggleLoading();
+    toggleFormLoading();
     const data = {
       name: event.target.name.value,
       email: event.target.email.value,
@@ -7728,7 +8501,7 @@ function initContactForm() {
     }).then(() => {
       showSuccess();
       clearForm();
-      toggleLoading();
+      toggleFormLoading();
     }).catch(() => {
       showError();
       toggleLoading();
@@ -7775,7 +8548,7 @@ function initContactForm() {
   }, false);
 }
 
-},{"../config":42,"axios":1,"bouncer":26,"imask":29,"qs":33}],44:[function(require,module,exports){
+},{"../config":44,"axios":2,"bouncer":27,"imask":30,"qs":34}],46:[function(require,module,exports){
 "use strict";
 
 var _menuToggle = require("./menuToggle");
@@ -7796,7 +8569,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _chart2.default)();
 (0, _contactForm2.default)();
 
-},{"./chart":38,"./contactForm":43,"./menuToggle":45}],45:[function(require,module,exports){
+},{"./chart":40,"./contactForm":45,"./menuToggle":47}],47:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7817,4 +8590,4 @@ function initMenuToggle() {
   });
 }
 
-},{}]},{},[44]);
+},{}]},{},[46]);

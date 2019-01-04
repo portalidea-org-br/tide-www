@@ -99,6 +99,7 @@ export default function updateTableInfo(id, xAxis, data) {
   }
 
   function getCityInfo(cityId) {
+    console.log(cityId)
     return data.filter(item => item.city.id === cityId);
   }
 

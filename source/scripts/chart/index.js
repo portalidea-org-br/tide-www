@@ -1,12 +1,15 @@
 import sizeToggle from './sizeToggle';
-import plotCharts from './plotCharts';
+// import populateChartData from './plotCharts';
+import { populateChartData } from './plotCharts';
 import downloadCharts from './downloadCharts';
+import handleChartFilters from './filter';
 // import updateTableInfo from './updateTableInfo';
 // import rest from './rest';
 
 export default function startChartFunctionalities() {
-  plotCharts();
+  populateChartData();
   downloadCharts();
   sizeToggle();
+  handleChartFilters();
   // rest();
 }
