@@ -420,7 +420,7 @@ a {
   }
 
   &:link {
-    text-decoration: underline;
+    text-decoration: inherit;
 
     cursor: pointer;
     -webkit-tap-highlight-color: palette('tap-highlight'); // sass-lint:disable-line no-vendor-prefixes
