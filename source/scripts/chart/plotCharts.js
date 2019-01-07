@@ -9,6 +9,8 @@ let xAxis;
 let xAxisText;
 let url;
 let data;
+const ptChartElement = document.getElementById('pt-chart');
+const matChartElement = document.getElementById('mat-chart');
 
 Highcharts.setOptions({
   lang: {
@@ -221,7 +223,6 @@ function formatItemsToHighCharts(items) {
 }
 
 function toggleLoading() {
-  console.log('hello');
   let isLoading = false;
   const ptChartDom = document.getElementById('pt-chart');
   const matChartDom = document.getElementById('mat-chart');
@@ -239,34 +240,36 @@ function toggleLoading() {
 }
 
 async function populateChartData(payload) {
-  try {
-    const chartData = await getChartData(payload);
+  if (ptChartElement && matChartElement) {
+    try {
+      const chartData = await getChartData(payload);
 
-    data = chartData;
+      data = chartData;
 
-    const ptItems = chartData.filter(item => item.subject === 'Português');
-    const matItems = chartData.filter(item => item.subject === 'Matemática');
+      const ptItems = chartData.filter(item => item.subject === 'Português');
+      const matItems = chartData.filter(item => item.subject === 'Matemática');
 
-    const formatedPtItems = formatItemsToHighCharts(ptItems);
-    const formatedMatItems = formatItemsToHighCharts(matItems);
+      const formatedPtItems = formatItemsToHighCharts(ptItems);
+      const formatedMatItems = formatItemsToHighCharts(matItems);
 
-    if (xAxis === 'racial') {
-      xAxisText = 'Raça';
+      if (xAxis === 'racial') {
+        xAxisText = 'Raça';
+      }
+
+      if (xAxis === 'sex') {
+        xAxisText = 'Sexo';
+      }
+
+      if (xAxis === 'nse') {
+        xAxisText = 'NSE';
+      }
+
+      drawPtChart(formatedPtItems);
+      drawMatChart(formatedMatItems);
+    } catch (err) {
+      console.log(err);
+      toggleLoading();
     }
-
-    if (xAxis === 'sex') {
-      xAxisText = 'Sexo';
-    }
-
-    if (xAxis === 'nse') {
-      xAxisText = 'NSE';
-    }
-
-    drawPtChart(formatedPtItems);
-    drawMatChart(formatedMatItems);
-  } catch (err) {
-    console.log(err);
-    toggleLoading();
   }
 }
 

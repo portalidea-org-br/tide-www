@@ -7622,26 +7622,34 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _exporting2.default)(_highcharts2.default);
 
 function downloadCharts() {
-  document.querySelector('.js-download-pt-chart').addEventListener('click', () => {
-    const chartDom = document.getElementById('pt-chart');
+  const ptChartDownloadButton = document.querySelector('.js-download-pt-chart');
+  const matChartDownloadButton = document.querySelector('.js-download-mat-chart');
 
-    const ptChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
+  if (ptChartDownloadButton) {
+    ptChartDownloadButton.addEventListener('click', () => {
+      const chartDom = document.getElementById('pt-chart');
 
-    ptChart.exportChart({
-      type: 'application/pdf',
-      filename: 'Português'
+      const ptChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
+
+      ptChart.exportChart({
+        type: 'application/pdf',
+        filename: 'Português'
+      });
     });
-  });
-  document.querySelector('.js-download-mat-chart').addEventListener('click', () => {
-    const chartDom = document.getElementById('mat-chart');
+  }
 
-    const matChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
+  if (matChartDownloadButton) {
+    matChartDownloadButton.addEventListener('click', () => {
+      const chartDom = document.getElementById('mat-chart');
 
-    matChart.exportChart({
-      type: 'application/pdf',
-      filename: 'Matemática'
+      const matChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
+
+      matChart.exportChart({
+        type: 'application/pdf',
+        filename: 'Matemática'
+      });
     });
-  });
+  }
 }
 
 },{"highcharts":28,"highcharts/modules/exporting":29}],39:[function(require,module,exports){
@@ -7679,6 +7687,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _exporting2.default)(_highcharts2.default);
 
 function handleChartFilters() {
+  const jsChartForm = document.getElementById('js-chart-form');
+  const cityInput = document.getElementById('city');
+  const highlightInput = document.getElementById('highlight');
+  const regionInput = document.getElementById('region');
+
   function getCities() {
     const url = 'https://dapitide.eokoe.com/api/cities';
     return _axios2.default.get(url).then(response => response.data.cities); // .then((response) => {
@@ -7688,23 +7701,25 @@ function handleChartFilters() {
   }
 
   async function populateCitiesList() {
-    // const citiesList = document.getElementById('cities-list');
-    const cities = await getCities();
-    const cityNames = cities.map(city => ({
-      label: `${city.name} - ${city.state.name}`,
-      value: city.id
-    }));
-    const awesomplete = new _awesomplete2.default(document.querySelector('#city'), {
-      nChars: 1,
-      maxItems: 5,
-      autoFirst: true,
+    if (cityInput) {
+      // const citiesList = document.getElementById('cities-list');
+      const cities = await getCities();
+      const cityNames = cities.map(city => ({
+        label: `${city.name} - ${city.state.name}`,
+        value: city.id
+      }));
+      const awesomplete = new _awesomplete2.default(document.querySelector('#city'), {
+        nChars: 1,
+        maxItems: 5,
+        autoFirst: true,
 
-      replace(suggestion) {
-        this.input.value = suggestion.label;
-      }
+        replace(suggestion) {
+          this.input.value = suggestion.label;
+        }
 
-    });
-    awesomplete.list = cityNames;
+      });
+      awesomplete.list = cityNames;
+    }
   }
 
   function hideNoMatchesAlert() {
@@ -7769,18 +7784,20 @@ function handleChartFilters() {
     });
   }
 
-  document.getElementById('js-chart-form').addEventListener('submit', event => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const payload = {};
-    payload.grade = formData.get('grade');
-    payload.xAxis = formData.get('xAxis');
-    (0, _plotCharts.toggleLoading)();
-    (0, _plotCharts.populateChartData)(payload);
-    clearFilters();
-    hideNoMatchesAlert();
-    (0, _plotCharts.toggleLoading)();
-  });
+  if (jsChartForm) {
+    jsChartForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const payload = {};
+      payload.grade = formData.get('grade');
+      payload.xAxis = formData.get('xAxis');
+      (0, _plotCharts.toggleLoading)();
+      (0, _plotCharts.populateChartData)(payload);
+      clearFilters();
+      hideNoMatchesAlert();
+      (0, _plotCharts.toggleLoading)();
+    });
+  }
 
   function highlightPoints(parameter, value) {
     const ptChartDom = document.getElementById('pt-chart');
@@ -7842,22 +7859,31 @@ function handleChartFilters() {
     }
   }
 
-  document.getElementById('city').addEventListener('input', () => {
-    hideNoMatchesAlert();
-  }, false);
-  document.getElementById('city').addEventListener('awesomplete-selectcomplete', event => {
-    clearFilters(event.target.id);
-    highlightPoint(event.text.value);
-    (0, _updateTableInfo2.default)(event.text.value);
-  }, false);
-  document.getElementById('highlight').addEventListener('change', event => {
-    clearFilters(event.target.id);
-    highlightPoints(event.target.value);
-  }, false);
-  document.getElementById('region').addEventListener('change', event => {
-    clearFilters(event.target.id);
-    highlightPoints('region', event.target.value);
-  }, false);
+  if (cityInput) {
+    cityInput.addEventListener('input', () => {
+      hideNoMatchesAlert();
+    }, false);
+    cityInput.addEventListener('awesomplete-selectcomplete', event => {
+      clearFilters(event.target.id);
+      highlightPoint(event.text.value);
+      (0, _updateTableInfo2.default)(event.text.value);
+    }, false);
+  }
+
+  if (highlightInput) {
+    highlightInput.addEventListener('change', event => {
+      clearFilters(event.target.id);
+      highlightPoints(event.target.value);
+    }, false);
+  }
+
+  if (regionInput) {
+    regionInput.addEventListener('change', event => {
+      clearFilters(event.target.id);
+      highlightPoints('region', event.target.value);
+    }, false);
+  }
+
   populateCitiesList();
 }
 
@@ -7926,6 +7952,8 @@ let xAxis;
 let xAxisText;
 let url;
 let data;
+const ptChartElement = document.getElementById('pt-chart');
+const matChartElement = document.getElementById('mat-chart');
 
 _highcharts2.default.setOptions({
   lang: {
@@ -8146,7 +8174,6 @@ function formatItemsToHighCharts(items) {
 }
 
 function toggleLoading() {
-  console.log('hello');
   let isLoading = false;
   const ptChartDom = document.getElementById('pt-chart');
   const matChartDom = document.getElementById('mat-chart');
@@ -8167,31 +8194,33 @@ function toggleLoading() {
 }
 
 async function populateChartData(payload) {
-  try {
-    const chartData = await getChartData(payload);
-    data = chartData;
-    const ptItems = chartData.filter(item => item.subject === 'Português');
-    const matItems = chartData.filter(item => item.subject === 'Matemática');
-    const formatedPtItems = formatItemsToHighCharts(ptItems);
-    const formatedMatItems = formatItemsToHighCharts(matItems);
+  if (ptChartElement && matChartElement) {
+    try {
+      const chartData = await getChartData(payload);
+      data = chartData;
+      const ptItems = chartData.filter(item => item.subject === 'Português');
+      const matItems = chartData.filter(item => item.subject === 'Matemática');
+      const formatedPtItems = formatItemsToHighCharts(ptItems);
+      const formatedMatItems = formatItemsToHighCharts(matItems);
 
-    if (xAxis === 'racial') {
-      xAxisText = 'Raça';
+      if (xAxis === 'racial') {
+        xAxisText = 'Raça';
+      }
+
+      if (xAxis === 'sex') {
+        xAxisText = 'Sexo';
+      }
+
+      if (xAxis === 'nse') {
+        xAxisText = 'NSE';
+      }
+
+      drawPtChart(formatedPtItems);
+      drawMatChart(formatedMatItems);
+    } catch (err) {
+      console.log(err);
+      toggleLoading();
     }
-
-    if (xAxis === 'sex') {
-      xAxisText = 'Sexo';
-    }
-
-    if (xAxis === 'nse') {
-      xAxisText = 'NSE';
-    }
-
-    drawPtChart(formatedPtItems);
-    drawMatChart(formatedMatItems);
-  } catch (err) {
-    console.log(err);
-    toggleLoading();
   }
 } // populateChartData();
 // updateTableInfo(this.id, xAxis, formatedPtItems);
@@ -8225,6 +8254,8 @@ function sizeToggle() {
   // Expand and shrink pt charts
   const expandPtChartButton = document.querySelector('.js-expand-pt-chart');
   const shrinkPtChartButton = document.querySelector('.js-shrink-pt-chart');
+  const expandMatChartButton = document.querySelector('.js-expand-mat-chart');
+  const shrinkMatChartButton = document.querySelector('.js-shrink-mat-chart');
 
   if (expandPtChartButton) {
     expandPtChartButton.addEventListener('click', () => {
@@ -8245,47 +8276,55 @@ function sizeToggle() {
     });
   }
 
-  shrinkPtChartButton.addEventListener('click', () => {
-    const chartDom = document.getElementById('pt-chart');
+  if (shrinkPtChartButton) {
+    shrinkPtChartButton.addEventListener('click', () => {
+      const chartDom = document.getElementById('pt-chart');
 
-    const ptChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
+      const ptChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
 
-    const charts = document.querySelectorAll('.chart');
-    Array.prototype.forEach.call(charts, chart => {
-      chart.classList.remove('hidden');
+      const charts = document.querySelectorAll('.chart');
+      Array.prototype.forEach.call(charts, chart => {
+        chart.classList.remove('hidden');
+      });
+      chartDom.closest('.chart').classList.remove('expanded');
+      ptChart.reflow();
     });
-    chartDom.closest('.chart').classList.remove('expanded');
-    ptChart.reflow();
-  }); // Expand and shrink mat charts
+  } // Expand and shrink mat charts
 
-  document.querySelector('.js-expand-mat-chart').addEventListener('click', () => {
-    const chartDom = document.getElementById('mat-chart');
 
-    const matChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
+  if (expandMatChartButton) {
+    document.querySelector('.js-expand-mat-chart').addEventListener('click', () => {
+      const chartDom = document.getElementById('mat-chart');
 
-    const charts = document.querySelectorAll('.chart');
-    const chartContainer = chartDom.closest('.chart');
-    Array.prototype.forEach.call(charts, chart => {
-      chart.classList.add('hidden');
+      const matChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
+
+      const charts = document.querySelectorAll('.chart');
+      const chartContainer = chartDom.closest('.chart');
+      Array.prototype.forEach.call(charts, chart => {
+        chart.classList.add('hidden');
+      });
+      chartContainer.classList.add('expanded');
+      chartContainer.classList.remove('hidden');
+      chartContainer.addEventListener('transitionend', () => {
+        matChart.reflow();
+      }, false);
     });
-    chartContainer.classList.add('expanded');
-    chartContainer.classList.remove('hidden');
-    chartContainer.addEventListener('transitionend', event => {
+  }
+
+  if (shrinkMatChartButton) {
+    document.querySelector('.js-shrink-mat-chart').addEventListener('click', () => {
+      const chartDom = document.getElementById('mat-chart');
+
+      const matChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
+
+      const charts = document.querySelectorAll('.chart');
+      Array.prototype.forEach.call(charts, chart => {
+        chart.classList.remove('hidden');
+      });
+      chartDom.closest('.chart').classList.remove('expanded');
       matChart.reflow();
-    }, false);
-  });
-  document.querySelector('.js-shrink-mat-chart').addEventListener('click', () => {
-    const chartDom = document.getElementById('mat-chart');
-
-    const matChart = _highcharts2.default.charts[_highcharts2.default.attr(chartDom, 'data-highcharts-chart')];
-
-    const charts = document.querySelectorAll('.chart');
-    Array.prototype.forEach.call(charts, chart => {
-      chart.classList.remove('hidden');
     });
-    chartDom.closest('.chart').classList.remove('expanded');
-    matChart.reflow();
-  });
+  }
 }
 
 },{"highcharts":28,"highcharts/modules/exporting":29}],43:[function(require,module,exports){
@@ -8476,13 +8515,14 @@ function initContactForm() {
   }
 
   function toggleFormLoading() {
-    console.log('hello from contact form');
+    console.log('hello toggle form loading');
     form.setAttribute('aria-busy', !(form.getAttribute('aria-busy') === 'true'));
     loading = !loading;
   }
 
   function submitForm(event) {
     // const formData = new FormData(event.target);
+    console.log('submitForm function');
     toggleFormLoading();
     const data = {
       name: event.target.name.value,
@@ -8504,12 +8544,12 @@ function initContactForm() {
       toggleFormLoading();
     }).catch(() => {
       showError();
-      toggleLoading();
+      toggleFormLoading();
     });
   } // eslint-disable-next-line
 
 
-  const validate = new _bouncer2.default('form', {
+  const validate = new _bouncer2.default('.js-contato', {
     disableSubmit: true,
     // Error messages by error type
     messages: {
@@ -8541,9 +8581,11 @@ function initContactForm() {
     }
   });
   document.addEventListener('bouncerFormInvalid', event => {
+    console.log('rowwwdey');
     window.scrollTo(0, event.detail.errors[0].offsetTop - 30);
   }, false);
   document.addEventListener('bouncerFormValid', event => {
+    console.log('bouncerFormValid');
     submitForm(event);
   }, false);
 }

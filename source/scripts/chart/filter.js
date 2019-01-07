@@ -8,6 +8,11 @@ import { populateChartData, toggleLoading } from './plotCharts';
 Exporting(Highcharts);
 
 export default function handleChartFilters() {
+  const jsChartForm = document.getElementById('js-chart-form');
+  const cityInput = document.getElementById('city');
+  const highlightInput = document.getElementById('highlight');
+  const regionInput = document.getElementById('region');
+
   function getCities() {
     const url = 'https://dapitide.eokoe.com/api/cities';
 
@@ -20,19 +25,21 @@ export default function handleChartFilters() {
   }
 
   async function populateCitiesList() {
-    // const citiesList = document.getElementById('cities-list');
-    const cities = await getCities();
-    const cityNames = cities.map(city => ({ label: `${city.name} - ${city.state.name}`, value: city.id }));
+    if (cityInput) {
+      // const citiesList = document.getElementById('cities-list');
+      const cities = await getCities();
+      const cityNames = cities.map(city => ({ label: `${city.name} - ${city.state.name}`, value: city.id }));
 
-    const awesomplete = new Awesomplete(document.querySelector('#city'), {
-      nChars: 1,
-      maxItems: 5,
-      autoFirst: true,
-      replace(suggestion) {
-        this.input.value = suggestion.label;
-      },
-    });
-    awesomplete.list = cityNames;
+      const awesomplete = new Awesomplete(document.querySelector('#city'), {
+        nChars: 1,
+        maxItems: 5,
+        autoFirst: true,
+        replace(suggestion) {
+          this.input.value = suggestion.label;
+        },
+      });
+      awesomplete.list = cityNames;
+    }
   }
 
 
@@ -96,20 +103,22 @@ export default function handleChartFilters() {
     });
   }
 
-  document.getElementById('js-chart-form').addEventListener('submit', (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const payload = {};
+  if (jsChartForm) {
+    jsChartForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const payload = {};
 
-    payload.grade = formData.get('grade');
-    payload.xAxis = formData.get('xAxis');
+      payload.grade = formData.get('grade');
+      payload.xAxis = formData.get('xAxis');
 
-    toggleLoading();
-    populateChartData(payload);
-    clearFilters();
-    hideNoMatchesAlert();
-    toggleLoading();
-  });
+      toggleLoading();
+      populateChartData(payload);
+      clearFilters();
+      hideNoMatchesAlert();
+      toggleLoading();
+    });
+  }
 
   function highlightPoints(parameter, value) {
     const ptChartDom = document.getElementById('pt-chart');
@@ -172,25 +181,31 @@ export default function handleChartFilters() {
     }
   }
 
-  document.getElementById('city').addEventListener('input', () => {
-    hideNoMatchesAlert();
-  }, false);
+  if (cityInput) {
+    cityInput.addEventListener('input', () => {
+      hideNoMatchesAlert();
+    }, false);
 
-  document.getElementById('city').addEventListener('awesomplete-selectcomplete', (event) => {
-    clearFilters(event.target.id);
-    highlightPoint(event.text.value);
-    updateTableInfo(event.text.value);
-  }, false);
+    cityInput.addEventListener('awesomplete-selectcomplete', (event) => {
+      clearFilters(event.target.id);
+      highlightPoint(event.text.value);
+      updateTableInfo(event.text.value);
+    }, false);
+  }
 
-  document.getElementById('highlight').addEventListener('change', (event) => {
-    clearFilters(event.target.id);
-    highlightPoints(event.target.value);
-  }, false);
+  if (highlightInput) {
+    highlightInput.addEventListener('change', (event) => {
+      clearFilters(event.target.id);
+      highlightPoints(event.target.value);
+    }, false);
+  }
 
-  document.getElementById('region').addEventListener('change', (event) => {
-    clearFilters(event.target.id);
-    highlightPoints('region', event.target.value);
-  }, false);
+  if (regionInput) {
+    regionInput.addEventListener('change', (event) => {
+      clearFilters(event.target.id);
+      highlightPoints('region', event.target.value);
+    }, false);
+  }
 
   populateCitiesList();
 }
