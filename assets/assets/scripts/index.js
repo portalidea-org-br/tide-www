@@ -7866,7 +7866,7 @@ function handleChartFilters() {
     cityInput.addEventListener('awesomplete-selectcomplete', event => {
       clearFilters(event.target.id);
       highlightPoint(event.text.value);
-      (0, _updateTableInfo2.default)(event.text.value);
+      (0, _updateTableInfo2.default)(event.text.value, null, _plotCharts.data);
     }, false);
   }
 
@@ -7927,7 +7927,7 @@ function startChartFunctionalities() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.toggleLoading = exports.populateChartData = undefined;
+exports.data = exports.toggleLoading = exports.populateChartData = undefined;
 
 var _highcharts = require("highcharts");
 
@@ -8197,7 +8197,7 @@ async function populateChartData(payload) {
   if (ptChartElement && matChartElement) {
     try {
       const chartData = await getChartData(payload);
-      data = chartData;
+      exports.data = data = chartData;
       const ptItems = chartData.filter(item => item.subject === 'Português');
       const matItems = chartData.filter(item => item.subject === 'Matemática');
       const formatedPtItems = formatItemsToHighCharts(ptItems);
@@ -8229,6 +8229,7 @@ async function populateChartData(payload) {
 
 exports.populateChartData = populateChartData;
 exports.toggleLoading = toggleLoading;
+exports.data = data;
 
 },{"./updateTableInfo":43,"axios":2,"highcharts":28,"highcharts/modules/exporting":29}],42:[function(require,module,exports){
 "use strict";
@@ -8428,7 +8429,6 @@ function updateTableInfo(id, xAxis, data) {
   }
 
   function getCityInfo(cityId) {
-    console.log(cityId);
     return data.filter(item => item.city.id === cityId);
   }
 
@@ -8515,14 +8515,12 @@ function initContactForm() {
   }
 
   function toggleFormLoading() {
-    console.log('hello toggle form loading');
     form.setAttribute('aria-busy', !(form.getAttribute('aria-busy') === 'true'));
     loading = !loading;
   }
 
   function submitForm(event) {
     // const formData = new FormData(event.target);
-    console.log('submitForm function');
     toggleFormLoading();
     const data = {
       name: event.target.name.value,
@@ -8581,11 +8579,9 @@ function initContactForm() {
     }
   });
   document.addEventListener('bouncerFormInvalid', event => {
-    console.log('rowwwdey');
     window.scrollTo(0, event.detail.errors[0].offsetTop - 30);
   }, false);
   document.addEventListener('bouncerFormValid', event => {
-    console.log('bouncerFormValid');
     submitForm(event);
   }, false);
 }

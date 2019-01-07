@@ -277,4 +277,4 @@ async function populateChartData(payload) {
 // updateTableInfo(this.id, xAxis, formatedPtItems);
 
 // export { populateChartData, toggleLoading, foo };
-export { populateChartData, toggleLoading };
+export { populateChartData, toggleLoading, data };

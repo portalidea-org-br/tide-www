@@ -38,14 +38,12 @@ export default function initContactForm() {
   }
 
   function toggleFormLoading() {
-    console.log('hello toggle form loading');
     form.setAttribute('aria-busy', !(form.getAttribute('aria-busy') === 'true'));
     loading = !loading;
   }
 
   function submitForm(event) {
     // const formData = new FormData(event.target);
-    console.log('submitForm function')
     toggleFormLoading();
 
     const data = {
@@ -107,12 +105,10 @@ export default function initContactForm() {
   });
 
   document.addEventListener('bouncerFormInvalid', (event) => {
-    console.log('rowwwdey')
     window.scrollTo(0, event.detail.errors[0].offsetTop - 30);
   }, false);
 
   document.addEventListener('bouncerFormValid', (event) => {
-    console.log('bouncerFormValid')
     submitForm(event);
   }, false);
 }

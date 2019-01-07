@@ -3,7 +3,7 @@ import Exporting from 'highcharts/modules/exporting';
 import axios from 'axios';
 import Awesomplete from 'awesomplete';
 import updateTableInfo from './updateTableInfo';
-import { populateChartData, toggleLoading } from './plotCharts';
+import { populateChartData, toggleLoading, data } from './plotCharts';
 
 Exporting(Highcharts);
 
@@ -189,7 +189,7 @@ export default function handleChartFilters() {
     cityInput.addEventListener('awesomplete-selectcomplete', (event) => {
       clearFilters(event.target.id);
       highlightPoint(event.text.value);
-      updateTableInfo(event.text.value);
+      updateTableInfo(event.text.value, null, data);
     }, false);
   }
 
