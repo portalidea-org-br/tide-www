@@ -60,9 +60,11 @@
       color: inherit;
 
       @media screen and (min-width: breakpoint('desktop')) {
+        min-height: auto;
         padding-bottom: 0.625em;
+        margin-bottom: 0;
 
-        font-size: ms(3);
+        font-size: ms(11);
         line-height: 1;
 
         text-align: inherit;

@@ -195,6 +195,7 @@
   color: palette('green');
 
   @media screen and (min-width: breakpoint('desktop')) {
+    margin-left: 2.6rem;
     font-size: ms(9);
   }
 }
