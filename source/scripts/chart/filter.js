@@ -3,7 +3,7 @@ import Exporting from 'highcharts/modules/exporting';
 import axios from 'axios';
 import Awesomplete from 'awesomplete';
 import updateTableInfo from './updateTableInfo';
-import { populateChartData, toggleLoading, data } from './plotCharts';
+import { populateChartData, toggleLoading } from './plotCharts';
 
 Exporting(Highcharts);
 

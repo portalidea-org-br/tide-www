@@ -3,7 +3,9 @@ import Exporting from 'highcharts/modules/exporting';
 
 Exporting(Highcharts);
 
-export default function updateTableInfo(id, xAxis, data) {
+export default function updateTableInfo(id) {
+  const { xAxis, data } = window.chartData;
+
   function setCityInfo(info) {
     const ptTable = document.querySelector('.js-pt-table');
     const matTable = document.querySelector('.js-mat-table');

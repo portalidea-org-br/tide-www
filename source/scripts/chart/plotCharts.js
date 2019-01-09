@@ -1,14 +1,13 @@
 import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
-import axios from 'axios';
 import updateTableInfo from './updateTableInfo';
+import getChartData from './getChartData';
+// import clearFilters from './filter'
 
 Exporting(Highcharts);
 
-let xAxis;
+// let xAxis;
 let xAxisText;
-let url;
-let data;
 const ptChartElement = document.getElementById('pt-chart');
 const matChartElement = document.getElementById('mat-chart');
 
@@ -23,27 +22,6 @@ Highcharts.setOptions({
     },
   },
 });
-
-function getChartData(receivedPayload) {
-  let payload;
-
-  if (receivedPayload === undefined) {
-    payload = {
-      grade: 5,
-      xAxis: 'racial',
-    };
-  } else {
-    payload = receivedPayload;
-  }
-
-  url = `https://dapitide.eokoe.com/api/data?school_grade=${payload.grade}&x=${payload.xAxis}`;
-
-  const newXAxis = payload.xAxis;
-  xAxis = newXAxis;
-
-  return axios.get(url)
-    .then(response => response.data.data);
-}
 
 function drawPtChart(chartData) {
   return Highcharts.chart('pt-chart', {
@@ -119,7 +97,7 @@ function drawPtChart(chartData) {
           click() {
             // clearFilters();
             // highlightPoint(this.id);
-            updateTableInfo(this.id, xAxis, data);
+            updateTableInfo(this.id);
           },
         },
       },
@@ -199,7 +177,7 @@ function drawMatChart(chartData) {
           click() {
             // clearFilters();
             // highlightPoint(this.id);
-            updateTableInfo(this.id, xAxis, data);
+            updateTableInfo(this.id);
           },
         },
       },
@@ -242,9 +220,9 @@ function toggleLoading() {
 async function populateChartData(payload) {
   if (ptChartElement && matChartElement) {
     try {
-      const chartData = await getChartData(payload);
+      await getChartData(payload);
 
-      data = chartData;
+      const chartData = window.chartData.data;
 
       const ptItems = chartData.filter(item => item.subject === 'Português');
       const matItems = chartData.filter(item => item.subject === 'Matemática');
@@ -252,15 +230,15 @@ async function populateChartData(payload) {
       const formatedPtItems = formatItemsToHighCharts(ptItems);
       const formatedMatItems = formatItemsToHighCharts(matItems);
 
-      if (xAxis === 'racial') {
+      if (window.chartData.xAxis === 'racial') {
         xAxisText = 'Raça';
       }
 
-      if (xAxis === 'sex') {
+      if (window.chartData.xAxis === 'sex') {
         xAxisText = 'Sexo';
       }
 
-      if (xAxis === 'nse') {
+      if (window.chartData.xAxis === 'nse') {
         xAxisText = 'NSE';
       }
 
@@ -273,8 +251,4 @@ async function populateChartData(payload) {
   }
 }
 
-// populateChartData();
-// updateTableInfo(this.id, xAxis, formatedPtItems);
-
-// export { populateChartData, toggleLoading, foo };
-export { populateChartData, toggleLoading, data };
+export { populateChartData, toggleLoading };
