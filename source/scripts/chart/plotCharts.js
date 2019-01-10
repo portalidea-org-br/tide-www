@@ -2,7 +2,8 @@ import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
 import updateTableInfo from './updateTableInfo';
 import getChartData from './getChartData';
-// import clearFilters from './filter'
+import clearFilters from './filter/clearFilters';
+import { highlightPoint } from './filter/highlightPoint';
 
 Exporting(Highcharts);
 
@@ -95,8 +96,8 @@ function drawPtChart(chartData) {
       point: {
         events: {
           click() {
-            // clearFilters();
-            // highlightPoint(this.id);
+            clearFilters();
+            highlightPoint(this.id);
             updateTableInfo(this.id);
           },
         },

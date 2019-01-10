@@ -2,8 +2,10 @@ import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
 import axios from 'axios';
 import Awesomplete from 'awesomplete';
-import updateTableInfo from './updateTableInfo';
-import { populateChartData, toggleLoading } from './plotCharts';
+import updateTableInfo from '../updateTableInfo';
+import { populateChartData, toggleLoading } from '../plotCharts';
+import clearFilters from './clearFilters';
+import { highlightPoint } from './highlightPoint';
 
 Exporting(Highcharts);
 
@@ -47,33 +49,6 @@ export default function handleChartFilters() {
     document.querySelector('.js-no-matches').setAttribute('hidden', true);
   }
 
-  function showNoMatchesAlert() {
-    document.querySelector('.js-no-matches').removeAttribute('hidden');
-  }
-
-  // Highlight city
-  function highlightPoint(id) {
-    const ptChartDom = document.getElementById('pt-chart');
-    const matChartDom = document.getElementById('mat-chart');
-    const ptChart = Highcharts.charts[Highcharts.attr(ptChartDom, 'data-highcharts-chart')];
-    const matChart = Highcharts.charts[Highcharts.attr(matChartDom, 'data-highcharts-chart')];
-
-    const ptPoint = ptChart.get(id);
-    const matPoint = matChart.get(id);
-
-    if (ptPoint === undefined || matPoint === undefined) {
-      return showNoMatchesAlert();
-    }
-
-    ptPoint.graphic.toFront();
-    ptPoint.select();
-
-    matPoint.graphic.toFront();
-    matPoint.select();
-
-    return true;
-  }
-
   function clearHighlightedPoints() {
     const ptChartDom = document.getElementById('pt-chart');
     const matChartDom = document.getElementById('mat-chart');
@@ -88,20 +63,6 @@ export default function handleChartFilters() {
     }
   }
 
-
-  function clearFilters(exception) {
-    const formContainer = document.querySelector('.js-form-filter');
-    formContainer.querySelectorAll('select').forEach((select) => {
-      if (select.id !== exception) {
-        select.selectedIndex = 0;
-      }
-    });
-    formContainer.querySelectorAll('input[type="text"]').forEach((input) => {
-      if (input.id !== exception) {
-        input.value = '';
-      }
-    });
-  }
 
   if (jsChartForm) {
     jsChartForm.addEventListener('submit', (event) => {
@@ -189,7 +150,7 @@ export default function handleChartFilters() {
     cityInput.addEventListener('awesomplete-selectcomplete', (event) => {
       clearFilters(event.target.id);
       highlightPoint(event.text.value);
-      updateTableInfo(event.text.value, null, data);
+      updateTableInfo(event.text.value, window.chartData.xAxis, window.chartData.data);
     }, false);
   }
 
