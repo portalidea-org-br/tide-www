@@ -3043,14 +3043,10 @@ var _filter2 = _interopRequireDefault(_filter);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import populateChartData from './plotCharts';
-// import updateTableInfo from './updateTableInfo';
-// import rest from './rest';
-// startChartFunctionalities();
 (0, _plotCharts.populateChartData)();
 (0, _downloadCharts2.default)();
 (0, _sizeToggle2.default)();
-(0, _filter2.default)(); // rest();
+(0, _filter2.default)();
 
 },{"./downloadCharts":31,"./filter":34,"./plotCharts":37,"./sizeToggle":38}],37:[function(require,module,exports){
 "use strict";
