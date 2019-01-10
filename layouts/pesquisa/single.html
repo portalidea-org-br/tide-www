@@ -166,6 +166,10 @@
       {{ $secureJS := $js | resources.Minify | resources.Fingerprint "sha512" }}
       <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
 
+      {{ $jsChart := resources.Get "assets/scripts/chart/index.js" }}
+      {{ $secureJS := $jsChart | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+
 
       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"></script> -->
 

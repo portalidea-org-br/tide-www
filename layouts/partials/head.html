@@ -28,6 +28,13 @@
   <link rel="preload" type="text/javascript" as="script"
     href="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}">
 
+  {{ if eq .Type "pesquisa" }}
+    {{ $jsChart := resources.Get "assets/scripts/chart/index.js" }}
+    {{ $secureJS := $jsChart | resources.Minify | resources.Fingerprint "sha512" }}
+    <link rel="preload" type="text/javascript" as="script"
+      href="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}">
+  {{ end }}
+
   <script type="text/javascript">
     document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, '');
   </script>
