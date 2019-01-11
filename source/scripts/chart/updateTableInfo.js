@@ -116,6 +116,7 @@ function clearTableInfo() {
   ptTable.querySelector('.js-total-students').textContent = '';
   ptTable.querySelector('.js-xAxis').textContent = '';
   ptTable.querySelector('.js-yAxis').textContent = '';
+  ptTable.querySelector('.js-xAxis-text').textContent = '';
 
   matTable.getElementsByTagName('h2')[0].textContent = '';
   matTable.querySelector('.js-unprivileged-value').textContent = '';
@@ -123,6 +124,7 @@ function clearTableInfo() {
   matTable.querySelector('.js-total-students').textContent = '';
   matTable.querySelector('.js-xAxis').textContent = '';
   matTable.querySelector('.js-yAxis').textContent = '';
+  matTable.querySelector('.js-xAxis-text').textContent = '';
 }
 
 export { updateTableInfo, clearTableInfo };

@@ -72,6 +72,7 @@ export default function handleChartFilters() {
       toggleLoading();
       populateChartData(payload);
       clearFilters();
+      clearTableInfo();
       hideNoMatchesAlert();
       toggleLoading();
     });

@@ -2880,6 +2880,7 @@ function handleChartFilters() {
       (0, _plotCharts.toggleLoading)();
       (0, _plotCharts.populateChartData)(payload);
       (0, _clearFilters2.default)();
+      (0, _updateTableInfo.clearTableInfo)();
       hideNoMatchesAlert();
       (0, _plotCharts.toggleLoading)();
     });
@@ -3552,12 +3553,14 @@ function clearTableInfo() {
   ptTable.querySelector('.js-total-students').textContent = '';
   ptTable.querySelector('.js-xAxis').textContent = '';
   ptTable.querySelector('.js-yAxis').textContent = '';
+  ptTable.querySelector('.js-xAxis-text').textContent = '';
   matTable.getElementsByTagName('h2')[0].textContent = '';
   matTable.querySelector('.js-unprivileged-value').textContent = '';
   matTable.querySelector('.js-privileged-value').textContent = '';
   matTable.querySelector('.js-total-students').textContent = '';
   matTable.querySelector('.js-xAxis').textContent = '';
   matTable.querySelector('.js-yAxis').textContent = '';
+  matTable.querySelector('.js-xAxis-text').textContent = '';
 }
 
 exports.updateTableInfo = updateTableInfo;
