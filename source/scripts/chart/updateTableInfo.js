@@ -3,12 +3,13 @@ import Exporting from 'highcharts/modules/exporting';
 
 Exporting(Highcharts);
 
-export default function updateTableInfo(id) {
+const ptTable = document.querySelector('.js-pt-table');
+const matTable = document.querySelector('.js-mat-table');
+
+function updateTableInfo(id) {
   const { xAxis, data } = window.chartData;
 
   function setCityInfo(info) {
-    const ptTable = document.querySelector('.js-pt-table');
-    const matTable = document.querySelector('.js-mat-table');
     const ptInfo = info.find(item => item.subject === 'Português');
     const matInfo = info.find(item => item.subject === 'Matemática');
 
@@ -107,3 +108,21 @@ export default function updateTableInfo(id) {
   const newInfo = getCityInfo(id);
   setCityInfo(newInfo);
 }
+
+function clearTableInfo() {
+  ptTable.getElementsByTagName('h2')[0].textContent = '';
+  ptTable.querySelector('.js-unprivileged-value').textContent = '';
+  ptTable.querySelector('.js-privileged-value').textContent = '';
+  ptTable.querySelector('.js-total-students').textContent = '';
+  ptTable.querySelector('.js-xAxis').textContent = '';
+  ptTable.querySelector('.js-yAxis').textContent = '';
+
+  matTable.getElementsByTagName('h2')[0].textContent = '';
+  matTable.querySelector('.js-unprivileged-value').textContent = '';
+  matTable.querySelector('.js-privileged-value').textContent = '';
+  matTable.querySelector('.js-total-students').textContent = '';
+  matTable.querySelector('.js-xAxis').textContent = '';
+  matTable.querySelector('.js-yAxis').textContent = '';
+}
+
+export { updateTableInfo, clearTableInfo };

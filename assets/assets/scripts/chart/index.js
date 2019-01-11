@@ -2804,8 +2804,6 @@ var _awesomplete2 = _interopRequireDefault(_awesomplete);
 
 var _updateTableInfo = require("../updateTableInfo");
 
-var _updateTableInfo2 = _interopRequireDefault(_updateTableInfo);
-
 var _plotCharts = require("../plotCharts");
 
 var _clearFilters = require("./clearFilters");
@@ -2826,10 +2824,7 @@ function handleChartFilters() {
 
   function getCities() {
     const url = 'https://dapitide.eokoe.com/api/cities';
-    return _axios2.default.get(url).then(response => response.data.cities); // .then((response) => {
-    //   data = response.data.cities;
-    //   return data;
-    // });
+    return _axios2.default.get(url).then(response => response.data.cities);
   }
 
   async function populateCitiesList() {
@@ -2957,13 +2952,14 @@ function handleChartFilters() {
     cityInput.addEventListener('awesomplete-selectcomplete', event => {
       (0, _clearFilters2.default)(event.target.id);
       (0, _highlightPoint.highlightPoint)(event.text.value);
-      (0, _updateTableInfo2.default)(event.text.value, window.chartData.xAxis, window.chartData.data);
+      (0, _updateTableInfo.updateTableInfo)(event.text.value, window.chartData.xAxis, window.chartData.data);
     }, false);
   }
 
   if (highlightInput) {
     highlightInput.addEventListener('change', event => {
       (0, _clearFilters2.default)(event.target.id);
+      (0, _updateTableInfo.clearTableInfo)();
       highlightPoints(event.target.value);
     }, false);
   }
@@ -2971,6 +2967,7 @@ function handleChartFilters() {
   if (regionInput) {
     regionInput.addEventListener('change', event => {
       (0, _clearFilters2.default)(event.target.id);
+      (0, _updateTableInfo.clearTableInfo)();
       highlightPoints('region', event.target.value);
     }, false);
   }
@@ -3065,8 +3062,6 @@ var _exporting = require("highcharts/modules/exporting");
 var _exporting2 = _interopRequireDefault(_exporting);
 
 var _updateTableInfo = require("./updateTableInfo");
-
-var _updateTableInfo2 = _interopRequireDefault(_updateTableInfo);
 
 var _getChartData = require("./getChartData");
 
@@ -3177,7 +3172,7 @@ function drawPtChart(chartData) {
           click() {
             (0, _clearFilters2.default)();
             (0, _highlightPoint.highlightPoint)(this.id);
-            (0, _updateTableInfo2.default)(this.id);
+            (0, _updateTableInfo.updateTableInfo)(this.id);
           }
 
         }
@@ -3260,9 +3255,9 @@ function drawMatChart(chartData) {
       point: {
         events: {
           click() {
-            // clearFilters();
-            // highlightPoint(this.id);
-            (0, _updateTableInfo2.default)(this.id);
+            (0, _clearFilters2.default)();
+            (0, _highlightPoint.highlightPoint)(this.id);
+            (0, _updateTableInfo.updateTableInfo)(this.id);
           }
 
         }
@@ -3443,7 +3438,7 @@ function sizeToggle() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = updateTableInfo;
+exports.clearTableInfo = exports.updateTableInfo = undefined;
 
 var _highcharts = require("highcharts");
 
@@ -3456,6 +3451,8 @@ var _exporting2 = _interopRequireDefault(_exporting);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _exporting2.default)(_highcharts2.default);
+const ptTable = document.querySelector('.js-pt-table');
+const matTable = document.querySelector('.js-mat-table');
 
 function updateTableInfo(id) {
   const {
@@ -3464,8 +3461,6 @@ function updateTableInfo(id) {
   } = window.chartData;
 
   function setCityInfo(info) {
-    const ptTable = document.querySelector('.js-pt-table');
-    const matTable = document.querySelector('.js-mat-table');
     const ptInfo = info.find(item => item.subject === 'Português');
     const matInfo = info.find(item => item.subject === 'Matemática');
 
@@ -3549,6 +3544,24 @@ function updateTableInfo(id) {
   const newInfo = getCityInfo(id);
   setCityInfo(newInfo);
 }
+
+function clearTableInfo() {
+  ptTable.getElementsByTagName('h2')[0].textContent = '';
+  ptTable.querySelector('.js-unprivileged-value').textContent = '';
+  ptTable.querySelector('.js-privileged-value').textContent = '';
+  ptTable.querySelector('.js-total-students').textContent = '';
+  ptTable.querySelector('.js-xAxis').textContent = '';
+  ptTable.querySelector('.js-yAxis').textContent = '';
+  matTable.getElementsByTagName('h2')[0].textContent = '';
+  matTable.querySelector('.js-unprivileged-value').textContent = '';
+  matTable.querySelector('.js-privileged-value').textContent = '';
+  matTable.querySelector('.js-total-students').textContent = '';
+  matTable.querySelector('.js-xAxis').textContent = '';
+  matTable.querySelector('.js-yAxis').textContent = '';
+}
+
+exports.updateTableInfo = updateTableInfo;
+exports.clearTableInfo = clearTableInfo;
 
 },{"highcharts":27,"highcharts/modules/exporting":28}],40:[function(require,module,exports){
 "use strict";

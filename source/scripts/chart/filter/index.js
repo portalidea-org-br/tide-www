@@ -2,7 +2,7 @@ import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
 import axios from 'axios';
 import Awesomplete from 'awesomplete';
-import updateTableInfo from '../updateTableInfo';
+import { updateTableInfo, clearTableInfo } from '../updateTableInfo';
 import { populateChartData, toggleLoading } from '../plotCharts';
 import clearFilters from './clearFilters';
 import { highlightPoint } from './highlightPoint';
@@ -20,10 +20,6 @@ export default function handleChartFilters() {
 
     return axios.get(url)
       .then(response => response.data.cities);
-    // .then((response) => {
-    //   data = response.data.cities;
-    //   return data;
-    // });
   }
 
   async function populateCitiesList() {
@@ -157,6 +153,7 @@ export default function handleChartFilters() {
   if (highlightInput) {
     highlightInput.addEventListener('change', (event) => {
       clearFilters(event.target.id);
+      clearTableInfo();
       highlightPoints(event.target.value);
     }, false);
   }
@@ -164,6 +161,7 @@ export default function handleChartFilters() {
   if (regionInput) {
     regionInput.addEventListener('change', (event) => {
       clearFilters(event.target.id);
+      clearTableInfo();
       highlightPoints('region', event.target.value);
     }, false);
   }
