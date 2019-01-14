@@ -6634,7 +6634,7 @@ function initContactForm() {
   };
 
   if (phone) {
-    // eslint-disable-next-line
+    // eslint-disable-next-line no-unused-vars
     const mask = new _imask2.default(phone, maskOptions);
   }
 
@@ -6688,7 +6688,7 @@ function initContactForm() {
       showError();
       toggleFormLoading();
     });
-  } // eslint-disable-next-line
+  } // eslint-disable-next-line no-unused-vars
 
 
   const validate = new _bouncer2.default('.js-contato', {

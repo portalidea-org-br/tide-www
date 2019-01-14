@@ -2812,6 +2812,10 @@ var _clearFilters2 = _interopRequireDefault(_clearFilters);
 
 var _highlightPoint = require("./highlightPoint");
 
+var _config = require("../../config");
+
+var _config2 = _interopRequireDefault(_config);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _exporting2.default)(_highcharts2.default);
@@ -2823,7 +2827,7 @@ function handleChartFilters() {
   const regionInput = document.getElementById('region');
 
   function getCities() {
-    const url = 'https://dapitide.eokoe.com/api/cities';
+    const url = `${_config2.default.api.domain}cities`;
     return _axios2.default.get(url).then(response => response.data.cities);
   }
 
@@ -2976,7 +2980,7 @@ function handleChartFilters() {
   populateCitiesList();
 }
 
-},{"../plotCharts":37,"../updateTableInfo":39,"./clearFilters":32,"./highlightPoint":33,"awesomplete":1,"axios":2,"highcharts":27,"highcharts/modules/exporting":28}],35:[function(require,module,exports){
+},{"../../config":40,"../plotCharts":37,"../updateTableInfo":39,"./clearFilters":32,"./highlightPoint":33,"awesomplete":1,"axios":2,"highcharts":27,"highcharts/modules/exporting":28}],35:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
