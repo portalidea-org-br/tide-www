@@ -6,6 +6,7 @@ import { updateTableInfo, clearTableInfo } from '../updateTableInfo';
 import { populateChartData, toggleLoading } from '../plotCharts';
 import clearFilters from './clearFilters';
 import { highlightPoint } from './highlightPoint';
+import config from '../../config';
 
 Exporting(Highcharts);
 
@@ -16,7 +17,7 @@ export default function handleChartFilters() {
   const regionInput = document.getElementById('region');
 
   function getCities() {
-    const url = 'https://dapitide.eokoe.com/api/cities';
+    const url = `${config.api.domain}cities`;
 
     return axios.get(url)
       .then(response => response.data.cities);

@@ -11,10 +11,9 @@ export default function initContactForm() {
   const message = form ? form.querySelector('#js-response-message') : '';
   const phone = document.getElementById('phone');
   const maskOptions = { mask: '+00 (00) 000000000' };
-  // eslint-disable-next-line
-  let mask;
   if (phone) {
-    mask = new IMask(phone, maskOptions);
+    // eslint-disable-next-line no-unused-vars
+    const mask = new IMask(phone, maskOptions);
   }
 
   function clearPhone(dirtyPhone) {
@@ -71,7 +70,7 @@ export default function initContactForm() {
       });
   }
 
-  // eslint-disable-next-line
+  // eslint-disable-next-line no-unused-vars
   const validate = new Bouncer('.js-contato', {
     disableSubmit: true,
     // Error messages by error type
