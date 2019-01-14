@@ -6631,12 +6631,11 @@ function initContactForm() {
   const phone = document.getElementById('phone');
   const maskOptions = {
     mask: '+00 (00) 000000000'
-  }; // eslint-disable-next-line
-
-  let mask;
+  };
 
   if (phone) {
-    mask = new _imask2.default(phone, maskOptions);
+    // eslint-disable-next-line
+    const mask = new _imask2.default(phone, maskOptions);
   }
 
   function clearPhone(dirtyPhone) {
