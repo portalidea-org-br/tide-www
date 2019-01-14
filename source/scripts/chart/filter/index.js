@@ -2,6 +2,7 @@ import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
 import axios from 'axios';
 import Awesomplete from 'awesomplete';
+import fuzzysort from 'fuzzysort';
 import { updateTableInfo, clearTableInfo } from '../updateTableInfo';
 import { populateChartData, toggleLoading } from '../plotCharts';
 import clearFilters from './clearFilters';
@@ -33,6 +34,9 @@ export default function handleChartFilters() {
         nChars: 1,
         maxItems: 5,
         autoFirst: true,
+        filter(text, input) {
+          return fuzzysort.single(input, text.label);
+        },
         replace(suggestion) {
           this.input.value = suggestion.label;
         },
