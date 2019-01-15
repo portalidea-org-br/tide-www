@@ -24,6 +24,10 @@ export default function handleChartFilters() {
       .then(response => response.data.cities);
   }
 
+  function removeDiacritics(string) {
+    return string.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
   async function populateCitiesList() {
     if (cityInput) {
       // const citiesList = document.getElementById('cities-list');
@@ -35,7 +39,7 @@ export default function handleChartFilters() {
         maxItems: 5,
         autoFirst: true,
         filter(text, input) {
-          return fuzzysort.single(input, text.label);
+          return fuzzysort.single(removeDiacritics(input), removeDiacritics(text.label));
         },
         replace(suggestion) {
           this.input.value = suggestion.label;

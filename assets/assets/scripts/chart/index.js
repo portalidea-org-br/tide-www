@@ -3522,6 +3522,10 @@ function handleChartFilters() {
     return _axios2.default.get(url).then(response => response.data.cities);
   }
 
+  function removeDiacritics(string) {
+    return string.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
   async function populateCitiesList() {
     if (cityInput) {
       // const citiesList = document.getElementById('cities-list');
@@ -3536,7 +3540,7 @@ function handleChartFilters() {
         autoFirst: true,
 
         filter(text, input) {
-          return _fuzzysort2.default.single(input, text.label);
+          return _fuzzysort2.default.single(removeDiacritics(input), removeDiacritics(text.label));
         },
 
         replace(suggestion) {
