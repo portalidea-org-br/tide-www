@@ -3080,8 +3080,7 @@ var _highlightPoint = require("./filter/highlightPoint");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _exporting2.default)(_highcharts2.default); // let xAxis;
-
+(0, _exporting2.default)(_highcharts2.default);
 let xAxisText;
 const ptChartElement = document.getElementById('pt-chart');
 const matChartElement = document.getElementById('mat-chart');
@@ -3099,8 +3098,8 @@ _highcharts2.default.setOptions({
   }
 });
 
-function drawPtChart(chartData) {
-  return _highcharts2.default.chart('pt-chart', {
+function drawChart(chartData, subject) {
+  return _highcharts2.default.chart(`${subject}-chart`, {
     chart: {
       type: 'scatter',
       zoomType: 'xy'
@@ -3133,7 +3132,7 @@ function drawPtChart(chartData) {
     },
     yAxis: {
       title: {
-        text: 'Português | [Nível de aprendizado]'
+        text: `${subject === 'pt' ? 'Português' : 'Matemática'} | [Nível de aprendizado]`
       },
       lineWidth: 1,
       gridZIndex: 0 // max: 2,
@@ -3166,91 +3165,6 @@ function drawPtChart(chartData) {
         },
         tooltip: {
           headerFormat: 'Cidade: <b>{point.options.city}</b>'
-        }
-      }
-    },
-    series: [{
-      turboThreshold: 0,
-      cursor: 'pointer',
-      point: {
-        events: {
-          click() {
-            (0, _clearFilters2.default)();
-            (0, _highlightPoint.highlightPoint)(this.id);
-            (0, _updateTableInfo.updateTableInfo)(this.id);
-          }
-
-        }
-      },
-      data: chartData
-    }]
-  });
-}
-
-function drawMatChart(chartData) {
-  _highcharts2.default.chart('mat-chart', {
-    chart: {
-      type: 'scatter',
-      zoomType: 'xy'
-    },
-    credits: false,
-    legend: {
-      enabled: false
-    },
-    turboThreshold: 0,
-    title: {
-      text: ''
-    },
-    subtitle: '',
-    xAxis: {
-      title: {
-        enabled: true,
-        text: `${xAxisText} | [Desigualdade]`
-      },
-      // max: 2,
-      // min: -2,
-      startOnTick: true,
-      endOnTick: true,
-      showLastLabel: true,
-      plotLines: [{
-        value: 0,
-        color: '#e6e6e6',
-        dashStyle: 'solid',
-        width: 1
-      }]
-    },
-    yAxis: {
-      title: {
-        text: 'Matemática | [Nível de aprendizado]'
-      },
-      lineWidth: 1,
-      gridZIndex: 0,
-      // max: 2,
-      // min: -2,
-      plotLines: [{
-        value: 0,
-        color: '#666',
-        dashStyle: 'solid',
-        width: 1
-      }]
-    },
-    plotOptions: {
-      scatter: {
-        marker: {
-          radius: 5,
-          states: {
-            hover: {
-              enabled: true,
-              lineColor: 'rgb(100,100,100)'
-            }
-          }
-        },
-        states: {
-          hover: {
-            marker: {
-              enabled: false
-            }
-          }
         }
       }
     },
@@ -3328,8 +3242,8 @@ async function populateChartData(payload) {
         xAxisText = 'NSE';
       }
 
-      drawPtChart(formatedPtItems);
-      drawMatChart(formatedMatItems);
+      drawChart(formatedPtItems, 'pt');
+      drawChart(formatedMatItems, 'mat');
     } catch (err) {
       console.log(err);
       toggleLoading();
