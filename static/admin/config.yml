@@ -63,12 +63,12 @@ collections:
       -
         label: "layout"
         name: "layout"
-        widget: "string"
+        widget: "hidden"
         default: "single"
       -
         label: "type"
         name: "type"
-        widget: "string"
+        widget: "hidden"
         default: "biblioteca"
       -
         label: "Body"
@@ -101,12 +101,12 @@ collections:
       -
         label: "layout"
         name: "layout"
-        widget: "string"
+        widget: "hidden"
         default: "single"
       -
         label: "type"
         name: "type"
-        widget: "string"
+        widget: "hidden"
         default: "sobre"
       -
         label: "Body"
@@ -139,12 +139,12 @@ collections:
       -
         label: "layout"
         name: "layout"
-        widget: "string"
+        widget: "hidden"
         default: "single"
       -
         label: "type"
         name: "type"
-        widget: "string"
+        widget: "hidden"
         default: "pesquisa"
       -
         label: "Body"
