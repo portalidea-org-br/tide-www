@@ -9,8 +9,8 @@ media_folder: "static/uploads"
 public_folder: "/uploads"
 collections:
   -
-    label: "Index"
-    name: "index"
+    label: "Homepage"
+    name: "home"
     folder: "content/"
     create: false
     delete: false
@@ -36,4 +36,117 @@ collections:
         label: "Body"
         name: "body"
         widget: "markdown"
-
+  -
+    label: "biblioteca"
+    name: "biblioteca"
+    folder: "content/biblioteca"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Title"
+        name: "title"
+        widget: "string"
+        tagname: "h1"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
+      -
+        label: "Draft"
+        name: "draft"
+        widget: "boolean"
+        default: true
+      -
+        label: "layout"
+        name: "layout"
+        widget: "string"
+        default: "single"
+      -
+        label: "type"
+        name: "type"
+        widget: "string"
+        default: "biblioteca"
+      -
+        label: "Body"
+        name: "body"
+        widget: "markdown"
+  -
+    label: "sobre"
+    name: "sobre"
+    folder: "content/sobre"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Title"
+        name: "title"
+        widget: "string"
+        tagname: "h1"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
+      -
+        label: "Draft"
+        name: "draft"
+        widget: "boolean"
+        default: true
+      -
+        label: "layout"
+        name: "layout"
+        widget: "string"
+        default: "single"
+      -
+        label: "type"
+        name: "type"
+        widget: "string"
+        default: "sobre"
+      -
+        label: "Body"
+        name: "body"
+        widget: "markdown"
+  -
+    label: "pesquisa"
+    name: "pesquisa"
+    folder: "content/pesquisa"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Title"
+        name: "title"
+        widget: "string"
+        tagname: "h1"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
+      -
+        label: "Draft"
+        name: "draft"
+        widget: "boolean"
+        default: true
+      -
+        label: "layout"
+        name: "layout"
+        widget: "string"
+        default: "single"
+      -
+        label: "type"
+        name: "type"
+        widget: "string"
+        default: "pesquisa"
+      -
+        label: "Body"
+        name: "body"
+        widget: "markdown"
