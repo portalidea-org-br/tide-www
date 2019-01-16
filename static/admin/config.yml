@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: bitbucket
   repo: eokoe__frontend/tide
   branch: cms
   accept_roles:
