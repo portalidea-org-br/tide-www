@@ -9,76 +9,60 @@ export default function sizeToggle() {
   const shrinkPtChartButton = document.querySelector('.js-shrink-pt-chart');
   const expandMatChartButton = document.querySelector('.js-expand-mat-chart');
   const shrinkMatChartButton = document.querySelector('.js-shrink-mat-chart');
+  const charts = document.querySelectorAll('.chart');
+
+  function expandChart(whichChart) {
+    const chartDom = document.getElementById(whichChart);
+    const highChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')];
+    const chartContainer = chartDom.closest('.chart');
+
+    Array.prototype.forEach.call(charts, (chart) => {
+      chart.classList.add('hidden');
+    });
+
+    chartContainer.classList.add('expanded');
+    chartContainer.classList.remove('hidden');
+
+    chartContainer.addEventListener('transitionend', () => {
+      highChart.reflow();
+    }, false);
+  }
+
+  function shrinkChart(whichChart) {
+    const chartDom = document.getElementById(whichChart);
+    const highChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')];
+
+    Array.prototype.forEach.call(charts, (chart) => {
+      chart.classList.remove('hidden');
+    });
+
+    chartDom.closest('.chart').classList.remove('expanded');
+    highChart.reflow();
+  }
 
   if (expandPtChartButton) {
     expandPtChartButton.addEventListener('click', () => {
-      const chartDom = document.getElementById('pt-chart');
-      const ptChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')];
-      const charts = document.querySelectorAll('.chart');
-      const chartContainer = chartDom.closest('.chart');
-
-      Array.prototype.forEach.call(charts, (chart) => {
-        chart.classList.add('hidden');
-      });
-
-      chartContainer.classList.add('expanded');
-      chartContainer.classList.remove('hidden');
-
-      chartContainer.addEventListener('transitionend', () => {
-        ptChart.reflow();
-      }, false);
+      expandChart('pt-chart');
     });
   }
 
   if (shrinkPtChartButton) {
     shrinkPtChartButton.addEventListener('click', () => {
-      const chartDom = document.getElementById('pt-chart');
-      const ptChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')];
-      const charts = document.querySelectorAll('.chart');
-
-      Array.prototype.forEach.call(charts, (chart) => {
-        chart.classList.remove('hidden');
-      });
-
-      chartDom.closest('.chart').classList.remove('expanded');
-      ptChart.reflow();
+      shrinkChart('pt-chart');
     });
   }
 
 
   // Expand and shrink mat charts
   if (expandMatChartButton) {
-    document.querySelector('.js-expand-mat-chart').addEventListener('click', () => {
-      const chartDom = document.getElementById('mat-chart');
-      const matChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')];
-      const charts = document.querySelectorAll('.chart');
-      const chartContainer = chartDom.closest('.chart');
-
-      Array.prototype.forEach.call(charts, (chart) => {
-        chart.classList.add('hidden');
-      });
-
-      chartContainer.classList.add('expanded');
-      chartContainer.classList.remove('hidden');
-
-      chartContainer.addEventListener('transitionend', () => {
-        matChart.reflow();
-      }, false);
+    expandMatChartButton.addEventListener('click', () => {
+      expandChart('mat-chart');
     });
   }
 
   if (shrinkMatChartButton) {
     document.querySelector('.js-shrink-mat-chart').addEventListener('click', () => {
-      const chartDom = document.getElementById('mat-chart');
-      const matChart = Highcharts.charts[Highcharts.attr(chartDom, 'data-highcharts-chart')];
-      const charts = document.querySelectorAll('.chart');
-
-      Array.prototype.forEach.call(charts, (chart) => {
-        chart.classList.remove('hidden');
-      });
-
-      chartDom.closest('.chart').classList.remove('expanded');
-      matChart.reflow();
+      shrinkChart('mat-chart');
     });
   }
 }
