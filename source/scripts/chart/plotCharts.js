@@ -7,7 +7,6 @@ import { highlightPoint } from './filter/highlightPoint';
 
 Exporting(Highcharts);
 
-// let xAxis;
 let xAxisText;
 const ptChartElement = document.getElementById('pt-chart');
 const matChartElement = document.getElementById('mat-chart');
@@ -24,8 +23,8 @@ Highcharts.setOptions({
   },
 });
 
-function drawPtChart(chartData) {
-  return Highcharts.chart('pt-chart', {
+function drawChart(chartData, subject) {
+  return Highcharts.chart(`${subject}-chart`, {
     chart: {
       type: 'scatter',
       zoomType: 'xy',
@@ -55,7 +54,7 @@ function drawPtChart(chartData) {
       }],
     },
     yAxis: {
-      title: { text: 'Português | [Nível de aprendizado]' },
+      title: { text: `${subject === 'pt' ? 'Português' : 'Matemática'} | [Nível de aprendizado]` },
       lineWidth: 1,
       gridZIndex: 0,
       // max: 2,
@@ -87,86 +86,6 @@ function drawPtChart(chartData) {
         },
         tooltip: {
           headerFormat: 'Cidade: <b>{point.options.city}</b>',
-        },
-      },
-    },
-    series: [{
-      turboThreshold: 0,
-      cursor: 'pointer',
-      point: {
-        events: {
-          click() {
-            clearFilters();
-            highlightPoint(this.id);
-            updateTableInfo(this.id);
-          },
-        },
-      },
-      data: chartData,
-    }],
-  });
-}
-
-function drawMatChart(chartData) {
-  Highcharts.chart('mat-chart', {
-    chart: {
-      type: 'scatter',
-      zoomType: 'xy',
-    },
-    credits: false,
-    legend: {
-      enabled: false,
-    },
-    turboThreshold: 0,
-    title: { text: '' },
-    subtitle: '',
-    xAxis: {
-      title: {
-        enabled: true,
-        text: `${xAxisText} | [Desigualdade]`,
-      },
-      // max: 2,
-      // min: -2,
-      startOnTick: true,
-      endOnTick: true,
-      showLastLabel: true,
-      plotLines: [{
-        value: 0,
-        color: '#e6e6e6',
-        dashStyle: 'solid',
-        width: 1,
-      }],
-    },
-    yAxis: {
-      title: { text: 'Matemática | [Nível de aprendizado]' },
-      lineWidth: 1,
-      gridZIndex: 0,
-      // max: 2,
-      // min: -2,
-      plotLines: [{
-        value: 0,
-        color: '#666',
-        dashStyle: 'solid',
-        width: 1,
-      }],
-    },
-    plotOptions: {
-      scatter: {
-        marker: {
-          radius: 5,
-          states: {
-            hover: {
-              enabled: true,
-              lineColor: 'rgb(100,100,100)',
-            },
-          },
-        },
-        states: {
-          hover: {
-            marker: {
-              enabled: false,
-            },
-          },
         },
       },
     },
@@ -243,8 +162,8 @@ async function populateChartData(payload) {
         xAxisText = 'NSE';
       }
 
-      drawPtChart(formatedPtItems);
-      drawMatChart(formatedMatItems);
+      drawChart(formatedPtItems, 'pt');
+      drawChart(formatedMatItems, 'mat');
     } catch (err) {
       console.log(err);
       toggleLoading();
