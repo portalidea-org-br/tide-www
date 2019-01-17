@@ -1,0 +1,45 @@
+<footer class="site-footer">
+  <div class="site-footer__content">
+    <h1 class="logo"><i>Edu</i>Quidade</h1>
+    <a href="https://fundacaotidesetubal.org.br/" class="setubal-logo">Fundação Tide Setubal</a>
+    <nav>
+      <ul>
+        {{ with .Site.Menus.header }}
+          {{ range . }}
+          <li>
+            <a href="{{ .URL }}">
+              {{ .Name }}
+            </a>
+          </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </nav>
+    <span class="disclaimer">Portal Tide Setubal &middot; Copyright &copy; 2018</span>
+  <span class="by">Desenvolvido por <a href="https://appcivico.com">AppCívico</a></span>
+
+  {{ with $.Site.Data.socialMedia }}
+
+  <style>
+    {{ range .list }}
+      {{ if .svg }}
+        .{{ .name }} {
+          background-image: url("{{ .svg }}");
+          background-size: 55%;
+          background-position: center;
+        }
+      {{ end }}
+    {{ end }}
+  </style>
+
+  <ul class="social">
+      {{ range .list }}
+      <li>
+          <a href="{{ .url }}" title="{{ .name }}" rel="noopener" class="{{ .name }}">
+          </a>
+      </li>
+      {{ end }}
+  </ul>
+  {{ end }}
+  </div>
+</footer>

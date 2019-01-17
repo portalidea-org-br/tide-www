@@ -1,0 +1,179 @@
+.header-bg {
+  background: palette('red');
+}
+
+.intern-header {
+  padding-bottom: 2em;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    padding-bottom: 4rem;
+  }
+}
+
+header {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 62.5em;
+
+  padding-top: 3em;
+  margin: 0 auto;
+
+  .logo {
+    display: block;
+
+    width: 4.7em;
+
+    padding-bottom: 0.5em;
+    margin: 0 auto;
+
+    font-size: 2.15em;
+    line-height: 0.7;
+    font-family: 'Montserrat Alternates', sans-serif;
+    letter-spacing: -2.2px;
+
+    text-align: right;
+    text-transform: lowercase;
+
+    color: palette('white');
+
+    i {
+      display: block;
+
+      letter-spacing: -4.3px;
+
+      text-align: left;
+    }
+  }
+
+  .main-nav {
+    font-family: 'Roboto', monospace;
+
+    text-align: center;
+
+    button {
+      position: absolute;
+      top: 5.7em;
+      left: 2.5em;
+
+      display: block;
+      z-index: 5;
+
+      width: 1em;
+      height: 0.3em;
+
+      text-indent: -999em;
+
+      background: palette('white');
+
+      border: 0;
+
+      &::before,
+      &::after {
+        position: absolute;
+        top: -8px;
+        left: 0;
+
+        display: block;
+
+        width: 2em;
+        height: 0.3em;
+
+        background: palette('white');
+
+        content: '';
+      }
+
+      &::after {
+        top: auto;
+        bottom: -8px;
+      }
+
+      @media screen and (min-width: breakpoint('desktop')) {
+        display: none;
+      }
+    }
+
+    a {
+      font-size: 1.6em;
+
+      text-decoration: none;
+
+      color: palette('white');
+    }
+  }
+
+  ul {
+    position: absolute;
+    top: -300%;
+
+    display: flex;
+    z-index: 4;
+
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 1em 0;
+
+    background: palette('red', 'opacity');
+
+    transition: top 0.3s;
+
+
+
+    @media screen and (min-width: breakpoint('desktop')) {
+      position: relative;
+
+      flex-direction: row;
+    }
+
+    &.active {
+      top: 0;
+    }
+
+    li {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      border: 0;
+
+      @media screen and (min-width: breakpoint('desktop')) {
+        margin: 0 1em;
+      }
+
+      a:link {
+        text-decoration: none;
+
+        @media screen and (min-width: breakpoint('desktop')) {
+          font-size: 1.188em;
+        }
+      }
+    }
+  }
+
+  .setubal-logo {
+    display: none;
+
+    @media screen and (min-width: breakpoint('desktop')) {
+      position: absolute;
+      top: 3em;
+      right: 3em;
+
+      display: block;
+
+      width: 6.563em;
+      height: 3.75em;
+
+      text-indent: -999em;
+
+      background-image: image('logo-tide-setubal.svg');
+      background-repeat: no-repeat;
+    }
+  }
+}

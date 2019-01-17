@@ -1,0 +1,56 @@
+baseURL: "https://eduquidade.org"
+defaultContentLanguage: "pt"
+enableGitInfo: true
+enableMissingTranslationPlaceholders: true
+enableRobotsTXT: true
+disableHugoGeneratorInject: true
+disableKinds:
+  - "section"
+  - "taxonomy"
+  - "taxonomyTerm"
+  - "RSS"
+  - "sitemap"
+footnoteReturnLinkContents: "↩"
+googleAnalytics: ""
+languageCode: "pt-br"
+menu:
+  header:
+  - identifier: "home"
+    name: "Home"
+    url: "/"
+    weight: 1
+  - identifier: "research"
+    name: "Pesquisa"
+    url: "/pesquisa/"
+    weight: 2
+  - identifier: "about"
+    name: "Sobre"
+    url: "/sobre/"
+    weight: 3
+  - identifier: "library"
+    name: "Biblioteca"
+    url: "/biblioteca/"
+    weight: 4
+  - identifier: "contact"
+    name: "Contato"
+    url: "/#contato"
+    weight: 4
+metaDataFormat: "yaml"
+title: "Eduquidade"
+params:
+  mailchimpNewsletterFormAction: ""
+  siteDescription: ""
+  tagline: ""
+  twitterUsername: "appcivico"
+  shareImages:
+    default: "images/sharing/Compartilhamento_blockchain.jpg"
+    twitter: "images/sharing/Compartilhamento_twitter.jpg"
+    facebook: "images/sharing/Compartilhamento_blockchain.jpg"
+  socialNetworksLinks:
+    twitter: "https://twitter.com/appcivico"
+    # medium: "https://medium.com/app-civico"
+    facebook: "https://www.facebook.com/AppCivicoCSB"
+    # github: "https://github.com/AppCivico"
+    youtube: "https://www.youtube.com/channel/UCIuAzzWMogJV0r-mvFmjNNQ"
+taxonomies:
+  role: "role"

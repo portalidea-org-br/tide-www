@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <title>tide</title>
+
+    {{ partial "head.html" . }}
+
+    <body>
+
+      {{ partial "header.html" . }}
+
+      <div class="overflow">
+
+        <div class="bg-red">
+          <section class="hero-main">
+            <div class="hero-main__text">
+              <h1 class="h1">
+                {{ .Title }}
+              </h1>
+              <p>
+                {{ .Content }}
+              </p>
+            </div>
+
+            <div class="hero-main__images">
+              {{ partial "svg/books-girl.svg" (dict "class" "books-girl") }}
+            </div>
+
+            <div class="dots">
+              <i class="dots__dot"></i>
+              <i class="dots__dot"></i>
+              <i class="dots__dot"></i>
+              <i class="dots__dot"></i>
+              <i class="dots__dot"></i>
+              <i class="dots__dot"></i>
+              <i class="dots__dot"></i>
+            </div>
+          </section>
+        </div>
+        {{ range where .Site.Pages ".File.TranslationBaseName" "second" }}
+        <div class="bg-yellow">
+          <section class="hero-secondary">
+            <div class="hero-secondary__text">
+              <h2>{{ .Title }}</h2>
+                {{ .Content }}
+
+                {{ if .Params.callToActionUrl }}
+                  <a href="{{ .Params.callToActionUrl }}" class="button button--black">
+                    {{ .Params.callToActionText }}
+                  </a>
+                {{ end }}
+            </div>
+
+            <div class="hero-secondary__images">
+              {{ partial "svg/mug.svg" (dict "class" "mug") }}
+              {{ partial "svg/lader-boy.svg" (dict "class" "lader-boy") }}
+            </div>
+
+            <div class="dots">
+              <i class="dots__dot"></i>
+              <i class="dots__dot"></i>
+            </div>
+          </section>
+        </div>
+        {{ end }}
+
+        {{ range where .Site.Pages ".File.TranslationBaseName" "third" }}
+        <div class="bg-green">
+          <section class="hero-tertiary">
+            <div class="hero-tertiary__text">
+              <h3>{{ .Title }}</h3>
+              {{ .Content }}
+              {{ if .Params.callToActionUrl }}
+               <a href="{{ .Params.callToActionUrl }}" class="button button--white">
+                 {{ .Params.callToActionText }}
+                </a>
+              {{ end }}
+            </div>
+            <div class="hero-tertiary__images">
+              {{ partial "svg/girl-with-book.svg" (dict "class" "girl-with-book") }}
+            </div>
+
+            <div class="dots">
+              <i class="dots__dot"></i>
+            </div>
+          </section>
+        </div>
+        {{ end }}
+        {{ range where .Site.Pages ".File.TranslationBaseName" "fourth" }}
+        <div class="bg-blue">
+          <section class="hero-water">
+            <div class="hero-water__text">
+              <h3>{{ .Title }}</h3>
+              {{ .Content }}
+              {{ if and (.Params.callToActionUrl) (.Params.callToActionText) }}
+                <a href="{{ .Params.callToActionUrl }}" class="button button--dark-blue">
+                  {{ .Params.callToActionText }}
+                </a>
+              {{ end }}
+            </div>
+            <div class="hero-water__images">
+              {{ partial "svg/book.svg" (dict "class" "book") }}
+              {{ partial "svg/boat.svg" (dict "class" "boat") }}
+              {{ partial "svg/book2.svg" (dict "class" "book2") }}
+            </div>
+          </section>
+        </div>
+        {{ end }}
+
+        {{ partial "testimonials.html" . }}
+
+        {{ partial "contact.html" . }}
+
+      </div>
+
+      {{ partial "footer.html" . }}
+
+      {{ $vendorJS := resources.Get "assets/scripts/vendor.js" }}
+      {{ $secureVendorJS := $vendorJS | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureVendorJS.RelPermalink }}" integrity="{{ $secureVendorJS.Data.Integrity }}"></script>
+
+      {{ $js := resources.Get "assets/scripts/index.js" }}
+      {{ $secureJS := $js | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.8/tiny-slider.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.8/min/tiny-slider.js"></script>
+      <script type="module">
+        const slider = tns({
+          container: '.slider',
+          controls: false,
+          navPosition: 'bottom',
+          autoplayButtonOutput: false,
+          // autoplay: true,
+          autoplay: false,
+          responsive: {
+              1024: {
+                disable: true,
+              },
+            }
+        });
+      </script>
+
+    </body>
+</html>

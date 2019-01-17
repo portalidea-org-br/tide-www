@@ -1,0 +1,20 @@
+<div class="bg-white {{ if not .IsHome }}intern-bg-white {{ end }}">
+  <section class="testimonials">
+    <h4>Depoimentos</h4>
+    <div class="slider">
+        {{ range where .Site.Pages ".Params.role" "testimonials" }}
+      <blockquote>
+        <div class="testimonials__content">
+          <figure>
+            <img src="{{ .Params.Image }}" alt="{{ .Params.Alt }}">
+          </figure>
+            {{ .Content }}
+            {{ if .Params.Name }}
+              <footer><cite>{{ .Params.Name }}</cite></footer>
+            {{ end }}
+        </div>
+      </blockquote>
+      {{ end }}
+    </div>
+  </section>
+</div>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <link rel="icon" href="/favicon.ico">
+    <title>tide</title>
+
+    {{ partial "head.html" . }}
+
+    <body>
+
+      {{ partial "header.html" . }}
+
+      <section class="page-title page-title--yellow">
+        <div class="container">
+          <h1>{{ .Title }}</h1>
+        </div>
+      </section>
+
+      <div class="bg-light-gray">
+        <div class="container">
+          <form action="" method="post" id="js-chart-form" class="chart-form">
+            <div class="chart-form__group--inline">
+              <label for="grade">
+                Série
+                <select name="grade" id="grade">
+                  <option value="5">5</option>
+                  <option value="9">9</option>
+                </select>
+              </label>
+              <label for="x">
+                Comparar por
+                <select name="xAxis" id="xAxis">
+                  <option value="racial">Etnia</option>
+                  <option value="sex">Sexo (Meninas - Meninos)</option>
+                  <option value="nse">Nível Sócio Econômico</option>
+                </select>
+              </label>
+              <div class="chart-form__buttons">
+                <button type="submit" class="button">Filtrar</button>
+              </div>
+            </div>
+            <div class="js-form-filter chart-form__group">
+              <label for="region">
+                Região Brasileira
+                <select name="region" id="region">
+                  <option value="">Nenhuma</option>
+                  <option value="1">Centro Oeste</option>
+                  <option value="2">Nordeste</option>
+                  <option value="3">Norte</option>
+                  <option value="4">Sudeste</option>
+                  <option value="5">Sul</option>
+                </select>
+              </label>
+              <label for="region">
+                Destacar Cidades
+                <select name="highlight" id="highlight">
+                  <option value="none">Nenhuma</option>
+                  <option value="big-cities">Cidades Grandes</option>
+                  <option value="capital">Capitais</option>
+                </select>
+              </label>
+              <label for="city">
+                Município
+                <input id="city" type="text" placeholder="Ex. São Paulo" />
+              </label>
+              <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="charts">
+          <section class="chart">
+            <div class="chart__header">
+              <h1>Português</h1>
+              <div class="chart__buttons">
+                <button class="js-download-pt-chart chart__button chart__button--download">Download do gráfico</button>
+                <button class="js-expand-pt-chart chart__button chart__button--expand">Expandir gráfico</button>
+                <button class="js-shrink-pt-chart chart__button chart__button--shrink">Reduzir gráfico</button>
+              </div>
+            </div>
+            <div class="chart__main" id="pt-chart"></div>
+            <div class="js-pt-table chart__table">
+              <h2></h2>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Português | <span class="js-xAxis-text"></span></td>
+                    <td class="js-xAxis"></td>
+                  </tr>
+                  <tr>
+                    <td>Português</td>
+                    <td class="js-yAxis"></td>
+                  </tr>
+                  <tr>
+                    <td>Número de alunos</td>
+                    <td class="js-total-students"></td>
+                  </tr>
+                  <tr>
+                    <td class="js-unprivileged-title"></td>
+                    <td class="js-unprivileged-value"></td>
+                  </tr>
+                  <tr>
+                    <td class="js-privileged-title"></td>
+                    <td class="js-privileged-value"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section class="chart">
+            <div class="chart__header">
+              <h1>Matemática</h1>
+              <div class="chart__buttons">
+                <button class="js-download-mat-chart chart__button chart__button--download">Download do gráfico</button>
+                <button class="js-expand-mat-chart chart__button chart__button--expand">Expandir gráfico</button>
+                <button class="js-shrink-mat-chart chart__button chart__button--shrink">Reduzir gráfico</button>
+              </div>
+            </div>
+            <div class="chart__main" id="mat-chart"></div>
+            <div class="js-mat-table chart__table">
+              <h2>Pedra Azul &middot; MG</h2>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Matemática | <span class="js-xAxis-text"></span></td>
+                    <td class="js-xAxis"></td>
+                  </tr>
+                  <tr>
+                    <td>Matemática</td>
+                    <td class="js-yAxis"></td>
+                  </tr>
+                  <tr>
+                    <td>Número de alunos</td>
+                    <td class="js-total-students"></td>
+                  </tr>
+                  <tr>
+                    <td class="js-unprivileged-title"></td>
+                    <td class="js-unprivileged-value"></td>
+                  </tr>
+                  <tr>
+                    <td class="js-privileged-title"></td>
+                    <td class="js-privileged-value"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+      </div>
+
+      {{ partial "footer.html" . }}
+
+      {{ $vendorJS := resources.Get "assets/scripts/vendor.js" }}
+      {{ $secureVendorJS := $vendorJS | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureVendorJS.RelPermalink }}" integrity="{{ $secureVendorJS.Data.Integrity }}"></script>
+
+      {{ $js := resources.Get "assets/scripts/index.js" }}
+      {{ $secureJS := $js | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+
+      {{ $jsChart := resources.Get "assets/scripts/chart/index.js" }}
+      {{ $secureJS := $jsChart | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+
+
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"></script> -->
+
+      <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
+      <!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.base.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.theme.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.min.js"></script>
+
+      <script type="text/javascript">
+      </script>
+
+    </body>
+</html>

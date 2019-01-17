@@ -1,0 +1,20 @@
+<div class="header-bg">
+  <header {{ if not .IsHome }} class="intern-header" {{ end }}>
+    <h1 class="logo"><i>Edu</i>Quidade</h1>
+    <a href="https://fundacaotidesetubal.org.br/" class="setubal-logo">Fundação Tide Setubal</a>
+    <nav class="main-nav">
+      <button class="js-menu-toggle">Menu</button>
+      <ul class="js-menu-list">
+        {{ with .Site.Menus.header }}
+          {{ range . }}
+          <li>
+            <a href="{{ .URL }}">
+              {{ .Name }}
+            </a>
+          </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </nav>
+  </header>
+</div>
