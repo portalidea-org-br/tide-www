@@ -52,3 +52,5 @@ params:
     facebook: "https://www.facebook.com/AppCivicoCSB"
     # github: "https://github.com/AppCivico"
     youtube: "https://www.youtube.com/channel/UCIuAzzWMogJV0r-mvFmjNNQ"
+taxonomies:
+  role: "role"
