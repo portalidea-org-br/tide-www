@@ -2,39 +2,19 @@
   <section class="testimonials">
     <h4>Depoimentos</h4>
     <div class="slider">
+        {{ range where .Site.Pages ".Params.role" "testimonials" }}
       <blockquote>
         <div class="testimonials__content">
           <figure>
-            <img src="https://placehold.it/295/295" alt="Maria Victoria Benevides.">
+            <img src="{{ .Params.Image }}" alt="{{ .Params.Alt }}">
           </figure>
-          <p class="testimonials__text">
-            Proin nec dui id ipsum interdum convallis. Nam et tempus augue, dapibus imperdiet quam. Pellentesque tortor nisl, ornare et tristique at, vehicula vel tortor.
-          </p>
-          <footer><cite>Maria Victoria Benevides</cite></footer>
+            {{ .Content }}
+            {{ if .Params.Name }}
+              <footer><cite>{{ .Params.Name }}</cite></footer>
+            {{ end }}
         </div>
       </blockquote>
-      <blockquote>
-        <div class="testimonials__content">
-          <figure>
-            <img src="https://placehold.it/432/432" alt="Maria Victoria Benevides.">
-          </figure>
-          <p class="testimonials__text">
-            Proin nec dui id ipsum interdum convallis. Nam et tempus augue, dapibus imperdiet quam. Pellentesque tortor nisl, ornare et tristique at, vehicula vel tortor.
-          </p>
-          <footer><cite>Maria Victoria Benevides</cite></footer>
-        </div>
-      </blockquote>
-      <blockquote>
-        <div class="testimonials__content">
-          <figure>
-            <img src="https://placehold.it/295/295" alt="Maria Victoria Benevides.">
-          </figure>
-          <p class="testimonials__text">
-            Proin nec dui id ipsum interdum convallis. Nam et tempus augue, dapibus imperdiet quam. Pellentesque tortor nisl, ornare et tristique at, vehicula vel tortor.
-          </p>
-          <footer><cite>Maria Victoria Benevides</cite></footer>
-        </div>
-      </blockquote>
+      {{ end }}
     </div>
   </section>
 </div>
