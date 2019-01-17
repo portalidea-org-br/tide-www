@@ -1,0 +1,10 @@
+list:
+  - name: "twitter"
+    url: "https://twitter.com/appcivico"
+    svg: /uploads/twitter.svg
+  - name: "facebook"
+    url: "https://www.facebook.com/AppCivicoCSB"
+    svg: /uploads/facebook.svg
+  - name: "youtube"
+    url: "https://www.youtube.com/channel/UCIuAzzWMogJV0r-mvFmjNNQ"
+    svg: /uploads/youtube.svg

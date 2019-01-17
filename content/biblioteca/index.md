@@ -2,8 +2,8 @@
 title: "Biblioteca"
 date: 2018-12-05T14:10:57-02:00
 draft: false
-layout: single
-type: biblioteca
+layout: "single"
+type: "biblioteca"
 ---
 
 Proin finibus eget nunc in porttitor. Suspendisse ullamcorper quam ut auctor fringilla. Vestibulum semper nisi et velit facilisis consequat. Integer odio tortor, hendrerit semper imperdiet at, vestibulum at dolor. Phasellus lacinia porta turpis accumsan varius.

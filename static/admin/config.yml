@@ -1,0 +1,216 @@
+backend:
+  name: bitbucket
+  repo: eokoe__frontend/tide
+  branch: cms
+  accept_roles:
+    - admin
+    - editor
+media_folder: "static/uploads"
+public_folder: "/uploads"
+collections:
+  -
+    label: "Homepage"
+    name: "home"
+    folder: "content/"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h1"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Texto do Botão"
+        name: "callToActionText"
+        widget: "string"
+        required: false
+      -
+        label: "Url do Botão"
+        name: "callToActionUrl"
+        widget: "string"
+        required: false
+      -
+        label: "Data"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
+      -
+        label: "Rascunho"
+        name: "draft"
+        widget: "boolean"
+        default: true
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
+  -
+    label: "Biblioteca"
+    name: "biblioteca"
+    folder: "content/biblioteca"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h1"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Data"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
+      -
+        label: "Rascunho"
+        name: "draft"
+        widget: "boolean"
+        default: true
+      -
+        label: "layout"
+        name: "layout"
+        widget: "hidden"
+        default: "single"
+      -
+        label: "type"
+        name: "type"
+        widget: "hidden"
+        default: "biblioteca"
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
+  -
+    label: "Sobre"
+    name: "sobre"
+    folder: "content/sobre"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h1"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Data"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
+      -
+        label: "Rascunho"
+        name: "draft"
+        widget: "boolean"
+        default: true
+      -
+        label: "layout"
+        name: "layout"
+        widget: "hidden"
+        default: "single"
+      -
+        label: "type"
+        name: "type"
+        widget: "hidden"
+        default: "sobre"
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
+  -
+    label: "Pesquisa"
+    name: "pesquisa"
+    folder: "content/pesquisa"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h1"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Data"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
+      -
+        label: "Rascunho"
+        name: "draft"
+        widget: "boolean"
+        default: true
+      -
+        label: "layout"
+        name: "layout"
+        widget: "hidden"
+        default: "single"
+      -
+        label: "type"
+        name: "type"
+        widget: "hidden"
+        default: "pesquisa"
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
+  -
+    label: "Depoimentos"
+    name: "testimonials"
+    folder: "content/depoimentos"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h1"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Data"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
+      -
+        label: "Rascunho"
+        name: "draft"
+        widget: "boolean"
+        default: true
+      -
+        label: "Nome"
+        name: "name"
+        widget: "string"
+      -
+        label: "Imagem (432 X 432)"
+        name: "Image"
+        widget: "image"
+      -
+        label: "Texto alternativo da imagem"
+        name: "alt"
+        widget: "string"
+      -
+        label: "Ordem"
+        name: "weight"
+        widget: "number"
+      -
+        label: "type"
+        name: "type"
+        widget: "hidden"
+        default: "item"
+      -
+        label: "role"
+        name: "role"
+        widget: "hidden"
+        default: "testimonials"
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
