@@ -18,12 +18,10 @@
           <section class="hero-main">
             <div class="hero-main__text">
               <h1 class="h1">
-                A desigualdade educacional no
-                centro do debate
+                {{ .Title }}
               </h1>
               <p>
-                O projeto Indicador de Desigualdades Educacionais é movido por uma convicção: a defesa do direito à
-                educação requer a construção de instrumentos de verificação da realização desse direito
+                {{ .Content }}
               </p>
             </div>
 
@@ -42,16 +40,18 @@
             </div>
           </section>
         </div>
-
+        {{ range where .Site.Pages ".File.TranslationBaseName" "second" }}
         <div class="bg-yellow">
           <section class="hero-secondary">
             <div class="hero-secondary__text">
-              <h2>56<span class="hero-secondary__percentage">%</span></h2>
-              <p>
-                dos recursos para investimento educacional é o que dispõe os municípios de nível socioeconômico baixo
-                em relação aos municípios de nível socioeconômico mais alto
-              </p>
-              <a href="pesquisa" class="button button--black">Saiba mais</a>
+              <h2>{{ .Title }}</h2>
+                {{ .Content }}
+
+                {{ if .Params.callToActionUrl }}
+                  <a href="{{ .Params.callToActionUrl }}" class="button button--black">
+                    {{ .Params.callToActionText }}
+                  </a>
+                {{ end }}
             </div>
 
             <div class="hero-secondary__images">
@@ -65,16 +65,19 @@
             </div>
           </section>
         </div>
+        {{ end }}
 
+        {{ range where .Site.Pages ".File.TranslationBaseName" "third" }}
         <div class="bg-green">
           <section class="hero-tertiary">
             <div class="hero-tertiary__text">
-              <h3>300 <span>reais</span></h3>
-              <p>
-                é o custo médio mensal de um aluno do ensino médio na rede pública.
-                Enquanto que em uma escola particular esse custo salta para, em média, R$ 700 por aluno
-              </p>
-              <a href="pesquisa" class="button button--white">Saiba mais</a>
+              <h3>{{ .Title }}</h3>
+              {{ .Content }}
+              {{ if .Params.callToActionUrl }}
+               <a href="{{ .Params.callToActionUrl }}" class="button button--white">
+                 {{ .Params.callToActionText }}
+                </a>
+              {{ end }}
             </div>
             <div class="hero-tertiary__images">
               {{ partial "svg/girl-with-book.svg" (dict "class" "girl-with-book") }}
@@ -85,16 +88,18 @@
             </div>
           </section>
         </div>
-
+        {{ end }}
+        {{ range where .Site.Pages ".File.TranslationBaseName" "fourth" }}
         <div class="bg-blue">
           <section class="hero-water">
             <div class="hero-water__text">
-              <h3>86<span>%</span></h3>
-              <p>
-                das crianças de 4 e 5 anos que vêm de famílias com renda até um quarto de salário mínimo estão na escola.
-                Entre famílias que ganham pelo menos um salário mínimo, a taxa sobe para 94,8%
-              </p>
-              <a href="pesquisa" class="button button--dark-blue">Saiba mais</a>
+              <h3>{{ .Title }}</h3>
+              {{ .Content }}
+              {{ if .Params.callToActionUrl }}
+                <a href="{{ .Params.callToActionUrl }}" class="button button--dark-blue">
+                  {{ .Params.callToActionText }}
+                </a>
+              {{ end }}
             </div>
             <div class="hero-water__images">
               {{ partial "svg/book.svg" (dict "class" "book") }}
@@ -103,6 +108,7 @@
             </div>
           </section>
         </div>
+        {{ end }}
 
         {{ partial "testimonials.html" . }}
 
