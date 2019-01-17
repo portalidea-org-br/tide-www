@@ -95,7 +95,7 @@
             <div class="hero-water__text">
               <h3>{{ .Title }}</h3>
               {{ .Content }}
-              {{ if .Params.callToActionUrl }}
+              {{ if and (.Params.callToActionUrl) (.Params.callToActionText) }}
                 <a href="{{ .Params.callToActionUrl }}" class="button button--dark-blue">
                   {{ .Params.callToActionText }}
                 </a>
