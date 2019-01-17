@@ -45,7 +45,7 @@ collections:
         name: "body"
         widget: "markdown"
   -
-    label: "biblioteca"
+    label: "Biblioteca"
     name: "biblioteca"
     folder: "content/biblioteca"
     create: false
@@ -83,7 +83,7 @@ collections:
         name: "body"
         widget: "markdown"
   -
-    label: "sobre"
+    label: "Sobre"
     name: "sobre"
     folder: "content/sobre"
     create: false
@@ -121,7 +121,7 @@ collections:
         name: "body"
         widget: "markdown"
   -
-    label: "pesquisa"
+    label: "Pesquisa"
     name: "pesquisa"
     folder: "content/pesquisa"
     create: false
@@ -161,7 +161,7 @@ collections:
   -
     label: "Depoimentos"
     name: "testimonials"
-    folder: "content/testimonials"
+    folder: "content/depoimentos"
     create: false
     delete: false
     slug: "{{slug}}"
