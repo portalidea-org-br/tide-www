@@ -23,6 +23,14 @@ collections:
         tagname: "h1"
         pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
       -
+        label: "Call To Action Text"
+        name: "callToActionText"
+        widget: "string"
+      -
+        label: "Call To Action Url"
+        name: "callToActionUrl"
+        widget: "string"
+      -
         label: "Date"
         name: "date"
         widget: "datetime"
