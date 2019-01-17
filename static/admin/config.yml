@@ -26,10 +26,12 @@ collections:
         label: "Texto do Botão"
         name: "callToActionText"
         widget: "string"
+        required: false
       -
         label: "Url do Botão"
         name: "callToActionUrl"
         widget: "string"
+        required: false
       -
         label: "Data"
         name: "date"
