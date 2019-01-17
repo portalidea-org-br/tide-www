@@ -39,7 +39,7 @@
   }
 }
 
-.testimonials p {
+.testimonials__content {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -70,7 +70,7 @@
   }
 }
 
-.testimonials blockquote:nth-child(4n+3) .testimonials p {
+.testimonials blockquote:nth-child(3) .testimonials__content {
   @media screen and (min-width: breakpoint('desktop')) {
     flex-wrap: wrap;
     width: 27rem;
@@ -125,7 +125,7 @@
   }
 }
 
-.testimonials blockquote:nth-child(4n+4) .testimonials p {
+.testimonials blockquote:nth-child(4) .testimonials__content {
   @media screen and (min-width: breakpoint('desktop')) {
     flex-wrap: wrap;
     width: 27rem;
