@@ -39,7 +39,7 @@
   }
 }
 
-.testimonials__content {
+.testimonials p {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -70,7 +70,7 @@
   }
 }
 
-.testimonials blockquote:nth-child(4n+3) .testimonials__content {
+.testimonials blockquote:nth-child(4n+3) .testimonials p {
   @media screen and (min-width: breakpoint('desktop')) {
     flex-wrap: wrap;
     width: 27rem;
@@ -125,7 +125,7 @@
   }
 }
 
-.testimonials blockquote:nth-child(4n+4) .testimonials__content {
+.testimonials blockquote:nth-child(4n+4) .testimonials p {
   @media screen and (min-width: breakpoint('desktop')) {
     flex-wrap: wrap;
     width: 27rem;
@@ -195,7 +195,7 @@
   }
 }
 
-.testimonials blockquote:nth-child(4n+5) .testimonials__content {
+.testimonials blockquote:nth-child(4n+5) .testimonials p {
   @media screen and (min-width: breakpoint('desktop')) {
     flex-wrap: wrap;
     width: 27rem;
