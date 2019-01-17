@@ -237,6 +237,10 @@
   }
 }
 
+.testimonials blockquote + .testimonials blockquote + .testimonials blockquote {
+  margin-top: -3em;
+}
+
 .testimonials h4 {
   font-size: ms(7);
   text-shadow: 1px -1px 0 palette('yellow'), -1px 1px 0 palette('yellow');
