@@ -58,88 +58,89 @@
 
     padding-top: 4em;
   }
+}
 
-  .hero-secondary__text {
-    min-width: 180px;
-    padding-right: 0.3em;
+.hero-secondary__text {
+  min-width: 180px;
+  padding-right: 0.3em;
 
-    @media screen and (min-width: breakpoint('desktop')) {
-      max-width: 25em;
-      padding-right: 1.2em;
-      margin-top: -14em;
-      margin-bottom: 10em;
-      margin-left: 5em;
-    }
+  @media screen and (min-width: breakpoint('desktop')) {
+    max-width: 25em;
+    padding-right: 1.2em;
+    margin-top: -14em;
+    margin-bottom: 10em;
+    margin-left: 5em;
+  }
+}
 
-    h2 {
-      padding: 0;
-      margin: 0;
+.hero-main__text h2 {
+  padding: 0;
+  margin: 0;
 
-      font-size: ms(13);
+  font-size: ms(13);
 
-      text-shadow: 1px 0 1px palette('red'), -1px 1px 0 palette('green');
+  text-shadow: 1px 0 1px palette('red'), -1px 1px 0 palette('green');
 
-      color: palette('purple');
+  color: palette('purple');
 
-      @media screen and (min-width: breakpoint('desktop')) {
-        font-size: ms(16);
-      }
-    }
+  @media screen and (min-width: breakpoint('desktop')) {
+    font-size: ms(16);
+  }
+}
 
-    p {
-      font-size: ms(0);
+.hero-secondary__text p {
+  font-size: ms(0);
 
-      @media screen and (min-width: breakpoint('desktop')) {
-        font-size: ms(1);
-      }
-    }
+  @media screen and (min-width: breakpoint('desktop')) {
+    font-size: ms(1);
+  }
+}
+
+.hero-secondary__images {
+  min-width: 7.625em;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    position: relative;
+
+    min-width: 17.75em;
+
+    margin-bottom: -4.25em;
+    margin-left: 16.875em;
   }
 
-  .hero-secondary__images {
-    min-width: 7.625em;
+}
 
-    @media screen and (min-width: breakpoint('desktop')) {
-      position: relative;
+.hero-secondary__images .mug {
+  position: absolute;
+  right: -2.188em;
+  bottom: 0.6em;
 
-      min-width: 17.75em;
+  width: 9.062em;
+  height: 16.438em;
 
-      margin-bottom: -4.25em;
-      margin-left: 16.875em;
-    }
+  @media screen and (min-width: breakpoint('desktop')) {
+    right: 0;
+    bottom: -1em;
 
-    .mug {
-      position: absolute;
-      right: -2.188em;
-      bottom: 0.6em;
+    width: 17.75em;
+    height: 31.875em;
+  }
+}
 
-      width: 9.062em;
-      height: 16.438em;
+.hero-secondary__images .lader-boy {
+  position: absolute;
+  right: 0;
+  bottom: 10em;
 
-      @media screen and (min-width: breakpoint('desktop')) {
-        right: 0;
-        bottom: -1em;
+  width: 10.75em;
+  height: 33em;
 
-        width: 17.75em;
-        height: 31.875em;
-      }
-    }
+  @media screen and (min-width: breakpoint('desktop')) {
+    right: 5em;
+    bottom: 19em;
 
-    .lader-boy {
-      position: absolute;
-      right: 0;
-      bottom: 10em;
-
-      width: 10.75em;
-      height: 33em;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        right: 5em;
-        bottom: 19em;
-
-        width: 13.875em;
-        height: 36.125em;
-      }
-    }
+    width: 13.875em;
+    height: 36.125em;
   }
 }
 

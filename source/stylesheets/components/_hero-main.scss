@@ -12,12 +12,9 @@
 .hero-main {
   position: relative;
 
-  // margin-bottom: -9em;
-
   background: palette('red');
 
   @media screen and (min-width: breakpoint('desktop')) {
-    // @include container;
     display: flex;
 
     align-items: center;
@@ -28,212 +25,67 @@
     margin: 0 auto;
   }
 
-  .hero-main__text {
-    @include container;
+}
 
-    padding: 0 2.6em;
+.hero-main__text {
+  @include container;
 
-    font-family: 'Roboto', monospace;
+  padding: 0 2.6em;
 
-    color: palette('white');
+  font-family: 'Roboto', monospace;
 
-    @media screen and (min-width: breakpoint('desktop')) {
-      max-width: 37.5em;
+  color: palette('white');
 
-      padding-right: 2em;
-      margin: 0;
+  @media screen and (min-width: breakpoint('desktop')) {
+    max-width: 37.5em;
 
-      text-align: right;
-    }
+    padding-right: 2em;
+    margin: 0;
 
-    h1 {
-      min-height: 5.5em;
-
-      padding: 1em 0;
-      margin: 0;
-
-      line-height: 1.2;
-      font-family: inherit;
-
-      text-align: center;
-
-      color: inherit;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        min-height: auto;
-        padding-bottom: 0.625em;
-        margin-bottom: 0;
-
-        font-size: ms(11);
-        line-height: 1;
-
-        text-align: inherit;
-      }
-    }
-
-    p {
-      display: none;
-      // font-family: inherit;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        display: inline-block;
-
-        width: 21.25em;
-
-        margin-top: 0.625em;
-
-        font-size: ms(0);
-      }
-    }
-  }
-
-  .dots {
-    position: absolute;
-    top: 0;
-    left: calc(50% - 10em);
-
-    width: 20em;
-    height: 100%;
-
-    pointer-events: none;
-
-    @media screen and (min-width: breakpoint('desktop')) {
-      left: 0;
-
-      width: 100%;
-    }
-
-    .dots__dot {
-      position: absolute;
-      top: 6.8em;
-      left: 8.8em;
-
-      display: block;
-
-      width: 0.4em;
-      height: 0.4em;
-
-      background: palette('white');
-
-      border-radius: 50%;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        top: -0.7em;
-        left: 28.8em;
-
-        z-index: 4;
-
-        width: 0.8em;
-        height: 0.8em;
-      }
-
-      @media screen and (min-width: breakpoint('wide')) {
-        top: -2.1em;
-      }
-    }
-
-    .dots__dot:nth-child(2) {
-      top: 10.7em;
-      left: 4.7em;
-
-      width: 0.55em;
-      height: 0.55em;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        top: 2.6em;
-        left: 17.4em;
-
-        width: 1em;
-        height: 1em;
-      }
-    }
-
-    .dots__dot:nth-child(3) {
-      top: 13.2em;
-      left: 2.3em;
-
-      width: 0.3em;
-      height: 0.3em;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        top: 7.9em;
-        left: 12.6em;
-
-        width: 0.55em;
-        height: 0.55em;
-      }
-    }
-
-    .dots__dot:nth-child(4) {
-      top: 13.1em;
-      left: 10.6em;
-
-      width: 0.35em;
-      height: 0.35em;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        top: 23.1em;
-        left: 0.9em;
-
-        width: 0.6em;
-        height: 0.6em;
-      }
-    }
-
-    .dots__dot:nth-child(5) {
-      top: 12.1em;
-      left: 33.2em;
-
-      display: none;
-
-      width: 1.1em;
-      height: 1.1em;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        left: 33.2em;
-
-        display: block;
-      }
-
-      @media screen and (min-width: breakpoint('wide')) {
-        left: 40.2em;
-      }
-    }
-
-    .dots__dot:nth-child(6) {
-      top: 19em;
-      left: 45.2em;
-
-      display: none;
-
-      width: 1.3em;
-      height: 1.3em;
-
-      @media screen and (min-width: breakpoint('desktop')) {
-        display: block;
-      }
-
-      @media screen and (min-width: breakpoint('wide')) {
-        top: 17.1em;
-      }
-    }
-
-    .dots__dot:nth-child(7) {
-      top: 46.1em;
-      right: 3em;
-      left: auto;
-
-      display: none;
-
-      width: 1.3em;
-      height: 1.3em;
-
-      @media screen and (min-width: breakpoint('wide')) {
-        display: block;
-      }
-    }
+    text-align: right;
   }
 }
+
+.hero-main__text h1 {
+  min-height: 5.5em;
+
+  padding: 1em 0;
+  margin: 0;
+
+  line-height: 1.2;
+  font-family: inherit;
+
+  text-align: center;
+
+  color: inherit;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    min-height: auto;
+    padding-bottom: 0.625em;
+    margin-bottom: 0;
+
+    font-size: ms(11);
+    line-height: 1;
+
+    text-align: inherit;
+  }
+}
+
+.hero-main__text p {
+  display: none;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    display: inline-block;
+
+    width: 21.25em;
+
+    margin-top: 0.625em;
+
+    font-size: ms(0);
+  }
+}
+
+
 
 .hero-main__images {
   @include container;
@@ -252,28 +104,174 @@
     margin-top: 60px;
     margin-left: 0;
   }
+}
 
+.trophy {
+  position: absolute;
+  bottom: 5.375em;
 
-  .trophy {
-    position: absolute;
-    bottom: 5.375em;
+  width: 5.56em;
 
-    width: 5.56em;
+  @media screen and (min-width: breakpoint('desktop')) {
+    bottom: 188px;
+    left: 100px;
 
-    @media screen and (min-width: breakpoint('desktop')) {
-      bottom: 188px;
-      left: 100px;
-
-      width: 11.062em;
-    }
+    width: 11.062em;
   }
+}
 
-  .books-girl {
-    position: absolute;
-    bottom: 0;
+.books-girl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+}
+
+.hero-main .dots {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 10em);
+
+  width: 20em;
+  height: 100%;
+
+  pointer-events: none;
+
+  @media screen and (min-width: breakpoint('desktop')) {
     left: 0;
 
     width: 100%;
   }
 
+}
+
+.hero-main .dots__dot {
+  position: absolute;
+  top: 6.8em;
+  left: 8.8em;
+
+  display: block;
+
+  width: 0.4em;
+  height: 0.4em;
+
+  background: palette('white');
+
+  border-radius: 50%;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    top: -0.7em;
+    left: 28.8em;
+
+    z-index: 4;
+
+    width: 0.8em;
+    height: 0.8em;
+  }
+
+  @media screen and (min-width: breakpoint('wide')) {
+    top: -2.1em;
+  }
+}
+
+.dots__dot:nth-child(2) {
+  top: 10.7em;
+  left: 4.7em;
+
+  width: 0.55em;
+  height: 0.55em;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    top: 2.6em;
+    left: 17.4em;
+
+    width: 1em;
+    height: 1em;
+  }
+}
+
+.dots__dot:nth-child(3) {
+  top: 13.2em;
+  left: 2.3em;
+
+  width: 0.3em;
+  height: 0.3em;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    top: 7.9em;
+    left: 12.6em;
+
+    width: 0.55em;
+    height: 0.55em;
+  }
+}
+
+.dots__dot:nth-child(4) {
+  top: 13.1em;
+  left: 10.6em;
+
+  width: 0.35em;
+  height: 0.35em;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    top: 23.1em;
+    left: 0.9em;
+
+    width: 0.6em;
+    height: 0.6em;
+  }
+}
+
+.dots__dot:nth-child(5) {
+  top: 12.1em;
+  left: 33.2em;
+
+  display: none;
+
+  width: 1.1em;
+  height: 1.1em;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    left: 33.2em;
+
+    display: block;
+  }
+
+  @media screen and (min-width: breakpoint('wide')) {
+    left: 40.2em;
+  }
+}
+
+.dots__dot:nth-child(6) {
+  top: 19em;
+  left: 45.2em;
+
+  display: none;
+
+  width: 1.3em;
+  height: 1.3em;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    display: block;
+  }
+
+  @media screen and (min-width: breakpoint('wide')) {
+    top: 17.1em;
+  }
+}
+
+.dots__dot:nth-child(7) {
+  top: 46.1em;
+  right: 3em;
+  left: auto;
+
+  display: none;
+
+  width: 1.3em;
+  height: 1.3em;
+
+  @media screen and (min-width: breakpoint('wide')) {
+    display: block;
+  }
 }
