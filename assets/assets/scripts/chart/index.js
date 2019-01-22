@@ -3934,7 +3934,7 @@ async function populateChartData(payload) {
       }
 
       if (window.chartData.xAxis === 'sex') {
-        xAxisText = 'Sexo';
+        xAxisText = 'Gênero';
       }
 
       if (window.chartData.xAxis === 'nse') {
@@ -4092,7 +4092,7 @@ function updateTableInfo(id) {
       ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
       document.querySelectorAll('.js-xAxis-text').forEach(span => {
         const domSpan = span;
-        domSpan.textContent = 'Sexo';
+        domSpan.textContent = 'Gênero';
       });
     }
 
@@ -4124,7 +4124,7 @@ function updateTableInfo(id) {
       matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_first_group;
       matTable.querySelector('.js-privileged-title').textContent = 'Nhomens';
       matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group;
-      matTable.querySelector('.js-xAxis-text').textContent = 'Sexo';
+      matTable.querySelector('.js-xAxis-text').textContent = 'Gênero';
     }
 
     if (xAxis === 'nse') {

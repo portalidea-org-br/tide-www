@@ -155,7 +155,7 @@ async function populateChartData(payload) {
       }
 
       if (window.chartData.xAxis === 'sex') {
-        xAxisText = 'Sexo';
+        xAxisText = 'Gênero';
       }
 
       if (window.chartData.xAxis === 'nse') {
