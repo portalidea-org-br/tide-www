@@ -1,7 +1,7 @@
 import initMenuToggle from './menuToggle';
 import initContactForm from './contactForm';
-// import startChartFunctionalities from './chart';
+import initModal from './modal';
 
 initMenuToggle();
-// startChartFunctionalities();
+initModal();
 initContactForm();
