@@ -108,46 +108,68 @@
             </div>
           </section>
         </div>
+
         {{ end }}
 
-        <section class="data-home">
-            <div class="container">
+        <div class="bg-white {{ if not .IsHome }}intern-bg-white {{ end }}">
+          <div class="container">
+            <section class="home-block home-block--data">
               <header>
                 <h1>Dados</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
               </header>
-              <img src="source/images/data-home.jpg" alt="Grafico ilustrativo.">
+              <img src="assets/images/data-home.png" alt="Grafico ilustrativo.">
               <a href="dados" class="button button--black">ver dados</a>
+            </section>
+          </div>
+
+          {{ partial "testimonials.html" . }}
+
+          <div class="container">
+            <div class="slider slider--home-block">
+              <section class="home-block home-block--search">
+                <header>
+                  <h1>Pesquisas</h1>
+                </header>
+                <h2>Classe e Genero</h2>
+                <p>Pellentesque tortor nisl, ornare et</p>
+                <p>Proin nec dui id ipsum interdum con vallis. Nam et tempus augue, dapibu</p>
+                <a href="dados" class="button button--black">ler pesquisa</a>
+              </section>
+              <section class="home-block home-block--search">
+                <header>
+                  <h1>Pesquisas</h1>
+                </header>
+                <h2>Classe e Genero</h2>
+                <p>Pellentesque tortor nisl, ornare et</p>
+                <p>Proin nec dui id ipsum interdum con vallis. Nam et tempus augue, dapibu</p>
+                <a href="dados" class="button button--black">ler pesquisa</a>
+              </section>
+              <section class="home-block home-block--search">
+                <header>
+                  <h1>Pesquisas</h1>
+                </header>
+                <h2>Classe e Genero</h2>
+                <p>Pellentesque tortor nisl, ornare et</p>
+                <p>Proin nec dui id ipsum interdum con vallis. Nam et tempus augue, dapibu</p>
+                <a href="dados" class="button button--black">ler pesquisa</a>
+              </section>
             </div>
-        </section>
+          </div>
+        </div>
 
+        <div class="container">
+          <section class="home-block home-block--inspire">
+            <header>
+              <h1>Inspire-se <span>nome sobrenome</span></h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+            </header>
+            <img src="source/images/flags/brazil.jpg" alt="Bandeira do Brasil">
+            <a href="dados" class="button button--black">ler experiencia</a>
+          </section>
+        </div>
 
-        {{ partial "testimonials.html" . }}
-
-        <section class="search-home">
-            <div class="container">
-              <header>
-                <h1>Pesquisas</h1>
-              </header>
-              <h2>Classe e Genero</h2>
-              <p>Pellentesque tortor nisl, ornare et</p>
-              <p>Proin nec dui id ipsum interdum con vallis. Nam et tempus augue, dapibu</p>
-              <a href="dados" class="button button--black">Ver pesquisa</a>
-            </div>
-        </section>
-
-        <section class="inspire-home">
-            <div class="container">
-              <header>
-                <h1>Inspire-se <span>nome sobrenome</span></h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-              </header>
-              <img src="source/images/flags/brazil.jpg" alt="Bandeira do Brasil">
-              <a href="dados" class="button button--black">ler experiencia</a>
-            </div>
-        </section>
-
-        <section class="news-home">
+        <section class="home-block home-block--news">
             <div class="container">
               <header>
                 <h1>Novidades</h1>
@@ -176,19 +198,21 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.8/tiny-slider.css">
       <script async src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.8/min/tiny-slider.js"></script>
       <script type="module">
-        const slider = tns({
-          container: '.slider',
-          controls: false,
-          navPosition: 'bottom',
-          autoplayButtonOutput: false,
-          // autoplay: true,
-          autoplay: false,
-          responsive: {
-              1024: {
-                disable: true,
-              },
-            }
-        });
+          Array.prototype.forEach.call(document.querySelectorAll('.slider'), (el) => {
+            tns({
+              container: el,
+              controls: false,
+              navPosition: 'bottom',
+              autoplayButtonOutput: false,
+              // autoplay: true,
+              autoplay: false,
+              responsive: {
+                  1024: {
+                    disable: true,
+                  },
+                }
+            });
+          })
       </script>
 
     </body>

@@ -7139,15 +7139,11 @@ var _micromodal2 = _interopRequireDefault(_micromodal);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function initModal() {
-  console.log('modal hello!!');
-
-  _micromodal2.default.init({
-    debugMode: true
-  });
-
-  _micromodal2.default.show('js-modal-user-popup'); // [1]
-
+function initModal() {// console.log('modal hello!!');
+  // MicroModal.init({
+  //   debugMode: true,
+  // });
+  // MicroModal.show('js-modal-user-popup'); // [1]
 }
 
 },{"micromodal":29}]},{},[38]);

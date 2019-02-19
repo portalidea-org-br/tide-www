@@ -1,0 +1,35 @@
+.home-block {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  font-family: $roboto-font-stack;
+}
+
+.home-block h1 {
+  font-size: ms(7);
+}
+
+.home-block .button {
+  margin-bottom: 1px;
+}
+
+.slider--home-block .tns-nav {
+  margin-bottom: 1px;
+}
+
+.home-block--data h1 {
+  text-shadow: 0 -1px 0 palette('green'), 0 1px 0 palette('red');
+  color: palette('purple');
+}
+
+.home-block--data img {
+  align-self: center;
+  margin-bottom: 1em;
+}
+
+.home-block--search h1 {
+  margin-bottom: 0;
+  color: palette('orange');
+}
