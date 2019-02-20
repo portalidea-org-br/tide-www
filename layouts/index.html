@@ -116,10 +116,12 @@
             <section class="home-block home-block--data">
               <header>
                 <h1>Dados</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
               </header>
               <img src="assets/images/data-home.png" alt="Grafico ilustrativo.">
-              <a href="dados" class="button button--black">ver dados</a>
+              <div class="home-block__text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                <a href="dados" class="button button--black">ver dados</a>
+              </div>
             </section>
           </div>
 
@@ -145,40 +147,50 @@
                 <p>Proin nec dui id ipsum interdum con vallis. Nam et tempus augue, dapibu</p>
                 <a href="dados" class="button button--black">ler pesquisa</a>
               </section>
-              <section class="home-block home-block--search">
-                <header>
-                  <h1>Pesquisas</h1>
-                </header>
-                <h2>Classe e Genero</h2>
-                <p>Pellentesque tortor nisl, ornare et</p>
-                <p>Proin nec dui id ipsum interdum con vallis. Nam et tempus augue, dapibu</p>
-                <a href="dados" class="button button--black">ler pesquisa</a>
-              </section>
             </div>
           </div>
         </div>
 
         <div class="container">
-          <section class="home-block home-block--inspire">
-            <header>
-              <h1>Inspire-se <span>nome sobrenome</span></h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-            </header>
-            <img src="source/images/flags/brazil.jpg" alt="Bandeira do Brasil">
-            <a href="dados" class="button button--black">ler experiencia</a>
-          </section>
-        </div>
-
-        <section class="home-block home-block--news">
-            <div class="container">
+          <div class="slider slider--home-block">
+            <section class="home-block home-block--inspire">
               <header>
-                <h1>Novidades</h1>
+                <h1>Inspire-se</h1>
+                <h2>Brasil <span>nome sobrenome</span></h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
               </header>
               <img src="source/images/flags/brazil.jpg" alt="Bandeira do Brasil">
-              <a href="novidads" class="button--arrow-icon">Ver mais</a>
-            </div>
-        </section>
+              <a href="dados" class="button button--black">ler experiencia</a>
+            </section>
+            <section class="home-block home-block--inspire">
+              <header>
+                <h1>Inspire-se</h1>
+                <h2>Brasil <span>nome sobrenome</span></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+              </header>
+              <img src="source/images/flags/brazil.jpg" alt="Bandeira do Brasil">
+              <a href="dados" class="button button--black">ler experiencia</a>
+            </section>
+            <section class="home-block home-block--inspire">
+              <header>
+                <h1>Inspire-se</h1>
+                <h2>Brasil <span>nome sobrenome</span></h2>
+              </header>
+              <img src="source/images/flags/brazil.jpg" alt="Bandeira do Brasil">
+              <a href="dados" class="button button--black">ler experiencia</a>
+            </section>
+          </div>
+        </div>
+
+        <div class="container">
+          <section class="home-block home-block--news">
+            <header>
+              <h1>Novidades</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+            </header>
+            <a href="novidads" class="button button--arrow-icon">ver mais</a>
+          </section>
+        </div>
 
         {{ partial "contact.html" . }}
 
@@ -204,6 +216,8 @@
               controls: false,
               navPosition: 'bottom',
               autoplayButtonOutput: false,
+              center: true,
+              // autoWidth: true,
               // autoplay: true,
               autoplay: false,
               responsive: {
