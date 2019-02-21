@@ -128,68 +128,72 @@
           {{ partial "testimonials.html" . }}
 
           <div class="container">
+            <div class="home-block--research">
+              <h1>Pesquisas</h1>
+              <div class="slider slider--home-block">
+                <section>
+                  <header>
+                    <h2>Classe e Genero</h2>
+                  </header>
+                  <p>Pellentesque tortor nisl, ornare et</p>
+                  <p>Proin nec dui id ipsum interdum con vallis. Nam et tempus augue, dapibu</p>
+                  <a href="dados" class="button button--black">ler pesquisa</a>
+                </section>
+                <section>
+                  <header>
+                    <h2>Classe e Genero</h2>
+                  </header>
+                  <p>Pellentesque tortor nisl, ornare et</p>
+                  <p>Proin nec dui id ipsum interdum con vallis. Nam et tempus augue, dapibu</p>
+                  <a href="dados" class="button button--black">ler pesquisa</a>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="home-block--inspire">
+            <h1>Inspire-se</h1>
             <div class="slider slider--home-block">
-              <section class="home-block home-block--search">
+              <section>
                 <header>
-                  <h1>Pesquisas</h1>
+                  <h2>Brasil <span>nome sobrenome</span></h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
                 </header>
-                <h2>Classe e Genero</h2>
-                <p>Pellentesque tortor nisl, ornare et</p>
-                <p>Proin nec dui id ipsum interdum con vallis. Nam et tempus augue, dapibu</p>
-                <a href="dados" class="button button--black">ler pesquisa</a>
+                <img src="http://placekitten.com/500/300" alt="Bandeira do Brasil">
+                <a href="dados" class="button button--black">ler experiencia</a>
               </section>
-              <section class="home-block home-block--search">
+              <section>
                 <header>
-                  <h1>Pesquisas</h1>
+                  <h2>Brasil <span>nome sobrenome</span></h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
                 </header>
-                <h2>Classe e Genero</h2>
-                <p>Pellentesque tortor nisl, ornare et</p>
-                <p>Proin nec dui id ipsum interdum con vallis. Nam et tempus augue, dapibu</p>
-                <a href="dados" class="button button--black">ler pesquisa</a>
+                <img src="http://placekitten.com/500/300" alt="Bandeira do Brasil">
+                <a href="dados" class="button button--black">ler experiencia</a>
+              </section>
+              <section>
+                <header>
+                  <h2>Brasil <span>nome sobrenome</span></h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                </header>
+                <img src="http://placekitten.com/500/300" alt="Bandeira do Brasil">
+                <a href="dados" class="button button--black">ler experiencia</a>
               </section>
             </div>
           </div>
         </div>
 
         <div class="container">
-          <div class="slider slider--home-block">
-            <section class="home-block home-block--inspire">
+          <div class="home-block--news">
+            <section>
               <header>
-                <h1>Inspire-se</h1>
-                <h2>Brasil <span>nome sobrenome</span></h2>
+                <h1>Novidades</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
               </header>
-              <img src="source/images/flags/brazil.jpg" alt="Bandeira do Brasil">
-              <a href="dados" class="button button--black">ler experiencia</a>
-            </section>
-            <section class="home-block home-block--inspire">
-              <header>
-                <h1>Inspire-se</h1>
-                <h2>Brasil <span>nome sobrenome</span></h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-              </header>
-              <img src="source/images/flags/brazil.jpg" alt="Bandeira do Brasil">
-              <a href="dados" class="button button--black">ler experiencia</a>
-            </section>
-            <section class="home-block home-block--inspire">
-              <header>
-                <h1>Inspire-se</h1>
-                <h2>Brasil <span>nome sobrenome</span></h2>
-              </header>
-              <img src="source/images/flags/brazil.jpg" alt="Bandeira do Brasil">
-              <a href="dados" class="button button--black">ler experiencia</a>
+              <a href="novidads" class="button button--arrow-icon">ver mais</a>
             </section>
           </div>
-        </div>
-
-        <div class="container">
-          <section class="home-block home-block--news">
-            <header>
-              <h1>Novidades</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-            </header>
-            <a href="novidads" class="button button--arrow-icon">ver mais</a>
-          </section>
         </div>
 
         {{ partial "contact.html" . }}
@@ -216,6 +220,7 @@
               controls: false,
               navPosition: 'bottom',
               autoplayButtonOutput: false,
+              // items: 1,
               center: true,
               // autoWidth: true,
               // autoplay: true,
