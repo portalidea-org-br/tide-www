@@ -3718,7 +3718,7 @@ function getChartData(receivedPayload) {
       chartData.data = response.data.data;
       window.chartData = chartData;
     } catch (error) {
-      console.error(error);
+      window.console.error(error);
     }
   }
 
@@ -3944,7 +3944,7 @@ async function populateChartData(payload) {
       drawChart(formatedPtItems, 'pt');
       drawChart(formatedMatItems, 'mat');
     } catch (err) {
-      console.log(err);
+      window.console.log(err);
       toggleLoading();
     }
   }
