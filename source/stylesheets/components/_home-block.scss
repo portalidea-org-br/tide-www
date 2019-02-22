@@ -125,8 +125,16 @@
   margin-bottom: 1em;
 }
 
+.home-block--news,
 .home-block--inspire {
   display: flex;
+  flex-direction: column;
+  max-width: 34.3em;
+  margin: 0 auto;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    max-width: none;
+  }
 }
 
 .home-block--news h1 {
