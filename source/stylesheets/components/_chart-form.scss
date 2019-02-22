@@ -10,6 +10,7 @@
 
 .charts__helper {
   @media screen and (min-width: breakpoint('desktop')) {
+    max-width: 40rem;
     padding: 0 2rem;
   }
 }
