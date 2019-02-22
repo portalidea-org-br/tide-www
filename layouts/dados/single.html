@@ -22,7 +22,7 @@
       <div class="bg-light-gray">
         <div class="container">
           <form action="" method="post" id="js-chart-form" class="chart-form">
-            <div class="chart-form__group--inline">
+            <div class="chart-form__group">
               <label for="grade">
                 Série
                 <select name="grade" id="grade">
@@ -31,7 +31,7 @@
                 </select>
               </label>
               <label for="x">
-                Comparar por
+                Filtrar por
                 <select name="xAxis" id="xAxis">
                   <option value="racial">Raça</option>
                   <option value="sex">Gênero (Meninas - Meninos)</option>
@@ -43,8 +43,19 @@
               </div>
             </div>
             <div class="js-form-filter chart-form__group">
+              <span class="chart-form__clue">
+                Escolha uma das opções abaixo para destacar no gráfico:
+              </span>
+              <label for="highlight">
+                Destacar Cidades
+                <select name="highlight" id="highlight">
+                  <option value="none">Nenhuma</option>
+                  <option value="big-cities">Cidades Grandes</option>
+                  <option value="capital">Capitais</option>
+                </select>
+              </label>
               <label for="region">
-                Região Brasileira
+                Destacar Região Brasileira
                 <select name="region" id="region">
                   <option value="">Nenhuma</option>
                   <option value="1">Centro Oeste</option>
@@ -54,12 +65,37 @@
                   <option value="5">Sul</option>
                 </select>
               </label>
-              <label for="region">
-                Destacar Cidades
-                <select name="highlight" id="highlight">
-                  <option value="none">Nenhuma</option>
-                  <option value="big-cities">Cidades Grandes</option>
-                  <option value="capital">Capitais</option>
+              <label for="city">
+                Destacar por Estado
+                <select id="state" name="state">
+                  <option value="">Estados</option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Roraima</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
                 </select>
               </label>
               <label for="city">
@@ -123,7 +159,7 @@
             </div>
             <div class="chart__main" id="mat-chart"></div>
             <div class="js-mat-table chart__table">
-              <h2>Pedra Azul &middot; MG</h2>
+              <h2></h2>
               <table>
                 <tbody>
                   <tr>
@@ -150,7 +186,13 @@
               </table>
             </div>
           </section>
-
+          <div class="charts__helper">
+            <h3>O QUE ISSO SIGNIFICA?</h3>
+            <p>
+              A posição ideal é 0 (zero), 	quando a cidade está mais longe do zero isso significa que o nível de
+              aprendizado está baixo e/ou o nível de desigualdade está alto.
+            </p>
+          </div>
         </div>
       </div>
 
