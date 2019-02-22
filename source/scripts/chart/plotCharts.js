@@ -165,7 +165,7 @@ async function populateChartData(payload) {
       drawChart(formatedPtItems, 'pt');
       drawChart(formatedMatItems, 'mat');
     } catch (err) {
-      console.log(err);
+      window.console.log(err);
       toggleLoading();
     }
   }
