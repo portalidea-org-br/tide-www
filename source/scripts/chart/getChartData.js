@@ -24,7 +24,7 @@ export default function getChartData(receivedPayload) {
       chartData.data = response.data.data;
       window.chartData = chartData;
     } catch (error) {
-      console.error(error);
+      window.console.error(error);
     }
   }
 
