@@ -1,5 +1,5 @@
 ---
-title: My Go Journey
+title: Novidades
 date: 2017-03-23
 publishdate: 2017-03-24
 ---

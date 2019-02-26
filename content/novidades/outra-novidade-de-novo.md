@@ -1,7 +1,9 @@
 ---
 title: Outra Novidade de novo
 date: 2017-03-23
+image: 'http://placekitten.com/400/300'
 tags: ['tag1', 'tag2', 'tag3']
+short_description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren'
 publishdate: 2017-03-24
 ---
 
