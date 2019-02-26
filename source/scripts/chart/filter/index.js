@@ -15,6 +15,7 @@ export default function handleChartFilters() {
   const jsChartForm = document.getElementById('js-chart-form');
   const cityInput = document.getElementById('city');
   const highlightInput = document.getElementById('highlight');
+  const stateInput = document.getElementById('state');
   const regionInput = document.getElementById('region');
 
   function getCities() {
@@ -127,6 +128,22 @@ export default function handleChartFilters() {
       });
     }
 
+    if (parameter === 'state') {
+      ptChart.series[0].points.forEach((point) => {
+        if (point.options.state === value) {
+          point.select(true, true);
+          point.graphic.toFront();
+        }
+      });
+
+      matChart.series[0].points.forEach((point) => {
+        if (point.options.state === value) {
+          point.select(true, true);
+          point.graphic.toFront();
+        }
+      });
+    }
+
     if (parameter === 'region') {
       ptChart.series[0].points.forEach((point) => {
         if (point.options.region === Number(value)) {
@@ -165,6 +182,14 @@ export default function handleChartFilters() {
       clearFilters(event.target.id);
       clearTableInfo();
       highlightPoints(event.target.value);
+    }, false);
+  }
+
+  if (stateInput) {
+    stateInput.addEventListener('change', (event) => {
+      clearFilters(event.target.id);
+      clearTableInfo();
+      highlightPoints('state', event.target.value);
     }, false);
   }
 

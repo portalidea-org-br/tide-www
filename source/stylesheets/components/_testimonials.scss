@@ -1,6 +1,5 @@
 .bg-white {
   position: relative;
-  padding-bottom: 5rem;
 
   &::before {
     position: absolute;
@@ -29,13 +28,6 @@
 
   @media screen and (min-width: breakpoint('desktop')) {
     max-width: 93.75em;
-  }
-}
-
-.slider {
-  @media screen and (min-width: breakpoint('desktop')) {
-    display: flex;
-    flex-direction: column;
   }
 }
 
@@ -349,21 +341,4 @@
   }
 }
 
-.testimonials .tns-nav {
-  text-align: center;
-}
-
-.testimonials .tns-nav button {
-  width: 1em;
-  height: 1em;
-  padding: 0;
-  margin: 0.2em;
-  background: palette('gray');
-  border: 0;
-  border-radius: 50%;
-}
-
-.testimonials .tns-nav .tns-nav-active {
-  background: palette('green');
-}
 

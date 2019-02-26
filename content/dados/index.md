@@ -1,9 +1,9 @@
 ---
-title: "Pesquisa"
+title: "Dados"
 date: 2018-12-05T14:10:57-02:00
 draft: false
 layout: "single"
-type: "pesquisa"
+type: "dados"
 ---
 
 Proin finibus eget nunc in porttitor. Suspendisse ullamcorper quam ut auctor fringilla. Vestibulum semper nisi et velit facilisis consequat. Integer odio tortor, hendrerit semper imperdiet at, vestibulum at dolor. Phasellus lacinia porta turpis accumsan varius. Vivamus posuere posuere nisl, a rutrum nisi venenatis at. Integer lorem nulla, luctus sed nisi id, lacinia gravida dui. Vestibulum ullamcorper quis erat a imperdiet. Proin hendrerit facilisis odio vel luctus. Donec eu lorem quis turpis laoreet commodo tincidunt lacinia eros. Suspendisse mollis purus sed auctor placerat. Suspendisse pharetra dapibus sem.

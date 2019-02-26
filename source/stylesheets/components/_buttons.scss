@@ -1,5 +1,7 @@
 .button {
-  padding: 0.7em 0.9em;
+  display: inline-block;
+  min-width: 8.4rem;
+  padding: 0.5em 0.9em;
 
   font-size: ms(1);
   font-family: $roboto-font-stack;

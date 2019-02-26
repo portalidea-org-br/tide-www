@@ -43,7 +43,7 @@ function updateTableInfo(id) {
 
       document.querySelectorAll('.js-xAxis-text').forEach((span) => {
         const domSpan = span;
-        domSpan.textContent = 'Sexo';
+        domSpan.textContent = 'Gênero';
       });
     }
 
@@ -82,7 +82,7 @@ function updateTableInfo(id) {
       matTable.querySelector('.js-privileged-title').textContent = 'Nhomens';
       matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group;
 
-      matTable.querySelector('.js-xAxis-text').textContent = 'Sexo';
+      matTable.querySelector('.js-xAxis-text').textContent = 'Gênero';
     }
 
     if (xAxis === 'nse') {

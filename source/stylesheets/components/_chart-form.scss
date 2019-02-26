@@ -8,6 +8,13 @@
   margin-bottom: 5rem;
 }
 
+.charts__helper {
+  @media screen and (min-width: breakpoint('desktop')) {
+    max-width: 40rem;
+    padding: 0 2rem;
+  }
+}
+
 .chart-form {
   display: flex;
   flex-wrap: wrap;
@@ -17,6 +24,7 @@
 
 .chart-form__group {
   width: 100%;
+  margin-bottom: 2rem;
 
   @media screen and (min-width: breakpoint('tablet')) {
     width: 50%;
@@ -38,12 +46,26 @@
   }
 }
 
+.chart-form__clue {
+  display: block;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  font-size: ms(1);
+  color: palette('purple');
+}
+
 .chart-form label[for='grade'] {
   width: 20%;
   margin-right: 2%;
 
   @media screen and (min-width: breakpoint('desktop')) {
-    width: 2.3em;
+    width: 100%;
+  }
+}
+
+.chart-form label[for='x'] {
+  @media screen and (min-width: breakpoint('desktop')) {
+    width: 100%;
   }
 }
 
@@ -51,8 +73,7 @@
   width: 75%;
 
   @media screen and (min-width: breakpoint('desktop')) {
-    width: 100%;
-    padding-right: 1em;
+    width: 48%;
   }
 }
 
@@ -62,6 +83,10 @@
   font-weight: bold;
   font-size: ms(-1);
   text-transform: uppercase;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    width: 48%;
+  }
 }
 
 .chart-form .awesomplete {

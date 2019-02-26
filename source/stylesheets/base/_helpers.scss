@@ -29,6 +29,10 @@
   }
 }
 
+%text-center {
+  text-align: center;
+}
+
 /// Content which loads **after** the page does, should be informed to user.
 ///
 /// `[aria-busy='true']` adds a loading background to any loading element
