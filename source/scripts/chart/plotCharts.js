@@ -86,6 +86,7 @@ function drawChart(chartData, subject) {
     series: [{
       turboThreshold: 0,
       cursor: 'pointer',
+      color: '#b49ae6',
       point: {
         events: {
           click() {
