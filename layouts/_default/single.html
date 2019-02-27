@@ -19,8 +19,7 @@
       </section>
 
 
-      <div class="container">
-
+      <div class="container container--small">
         <ul class="tags">
           <!-- Set tags limit for loop -->
           {{- $.Scratch.Set "myLimit" 0 }}
@@ -34,7 +33,7 @@
         </ul>
       </div>
 
-      <div class="container">
+      <div class="container container--small">
         <div class="page-navigation">
           <!-- Get all posts, count and save the variable -->
           {{ $posts := (where .Site.RegularPages "Section" "==" "novidades") }}
@@ -42,6 +41,8 @@
 
           {{ if .PrevInSection }}
             <a href="{{.PrevInSection.Permalink}}" class="page-navigation__prev">Novidade anterior</a>
+          {{ else }}
+            <a href="" disabled class="page-navigation__prev">Novidade anterior</a>
           {{ end }}
 
           <div class="page-navigation__counter">
@@ -50,12 +51,14 @@
 
           {{ if .NextInSection }}
             <a href="{{.NextInSection.Permalink}}" class="page-navigation__next">Próxima novidade</a>
+          {{ else }}
+            <a href="" disabled class="page-navigation__next">Próxima novidade</a>
           {{ end }}
         </div>
 
         <h2>{{ .Title }}</h2>
 
-        <div class="posts">
+        <div class="posts posts--details">
             <section class="posts__post">
               <ul class="posts__tags">
                 {{ range .Params.tags }}
@@ -66,10 +69,17 @@
               <!-- Save post title for use in image alt -->
               {{ $title := .Title }}
 
-              {{ with .Params.image }}
-              <div class="posts__image">
-                <img src="{{ . }}" alt="{{ $title }}">
-              </div>
+              {{ if .Params.image }}
+                <div class="posts__image">
+                    <!-- sizes="(max&#45;width: 320px) 280px, 800px" -->
+                  <img
+                    srcset="
+                      {{ with .Params.image }} {{ . }} 600w, {{ end }}
+                      {{ with .Params.image_big }} {{ . }} 1000w {{ end }}
+                      "
+                    src="{{ .Params.image }}"
+                    alt="{{ $title }}">
+                </div>
               {{ end }}
 
               <div class="posts__text">
@@ -77,6 +87,11 @@
                 <time datetime="{{ .Date.Format "02/01/2006 - 15:04" }}">
                   {{ .Date.Format "02/01/2006 - 15:04" }}
                 </time>
+              </div>
+
+              <div class="posts__end">
+                <a href="" class="posts__back js-go-back">Voltar</a>
+                <a href="#" class="to-top">Subir ao topo</a>
               </div>
             </section>
         </div>

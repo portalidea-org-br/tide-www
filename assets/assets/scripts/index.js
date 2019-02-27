@@ -7086,6 +7086,25 @@ function initContactForm() {
 },{"../config":36,"axios":1,"bouncer":26,"imask":27,"qs":32}],38:[function(require,module,exports){
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = goBack;
+
+function goBack() {
+  const $goBackButton = document.querySelector('.js-go-back');
+
+  if ($goBackButton) {
+    $goBackButton.addEventListener('click', event => {
+      event.preventDefault();
+      window.history.back();
+    });
+  }
+}
+
+},{}],39:[function(require,module,exports){
+"use strict";
+
 var _menuToggle = require("./menuToggle");
 
 var _menuToggle2 = _interopRequireDefault(_menuToggle);
@@ -7098,13 +7117,18 @@ var _modal = require("./modal");
 
 var _modal2 = _interopRequireDefault(_modal);
 
+var _goBack = require("./goBack");
+
+var _goBack2 = _interopRequireDefault(_goBack);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _menuToggle2.default)();
 (0, _modal2.default)();
 (0, _contactForm2.default)();
+(0, _goBack2.default)();
 
-},{"./contactForm":37,"./menuToggle":39,"./modal":40}],39:[function(require,module,exports){
+},{"./contactForm":37,"./goBack":38,"./menuToggle":40,"./modal":41}],40:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7125,7 +7149,7 @@ function initMenuToggle() {
   });
 }
 
-},{}],40:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7146,4 +7170,4 @@ function initModal() {
 
 }
 
-},{"micromodal":29}]},{},[38]);
+},{"micromodal":29}]},{},[39]);

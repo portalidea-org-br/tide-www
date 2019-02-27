@@ -10,6 +10,12 @@
   line-height: 0.938rem;
   text-indent: -999em;
 
+  &[disabled] {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
   &::before {
     position: absolute;
     top: 0;

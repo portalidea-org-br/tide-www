@@ -29,9 +29,9 @@
       </div>
 
       <div class="container">
-        <h2>{{ .Title }}</h2>
-
         <div class="posts">
+          <h2 class="posts__main-title">{{ .Title }}</h2>
+
           {{ range .Data.Pages }}
             <section class="posts__post">
               <h3 class="posts__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
