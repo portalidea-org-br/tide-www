@@ -41,8 +41,8 @@ function drawChart(chartData, subject) {
         enabled: true,
         text: `${xAxisText} | [Desigualdade]`,
       },
-      max: 2,
-      min: -2,
+      max: 3,
+      min: -3,
       startOnTick: true,
       endOnTick: true,
       showLastLabel: true,
@@ -57,14 +57,8 @@ function drawChart(chartData, subject) {
       title: { text: `${subject === 'pt' ? 'Português' : 'Matemática'} | [Nível de aprendizado]` },
       lineWidth: 1,
       gridZIndex: 0,
-      max: 2,
-      min: -2,
-      // plotLines:[{
-      //   value: 0,
-      //   color: '#666',
-      //   dashStyle: 'solid',
-      //   width: 1,
-      // }],
+      max: 3,
+      min: -3,
     },
     plotOptions: {
       scatter: {
@@ -92,6 +86,7 @@ function drawChart(chartData, subject) {
     series: [{
       turboThreshold: 0,
       cursor: 'pointer',
+      color: '#b49ae6',
       point: {
         events: {
           click() {
