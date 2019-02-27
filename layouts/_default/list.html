@@ -40,9 +40,15 @@
                 <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
                 {{ end }}
               </ul>
+
+              <!-- Save post title for use in image alt -->
+              {{ $title := .Title }}
+
+              {{ with .Params.image }}
               <div class="posts__image">
-                <img src="{{ .Params.image }}" alt="{{ .Title }}">
+                <img src="{{ . }}" alt="{{ $title }}">
               </div>
+              {{ end }}
 
               <div class="posts__text">
                 <p>{{ .Params.short_description }}</p>

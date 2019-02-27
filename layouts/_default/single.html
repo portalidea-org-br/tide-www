@@ -1,12 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>layout single</title>
-</head>
-<body>
-  <h1>
-    {{ .Title }}
-  </h1>
-</body>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <title>tide</title>
+
+    {{ partial "head.html" . }}
+
+    <body>
+
+      {{ partial "header.html" . }}
+
+      <section class="page-title page-title--blue-light page-title--no-icon">
+        <div class="container">
+          <h1>Novidades</h1>
+        </div>
+      </section>
+
+
+      <div class="container">
+
+        <ul class="tags">
+          <!-- Set tags limit for loop -->
+          {{- $.Scratch.Set "myLimit" 0 }}
+
+          {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+            {{- $.Scratch.Set "myLimit" (add ($.Scratch.Get "myLimit") 1) }}
+            {{- if le ($.Scratch.Get "myLimit") (6) }}
+              <li><a class="shadow" href="/tags/{{ $name | urlize }}">{{ $name }}</a></li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </div>
+
+      <div class="container">
+        <div class="page-navigation">
+          <!-- Get all posts, count and save the variable -->
+          {{ $posts := (where .Site.RegularPages "Section" "==" "novidades") }}
+          {{ $postCount := len $posts }}
+
+          {{ if .PrevInSection }}
+            <a href="{{.PrevInSection.Permalink}}" class="page-navigation__prev">Novidade anterior</a>
+          {{ end }}
+
+          <div class="page-navigation__counter">
+            10/{{ $postCount }}
+          </div>
+
+          {{ if .NextInSection }}
+            <a href="{{.NextInSection.Permalink}}" class="page-navigation__next">Próxima novidade</a>
+          {{ end }}
+        </div>
+
+        <h2>{{ .Title }}</h2>
+
+        <div class="posts">
+            <section class="posts__post">
+              <ul class="posts__tags">
+                {{ range .Params.tags }}
+                <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+                {{ end }}
+              </ul>
+
+              <!-- Save post title for use in image alt -->
+              {{ $title := .Title }}
+
+              {{ with .Params.image }}
+              <div class="posts__image">
+                <img src="{{ . }}" alt="{{ $title }}">
+              </div>
+              {{ end }}
+
+              <div class="posts__text">
+                <p>{{ .Params.short_description }}</p>
+                <time datetime="{{ .Date.Format "02/01/2006 - 15:04" }}">
+                  {{ .Date.Format "02/01/2006 - 15:04" }}
+                </time>
+              </div>
+            </section>
+        </div>
+      </div>
+
+      {{ partial "footer.html" . }}
+
+      {{ $vendorJS := resources.Get "assets/scripts/vendor.js" }}
+      {{ $secureVendorJS := $vendorJS | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureVendorJS.RelPermalink }}" integrity="{{ $secureVendorJS.Data.Integrity }}"></script>
+
+      {{ $js := resources.Get "assets/scripts/index.js" }}
+      {{ $secureJS := $js | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+    </body>
 </html>
