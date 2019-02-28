@@ -18,11 +18,19 @@
         </div>
       </section>
 
-
       <div class="container">
         <ul class="tags">
+          <li>
+            <a class="shadow {{ if eq .Page.RelPermalink "/inspirese/" }} active {{ end }}" href="/inspirese/">
+              todos
+            </a>
+          </li>
           {{ range $name, $taxonomy := .Site.Taxonomies.paises }}
-              <li><a class="shadow" href="/paises/{{ $name | urlize }}">{{ $name }}</a></li>
+              <li>
+                <a class="shadow {{ if eq $.Data.Term $name }} active {{ end }}" href="/paises/{{ $name | urlize }}">
+                  {{ $name }}
+                </a>
+              </li>
           {{ end }}
         </ul>
       </div>

@@ -20,6 +20,11 @@
 
       <div class="container">
         <ul class="tags">
+          <li>
+            <a class="shadow {{ if eq .Page.RelPermalink "/novidades/" }} active {{ end }}" href="/novidades">
+              todas
+            </a>
+          </li>
           {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
           <li>
             <a class="shadow {{ if eq $.Data.Term $name }} active {{ end }}" href="/tags/{{ $name | urlize }}">
@@ -31,9 +36,8 @@
       </div>
 
       <div class="container">
+        <h2 class="posts__main-title">{{ .Title }}</h2> <!-- Bad BEM, pls refactor -->
         <div class="posts">
-          <h2 class="posts__main-title">{{ .Title }}</h2>
-
           {{ range .Data.Pages }}
             <section class="posts__post">
               <h3 class="posts__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>

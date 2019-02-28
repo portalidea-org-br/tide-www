@@ -24,6 +24,12 @@
           <!-- Set tags limit for loop -->
           {{- $.Scratch.Set "myLimit" 0 }}
 
+          <li>
+            <a class="shadow {{ if eq .Page.RelPermalink "/novidades/" }} active {{ end }}" href="/novidades">
+              todas
+            </a>
+          </li>
+
           {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
             {{- $.Scratch.Set "myLimit" (add ($.Scratch.Get "myLimit") 1) }}
             {{- if le ($.Scratch.Get "myLimit") (6) }}
