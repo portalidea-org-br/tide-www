@@ -4,12 +4,12 @@ enableGitInfo: true
 enableMissingTranslationPlaceholders: true
 enableRobotsTXT: true
 disableHugoGeneratorInject: true
-disableKinds:
-  - "section"
-  - "taxonomy"
-  - "taxonomyTerm"
-  - "RSS"
-  - "sitemap"
+# disableKinds:
+#   - "section"
+#   - "taxonomy"
+#   - "taxonomyTerm"
+#   - "RSS"
+#   - "sitemap"
 footnoteReturnLinkContents: "↩"
 googleAnalytics: ""
 languageCode: "pt-br"
@@ -31,10 +31,14 @@ menu:
     name: "Biblioteca"
     url: "/biblioteca/"
     weight: 4
+  - identifier: "news"
+    name: "Novidades"
+    url: "/novidades/"
+    weight: 5
   - identifier: "contact"
     name: "Contato"
     url: "/#contato"
-    weight: 4
+    weight: 6
 metaDataFormat: "yaml"
 title: "Eduquidade"
 params:
@@ -53,4 +57,4 @@ params:
     # github: "https://github.com/AppCivico"
     youtube: "https://www.youtube.com/channel/UCIuAzzWMogJV0r-mvFmjNNQ"
 taxonomies:
-  role: "role"
+  tag: tags

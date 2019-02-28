@@ -83,6 +83,9 @@
   }
 }
 
+.page-title--no-icon > .container::after {
+  display: none;
+}
 
 .page-title--green > .container::after {
   background-image: image('books-girl.svg');

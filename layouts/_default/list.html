@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <title>tide</title>
+
+    {{ partial "head.html" . }}
+
+    <body>
+
+      {{ partial "header.html" . }}
+
+      <section class="page-title page-title--blue-light page-title--no-icon">
+        <div class="container">
+          <h1>Novidades</h1>
+        </div>
+      </section>
+
+
+      <div class="container">
+
+        <ul class="tags">
+          {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+              <li><a class="shadow" href="/tags/{{ $name | urlize }}">{{ $name }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <div class="container">
+        <div class="posts">
+          <h2 class="posts__main-title">{{ .Title }}</h2>
+
+          {{ range .Data.Pages }}
+            <section class="posts__post">
+              <h3 class="posts__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+              <ul class="posts__tags">
+                {{ range .Params.tags }}
+                <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+                {{ end }}
+              </ul>
+
+              <!-- Save post title for use in image alt -->
+              {{ $title := .Title }}
+
+              {{ with .Params.image }}
+              <div class="posts__image">
+                <img src="{{ . }}" alt="{{ $title }}">
+              </div>
+              {{ end }}
+
+              <div class="posts__text">
+                <p>{{ .Params.short_description }}</p>
+                <time datetime="{{ .Date.Format "02/01/2006 - 15:04" }}">
+                  {{ .Date.Format "02/01/2006 - 15:04" }}
+                </time>
+              </div>
+
+              <a href="{{ .Permalink }}" class="button button--black">Ver mais</a>
+            </section>
+          {{ end }}
+        </div>
+      </div>
+
+      {{ partial "footer.html" . }}
+
+      {{ $vendorJS := resources.Get "assets/scripts/vendor.js" }}
+      {{ $secureVendorJS := $vendorJS | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureVendorJS.RelPermalink }}" integrity="{{ $secureVendorJS.Data.Integrity }}"></script>
+
+      {{ $js := resources.Get "assets/scripts/index.js" }}
+      {{ $secureJS := $js | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+    </body>
+</html>
