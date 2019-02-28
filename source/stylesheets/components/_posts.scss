@@ -14,7 +14,7 @@
     width: calc(100% / 3);
     padding: 0 1rem;
 
-    &:first-of-type {
+    &:nth-child(3n + 1) {
       padding-left: 0;
     }
   }
@@ -37,6 +37,16 @@
   margin-bottom: 0;
   font-weight: 100;
   font-size: ms(3);
+}
+
+.posts__title--bold {
+  font-weight: bold;
+}
+
+.posts__author {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: ms(1);
 }
 
 .posts__tags {
@@ -74,11 +84,12 @@
 }
 
 .posts__text {
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .posts__text time {
   display: block;
+  margin-bottom: 1rem;
   font-size: ms(-1);
 }
 
