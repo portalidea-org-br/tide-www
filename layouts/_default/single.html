@@ -32,6 +32,16 @@
           {{ end }}
         </ul>
       </div>
+      <!--
+        here we get the current post "index" by looping through all posts, reversing it's order
+        and checking if the post is the one being showed, if it is we set assing it to the currentItem
+        variable and add one 'cause the range index is zero base
+      -->
+      {{ range $index, $element := (where .Site.RegularPages "Type" "novidades" ).Reverse }}
+        {{ if eq . $ }}
+          {{- $.Scratch.Set "currentItem" (add $index 1) }}
+        {{ end }}
+      {{end}}
 
       <div class="container container--small">
         <div class="page-navigation">
@@ -46,7 +56,7 @@
           {{ end }}
 
           <div class="page-navigation__counter">
-            10/{{ $postCount }}
+            {{ $.Scratch.Get "currentItem" }}/{{ $postCount }}
           </div>
 
           {{ if .NextInSection }}
