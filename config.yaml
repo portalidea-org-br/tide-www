@@ -63,3 +63,4 @@ params:
 taxonomies:
   tag: tags
   pais: paises
+  area: areas
