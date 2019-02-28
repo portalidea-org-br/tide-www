@@ -31,14 +31,18 @@ menu:
     name: "Biblioteca"
     url: "/biblioteca/"
     weight: 4
+  - identifier: "inspire"
+    name: "Inspire-se"
+    url: "/inspirese/"
+    weight: 5
   - identifier: "news"
     name: "Novidades"
     url: "/novidades/"
-    weight: 5
+    weight: 6
   - identifier: "contact"
     name: "Contato"
     url: "/#contato"
-    weight: 6
+    weight: 7
 metaDataFormat: "yaml"
 title: "Eduquidade"
 params:
@@ -58,3 +62,4 @@ params:
     youtube: "https://www.youtube.com/channel/UCIuAzzWMogJV0r-mvFmjNNQ"
 taxonomies:
   tag: tags
+  pais: paises
