@@ -12,22 +12,29 @@
 
       {{ partial "header.html" . }}
 
-      <section class="page-title page-title--yellow page-title--no-icon">
+
+
+
+      <section class="page-title page-title--blue-light page-title--no-icon">
         <div class="container">
           <h1>{{ .Title }}</h1>
         </div>
       </section>
-
-
       <div class="container">
-        <ul class="tags tags--yellow">
+
+        <ul class="tags">
           <li>
-            <a class="shadow {{ if eq .Page.RelPermalink "/pesquisas/" }} active {{ end }}" href="/pesquisas">
-              todas
+            <a class="shadow" href="/{{ $.Data.Plural }}/">
+              todos
             </a>
           </li>
-          {{ range $name, $taxonomy := .Site.Taxonomies.areas }}
-              <li><a class="shadow" href="/areas/{{ $name | urlize }}">{{ $name }}</a></li>
+
+          {{ range $name, $taxonomy := (index $.Site.Taxonomies $.Data.Plural) }}
+            <li>
+              <a class="shadow {{ if eq $.Data.Term $name }} active {{ end }}" href="/paises/{{ $name | urlize }}">
+                {{ $name }}
+              </a>
+            </li>
           {{ end }}
         </ul>
       </div>
@@ -37,16 +44,23 @@
 
           {{ range .Data.Pages }}
             <section class="posts__post">
-              <h3 class="posts__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+              <h3 class="posts__title">{{ .Title }}</h3>
+              <address class="posts__author">{{ .Params.author }}</address>
 
               <!-- Save post title for use in image alt -->
               {{ $title := .Title }}
+
+              {{ with .Params.image }}
+              <div class="posts__image">
+                <img src="{{ . }}" alt="{{ $title }}">
+              </div>
+              {{ end }}
 
               <div class="posts__text">
                 <p>{{ .Params.short_description }}</p>
               </div>
 
-              <a href="{{ .Permalink }}" class="button button--black">saiba mais</a>
+              <a href="{{ .Params.file }}" target="_blank" class="button button--black">ler experiência</a>
             </section>
           {{ end }}
         </div>
