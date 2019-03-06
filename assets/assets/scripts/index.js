@@ -7163,13 +7163,20 @@ var _micromodal2 = _interopRequireDefault(_micromodal);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function setModalGlobalStatus() {
+  sessionStorage.setItem('modalHasBeenClosed', 1);
+}
+
 function initModal() {
   _micromodal2.default.init({
-    debugMode: true
+    debugMode: true,
+    onClose: () => setModalGlobalStatus(1) // [2]
+
   });
 
-  _micromodal2.default.show('js-modal-user-popup'); // [1]
-
+  if (!sessionStorage.getItem('modalHasBeenClosed')) {
+    document.getElementById('js-open-modal').click();
+  }
 }
 
 },{"micromodal":29}]},{},[39]);
