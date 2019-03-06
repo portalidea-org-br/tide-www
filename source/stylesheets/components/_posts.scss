@@ -87,6 +87,10 @@
   margin-bottom: 0.5rem;
 }
 
+.posts__text h2 {
+  color: palette('orange');
+}
+
 .posts__text time {
   display: block;
   margin-bottom: 1rem;
@@ -95,6 +99,10 @@
 
 .posts .button {
   align-self: flex-start;
+}
+
+.posts .posts__center-button {
+  align-self: center;
 }
 
 .posts__end {

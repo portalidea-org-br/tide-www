@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <title>tide</title>
+
+    {{ partial "head.html" . }}
+
+    <body>
+
+      {{ partial "header.html" . }}
+
+      <section class="page-title page-title--yellow page-title--no-icon">
+        <div class="container">
+          <h1>{{ .Title }}</h1>
+        </div>
+      </section>
+
+
+      <div class="container container--small">
+        <ul class="tags tags--orange">
+          <!-- Set tags limit for loop -->
+
+          <li>
+            <a class="shadow {{ if eq .Page.RelPermalink "/pesquisas/" }} active {{ end }}" href="/pesquisas">
+              Todas
+            </a>
+          </li>
+
+          <!--
+            Here we loop over all taxonomies from the site and from the item,
+            and "humanize" them, if they match we set an active class to the list
+            also we set a variable to be the tags length limit and compare it with the
+            array length before printing anything
+          -->
+
+
+          {{- $.Scratch.Set "myLimit" 0 }}
+          {{ range $name, $taxonomy := .Site.Taxonomies.areas }}
+            {{- $.Scratch.Set "myLimit" (add ($.Scratch.Get "myLimit") 1) }}
+            {{- if le ($.Scratch.Get "myLimit") (6) }}
+              <li><a class="shadow
+                    {{ range $area := $.Params.areas }}
+                      {{ if eq ($area | humanize) ($name | humanize) }}
+                        active
+                      {{ end }}
+                    {{ end }}
+                    "
+                    href="/areas/{{ $name | urlize }}">{{ $name | humanize }}</a></li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </div>
+
+      <!--
+        here we get the current post "index" by looping through all posts, reversing it's order
+        and checking if the post is the one being showed, if it is we set assing it to the currentItem
+        variable and add one 'cause the range index is zero base
+      -->
+      {{ range $index, $element := (where .Site.RegularPages "Type" "novidades" ).Reverse }}
+        {{ if eq . $ }}
+          {{- $.Scratch.Set "currentItem" (add $index 1) }}
+        {{ end }}
+      {{end}}
+
+      <div class="container container--small">
+
+        <div class="posts posts--details">
+            <section class="posts__post">
+
+              <!-- Save post title for use in image alt -->
+              {{ $title := .Title }}
+
+              <div class="posts__text">
+                <p>{{ .Params.short_description }}</p>
+                <a href="{{ .Params.file }}" target="_blank" class="simple-link">Ler pesquisa</a>
+              </div>
+
+              <div class="posts__text">
+                {{ .Content }}
+              </div>
+
+              <a href="{{ .Params.file }}" target="_blank" class="button button--black posts__center-button">
+                ler experiência
+              </a>
+            </section>
+        </div>
+      </div>
+
+      <a href="#" id="js-open-modal" data-micromodal-trigger="js-modal-user-popup"></a>
+      <!-- [1] -->
+      <div class="modal micromodal-slide" id="js-modal-user-popup" aria-hidden="true">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+          <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="js-modal-user-popup-title">
+            <header class="modal__header">
+              <h2 class="modal__title" id="js-modal-user-popup-title">
+                Deixe seu email para receber novidades
+              </h2>
+              <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+            </header>
+            <main class="modal__content" id="js-modal-user-popup-content">
+              <form action="" method="post" id="contato" class="modal-user-popup">
+                <label for="name">
+                  <span>Nome: </span>
+                  <strong><abbr title="Campo Obrigatório">*</abbr></strong>
+                </label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">
+                  <span>Email: </span>
+                  <strong><abbr title="Campo Obrigatório">*</abbr></strong>
+                </label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="organization">
+                  <span>Instituição: </span>
+                  <strong><abbr title="Campo Obrigatório">*</abbr></strong>
+                </label>
+                <input type="text" id="organization" name="organization" required>
+
+                <label for="role">
+                  <span>Cargo: </span>
+                  <strong><abbr title="Campo Obrigatório">*</abbr></strong>
+                </label>
+                <input type="text" id="role" name="role" required>
+
+                <div id="js-response-message" class="response-message" hidden></div>
+              </form>
+            </main>
+            <footer class="modal__footer">
+                <button type="submit" class="button--arrow-icon">Cadastrar</button>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      {{ partial "footer.html" . }}
+
+      {{ $vendorJS := resources.Get "assets/scripts/vendor.js" }}
+      {{ $secureVendorJS := $vendorJS | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureVendorJS.RelPermalink }}" integrity="{{ $secureVendorJS.Data.Integrity }}"></script>
+
+      {{ $js := resources.Get "assets/scripts/index.js" }}
+      {{ $secureJS := $js | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+    </body>
+</html>

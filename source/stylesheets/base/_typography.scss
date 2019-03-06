@@ -78,6 +78,14 @@ p {
   margin-bottom: $leading * 1em;
 }
 
+.simple-link:link,
+.simple-link:visited {
+  font-weight: bold;
+  font-size: ms(2);
+  text-decoration: underline;
+  color: palette('orange');
+}
+
 /**
  * @see: http://demosthenes.info/blog/946/Controlling-Widows--Orphans
  */
