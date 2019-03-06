@@ -23,9 +23,9 @@ menu:
     name: "Dados"
     url: "/dados/"
     weight: 2
-  - identifier: "about"
-    name: "Sobre"
-    url: "/sobre/"
+  - identifier: "project"
+    name: "Projeto"
+    url: "/projeto/"
     weight: 3
   - identifier: "library"
     name: "Biblioteca"

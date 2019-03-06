@@ -7121,14 +7121,19 @@ var _goBack = require("./goBack");
 
 var _goBack2 = _interopRequireDefault(_goBack);
 
+var _tabs = require("./tabs");
+
+var _tabs2 = _interopRequireDefault(_tabs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _menuToggle2.default)();
 (0, _modal2.default)();
 (0, _contactForm2.default)();
 (0, _goBack2.default)();
+(0, _tabs2.default)();
 
-},{"./contactForm":37,"./goBack":38,"./menuToggle":40,"./modal":41}],40:[function(require,module,exports){
+},{"./contactForm":37,"./goBack":38,"./menuToggle":40,"./modal":41,"./tabs":42}],40:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7169,7 +7174,7 @@ function setModalGlobalStatus() {
 
 function initModal() {
   _micromodal2.default.init({
-    debugMode: true,
+    // debugMode: true,
     onClose: () => setModalGlobalStatus(1) // [2]
 
   });
@@ -7179,4 +7184,38 @@ function initModal() {
   }
 }
 
-},{"micromodal":29}]},{},[39]);
+},{"micromodal":29}],42:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = initTabs;
+
+function initTabs() {
+  const $tabLinks = document.querySelectorAll('.tabs__controller a');
+  const $tabs = document.querySelectorAll('.tabs__content div');
+
+  function selectTab(tab) {
+    $tabs.forEach(item => item.classList.remove('visible'));
+    document.getElementById(tab).classList.add('visible');
+  }
+
+  function setActiveLink(link) {
+    $tabLinks.forEach(item => item.classList.remove('active'));
+    link.classList.add('active');
+  }
+
+  if ($tabLinks && $tabs) {
+    $tabLinks.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        setActiveLink(link);
+        const tab = event.target.hash.substr(1);
+        selectTab(tab);
+      });
+    });
+  }
+}
+
+},{}]},{},[39]);

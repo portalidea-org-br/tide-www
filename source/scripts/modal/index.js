@@ -6,7 +6,7 @@ function setModalGlobalStatus() {
 
 export default function initModal() {
   MicroModal.init({
-    debugMode: true,
+    // debugMode: true,
     onClose: () => setModalGlobalStatus(1), // [2]
   });
 
