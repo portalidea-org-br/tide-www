@@ -14,18 +14,20 @@
 
       <section class="page-title page-title--blue-light page-title--no-icon">
         <div class="container">
-          <h1>Novidades</h1>
+          <h1>{{ .Title }}</h1>
         </div>
       </section>
 
       <div class="container">
         <ul class="tags">
           <li>
-            <a class="shadow {{ if eq .Page.RelPermalink "/novidades/" }} active {{ end }}" href="/novidades">
+            <a class="shadow
+              {{ if eq .Page.RelPermalink (.Title | urlize)  }} active {{ end }}"
+              href="(.Title | urlize)">
               todas
             </a>
           </li>
-          {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+          {{ range $name, $taxonomy := index .Site.Taxonomies.tags }}
           <li>
             <a class="shadow {{ if eq $.Data.Term $name }} active {{ end }}" href="/tags/{{ $name | urlize }}">
               {{ $name }}

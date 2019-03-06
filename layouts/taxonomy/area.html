@@ -12,27 +12,24 @@
 
       {{ partial "header.html" . }}
 
-
-
-
-      <section class="page-title page-title--blue-light page-title--no-icon">
+      <section class="page-title page-title--yellow page-title--no-icon">
         <div class="container">
-          <h1>{{ .Title }}</h1>
+          <h1>{{ .Title | humanize }}</h1>
         </div>
       </section>
       <div class="container">
 
-        <ul class="tags">
+        <ul class="tags tags--orange">
           <li>
-            <a class="shadow" href="/{{ $.Data.Plural }}/">
-              todos
+            <a class="shadow" href="/pesquisas">
+              Todos
             </a>
           </li>
 
           {{ range $name, $taxonomy := (index $.Site.Taxonomies $.Data.Plural) }}
             <li>
-              <a class="shadow {{ if eq $.Data.Term $name }} active {{ end }}" href="/paises/{{ $name | urlize }}">
-                {{ $name }}
+              <a class="shadow {{ if eq $.Data.Term $name }} active {{ end }}" href="/areas/{{ $name | urlize }}">
+                {{ $name | humanize }}
               </a>
             </li>
           {{ end }}
@@ -60,7 +57,7 @@
                 <p>{{ .Params.short_description }}</p>
               </div>
 
-              <a href="{{ .Params.file }}" target="_blank" class="button button--black">ler experiência</a>
+              <a href="{{ .Permalink }}" class="button button--black">saiba mais</a>
             </section>
           {{ end }}
         </div>

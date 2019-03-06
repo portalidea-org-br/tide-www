@@ -7166,7 +7166,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function initModal() {
   _micromodal2.default.init({
     debugMode: true
-  }); // MicroModal.show('js-modal-user-popup'); // [1]
+  });
+
+  _micromodal2.default.show('js-modal-user-popup'); // [1]
 
 }
 
