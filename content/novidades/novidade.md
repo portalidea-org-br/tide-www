@@ -1,5 +1,5 @@
 ---
-title: Novidade
+title: Lorem ipsum dolor site
 date: '2017-03-07T02:45:00Z'
 tags:
   - tag test 1
