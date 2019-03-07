@@ -7173,14 +7173,16 @@ function setModalGlobalStatus() {
 }
 
 function initModal() {
+  const $modalLink = document.getElementById('js-open-modal');
+
   _micromodal2.default.init({
     // debugMode: true,
     onClose: () => setModalGlobalStatus(1) // [2]
 
   });
 
-  if (!sessionStorage.getItem('modalHasBeenClosed')) {
-    document.getElementById('js-open-modal').click();
+  if ($modalLink && !sessionStorage.getItem('modalHasBeenClosed')) {
+    $modalLink.click();
   }
 }
 
