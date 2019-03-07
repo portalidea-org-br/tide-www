@@ -1,6 +1,6 @@
 backend:
-  name: bitbucket
-  repo: eokoe__frontend/tide
+  name: git-gateway
+  repo: AppCivico/tide-www # Path to your Github repository
   branch: dev
   accept_roles:
     - admin
