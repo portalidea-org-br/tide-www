@@ -125,7 +125,7 @@ collections:
   -
     label: "Pesquisa"
     name: "pesquisa"
-    folder: "content/pesquisa"
+    folder: "content/pesquisas"
     create: false
     delete: false
     slug: "{{slug}}"
