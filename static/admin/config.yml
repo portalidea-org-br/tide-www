@@ -306,3 +306,39 @@ collections:
         label: "Conteúdo"
         name: "body"
         widget: "markdown"
+  -
+    label: "Pesquisas"
+    name: "pesquisas"
+    folder: "content/pesquisas"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h3"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Data"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
+      -
+        label: "Áreas"
+        name: "areas"
+        widget: "list"
+      -
+        label: "Arquivo"
+        name: "file"
+        widget: "file"
+        allow_multiple: false
+      -
+        label: "Descrição curta"
+        name: "short_description"
+        widget: "string"
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
