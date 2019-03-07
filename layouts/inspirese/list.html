@@ -43,13 +43,16 @@
               <h3 class="posts__title posts__title--bold">{{ .Title }}</h3>
               <address class="posts__author">{{ .Params.author }}</address>
 
-              <!-- Save post title for use in image alt -->
-              {{ $title := .Title }}
-
-              {{ with .Params.image }}
-              <div class="posts__image">
-                <img src="{{ . }}" alt="{{ $title }}">
-              </div>
+              {{ if or .Params.image .Params.image_big }}
+                <div class="posts__image">
+                  <img
+                    srcset="
+                    {{ with .Params.image }} {{ . }} 600w, {{ end }}
+                    {{ with .Params.image_big }} {{ . }} 1000w {{ end }}
+                    "
+                    src="{{ .Params.image }}"
+                    alt="{{ .Params.alt }}">
+                </div>
               {{ end }}
 
               <div class="posts__text">
