@@ -218,7 +218,7 @@
 }
 
 .testimonials blockquote:nth-child(4n+5) .testimonials p::before,
-.testimonials blockquote:nth-child(4n+5) .testimonials p::after, {
+.testimonials blockquote:nth-child(4n+5) .testimonials p::after {
   filter: invert(33%) sepia(86%) saturate(6541%) hue-rotate(343deg) brightness(99%) contrast(92%);
 }
 
@@ -243,7 +243,6 @@
   color: palette('green');
 
   @media screen and (min-width: breakpoint('desktop')) {
-    margin-left: 2.6rem;
     font-size: ms(9);
   }
 }
