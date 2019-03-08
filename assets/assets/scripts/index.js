@@ -7125,6 +7125,10 @@ var _tabs = require("./tabs");
 
 var _tabs2 = _interopRequireDefault(_tabs);
 
+var _randomize = require("./randomize");
+
+var _randomize2 = _interopRequireDefault(_randomize);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _menuToggle2.default)();
@@ -7132,8 +7136,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _contactForm2.default)();
 (0, _goBack2.default)();
 (0, _tabs2.default)();
+(0, _randomize2.default)();
 
-},{"./contactForm":37,"./goBack":38,"./menuToggle":40,"./modal":41,"./tabs":42}],40:[function(require,module,exports){
+},{"./contactForm":37,"./goBack":38,"./menuToggle":40,"./modal":41,"./randomize":42,"./tabs":43}],40:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7187,6 +7192,117 @@ function initModal() {
 }
 
 },{"micromodal":29}],42:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = initRamdomize;
+
+var _axios = require("axios");
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function shufleAndSelect(array, items) {
+  // Shuffle array
+  const shuffled = array.sort(() => 0.5 - Math.random()); // Get sub-array of first n elements after shuffled
+
+  const selected = shuffled.slice(0, items);
+  return selected;
+}
+
+function mountInpireHtml(items, id) {
+  let sections = '';
+  const element = document.getElementById(id);
+  items.forEach(item => {
+    sections += `
+    <section>
+      <header>
+        <h2>
+          ${item.title}
+          <br>
+          <span>${item.author}</span>
+        </h2>
+        <p>${item.short_description}</p>
+      </header>
+      <img
+        srcset="${item.image} 600w, ${item.image_big} 1000w"
+        src="${item.image}" alt="${item.alt}">
+      <a href="${item.file}" class="button button--black" target="_blank">ler experiencia</a>
+    </section>
+    `;
+  });
+  element.innerHTML = sections;
+}
+
+function mountNovidadesHtml(items, id) {
+  let sections = '';
+  const element = document.getElementById(id);
+  items.forEach(item => {
+    sections += `
+      <section>
+        <div class="home-block-news__content">
+          <header>
+            <h3>${item.title}</h3>
+            <p>${item.short_description}</p>
+          </header>
+          <a href="${item.permalink}" class="button button--arrow-icon">ver mais</a>
+        </div>
+      </section>
+    `;
+  });
+  element.innerHTML = sections;
+}
+
+function mountDepoimentosHtml(items, id) {
+  let sections = '';
+  const element = document.getElementById(id);
+  items.forEach(item => {
+    sections += `
+      <blockquote>
+        <div class="testimonials__content">
+          <figure>
+            <img src="${item.image}" alt="${item.alt}">
+          </figure>
+          ${item.content}
+          <footer><cite>${item.name}</cite></footer>
+        </div>
+      </blockquote>
+    `;
+  });
+  element.innerHTML = sections;
+}
+
+function mountPesquisasHtml(items, id) {
+  let sections = '';
+  const element = document.getElementById(id);
+  items.forEach(item => {
+    sections += `
+      <section>
+        <header>
+          <h2>${item.title}</h2>
+        </header>
+        <p>${item.short_description}</p>
+        <a href="${item.file}" class="button button--black">ler pesquisa</a>
+      </section>
+    `;
+  });
+  element.innerHTML = sections;
+}
+
+function initRamdomize() {
+  _axios2.default.get('/inspirese/index.json').then(response => response.data.inspirese).then(response => shufleAndSelect(response, 3)).then(response => mountInpireHtml(response, 'js-inspire'));
+
+  _axios2.default.get('/novidades/index.json').then(response => response.data.novidades).then(response => shufleAndSelect(response, 3)).then(response => mountNovidadesHtml(response, 'js-novidades'));
+
+  _axios2.default.get('/depoimentos/index.json').then(response => response.data.depoimentos).then(response => shufleAndSelect(response, 3)).then(response => mountDepoimentosHtml(response, 'js-depoimentos'));
+
+  _axios2.default.get('/pesquisas/index.json').then(response => response.data.pesquisas).then(response => shufleAndSelect(response, 2)).then(response => mountPesquisasHtml(response, 'js-pesquisas'));
+}
+
+},{"axios":1}],43:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

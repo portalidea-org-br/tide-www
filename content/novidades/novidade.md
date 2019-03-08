@@ -5,6 +5,7 @@ tags:
   - tag test 1
   - a hora é agora
   - novidades
+short_description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed di'
 image: /uploads/placeimg_600_500_any.jpg
 image_big: /uploads/placeimg_1000_600_any.jpg
 alt: Imagem de placeholder

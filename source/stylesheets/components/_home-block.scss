@@ -44,6 +44,12 @@
   max-width: none;
 }
 
+.slider--home-block section {
+  flex-basis: 0;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
 
 .home-block--data {
   @media screen and (min-width: breakpoint('tablet')) {

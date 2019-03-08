@@ -2,6 +2,7 @@
 title: Colombia
 date: 2017-03-23
 image: 'https://placehold.it/600x500/ccc'
+image_big: 'https://placehold.it/1000x600/ccc'
 paises: ['colombia']
 file: 'http://www.pdf995.com/samples/pdf.pdf'
 author: 'Nome Sobrenome'
