@@ -27,26 +27,22 @@ menu:
     name: "Sobre"
     url: "/sobre/"
     weight: 3
-  - identifier: "library"
-    name: "Biblioteca"
-    url: "/biblioteca/"
-    weight: 4
   - identifier: "pesquisas"
     name: "Pesquisas"
     url: "/pesquisas/"
-    weight: 5
+    weight: 4
   - identifier: "inspire"
     name: "Inspire-se"
     url: "/inspirese/"
-    weight: 6
+    weight: 5
   - identifier: "news"
     name: "Novidades"
     url: "/novidades/"
-    weight: 7
+    weight: 6
   - identifier: "contact"
     name: "Contato"
     url: "/#contato"
-    weight: 8
+    weight: 7
 metaDataFormat: "yaml"
 title: "Eduquidade"
 params:
