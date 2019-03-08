@@ -70,6 +70,7 @@
   @media screen and (min-width: breakpoint('desktop')) {
     flex-wrap: wrap;
     width: 27rem;
+    margin-top: -10rem;
   }
 }
 
@@ -93,7 +94,7 @@
 }
 
 .testimonials blockquote:nth-child(4n+3) .testimonials p::before,
-.testimonials blockquote:nth-child(4n+3) .testimonials p::after, {
+.testimonials blockquote:nth-child(4n+3) .testimonials p::after {
   filter: invert(33%) sepia(86%) saturate(6541%) hue-rotate(343deg) brightness(99%) contrast(92%);
 }
 
@@ -101,7 +102,7 @@
   @media screen and (min-width: breakpoint('desktop')) {
     top: auto;
     right: 0.5rem;
-    bottom: 7rem;
+    bottom: 3rem;
     left: auto;
     padding-left: 2.5rem;
     background: palette('yellow');
@@ -172,7 +173,7 @@
 }
 
 .testimonials blockquote:nth-child(4n+4) .testimonials p::before,
-.testimonials blockquote:nth-child(4n+4) .testimonials p::after, {
+.testimonials blockquote:nth-child(4n+4) .testimonials p::after {
   filter: invert(56%) sepia(94%) saturate(3439%) hue-rotate(334deg) brightness(102%) contrast(83%);
 }
 
@@ -331,7 +332,7 @@
   border-radius: 50%;
 
   @media screen and (min-width: breakpoint('desktop')) {
-    top: 6rem;
+    top: 10rem;
     right: 0;
     left: 17rem;
     width: 8.25rem;
