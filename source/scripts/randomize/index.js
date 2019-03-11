@@ -92,23 +92,23 @@ function mountPesquisasHtml(items, id) {
   element.innerHTML = sections;
 }
 
-export default function initRamdomize() {
-  Axios.get('/inspirese/index.json')
+export default async function initRamdomize() {
+  await Axios.get('/inspirese/index.json')
     .then(response => response.data.inspirese)
     .then(response => shufleAndSelect(response, 3))
     .then(response => mountInpireHtml(response, 'js-inspire'));
 
-  Axios.get('/novidades/index.json')
+  await Axios.get('/novidades/index.json')
     .then(response => response.data.novidades)
     .then(response => shufleAndSelect(response, 3))
     .then(response => mountNovidadesHtml(response, 'js-novidades'));
 
-  Axios.get('/depoimentos/index.json')
+  await Axios.get('/depoimentos/index.json')
     .then(response => response.data.depoimentos)
     .then(response => shufleAndSelect(response, 3))
     .then(response => mountDepoimentosHtml(response, 'js-depoimentos'));
 
-  Axios.get('/pesquisas/index.json')
+  await Axios.get('/pesquisas/index.json')
     .then(response => response.data.pesquisas)
     .then(response => shufleAndSelect(response, 2))
     .then(response => mountPesquisasHtml(response, 'js-pesquisas'));

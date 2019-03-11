@@ -5,7 +5,7 @@ function setModalGlobalStatus() {
 }
 
 export default function initModal() {
-  const $modalLink = document.getElementById('js-open-modal')
+  const $modalLink = document.getElementById('js-open-modal');
 
   MicroModal.init({
     // debugMode: true,

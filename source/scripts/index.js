@@ -3,6 +3,7 @@ import initContactForm from './contactForm';
 import initModal from './modal';
 import goBack from './goBack';
 import initTabs from './tabs';
+import initSlider from './slider';
 import initRandomize from './randomize';
 
 initMenuToggle();
@@ -10,4 +11,8 @@ initModal();
 initContactForm();
 goBack();
 initTabs();
-initRandomize();
+async function handleSliderTimer() {
+  await initRandomize();
+  await initSlider();
+}
+handleSliderTimer();

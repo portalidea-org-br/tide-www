@@ -1,9 +1,6 @@
 {
-  "presets": [
-    ["env", {
-      "targets": {
-        "browsers": "last 1 chrome versions"
-      }
-    }]
-  ]
+    "presets": ["@babel/preset-env"],
+    "plugins": [
+        ["@babel/transform-runtime"]
+    ]
 }

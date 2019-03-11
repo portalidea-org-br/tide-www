@@ -210,29 +210,5 @@
       {{ $js := resources.Get "assets/scripts/index.js" }}
       {{ $secureJS := $js | resources.Minify | resources.Fingerprint "sha512" }}
       <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
-
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.8/tiny-slider.css">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.8/min/tiny-slider.js"></script>
-      <script type="module">
-          Array.prototype.forEach.call(document.querySelectorAll('.slider'), (el) => {
-            tns({
-              container: el,
-              controls: false,
-              navPosition: 'bottom',
-              autoplayButtonOutput: false,
-              // items: 1,
-              center: true,
-              // autoWidth: true,
-              // autoplay: true,
-              autoplay: false,
-              responsive: {
-                  1024: {
-                    disable: true,
-                  },
-                }
-            });
-          })
-      </script>
-
     </body>
 </html>

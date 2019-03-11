@@ -33,6 +33,9 @@
 <testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/contactForm/index.js">
 <testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/contactForm/index.js" />
 </testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/goBack/index.js">
+<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/goBack/index.js" />
+</testsuite>
 <testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/index.js">
 <testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/index.js" />
 </testsuite>
@@ -42,8 +45,14 @@
 <testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/modal/index.js">
 <testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/modal/index.js" />
 </testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/randomize/index.js">
+<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/randomize/index.js" />
+</testsuite>
 <testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/slider/index.js">
 <testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/slider/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/tabs/index.js">
+<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/tabs/index.js" />
 </testsuite>
 <testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/vendor.js">
 <testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/vendor.js" />
