@@ -130,24 +130,22 @@
           <div class="container">
             <div class="home-block--research">
               <h1>Pesquisas</h1>
-              <div class="slider slider--home-block" id="js-pesquisas">
-                <section>
-                  <header>
-                    <h2>Classe e Genero</h2>
-                  </header>
-                  <p>Pellentesque tortor nisl, ornare et</p>
-                  <p>Proin nec dui id ipsum interdum con vallis. Nam et tempus augue, dapibu</p>
-                  <a href="dados" class="button button--black">ler pesquisa</a>
-                </section>
-                <section>
-                  <header>
-                    <h2>Classe e Genero</h2>
-                  </header>
-                  <p>Pellentesque tortor nisl, ornare et</p>
-                  <p>Proin nec dui id ipsum interdum con vallis. Nam et tempus augue, dapibu</p>
-                  <a href="dados" class="button button--black">ler pesquisa</a>
-                </section>
-              </div>
+                <div class="slider slider--home-block" id="js-pesquisas">
+                  <p class="js-loading-indicator">Carregando...</p>
+                </div>
+                <noscript>
+                  <div class="slider slider--home-block">
+                    {{ range first 2 (where .Site.RegularPages "Section" "pesquisas") }}
+                      <section>
+                        <header>
+                          <h2>{{ .Title }}</h2>
+                        </header>
+                        <p>{{ .Params.short_description }}</p>
+                        <a href="{{ .Params.file }}" class="button button--black">ler pesquisa</a>
+                      </section>
+                    {{ end }}
+                  </div>
+              </noscript>
             </div>
           </div>
         </div>
@@ -156,61 +154,46 @@
           <div class="home-block-inspire">
             <h1>Inspire-se</h1>
             <div class="slider slider--home-block" id="js-inspire">
-              <section>
-                <header>
-                  <h2>Brasil <span>nome sobrenome</span></h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                </header>
-                <img src="assets/images/brasil-temp.jpg" alt="Bandeira do Brasil">
-                <a href="dados" class="button button--black">ler experiencia</a>
-              </section>
-              <section>
-                <header>
-                  <h2>Brasil <span>nome sobrenome</span></h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                </header>
-                <img src="assets/images/brasil-temp.jpg" alt="Bandeira do Brasil">
-                <a href="dados" class="button button--black">ler experiencia</a>
-              </section>
-              <section>
-                <header>
-                  <h2>Brasil <span>nome sobrenome</span></h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                </header>
-                <img src="assets/images/brasil-temp.jpg" alt="Bandeira do Brasil">
-                <a href="dados" class="button button--black">ler experiencia</a>
-              </section>
+              <p class="js-loading-indicator">Carregando...</p>
             </div>
+            <noscript>
+              <div class="slider slider--home-block">
+                {{ range first 3 (where .Site.RegularPages "Section" "inspirese") }}
+                  <section>
+                    <header>
+                      <h2> {{ .Title }} <br> <span>{{ .Params.author }}</span></h2>
+                      <p>{{ .Params.short_description }}</p>
+                    </header>
+                    <img
+                      srcset="{{ .Params.image }} 600w, {{ .Params.image_big }} 1000w"
+                      src="{{ .Params.image }}" alt="{{ .Params.alt }}">
+                    <a href="{{.Params.file}}" class="button button--black" target="_blank">ler experiencia</a>
+                  </section>
+                {{ end }}
+              </div>
+            </noscript>
           </div>
 
           <div class="home-block-news">
             <h1>Novidades</h1>
             <div class="slider slider--home-block" id="js-novidades">
-              <section>
-                <div class="home-block-news__content">
-                  <header>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                  </header>
-                  <a href="novidads" class="button button--arrow-icon">ver mais</a>
-                </div>
-              </section>
-              <section>
-                <div class="home-block-news__content">
-                  <header>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                  </header>
-                  <a href="novidads" class="button button--arrow-icon">ver mais</a>
-                </div>
-              </section>
-              <section>
-                <div class="home-block-news__content">
-                  <header>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-                  </header>
-                  <a href="novidads" class="button button--arrow-icon">ver mais</a>
-                </div>
-              </section>
+              <p class="js-loading-indicator">Carregando...</p>
             </div>
+            <noscript>
+              <div class="slider slider--home-block">
+                {{ range first 3 (where .Site.RegularPages "Section" "novidades") }}
+                  <section>
+                    <div class="home-block-news__content">
+                      <header>
+                        <h3>{{ .Title }}</h3>
+                        <p>{{ .Params.short_description }}</p>
+                      </header>
+                      <a href="{{ .Params.permalink}}" class="button button--arrow-icon">ver mais</a>
+                    </div>
+                  </section>
+                {{ end }}
+              </div>
+            </noscript>
           </div>
         </div>
 

@@ -59,22 +59,25 @@
   }
 }
 
-.testimonials blockquote:nth-child(4n+3) {
+.no-js .testimonials blockquote:nth-child(2),
+.testimonials blockquote:nth-child(3) {
   @media screen and (min-width: breakpoint('desktop')) {
+    margin-top: -6rem;
     margin-right: 20%;
     margin-left: auto;
   }
 }
 
+.no-js .testimonials blockquote:nth-child(2) .testimonials__content,
 .testimonials blockquote:nth-child(3) .testimonials__content {
   @media screen and (min-width: breakpoint('desktop')) {
     flex-wrap: wrap;
     width: 27rem;
-    margin-top: -10rem;
   }
 }
 
-.testimonials blockquote:nth-child(4n+3) figure::before {
+.no-js .testimonials blockquote:nth-child(2) figure::before,
+.testimonials blockquote:nth-child(3) figure::before {
   @media screen and (min-width: breakpoint('desktop')) {
     top: 3em;
     right: -3em;
@@ -87,22 +90,26 @@
   }
 }
 
-.testimonials blockquote:nth-child(4n+3) img {
+.no-js .testimonials blockquote:nth-child(2) img,
+.testimonials blockquote:nth-child(3) img {
   @media screen and (min-width: breakpoint('desktop')) {
     width: 27rem;
   }
 }
 
-.testimonials blockquote:nth-child(4n+3) .testimonials p::before,
-.testimonials blockquote:nth-child(4n+3) .testimonials p::after {
+.no-js .testimonials blockquote:nth-child(2) p::before,
+.no-js .testimonials blockquote:nth-child(2) p::after,
+.testimonials blockquote:nth-child(3) p::before,
+.testimonials blockquote:nth-child(3) p::after {
   filter: invert(33%) sepia(86%) saturate(6541%) hue-rotate(343deg) brightness(99%) contrast(92%);
 }
 
-.testimonials blockquote:nth-child(4n+3) footer {
+.no-js .testimonials blockquote:nth-child(2) footer,
+.testimonials blockquote:nth-child(3) footer {
   @media screen and (min-width: breakpoint('desktop')) {
     top: auto;
     right: 0.5rem;
-    bottom: 3rem;
+    bottom: 7rem;
     left: auto;
     padding-left: 2.5rem;
     background: palette('yellow');
@@ -114,14 +121,17 @@
  * Third blockquote
  */
 
-.testimonials blockquote:nth-child(4n+4) {
+.no-js .testimonials blockquote:nth-child(3),
+.testimonials blockquote:nth-child(4) {
   @media screen and (min-width: breakpoint('desktop')) {
     width: 27rem;
     padding-top: 0;
+    margin-top: -17rem;
     margin-left: 8%;
   }
 }
 
+.no-js .testimonials blockquote:nth-child(3) .testimonials__content,
 .testimonials blockquote:nth-child(4) .testimonials__content {
   @media screen and (min-width: breakpoint('desktop')) {
     flex-wrap: wrap;
@@ -129,7 +139,8 @@
   }
 }
 
-.testimonials blockquote:nth-child(4n+4) figure::before {
+.no-js .testimonials blockquote:nth-child(3) figure::before,
+.testimonials blockquote:nth-child(4) figure::before {
   @media screen and (min-width: breakpoint('desktop')) {
     top: -1rem;
     right: 10rem;
@@ -143,7 +154,8 @@
   }
 }
 
-.testimonials blockquote:nth-child(4n+4) figure::after {
+.no-js .testimonials blockquote:nth-child(3) figure::after,
+.testimonials blockquote:nth-child(4) figure::after {
   @media screen and (min-width: breakpoint('desktop')) {
     position: absolute;
     right: 4rem;
@@ -159,83 +171,34 @@
   }
 }
 
-.testimonials blockquote:nth-child(4n+4) img {
+.no-js .testimonials blockquote:nth-child(3) img,
+.testimonials blockquote:nth-child(4) img {
   @media screen and (min-width: breakpoint('desktop')) {
     width: 21.5rem;
   }
 }
 
-.testimonials blockquote:nth-child(4n+4) .testimonials p {
+.no-js .testimonials blockquote:nth-child(3) p,
+.testimonials blockquote:nth-child(4) p {
   @media screen and (min-width: breakpoint('desktop')) {
     margin-top: 2em;
     margin-left: 4em;
   }
 }
 
-.testimonials blockquote:nth-child(4n+4) .testimonials p::before,
-.testimonials blockquote:nth-child(4n+4) .testimonials p::after {
+.no-js .testimonials blockquote:nth-child(3) p::before,
+.no-js .testimonials blockquote:nth-child(3) p::after,
+.testimonials blockquote:nth-child(4) p::before,
+.testimonials blockquote:nth-child(4) p::after {
   filter: invert(56%) sepia(94%) saturate(3439%) hue-rotate(334deg) brightness(102%) contrast(83%);
 }
 
-.testimonials blockquote:nth-child(4n+4) footer {
+.no-js .testimonials blockquote:nth-child(3) footer,
+.testimonials blockquote:nth-child(4) footer {
   @media screen and (min-width: breakpoint('desktop')) {
     top: 15em;
     left: -3.125rem;
   }
-}
-
-
-.testimonials blockquote:nth-child(4n+5) {
-  @media screen and (min-width: breakpoint('desktop')) {
-    margin-right: 20%;
-    margin-left: auto;
-  }
-}
-
-.testimonials blockquote:nth-child(4n+5) .testimonials p {
-  @media screen and (min-width: breakpoint('desktop')) {
-    flex-wrap: wrap;
-    width: 27rem;
-  }
-}
-
-.testimonials blockquote:nth-child(4n+5) figure::before {
-  @media screen and (min-width: breakpoint('desktop')) {
-    top: 3em;
-    right: -3em;
-    left: auto;
-    width: 10.75rem;
-    height: 25.25rem;
-    background-image: image('circle-border.svg');
-    background-position: top left;
-    border: 0;
-  }
-}
-
-.testimonials blockquote:nth-child(4n+5) img {
-  @media screen and (min-width: breakpoint('desktop')) {
-    width: 27rem;
-  }
-}
-
-.testimonials blockquote:nth-child(4n+5) .testimonials p::before,
-.testimonials blockquote:nth-child(4n+5) .testimonials p::after {
-  filter: invert(33%) sepia(86%) saturate(6541%) hue-rotate(343deg) brightness(99%) contrast(92%);
-}
-
-.testimonials blockquote:nth-child(4n+5) footer {
-  @media screen and (min-width: breakpoint('desktop')) {
-    top: auto;
-    right: 0.5rem;
-    bottom: 7rem;
-    left: auto;
-    padding-left: 2.5rem;
-    background: palette('yellow');
-  }
-}
-
-.testimonials blockquote + .testimonials blockquote + .testimonials blockquote {
-  margin-top: -3em;
 }
 
 .testimonials h4 {
