@@ -26,6 +26,10 @@
   }
 }
 
+.page-title--no-margin-bottom {
+  margin-bottom: 0;
+}
+
 .page-title--green {
   background: palette('green');
 }
@@ -35,7 +39,6 @@
 }
 
 .page-title--yellow {
-  margin-bottom: 0;
   font-size: ms(4);
   text-shadow: 0 -1px 0 palette('green'), 0 1px 0 palette('red');
   color: palette('purple');
@@ -47,6 +50,10 @@
     background-position: 120% 20%;
     background-size: 50%;
   }
+}
+
+.page-title--no-margin-bottom {
+  margin-bottom: 0;
 }
 
 .page-title--yellow::before {
