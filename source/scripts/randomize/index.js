@@ -17,11 +17,7 @@ function mountInpireHtml(items, id) {
     sections += `
     <section>
       <header>
-        <h2>
-          ${item.title}
-          <br>
-          <span>${item.author}</span>
-        </h2>
+        <h2>${item.title}<span>${item.author}</span></h2>
         <p>${item.short_description}</p>
       </header>
       <img

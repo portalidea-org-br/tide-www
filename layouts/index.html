@@ -128,7 +128,7 @@
           {{ partial "testimonials.html" . }}
 
           <div class="container">
-            <div class="home-block--research">
+            <div class="home-block home-block--research">
               <h1>Pesquisas</h1>
                 <div class="slider slider--home-block" id="js-pesquisas">
                   <p class="js-loading-indicator">Carregando...</p>
@@ -161,7 +161,7 @@
                 {{ range first 3 (where .Site.RegularPages "Section" "inspirese") }}
                   <section>
                     <header>
-                      <h2> {{ .Title }} <br> <span>{{ .Params.author }}</span></h2>
+                      <h2>{{ .Title }}<span>{{ .Params.author }}</span></h2>
                       <p>{{ .Params.short_description }}</p>
                     </header>
                     <img
@@ -174,7 +174,7 @@
             </noscript>
           </div>
 
-          <div class="home-block-news">
+          <div class="home-block home-block-news">
             <h1>Novidades</h1>
             <div class="slider slider--home-block" id="js-novidades">
               <p class="js-loading-indicator">Carregando...</p>

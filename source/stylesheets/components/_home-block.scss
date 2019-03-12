@@ -36,7 +36,7 @@
 
 .home-block h1,
 .home-block-inspire h1 {
-  font-size: ms(7);
+  font-size: ms(8);
   text-shadow: 0 -1px 0 palette('green'), 0 1px 0 palette('red');
   color: palette('purple');
 
@@ -59,8 +59,8 @@
 
 .slider--home-block section {
   flex-basis: 0;
-  flex-shrink: 0;
   flex-grow: 1;
+  flex-shrink: 0;
 }
 
 
@@ -96,6 +96,7 @@
 .home-block--research,
 .home-block-inspire,
 .home-block-news {
+  display: block;
   max-width: 34.3em;
   margin: 0 auto 4rem;
 
@@ -142,8 +143,8 @@
 }
 
 .home-block-inspire h2 span {
+  display: block;
   font-size: ms(-3);
-  vertical-align: baseline;
 }
 
 .home-block-inspire img {
