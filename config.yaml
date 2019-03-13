@@ -30,27 +30,27 @@ menu:
     name: "Home"
     url: "/"
     weight: 1
-  - identifier: "data"
+  - identifier: "dados"
     name: "Dados"
-    url: "/dados/"
+    url: "/dados"
     weight: 2
-  - identifier: "project"
+  - identifier: "Project"
     name: "Projeto"
-    url: "/projeto/"
+    url: "/projeto"
     weight: 3
   - identifier: "pesquisas"
     name: "Pesquisas"
-    url: "/pesquisas/"
+    url: "/pesquisas"
     weight: 4
-  - identifier: "inspire"
+  - identifier: "inspirese"
     name: "Inspire-se"
-    url: "/inspirese/"
+    url: "/inspirese"
     weight: 5
-  - identifier: "news"
+  - identifier: "novidades"
     name: "Novidades"
-    url: "/novidades/"
+    url: "/novidades"
     weight: 6
-  - identifier: "contact"
+  - identifier: "contato"
     name: "Contato"
     url: "/#contato"
     weight: 7

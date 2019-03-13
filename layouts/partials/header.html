@@ -5,10 +5,12 @@
     <nav class="main-nav">
       <button class="js-menu-toggle">Menu</button>
       <ul class="js-menu-list">
+        {{ $firstUrlElement := print "/" (index (split .URL "/") 1)  }}
+
         {{ with .Site.Menus.header }}
           {{ range . }}
           <li>
-            <a href="{{ .URL }}">
+            <a class="{{ if eq ($firstUrlElement|lower) .URL }} active {{end}}" href="{{ .URL }}">
               {{ .Name }}
             </a>
           </li>

@@ -105,6 +105,11 @@
 
       color: palette('white');
     }
+
+    .active {
+      font-weight: bold;
+      border-bottom: 1px solid;
+    }
   }
 
   ul {
