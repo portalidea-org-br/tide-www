@@ -6,6 +6,8 @@
 
   @media screen and (min-width: breakpoint('desktop')) {
     max-width: 75rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
   }
   @media screen and (min-width: breakpoint('wide')) {
     width: 100%;
