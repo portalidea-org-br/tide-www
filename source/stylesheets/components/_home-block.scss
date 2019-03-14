@@ -4,7 +4,7 @@
   flex-direction: column;
   max-width: 25rem;
   margin-right: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 5rem;
   margin-left: auto;
   overflow: hidden;
   font-family: $roboto-font-stack;
@@ -98,7 +98,9 @@
 .home-block-news {
   display: block;
   max-width: 34.3em;
-  margin: 0 auto 4rem;
+  margin-top: 0;
+  margin-right: auto;
+  margin-left: auto;
 
   @media screen and (min-width: breakpoint('desktop')) {
     max-width: none;
