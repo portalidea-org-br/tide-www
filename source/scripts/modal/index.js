@@ -5,12 +5,14 @@ function setModalGlobalStatus() {
 }
 
 export default function initModal() {
+  const $modalLink = document.getElementById('js-open-modal');
+
   MicroModal.init({
-    debugMode: true,
+    // debugMode: true,
     onClose: () => setModalGlobalStatus(1), // [2]
   });
 
-  if (!sessionStorage.getItem('modalHasBeenClosed')) {
-    document.getElementById('js-open-modal').click();
+  if ($modalLink && !sessionStorage.getItem('modalHasBeenClosed')) {
+    $modalLink.click();
   }
 }

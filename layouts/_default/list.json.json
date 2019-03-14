@@ -1,0 +1,40 @@
+{{ $list := .Pages }}
+{{ $len := (len $list) }}
+{{ $len := (sub $len 1) }}
+{
+  "{{ .Type }}": [
+    {{ range $index, $element := $list }}
+    {
+      "title" : "{{.Title}}",
+      {{ with .Params.image }}
+        "image" : "{{ . }}",
+      {{ end }}
+      {{ with .Params.image_big }}
+        "image_big" : "{{ . }}",
+      {{ end }}
+      {{ with .Params.alt }}
+        "alt" : "{{ . }}",
+      {{ end }}
+      {{ with .Params.file }}
+        "file" : "{{ . }}",
+      {{ end }}
+      {{ with .Params.author }}
+        "author" : "{{ . }}",
+      {{ end }}
+      {{ with .Params.name }}
+        "name" : "{{ . }}",
+      {{ end }}
+      {{ with .Params.short_description }}
+        "short_description" : "{{ . }}",
+      {{ end }}
+      {{ with .Content }}
+        "content" : {{ . | jsonify }},
+      {{ end }}
+      "permalink" : "{{ .Permalink }}"
+    }
+      {{ if ne $index $len }}
+      ,
+      {{ end }}
+    {{ end }}
+  ]
+}

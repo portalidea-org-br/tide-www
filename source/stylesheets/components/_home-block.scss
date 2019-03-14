@@ -4,7 +4,7 @@
   flex-direction: column;
   max-width: 25rem;
   margin-right: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 5rem;
   margin-left: auto;
   overflow: hidden;
   font-family: $roboto-font-stack;
@@ -12,9 +12,22 @@
   @media screen and (min-width: breakpoint('tablet')) {
     flex-wrap: wrap;
     max-width: none;
-    margin-right: 1rem;
-    margin-left: 1rem;
+    margin-right: 0;
+    margin-left: 0;
   }
+}
+
+.no-js .js-loading-indicator {
+  display: none;
+}
+
+.js-loading-indicator {
+  @extend %loading-bg;
+  width: 100%;
+  height: 4.375rem;
+  text-indent: -999em;
+  background-position: left;
+  background-color: transparent;
 }
 
 .home-block header {
@@ -23,7 +36,7 @@
 
 .home-block h1,
 .home-block-inspire h1 {
-  font-size: ms(7);
+  font-size: ms(8);
   text-shadow: 0 -1px 0 palette('green'), 0 1px 0 palette('red');
   color: palette('purple');
 
@@ -42,6 +55,12 @@
 
 .slider--home-block .home-block {
   max-width: none;
+}
+
+.slider--home-block section {
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 
@@ -77,8 +96,11 @@
 .home-block--research,
 .home-block-inspire,
 .home-block-news {
+  display: block;
   max-width: 34.3em;
-  margin: 0 auto 4rem;
+  margin-top: 0;
+  margin-right: auto;
+  margin-left: auto;
 
   @media screen and (min-width: breakpoint('desktop')) {
     max-width: none;
@@ -123,8 +145,8 @@
 }
 
 .home-block-inspire h2 span {
+  display: block;
   font-size: ms(-3);
-  vertical-align: baseline;
 }
 
 .home-block-inspire img {

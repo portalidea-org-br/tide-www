@@ -12,20 +12,38 @@
 
       {{ partial "header.html" . }}
 
-      <section class="page-title">
+      <section class="page-title page-title--no-margin-bottom">
         <div class="container">
           <h1>{{ .Title }}</h1>
         </div>
       </section>
       <div class="container">
-        <div class="text-content">
-          {{ .Content }}
+        <div class="tabs">
+          <div class="tabs__controller">
+
+            {{ range $index, $value := .Data.Pages }}
+              <a href="#{{ .Params.id }}"
+                {{ if (eq $index 0) }}class="active"{{ end }}>
+                {{ .Title }}
+              </a>
+            {{ end }}
+          </div>
+
+          <div class="tabs__content">
+
+          {{ range $index, $value := .Data.Pages }}
+              <div
+                id="{{ .Params.id }}"
+                {{ if (eq $index 0) }}class="visible"{{ end }}>
+                <div class="text-content">
+                  {{ .Content }}
+                </div>
+              </div>
+          {{ end }}
+          </div>
+
         </div>
       </div>
-
-      {{ partial "testimonials.html" . }}
-
-      {{ partial "contact.html" . }}
 
       {{ partial "footer.html" . }}
 
@@ -36,24 +54,5 @@
       {{ $js := resources.Get "assets/scripts/index.js" }}
       {{ $secureJS := $js | resources.Minify | resources.Fingerprint "sha512" }}
       <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
-
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.8/tiny-slider.css">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.8/min/tiny-slider.js"></script>
-      <script type="module">
-        const slider = tns({
-          container: '.slider',
-          controls: false,
-          navPosition: 'bottom',
-          autoplayButtonOutput: false,
-          // autoplay: true,
-          autoplay: false,
-          responsive: {
-              1024: {
-                disable: true,
-              },
-            }
-        });
-      </script>
-
     </body>
 </html>

@@ -11,10 +11,6 @@
   list-style: none;
   border-bottom: 0;
 
-  &:first-child {
-    margin-left: 0;
-  }
-
   @media screen and (min-width: breakpoint('desktop')) {
     margin-bottom: 1rem;
     margin-left: 1rem;

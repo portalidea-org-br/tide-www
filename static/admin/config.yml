@@ -1,6 +1,6 @@
 backend:
-  name: bitbucket
-  repo: eokoe__frontend/tide
+  name: git-gateway
+  repo: AppCivico/tide-www # Path to your Github repository
   branch: dev
   accept_roles:
     - admin
@@ -85,47 +85,9 @@ collections:
         name: "body"
         widget: "markdown"
   -
-    label: "Sobre"
-    name: "sobre"
-    folder: "content/sobre"
-    create: false
-    delete: false
-    slug: "{{slug}}"
-    fields:
-      -
-        label: "Titulo"
-        name: "title"
-        widget: "string"
-        tagname: "h1"
-        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
-      -
-        label: "Data"
-        name: "date"
-        widget: "datetime"
-        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
-      -
-        label: "Rascunho"
-        name: "draft"
-        widget: "boolean"
-        default: true
-      -
-        label: "layout"
-        name: "layout"
-        widget: "hidden"
-        default: "single"
-      -
-        label: "type"
-        name: "type"
-        widget: "hidden"
-        default: "sobre"
-      -
-        label: "Conteúdo"
-        name: "body"
-        widget: "markdown"
-  -
     label: "Pesquisa"
     name: "pesquisa"
-    folder: "content/pesquisa"
+    folder: "content/pesquisas"
     create: false
     delete: false
     slug: "{{slug}}"
@@ -210,6 +172,152 @@ collections:
         name: "role"
         widget: "hidden"
         default: "testimonials"
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
+  -
+    label: "Novidades"
+    name: "novidades"
+    folder: "content/novidades"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h3"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Data"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
+      -
+        label: "Tags"
+        name: "tags"
+        widget: "list"
+        default: ["news"]
+      -
+        label: "Imagem (600x500)"
+        name: "image"
+        widget: "image"
+      -
+        label: "Imagem (1000x600)"
+        name: "image_big"
+        widget: "image"
+      -
+        label: "Texto alternativo da imagem"
+        name: "alt"
+        widget: "string"
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
+  -
+    label: "Inspire-se"
+    name: "inspire-se"
+    folder: "content/inspirese"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h3"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Data"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
+      -
+        label: "Países"
+        name: "paises"
+        widget: "list"
+      -
+        label: "Imagem (600x500)"
+        name: "image"
+        widget: "image"
+      -
+        label: "Imagem (1000x600)"
+        name: "image_big"
+        widget: "image"
+      -
+        label: "Texto alternativo da imagem"
+        name: "alt"
+        widget: "string"
+      -
+        label: "Arquivo"
+        name: "file"
+        widget: "file"
+        allow_multiple: false
+      -
+        label: "Autor"
+        name: "author"
+        widget: "string"
+      -
+        label: "Descrição curta"
+        name: "short_description"
+        widget: "string"
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
+  -
+    label: "Pesquisas"
+    name: "pesquisas"
+    folder: "content/pesquisas"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h3"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Data"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
+      -
+        label: "Áreas"
+        name: "areas"
+        widget: "list"
+      -
+        label: "Arquivo"
+        name: "file"
+        widget: "file"
+        allow_multiple: false
+      -
+        label: "Descrição curta"
+        name: "short_description"
+        widget: "string"
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
+  -
+    label: "Projeto"
+    name: "projeto"
+    folder: "content/projeto"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h3"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
       -
         label: "Conteúdo"
         name: "body"

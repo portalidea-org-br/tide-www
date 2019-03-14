@@ -1,13 +1,13 @@
 ---
-title: Novidade
-date: 2017-03-23
-tags: ['tag1']
-image: 'https://placehold.it/600x500/ccc'
-image_big: 'https://placehold.it/1000x600/ccc'
-short_description: 'Ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren'
-publishdate: 2017-03-24
+title: Lorem ipsum dolor site
+date: '2017-03-07T02:45:00Z'
+tags:
+  - tag test 1
+  - a hora é agora
+  - novidades
+short_description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed di'
+image: /uploads/placeimg_600_500_any.jpg
+image_big: /uploads/placeimg_1000_600_any.jpg
+alt: Imagem de placeholder
 ---
-
-I decided to start learning Go in March 2017.
-
-Follow my journey through this new blog.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et fermentum dui. Ut orci quam, ornare sed lorem sed, hendrerit auctor dolor. Nulla viverra, nibh quis ultrices malesuada, ligula ipsum vulputate diam, aliquam egestas nibh ante vel dui. Sed in tellus interdum eros vulputate placerat sed non enim. Pellentesque eget.
