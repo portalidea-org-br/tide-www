@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <testsuites>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/chart/downloadCharts.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/chart/downloadCharts.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/chart/downloadCharts.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/chart/downloadCharts.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/chart/filter/clearFilters.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/chart/filter/clearFilters.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/chart/filter/clearFilters.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/chart/filter/clearFilters.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/chart/filter/highlightPoint.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/chart/filter/highlightPoint.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/chart/filter/highlightPoint.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/chart/filter/highlightPoint.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/chart/filter/index.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/chart/filter/index.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/chart/filter/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/chart/filter/index.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/chart/getChartData.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/chart/getChartData.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/chart/getChartData.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/chart/getChartData.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/chart/index.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/chart/index.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/chart/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/chart/index.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/chart/plotCharts.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/chart/plotCharts.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/chart/plotCharts.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/chart/plotCharts.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/chart/sizeToggle.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/chart/sizeToggle.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/chart/sizeToggle.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/chart/sizeToggle.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/chart/updateTableInfo.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/chart/updateTableInfo.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/chart/updateTableInfo.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/chart/updateTableInfo.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/config.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/config.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/config.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/config.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/contactForm/index.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/contactForm/index.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/contactForm/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/contactForm/index.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/goBack/index.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/goBack/index.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/goBack/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/goBack/index.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/index.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/index.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/index.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/menuToggle/index.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/menuToggle/index.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/menuToggle/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/menuToggle/index.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/modal/index.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/modal/index.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/modal/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/modal/index.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/randomize/index.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/randomize/index.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/randomize/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/randomize/index.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/slider/index.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/slider/index.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/slider/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/slider/index.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/tabs/index.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/tabs/index.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/tabs/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/tabs/index.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/Code/tide/source/scripts/vendor.js">
-<testcase time="0" name="/home/eduruiz/Code/tide/source/scripts/vendor.js" />
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/vendor.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/vendor.js" />
 </testsuite>
 </testsuites>

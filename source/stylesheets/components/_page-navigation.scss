@@ -42,7 +42,7 @@
 }
 
 .page-navigation__next {
-  &:before {
+  &::before {
     right: 0;
     left: auto;
     border-top: 7.5px solid transparent;
@@ -51,7 +51,7 @@
     border-left: 7.5px solid palette('blue', 'dark');
   }
 
-  &:after {
+  &::after {
     right: 0.325rem;
     left: auto;
   }
