@@ -8877,10 +8877,10 @@ var tns = function tns(options) {
     for (var key in responsive) {
       var val = responsive[key]; // update responsive
       // from: 300: 2
-      // to: 
-      //   300: { 
-      //     items: 2 
-      //   } 
+      // to:
+      //   300: {
+      //     items: 2
+      //   }
 
       val = typeof val === 'number' ? {
         items: val
@@ -9452,7 +9452,7 @@ var tns = function tns(options) {
     }
 
     containerParent.insertBefore(outerWrapper, container);
-    innerWrapper.appendChild(container); // add id, class, aria attributes 
+    innerWrapper.appendChild(container); // add id, class, aria attributes
     // before clone slides
 
     (0, _forEach.forEach)(slideItems, function (item, i) {
@@ -9818,7 +9818,7 @@ var tns = function tns(options) {
             'aria-label': navStr + (i + 1),
             'aria-controls': slideId
           });
-        }); // generated nav 
+        }); // generated nav
       } else {
         var navHtml = '',
             hiddenStr = navAsThumbnails ? '' : 'style="display:none"';
@@ -11124,9 +11124,9 @@ var tns = function tns(options) {
       resetDuration(container, '');
 
       if (TRANSITIONDURATION || !speed) {
-        // for morden browsers with non-zero duration or 
+        // for morden browsers with non-zero duration or
         // zero duration for all browsers
-        doContainerTransform(); // run fallback function manually 
+        doContainerTransform(); // run fallback function manually
         // when duration is 0 / container is hidden
 
         if (!speed || !(0, _isVisible.isVisible)(container)) {
@@ -11147,7 +11147,7 @@ var tns = function tns(options) {
       (0, _removeEvents.removeEvents)(slideItems[indexCached], eve);
       (0, _addEvents.addEvents)(slideItems[index], eve);
       animateSlide(indexCached, animateIn, animateOut, true);
-      animateSlide(index, animateNormal, animateIn); // run fallback function manually 
+      animateSlide(index, animateNormal, animateIn); // run fallback function manually
       // when transition or animation not supported / duration is 0
 
       if (!TRANSITIONEND || !ANIMATIONEND || !speed || !(0, _isVisible.isVisible)(container)) {
@@ -11223,12 +11223,12 @@ var tns = function tns(options) {
         }
       }
       /* update slides, nav, controls after checking ...
-       * => legacy browsers who don't support 'event' 
-       *    have to check event first, otherwise event.target will cause an error 
-       * => or 'gallery' mode: 
+       * => legacy browsers who don't support 'event'
+       *    have to check event first, otherwise event.target will cause an error
+       * => or 'gallery' mode:
        *   + event target is slide item
-       * => or 'carousel' mode: 
-       *   + event target is container, 
+       * => or 'carousel' mode:
+       *   + event target is container,
        *   + event.property is the same with transform attribute
        */
 
@@ -11490,7 +11490,7 @@ var tns = function tns(options) {
       setAutoplayTimer();
       autoplayHoverPaused = false;
     }
-  } // keydown events on document 
+  } // keydown events on document
 
 
   function onDocumentKeydown(e) {
@@ -11631,7 +11631,7 @@ var tns = function tns(options) {
         }
       }
 
-      if (preventScroll) {
+      if ((typeof e.cancelable !== 'boolean' || e.cancelable) && preventScroll) {
         e.preventDefault();
       }
     }

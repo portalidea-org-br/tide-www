@@ -5,9 +5,7 @@ date: 2017-03-23
 publishdate: 2017-03-24
 weight: 1
 ---
-# Indicador de Desigualdades Educacionais – definições e medidas
-
-
+## Indicador de Desigualdades Educacionais – definições e medidas
 
 **Por que o Indicador de Desigualdades Educacionais foi criado**
 
@@ -41,7 +39,7 @@ O Indicador de Desigualdades Educacionais sintetiza as duas modalidades de exclu
 
 **Desigualdades de aprendizagem: o que é e como medir**
 
-Para analisar se há igualdade ou desigualdade de aprendizagem, as unidades de análise são grupos de estudantes definidos por atributos sociais que expliquem seus resultados educacionais. Dessa forma, desigualdades educacionais são as diferenças entre as distribuições de resultados educacionais de grupos de estudantes definidos por sua **classe social, raça e gênero**. 
+Para analisar se há igualdade ou desigualdade de aprendizagem, as unidades de análise são grupos de estudantes definidos por atributos sociais que expliquem seus resultados educacionais. Dessa forma, desigualdades educacionais são as diferenças entre as distribuições de resultados educacionais de grupos de estudantes definidos por sua **classe social, raça e gênero**.
 
 **Qualidade de aprendizagem: o que é e como medir**
 

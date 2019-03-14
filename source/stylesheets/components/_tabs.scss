@@ -33,3 +33,9 @@
 .tabs__content > .visible {
   display: block;
 }
+
+.tabs li {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
