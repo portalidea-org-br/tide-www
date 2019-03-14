@@ -133,7 +133,7 @@ article fieldset > p:first-child {
     border-bottom: 1px dotted;
 
     @supports (text-decoration: dotted underline) {
-      text-decoration: dotted underline; /* 2 */
+      text-decoration: none; /* 2 */
 
       border-bottom: inherit;
     }
