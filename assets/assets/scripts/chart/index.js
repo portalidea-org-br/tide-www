@@ -4697,8 +4697,8 @@ function drawChart(chartData, subject) {
       },
       lineWidth: 1,
       gridZIndex: 0,
-      max: 3,
-      min: -3
+      max: 10,
+      min: 0
     },
     plotOptions: {
       scatter: {

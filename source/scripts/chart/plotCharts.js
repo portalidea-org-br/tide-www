@@ -57,8 +57,8 @@ function drawChart(chartData, subject) {
       title: { text: `${subject === 'pt' ? 'Português' : 'Matemática'} | [Nível de aprendizado]` },
       lineWidth: 1,
       gridZIndex: 0,
-      max: 3,
-      min: -3,
+      max: 10,
+      min: 0,
     },
     plotOptions: {
       scatter: {
