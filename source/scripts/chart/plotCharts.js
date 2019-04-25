@@ -41,8 +41,8 @@ function drawChart(chartData, subject) {
         enabled: true,
         text: `${xAxisText} | [Desigualdade]`,
       },
-      max: 3,
-      min: -3,
+      max: 3.5,
+      min: -3.5,
       startOnTick: true,
       endOnTick: true,
       showLastLabel: true,
@@ -59,6 +59,66 @@ function drawChart(chartData, subject) {
       gridZIndex: 0,
       max: 10,
       min: 0,
+      plotLines: [{
+        color: 'red',
+        width: 2,
+        value: 2,
+        dashStyle: 'Dot',
+        zIndex: 3,
+        label: {
+          text: 'Baixa',
+          align: 'left',
+          y: 16,
+        },
+      },
+      {
+        color: 'red',
+        width: 2,
+        value: 2.9,
+        dashStyle: 'Dot',
+        zIndex: 3,
+        label: {
+          text: 'Médio-baixa',
+          align: 'left',
+          y: 16,
+        },
+      },
+      {
+        color: 'red',
+        width: 2,
+        value: 3.8,
+        dashStyle: 'Dot',
+        zIndex: 3,
+        label: {
+          text: 'Média',
+          align: 'left',
+          y: 16,
+        },
+      },
+      {
+        color: 'red',
+        width: 2,
+        value: 4.8,
+        dashStyle: 'Dot',
+        zIndex: 3,
+        label: {
+          text: 'Médio-alta',
+          align: 'left',
+          y: 16,
+        },
+      },
+      {
+        // this last line is a fake one, just to display the label on the graphic
+        width: 0,
+        value: 6.8,
+        dashStyle: 'Dot',
+        zIndex: 3,
+        label: {
+          text: 'Alta',
+          align: 'left',
+          y: 16,
+        },
+      }],
     },
     plotOptions: {
       scatter: {
