@@ -4744,6 +4744,7 @@ function drawChart(chartData, subject) {
           y: 16
         }
       }, {
+        // this last line is a fake one, just to display the label on the graphic
         width: 0,
         value: 6.8,
         dashStyle: 'Dot',
