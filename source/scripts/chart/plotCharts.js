@@ -137,8 +137,8 @@ async function populateChartData(payload) {
     try {
       await getChartData(payload);
 
-      const chartData = window.chartData.data;
-
+      let chartData = window.chartData.data;
+      chartData = chartData.filter(item => item.x !== null);
       const ptItems = chartData.filter(item => item.subject === 'Português');
       const matItems = chartData.filter(item => item.subject === 'Matemática');
 

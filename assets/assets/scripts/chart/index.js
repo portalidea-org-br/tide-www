@@ -4791,7 +4791,7 @@ function _populateChartData() {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 20;
+              _context.next = 21;
               break;
             }
 
@@ -4801,6 +4801,9 @@ function _populateChartData() {
 
           case 4:
             chartData = window.chartData.data;
+            chartData = chartData.filter(function (item) {
+              return item.x !== null;
+            });
             ptItems = chartData.filter(function (item) {
               return item.subject === 'Português';
             });
@@ -4824,21 +4827,21 @@ function _populateChartData() {
 
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 20;
+            _context.next = 21;
             break;
 
-          case 16:
-            _context.prev = 16;
+          case 17:
+            _context.prev = 17;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
             toggleLoading();
 
-          case 20:
+          case 21:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 16]]);
+    }, _callee, this, [[1, 17]]);
   }));
   return _populateChartData.apply(this, arguments);
 }
