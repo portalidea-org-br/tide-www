@@ -4679,8 +4679,8 @@ function drawChart(chartData, subject) {
         enabled: true,
         text: "".concat(xAxisText, " | [Desigualdade]")
       },
-      max: 3,
-      min: -3,
+      max: 3.5,
+      min: -3.5,
       startOnTick: true,
       endOnTick: true,
       showLastLabel: true,
@@ -4697,8 +4697,64 @@ function drawChart(chartData, subject) {
       },
       lineWidth: 1,
       gridZIndex: 0,
-      max: 3,
-      min: -3
+      max: 10,
+      min: 0,
+      plotLines: [{
+        color: 'red',
+        width: 2,
+        value: 2,
+        dashStyle: 'Dot',
+        zIndex: 3,
+        label: {
+          text: 'Baixa',
+          align: 'left',
+          y: 16
+        }
+      }, {
+        color: 'red',
+        width: 2,
+        value: 2.9,
+        dashStyle: 'Dot',
+        zIndex: 3,
+        label: {
+          text: 'Médio-baixa',
+          align: 'left',
+          y: 16
+        }
+      }, {
+        color: 'red',
+        width: 2,
+        value: 3.8,
+        dashStyle: 'Dot',
+        zIndex: 3,
+        label: {
+          text: 'Média',
+          align: 'left',
+          y: 16
+        }
+      }, {
+        color: 'red',
+        width: 2,
+        value: 4.8,
+        dashStyle: 'Dot',
+        zIndex: 3,
+        label: {
+          text: 'Médio-alta',
+          align: 'left',
+          y: 16
+        }
+      }, {
+        // this last line is a fake one, just to display the label on the graphic
+        width: 0,
+        value: 6.8,
+        dashStyle: 'Dot',
+        zIndex: 3,
+        label: {
+          text: 'Alta',
+          align: 'left',
+          y: 16
+        }
+      }]
     },
     plotOptions: {
       scatter: {
@@ -4791,7 +4847,7 @@ function _populateChartData() {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 20;
+              _context.next = 21;
               break;
             }
 
@@ -4801,6 +4857,9 @@ function _populateChartData() {
 
           case 4:
             chartData = window.chartData.data;
+            chartData = chartData.filter(function (item) {
+              return item.x !== null;
+            });
             ptItems = chartData.filter(function (item) {
               return item.subject === 'Português';
             });
@@ -4824,21 +4883,21 @@ function _populateChartData() {
 
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 20;
+            _context.next = 21;
             break;
 
-          case 16:
-            _context.prev = 16;
+          case 17:
+            _context.prev = 17;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
             toggleLoading();
 
-          case 20:
+          case 21:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 16]]);
+    }, _callee, this, [[1, 17]]);
   }));
   return _populateChartData.apply(this, arguments);
 }
