@@ -12157,40 +12157,52 @@ function shufleAndSelect(array, items) {
   return selected;
 }
 
-function mountInpireHtml(items, id) {
+function mountInspireHtml(items, id) {
   var sections = '';
   var element = document.getElementById(id);
-  items.forEach(function (item) {
-    sections += "\n    <section>\n      <header>\n        <h2>".concat(item.title, "<span>").concat(item.author, "</span></h2>\n        <p>").concat(item.short_description, "</p>\n      </header>\n      <img\n        srcset=\"").concat(item.image, " 600w, ").concat(item.image_big, " 1000w\"\n        src=\"").concat(item.image, "\" alt=\"").concat(item.alt, "\">\n      <a href=\"").concat(item.file, "\" class=\"button button--black\" target=\"_blank\">ler experiencia</a>\n    </section>\n    ");
-  });
-  element.innerHTML = sections;
+
+  if (element) {
+    items.forEach(function (item) {
+      sections += "\n      <section>\n        <header>\n          <h2>".concat(item.title, "<span>").concat(item.author, "</span></h2>\n          <p>").concat(item.short_description, "</p>\n        </header>\n        <img\n          srcset=\"").concat(item.image, " 600w, ").concat(item.image_big, " 1000w\"\n          src=\"").concat(item.image, "\" alt=\"").concat(item.alt, "\">\n        <a href=\"").concat(item.file, "\" class=\"button button--black\" target=\"_blank\">ler experiencia</a>\n      </section>\n    ");
+    });
+    element.innerHTML = sections;
+  }
 }
 
 function mountNovidadesHtml(items, id) {
   var sections = '';
   var element = document.getElementById(id);
-  items.forEach(function (item) {
-    sections += "\n      <section>\n        <div class=\"home-block-news__content\">\n          <header>\n            <h3>".concat(item.title, "</h3>\n            <p>").concat(item.short_description, "</p>\n          </header>\n          <a href=\"").concat(item.permalink, "\" class=\"button button--arrow-icon\">ver mais</a>\n        </div>\n      </section>\n    ");
-  });
-  element.innerHTML = sections;
+
+  if (element) {
+    items.forEach(function (item) {
+      sections += "\n        <section>\n          <div class=\"home-block-news__content\">\n            <header>\n              <h3>".concat(item.title, "</h3>\n              <p>").concat(item.short_description, "</p>\n            </header>\n            <a href=\"").concat(item.permalink, "\" class=\"button button--arrow-icon\">ver mais</a>\n          </div>\n        </section>\n      ");
+    });
+    element.innerHTML = sections;
+  }
 }
 
 function mountDepoimentosHtml(items, id) {
   var sections = '';
   var element = document.getElementById(id);
-  items.forEach(function (item) {
-    sections += "\n      <blockquote>\n        <div class=\"testimonials__content\">\n          <figure>\n            <img src=\"".concat(item.image, "\" alt=\"").concat(item.alt, "\">\n          </figure>\n          ").concat(item.content, "\n          <footer><cite>").concat(item.name, "</cite></footer>\n        </div>\n      </blockquote>\n    ");
-  });
-  element.innerHTML = sections;
+
+  if (element) {
+    items.forEach(function (item) {
+      sections += "\n        <blockquote>\n          <div class=\"testimonials__content\">\n            <figure>\n              <img src=\"".concat(item.image, "\" alt=\"").concat(item.alt, "\">\n            </figure>\n            ").concat(item.content, "\n            <footer><cite>").concat(item.name, "</cite></footer>\n          </div>\n        </blockquote>\n      ");
+    });
+    element.innerHTML = sections;
+  }
 }
 
 function mountPesquisasHtml(items, id) {
   var sections = '';
   var element = document.getElementById(id);
-  items.forEach(function (item) {
-    sections += "\n      <section>\n        <header>\n          <h2>".concat(item.title, "</h2>\n        </header>\n        <p>").concat(item.short_description, "</p>\n        <a href=\"").concat(item.file, "\" class=\"button button--black\">ler pesquisa</a>\n      </section>\n    ");
-  });
-  element.innerHTML = sections;
+
+  if (element) {
+    items.forEach(function (item) {
+      sections += "\n        <section>\n          <header>\n            <h2>".concat(item.title, "</h2>\n          </header>\n          <p>").concat(item.short_description, "</p>\n          <a href=\"").concat(item.file, "\" class=\"button button--black\">ler pesquisa</a>\n        </section>\n      ");
+    });
+    element.innerHTML = sections;
+  }
 }
 
 function initRamdomize() {
@@ -12211,7 +12223,7 @@ function _initRamdomize() {
             }).then(function (response) {
               return shufleAndSelect(response, 3);
             }).then(function (response) {
-              return mountInpireHtml(response, 'js-inspire');
+              return mountInspireHtml(response, 'js-inspire');
             });
 
           case 2:
