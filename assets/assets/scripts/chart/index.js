@@ -4783,6 +4783,7 @@ function drawChart(chartData, subject) {
       turboThreshold: 0,
       cursor: 'pointer',
       color: '#b49ae6',
+      className: 'stringSince',
       point: {
         events: {
           click: function click() {
@@ -4802,6 +4803,7 @@ function formatItemsToHighCharts(items) {
     return {
       x: Number(items[item].x),
       y: Number(items[item].y),
+      className: 'lolo',
       id: Number(items[item].city.id),
       city: items[item].city.name,
       state: items[item].state.uf,
@@ -4847,7 +4849,7 @@ function _populateChartData() {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 21;
+              _context.next = 22;
               break;
             }
 
@@ -4857,6 +4859,9 @@ function _populateChartData() {
 
           case 4:
             chartData = window.chartData.data;
+            console.log(chartData.filter(function (item) {
+              return item.x === null;
+            }));
             chartData = chartData.filter(function (item) {
               return item.x !== null;
             });
@@ -4883,21 +4888,21 @@ function _populateChartData() {
 
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 21;
+            _context.next = 22;
             break;
 
-          case 17:
-            _context.prev = 17;
+          case 18:
+            _context.prev = 18;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
             toggleLoading();
 
-          case 21:
+          case 22:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 17]]);
+    }, _callee, this, [[1, 18]]);
   }));
   return _populateChartData.apply(this, arguments);
 }
