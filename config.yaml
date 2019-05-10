@@ -4,6 +4,7 @@ enableGitInfo: true
 enableMissingTranslationPlaceholders: true
 enableRobotsTXT: true
 disableHugoGeneratorInject: true
+buildFuture: true
 outputs:
   home:
     - HTML
