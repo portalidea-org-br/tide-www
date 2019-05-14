@@ -4803,7 +4803,7 @@ function formatItemsToHighCharts(items) {
     return {
       x: Number(items[item].x),
       y: Number(items[item].y),
-      className: 'lolo',
+      // className: 'cssClass', @TK add the graphic class so the points can have it's own colors
       id: Number(items[item].city.id),
       city: items[item].city.name,
       state: items[item].state.uf,
@@ -4849,7 +4849,7 @@ function _populateChartData() {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 22;
+              _context.next = 21;
               break;
             }
 
@@ -4859,9 +4859,6 @@ function _populateChartData() {
 
           case 4:
             chartData = window.chartData.data;
-            console.log(chartData.filter(function (item) {
-              return item.x === null;
-            }));
             chartData = chartData.filter(function (item) {
               return item.x !== null;
             });
@@ -4888,21 +4885,21 @@ function _populateChartData() {
 
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 22;
+            _context.next = 21;
             break;
 
-          case 18:
-            _context.prev = 18;
+          case 17:
+            _context.prev = 17;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
             toggleLoading();
 
-          case 22:
+          case 21:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 18]]);
+    }, _callee, this, [[1, 17]]);
   }));
   return _populateChartData.apply(this, arguments);
 }
@@ -5025,69 +5022,67 @@ function updateTableInfo(id) {
     matTable.getElementsByTagName('h2')[0].textContent = "".concat(matInfo.city.name, " - ").concat(matInfo.state.uf);
 
     if (xAxis === 'racial') {
-      ptTable.querySelector('.js-unprivileged-title').textContent = 'Npretos';
+      ptTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos pretos';
       ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
-      ptTable.querySelector('.js-privileged-title').textContent = 'Nbrancos';
-      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
-      document.querySelectorAll('.js-xAxis-text').forEach(function (span) {
-        var domSpan = span;
-        domSpan.textContent = 'Raça';
-      });
+      ptTable.querySelector('.js-privileged-title').textContent = 'Número de alunos brancos';
+      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group; // document.querySelectorAll('.js-xAxis-text').forEach((span) => {
+      //   const domSpan = span;
+      //   domSpan.textContent = 'Raça';
+      // });
     }
 
     if (xAxis === 'sex') {
-      ptTable.querySelector('.js-unprivileged-title').textContent = 'Nmulheres';
+      ptTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos mulheres';
       ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
-      ptTable.querySelector('.js-privileged-title').textContent = 'Nhomens';
-      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
-      document.querySelectorAll('.js-xAxis-text').forEach(function (span) {
-        var domSpan = span;
-        domSpan.textContent = 'Gênero';
-      });
+      ptTable.querySelector('.js-privileged-title').textContent = 'Número de alunos homens';
+      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group; // document.querySelectorAll('.js-xAxis-text').forEach((span) => {
+      //   const domSpan = span;
+      //   domSpan.textContent = 'Gênero';
+      // });
     }
 
     if (xAxis === 'nse') {
-      ptTable.querySelector('.js-unprivileged-title').textContent = 'nNSE1';
+      ptTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos nível socioeconômico baixo';
       ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
-      ptTable.querySelector('.js-privileged-title').textContent = 'nNSE5';
-      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
-      document.querySelectorAll('.js-xAxis-text').forEach(function (span) {
-        var domSpan = span;
-        domSpan.textContent = 'NSE';
-      });
+      ptTable.querySelector('.js-privileged-title').textContent = 'Número de alunos nível socioeconômico alto';
+      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group; // document.querySelectorAll('.js-xAxis-text').forEach((span) => {
+      //   const domSpan = span;
+      //   domSpan.textContent = 'NSE';
+      // });
     }
 
     ptTable.querySelector('.js-total-students').textContent = ptInfo.count_total;
     ptTable.querySelector('.js-xAxis').textContent = Number(ptInfo.x).toFixed(2);
+    ptTable.querySelector('.js-quality').textContent = ptInfo.range_quality;
     ptTable.querySelector('.js-yAxis').textContent = Number(ptInfo.y).toFixed(2);
+    ptTable.querySelector('.js-inequality').textContent = ptInfo.range_inequality;
 
     if (xAxis === 'racial') {
-      matTable.querySelector('.js-unprivileged-title').textContent = 'Npretos';
+      matTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos pretos';
       matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_first_group;
-      matTable.querySelector('.js-privileged-title').textContent = 'Nbrancos';
-      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group;
-      matTable.querySelector('.js-xAxis-text').textContent = 'Raça';
+      matTable.querySelector('.js-privileged-title').textContent = 'Número de alunos brancos';
+      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group; // matTable.querySelector('.js-xAxis-text').textContent = 'Raça';
     }
 
     if (xAxis === 'sex') {
-      matTable.querySelector('.js-unprivileged-title').textContent = 'Nmulheres';
+      matTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos mulheres';
       matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_first_group;
-      matTable.querySelector('.js-privileged-title').textContent = 'Nhomens';
-      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group;
-      matTable.querySelector('.js-xAxis-text').textContent = 'Gênero';
+      matTable.querySelector('.js-privileged-title').textContent = 'Número de alunos homens';
+      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group; // matTable.querySelector('.js-xAxis-text').textContent = 'Gênero';
     }
 
     if (xAxis === 'nse') {
-      matTable.querySelector('.js-unprivileged-title').textContent = 'nNSE1';
+      matTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos nível socioeconômico baixo';
       matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_first_group;
-      matTable.querySelector('.js-privileged-title').textContent = 'nNSE5';
-      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group;
-      matTable.querySelector('.js-xAxis-text').textContent = 'NSE';
+      matTable.querySelector('.js-privileged-title').textContent = 'Número de alunos nível socioeconômico alto';
+      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group; // matTable.querySelector('.js-xAxis-text').textContent = 'NSE';
     }
 
     matTable.querySelector('.js-total-students').textContent = matInfo.count_total;
     matTable.querySelector('.js-xAxis').textContent = Number(matInfo.x).toFixed(2);
+    matTable.querySelector('.js-quality').textContent = matInfo.range_quality;
     matTable.querySelector('.js-yAxis').textContent = Number(matInfo.y).toFixed(2);
+    matTable.querySelector('.js-inequality').textContent = matInfo.range_inequality;
   }
 
   function getCityInfo(cityId) {
@@ -5106,15 +5101,17 @@ function clearTableInfo() {
   ptTable.querySelector('.js-privileged-value').textContent = '';
   ptTable.querySelector('.js-total-students').textContent = '';
   ptTable.querySelector('.js-xAxis').textContent = '';
+  ptTable.querySelector('.js-quality').textContent = '';
   ptTable.querySelector('.js-yAxis').textContent = '';
-  ptTable.querySelector('.js-xAxis-text').textContent = '';
+  ptTable.querySelector('.js-inequality').textContent = '';
   matTable.getElementsByTagName('h2')[0].textContent = '';
   matTable.querySelector('.js-unprivileged-value').textContent = '';
   matTable.querySelector('.js-privileged-value').textContent = '';
   matTable.querySelector('.js-total-students').textContent = '';
   matTable.querySelector('.js-xAxis').textContent = '';
+  matTable.querySelector('.js-quality').textContent = '';
   matTable.querySelector('.js-yAxis').textContent = '';
-  matTable.querySelector('.js-xAxis-text').textContent = '';
+  matTable.querySelector('.js-quality').textContent = '';
 }
 
 },{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],47:[function(require,module,exports){

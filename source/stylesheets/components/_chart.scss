@@ -113,8 +113,7 @@
 
 .chart:nth-child(2) .chart__table {
   @media screen and (min-width: breakpoint('desktop')) {
-    padding-top: 1.32rem;
-    margin-top: 3.4rem;
+    margin-top: 3.45rem;
     border-top: 1px solid palette('gray');
   }
 }
