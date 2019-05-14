@@ -4522,7 +4522,7 @@ function handleChartFilters() {
   populateCitiesList();
 }
 
-},{"../../config":47,"../plotCharts":44,"../updateTableInfo":46,"./clearFilters":39,"./highlightPoint":40,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"awesomplete":6,"axios":7,"fuzzysort":32,"highcharts":33,"highcharts/modules/exporting":34}],42:[function(require,module,exports){
+},{"../../config":48,"../plotCharts":44,"../updateTableInfo":47,"./clearFilters":39,"./highlightPoint":40,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"awesomplete":6,"axios":7,"fuzzysort":32,"highcharts":33,"highcharts/modules/exporting":34}],42:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4597,7 +4597,7 @@ function getChartData(receivedPayload) {
   return populateGlobalChartData();
 }
 
-},{"../config":47,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"axios":7}],43:[function(require,module,exports){
+},{"../config":48,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"axios":7}],43:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4635,6 +4635,8 @@ var _highcharts = _interopRequireDefault(require("highcharts"));
 var _exporting = _interopRequireDefault(require("highcharts/modules/exporting"));
 
 var _updateTableInfo = require("./updateTableInfo");
+
+var _updateHelperText = _interopRequireDefault(require("./updateHelperText"));
 
 var _getChartData = _interopRequireDefault(require("./getChartData"));
 
@@ -4790,6 +4792,7 @@ function drawChart(chartData, subject) {
             (0, _clearFilters.default)();
             (0, _highlightPoint.highlightPoint)(this.id);
             (0, _updateTableInfo.updateTableInfo)(this.id);
+            (0, _updateHelperText.default)(this.id);
           }
         }
       },
@@ -4849,7 +4852,7 @@ function _populateChartData() {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 21;
+              _context.next = 22;
               break;
             }
 
@@ -4858,6 +4861,7 @@ function _populateChartData() {
             return (0, _getChartData.default)(payload);
 
           case 4:
+            (0, _updateHelperText.default)();
             chartData = window.chartData.data;
             chartData = chartData.filter(function (item) {
               return item.x !== null;
@@ -4885,26 +4889,26 @@ function _populateChartData() {
 
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 21;
+            _context.next = 22;
             break;
 
-          case 17:
-            _context.prev = 17;
+          case 18:
+            _context.prev = 18;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
             toggleLoading();
 
-          case 21:
+          case 22:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 17]]);
+    }, _callee, this, [[1, 18]]);
   }));
   return _populateChartData.apply(this, arguments);
 }
 
-},{"./filter/clearFilters":39,"./filter/highlightPoint":40,"./getChartData":42,"./updateTableInfo":46,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":33,"highcharts/modules/exporting":34}],45:[function(require,module,exports){
+},{"./filter/clearFilters":39,"./filter/highlightPoint":40,"./getChartData":42,"./updateHelperText":46,"./updateTableInfo":47,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":33,"highcharts/modules/exporting":34}],45:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4983,6 +4987,57 @@ function sizeToggle() {
 }
 
 },{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],46:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = updateHelperText;
+
+function updateHelperText(cityId) {
+  var helperText = document.querySelector('.js-helper-text');
+  var _window$chartData = window.chartData,
+      data = _window$chartData.data,
+      xAxis = _window$chartData.xAxis;
+  var helperTextDictionary = {
+    racial: 'Raça',
+    sex: 'Gênero',
+    nse: 'Nível Sócio Econômico'
+  };
+
+  if (!cityId) {
+    helperText.setAttribute('hidden', '');
+    return;
+  }
+
+  function getCityInfo() {
+    return data.filter(function (item) {
+      return item.city.id === cityId;
+    });
+  }
+
+  var cityInfo = getCityInfo(cityId);
+  var ptInfo = cityInfo.find(function (item) {
+    return item.subject === 'Português';
+  });
+  var matInfo = cityInfo.find(function (item) {
+    return item.subject === 'Matemática';
+  });
+  helperText.removeAttribute('hidden'); // city info
+
+  helperText.querySelector('.js-city').textContent = ptInfo.city.name;
+  helperText.querySelector('.js-uf').textContent = ptInfo.state.uf;
+  helperText.querySelector('.js-inhabitants').textContent = ptInfo.city.inhabitants;
+  helperText.querySelector('.js-xAxis').textContent = helperTextDictionary[xAxis]; // pt info
+
+  helperText.querySelector('.js-pt-quality').textContent = ptInfo.range_quality;
+  helperText.querySelector('.js-pt-inequality').textContent = ptInfo.range_inequality; // mat info
+
+  helperText.querySelector('.js-mat-quality').textContent = matInfo.range_quality;
+  helperText.querySelector('.js-mat-inequality').textContent = matInfo.range_inequality;
+}
+
+},{}],47:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -5114,7 +5169,7 @@ function clearTableInfo() {
   matTable.querySelector('.js-quality').textContent = '';
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],47:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],48:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

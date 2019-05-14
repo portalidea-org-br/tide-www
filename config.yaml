@@ -25,6 +25,8 @@ outputs:
 footnoteReturnLinkContents: "↩"
 googleAnalytics: ""
 languageCode: "pt-br"
+enableMissingTranslationPlaceholders: true
+defaultContentLanguage: "pt-br"
 menu:
   header:
   - identifier: "home"
