@@ -5,7 +5,7 @@ export default function updateHelperText(cityId) {
     racial: 'Raça',
     sex: 'Gênero',
     nse: 'Nível Sócio Econômico',
-  }
+  };
 
   if (!cityId) {
     helperText.setAttribute('hidden', '');
