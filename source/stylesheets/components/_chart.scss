@@ -118,8 +118,12 @@
   }
 }
 
-.chart__table td:nth-child(2n) {
+.chart__table td {
   text-align: right;
+}
+
+.chart__table td:first-child {
+  text-align: left;
 }
 
 .chart.expanded .chart__table tbody {
