@@ -170,7 +170,7 @@ function formatItemsToHighCharts(items) {
   return Object.keys(items).map(item => ({
     x: Number(items[item].x),
     y: Number(items[item].y),
-    // className: 'cssClass', @TK add the graphic class so the points can have it's own colors
+    className: items[item].range_inequality,
     id: Number(items[item].city.id),
     city: items[item].city.name,
     state: items[item].state.uf,
