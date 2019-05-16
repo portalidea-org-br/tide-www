@@ -2,6 +2,7 @@ import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
 import { updateTableInfo } from './updateTableInfo';
 import updateHelperText from './updateHelperText';
+import addTableDestak from './addTableDestak';
 import getChartData from './getChartData';
 import clearFilters from './filter/clearFilters';
 import { highlightPoint } from './filter/highlightPoint';
@@ -156,6 +157,7 @@ function drawChart(chartData, subject) {
             highlightPoint(this.id);
             updateTableInfo(this.id);
             updateHelperText(this.id);
+            addTableDestak(this.id);
           },
         },
       },
@@ -202,6 +204,7 @@ async function populateChartData(payload) {
       await getChartData(payload);
 
       updateHelperText();
+      addTableDestak();
 
       let chartData = window.chartData.data;
       chartData = chartData.filter(item => item.x !== null);
