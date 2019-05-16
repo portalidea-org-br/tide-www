@@ -1,5 +1,5 @@
 export default function updateHelperText(cityId) {
-  const helperText = document.querySelector('.js-helper-text')
+  const helperText = document.querySelector('.js-helper-text');
   const { data, xAxis } = window.chartData;
   const helperTextDictionary = {
     racial: 'Raça',

@@ -1,6 +1,6 @@
 export default function addTableDestak(cityId) {
-  const ptCrossedTable = document.querySelector('.js-pt-crossed-table')
-  const matCrossedTable = document.querySelector('.js-mat-crossed-table')
+  const ptCrossedTable = document.querySelector('.js-pt-crossed-table');
+  const matCrossedTable = document.querySelector('.js-mat-crossed-table');
   const { data } = window.chartData;
 
   // get table rows
