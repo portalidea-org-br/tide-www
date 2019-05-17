@@ -4292,6 +4292,8 @@ var _highcharts = _interopRequireDefault(require("highcharts"));
 
 var _exporting = _interopRequireDefault(require("highcharts/modules/exporting"));
 
+var _updateHelperText = _interopRequireDefault(require("../updateHelperText"));
+
 (0, _exporting.default)(_highcharts.default);
 
 function hideNoMatchesAlert() {
@@ -4322,10 +4324,11 @@ function highlightPoint(id) {
   ptPoint.select();
   matPoint.graphic.toFront();
   matPoint.select();
+  (0, _updateHelperText.default)(id);
   return true;
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],42:[function(require,module,exports){
+},{"../updateHelperText":47,"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],42:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -5065,7 +5068,17 @@ function updateHelperText(cityId) {
   var helperTextDictionary = {
     racial: 'Raça',
     sex: 'Gênero',
-    nse: 'Nível Sócio Econômico'
+    nse: 'Nível Sócio Econômico',
+    baixa: 'Baixa',
+    'medio-baixa': 'Médio Baixa',
+    media: 'Média',
+    'medio-alta': 'Médio Alta',
+    alta: 'Alta',
+    'desigualdade-extrema': 'Desigualdade Extrema',
+    'desigualdade-alta': 'Desigualdade Alta',
+    desigualdade: 'Desigualdade',
+    equidade: 'Equidade',
+    'situacoes-atipicas': 'Situações Atípicas'
   };
 
   if (!cityId) {
@@ -5093,11 +5106,11 @@ function updateHelperText(cityId) {
   helperText.querySelector('.js-inhabitants').textContent = ptInfo.city.inhabitants;
   helperText.querySelector('.js-xAxis').textContent = helperTextDictionary[xAxis]; // pt info
 
-  helperText.querySelector('.js-pt-quality').textContent = ptInfo.range_quality;
-  helperText.querySelector('.js-pt-inequality').textContent = ptInfo.range_inequality; // mat info
+  helperText.querySelector('.js-pt-quality').textContent = helperTextDictionary[ptInfo.range_quality];
+  helperText.querySelector('.js-pt-inequality').textContent = helperTextDictionary[ptInfo.range_inequality]; // mat info
 
-  helperText.querySelector('.js-mat-quality').textContent = matInfo.range_quality;
-  helperText.querySelector('.js-mat-inequality').textContent = matInfo.range_inequality;
+  helperText.querySelector('.js-mat-quality').textContent = helperTextDictionary[matInfo.range_quality];
+  helperText.querySelector('.js-mat-inequality').textContent = helperTextDictionary[matInfo.range_inequality];
 }
 
 },{}],48:[function(require,module,exports){

@@ -1,5 +1,6 @@
 import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
+import updateHelperText from '../updateHelperText';
 
 Exporting(Highcharts);
 
@@ -30,6 +31,8 @@ function highlightPoint(id) {
 
   matPoint.graphic.toFront();
   matPoint.select();
+
+  updateHelperText(id);
 
   return true;
 }
