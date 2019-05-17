@@ -120,20 +120,37 @@
               </div>
             </div>
             <div class="chart__main" id="pt-chart"></div>
+            <div class="chart__legend">
+              <strong>Legenda:</strong>
+              <span class="chart__label chart__label-desigualdade-extrema">Desigualdade extrema</span>
+              <span class="chart__label chart__label-desigualdade-alta">Desigualdade alta</span>
+              <span class="chart__label chart__label-desigualdade">Desigualdade</span>
+              <span class="chart__label chart__label-equidade">Equidade</span>
+              <span class="chart__label chart__label-situacoes-atipicas">Situações atípicas</span>
+            </div>
             <div class="js-pt-table chart__table">
               <h2></h2>
+              <h3>Português (2007 a 2015)</h3>
               <table>
                 <tbody>
                   <tr>
-                    <td>Português | <span class="js-xAxis-text"></span></td>
-                    <td class="js-xAxis"></td>
-                  </tr>
-                  <tr>
-                    <td>Português</td>
+                    <td>Nível de aprendizado:</td>
                     <td class="js-yAxis"></td>
                   </tr>
                   <tr>
-                    <td>Número de alunos</td>
+                    <td>Faixa do nível de aprendizado:</td>
+                    <td class="js-quality"></td>
+                  </tr>
+                  <tr>
+                    <td>Nível de desigualdade:</td>
+                    <td class="js-xAxis"></td>
+                  </tr>
+                  <tr>
+                    <td>Faixa de nível de desigualdade:</td>
+                    <td class="js-inequality"></td>
+                  </tr>
+                  <tr>
+                    <td>Número de alunos total</td>
                     <td class="js-total-students"></td>
                   </tr>
                   <tr>
@@ -143,6 +160,43 @@
                   <tr>
                     <td class="js-privileged-title"></td>
                     <td class="js-privileged-value"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h4>Tabela cruzada: qualidade x desigualdade</h4>
+              <table class="js-pt-crossed-table">
+                <thead>
+                  <tr>
+                    <th>Nível KL</th>
+                    <th>Limite Inferior</th>
+                    <th>Limite superior</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="js-baixa">
+                    <td>Baixa</td>
+                    <td>0</td>
+                    <td>2</td>
+                  </tr>
+                  <tr class="js-medio-baixa">
+                    <td>Médio-baixa</td>
+                    <td>2</td>
+                    <td>2,9</td>
+                  </tr>
+                  <tr class="js-media">
+                    <td>Média</td>
+                    <td>2,9</td>
+                    <td>3,8</td>
+                  </tr>
+                  <tr class="js-medio-alta">
+                    <td>Médio-alta</td>
+                    <td>3,8</td>
+                    <td>4,8</td>
+                  </tr>
+                  <tr class="js-alta">
+                    <td>Alta</td>
+                    <td>4,8</td>
+                    <td>10</td>
                   </tr>
                 </tbody>
               </table>
@@ -160,18 +214,27 @@
             <div class="chart__main" id="mat-chart"></div>
             <div class="js-mat-table chart__table">
               <h2></h2>
+              <h3>Matemática (2007 a 2015)</h3>
               <table>
                 <tbody>
                   <tr>
-                    <td>Matemática | <span class="js-xAxis-text"></span></td>
-                    <td class="js-xAxis"></td>
-                  </tr>
-                  <tr>
-                    <td>Matemática</td>
+                    <td>Nível de aprendizado:</td>
                     <td class="js-yAxis"></td>
                   </tr>
                   <tr>
-                    <td>Número de alunos</td>
+                    <td>Faixa do nível de aprendizado:</td>
+                    <td class="js-quality"></td>
+                  </tr>
+                  <tr>
+                    <td>Nível de desigualdade:</td>
+                    <td class="js-xAxis"></td>
+                  </tr>
+                  <tr>
+                    <td>Faixa de nível de desigualdade:</td>
+                    <td class="js-inequality"></td>
+                  </tr>
+                  <tr>
+                    <td>Número de alunos total</td>
                     <td class="js-total-students"></td>
                   </tr>
                   <tr>
@@ -184,13 +247,55 @@
                   </tr>
                 </tbody>
               </table>
+              <h4>Tabela cruzada: qualidade x desigualdade</h4>
+              <table class="js-mat-crossed-table">
+                <thead>
+                  <tr>
+                    <th>Nível KL</th>
+                    <th>Limite Inferior</th>
+                    <th>Limite superior</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="js-baixa">
+                    <td>Baixa</td>
+                    <td>0</td>
+                    <td>2</td>
+                  </tr>
+                  <tr class="js-medio-baixa">
+                    <td>Médio-baixa</td>
+                    <td>2</td>
+                    <td>2,9</td>
+                  </tr>
+                  <tr class="js-media">
+                    <td>Média</td>
+                    <td>2,9</td>
+                    <td>3,8</td>
+                  </tr>
+                  <tr class="js-medio-alta">
+                    <td>Médio-alta</td>
+                    <td>3,8</td>
+                    <td>4,8</td>
+                  </tr>
+                  <tr class="js-alta">
+                    <td>Alta</td>
+                    <td>4,8</td>
+                    <td>10</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </section>
-          <div class="charts__helper">
+          <div class="js-helper-text charts__helper" hidden>
             <h3>O QUE ISSO SIGNIFICA?</h3>
             <p>
-              A posição ideal é 0 (zero), 	quando a cidade está mais longe do zero isso significa que o nível de
-              aprendizado está baixo e/ou o nível de desigualdade está alto.
+              O município de <span class="js-city"></span>, localizado no estado de <span class="js-uf"></span>,
+              possui <span class="js-inhabitants"></span> habitantes, de acordo com a estimativa populacional do IBGE
+              de 2018. Segundo os dados do Indicador de Desigualdades Educacionais, a qualidade de aprendizado é
+              <span class="js-pt-quality"></span>  para português e <span class="js-mat-quality"></span> para matemática.
+              Em relação à desigualdade medida segundo <span class="js-xAxis"></span>, podemos afirmar que ela tem
+              <span class="js-pt-inequality"></span> para língua portuguesa e <span class="js-mat-inequality"></span>
+              para matemática.
             </p>
           </div>
         </div>

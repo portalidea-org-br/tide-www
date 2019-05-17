@@ -4150,6 +4150,65 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
 },{"process/browser.js":36,"timers":37}],38:[function(require,module,exports){
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = addTableDestak;
+
+function addTableDestak(cityId) {
+  var ptCrossedTable = document.querySelector('.js-pt-crossed-table');
+  var matCrossedTable = document.querySelector('.js-mat-crossed-table');
+  var data = window.chartData.data; // get table rows
+
+  var ptRows = ptCrossedTable.querySelectorAll('tr');
+  var matRows = matCrossedTable.querySelectorAll('tr');
+
+  function clearDestaks() {
+    ptRows.forEach(function (row) {
+      row.classList.remove('destak');
+    });
+    matRows.forEach(function (row) {
+      row.classList.remove('destak');
+    });
+  }
+
+  if (!cityId) {
+    clearDestaks();
+    return;
+  }
+
+  function getCityInfo() {
+    return data.filter(function (item) {
+      return item.city.id === cityId;
+    });
+  }
+
+  var cityInfo = getCityInfo(cityId);
+  var ptInfo = cityInfo.find(function (item) {
+    return item.subject === 'Português';
+  });
+  var matInfo = cityInfo.find(function (item) {
+    return item.subject === 'Matemática';
+  });
+  ptRows.forEach(function (row) {
+    if (row.classList.contains("js-".concat(ptInfo.range_quality.toLowerCase()))) {
+      row.classList.add('destak');
+    } else {
+      row.classList.remove('destak');
+    }
+  });
+  matRows.forEach(function (row) {
+    if (row.classList.contains("js-".concat(matInfo.range_quality.toLowerCase()))) {
+      row.classList.add('destak');
+    } else {
+      row.classList.remove('destak');
+    }
+  });
+}
+
+},{}],39:[function(require,module,exports){
+"use strict";
+
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
@@ -4194,7 +4253,7 @@ function downloadCharts() {
   }
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],39:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],40:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4218,7 +4277,7 @@ function clearFilters(exception) {
   });
 }
 
-},{}],40:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4232,6 +4291,8 @@ exports.highlightPoint = highlightPoint;
 var _highcharts = _interopRequireDefault(require("highcharts"));
 
 var _exporting = _interopRequireDefault(require("highcharts/modules/exporting"));
+
+var _updateHelperText = _interopRequireDefault(require("../updateHelperText"));
 
 (0, _exporting.default)(_highcharts.default);
 
@@ -4263,10 +4324,11 @@ function highlightPoint(id) {
   ptPoint.select();
   matPoint.graphic.toFront();
   matPoint.select();
+  (0, _updateHelperText.default)(id);
   return true;
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],41:[function(require,module,exports){
+},{"../updateHelperText":47,"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],42:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4522,7 +4584,7 @@ function handleChartFilters() {
   populateCitiesList();
 }
 
-},{"../../config":47,"../plotCharts":44,"../updateTableInfo":46,"./clearFilters":39,"./highlightPoint":40,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"awesomplete":6,"axios":7,"fuzzysort":32,"highcharts":33,"highcharts/modules/exporting":34}],42:[function(require,module,exports){
+},{"../../config":49,"../plotCharts":45,"../updateTableInfo":48,"./clearFilters":40,"./highlightPoint":41,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"awesomplete":6,"axios":7,"fuzzysort":32,"highcharts":33,"highcharts/modules/exporting":34}],43:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4597,7 +4659,7 @@ function getChartData(receivedPayload) {
   return populateGlobalChartData();
 }
 
-},{"../config":47,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"axios":7}],43:[function(require,module,exports){
+},{"../config":49,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"axios":7}],44:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4615,7 +4677,7 @@ var _filter = _interopRequireDefault(require("./filter"));
 (0, _sizeToggle.default)();
 (0, _filter.default)();
 
-},{"./downloadCharts":38,"./filter":41,"./plotCharts":44,"./sizeToggle":45,"@babel/runtime/helpers/interopRequireDefault":2}],44:[function(require,module,exports){
+},{"./downloadCharts":39,"./filter":42,"./plotCharts":45,"./sizeToggle":46,"@babel/runtime/helpers/interopRequireDefault":2}],45:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4635,6 +4697,10 @@ var _highcharts = _interopRequireDefault(require("highcharts"));
 var _exporting = _interopRequireDefault(require("highcharts/modules/exporting"));
 
 var _updateTableInfo = require("./updateTableInfo");
+
+var _updateHelperText = _interopRequireDefault(require("./updateHelperText"));
+
+var _addTableDestak = _interopRequireDefault(require("./addTableDestak"));
 
 var _getChartData = _interopRequireDefault(require("./getChartData"));
 
@@ -4790,6 +4856,8 @@ function drawChart(chartData, subject) {
             (0, _clearFilters.default)();
             (0, _highlightPoint.highlightPoint)(this.id);
             (0, _updateTableInfo.updateTableInfo)(this.id);
+            (0, _updateHelperText.default)(this.id);
+            (0, _addTableDestak.default)(this.id);
           }
         }
       },
@@ -4803,7 +4871,7 @@ function formatItemsToHighCharts(items) {
     return {
       x: Number(items[item].x),
       y: Number(items[item].y),
-      className: 'lolo',
+      className: items[item].range_inequality,
       id: Number(items[item].city.id),
       city: items[item].city.name,
       state: items[item].state.uf,
@@ -4849,7 +4917,7 @@ function _populateChartData() {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 22;
+              _context.next = 23;
               break;
             }
 
@@ -4858,10 +4926,9 @@ function _populateChartData() {
             return (0, _getChartData.default)(payload);
 
           case 4:
+            (0, _updateHelperText.default)();
+            (0, _addTableDestak.default)();
             chartData = window.chartData.data;
-            console.log(chartData.filter(function (item) {
-              return item.x === null;
-            }));
             chartData = chartData.filter(function (item) {
               return item.x !== null;
             });
@@ -4888,26 +4955,26 @@ function _populateChartData() {
 
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 22;
+            _context.next = 23;
             break;
 
-          case 18:
-            _context.prev = 18;
+          case 19:
+            _context.prev = 19;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
             toggleLoading();
 
-          case 22:
+          case 23:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 18]]);
+    }, _callee, this, [[1, 19]]);
   }));
   return _populateChartData.apply(this, arguments);
 }
 
-},{"./filter/clearFilters":39,"./filter/highlightPoint":40,"./getChartData":42,"./updateTableInfo":46,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":33,"highcharts/modules/exporting":34}],45:[function(require,module,exports){
+},{"./addTableDestak":38,"./filter/clearFilters":40,"./filter/highlightPoint":41,"./getChartData":43,"./updateHelperText":47,"./updateTableInfo":48,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":33,"highcharts/modules/exporting":34}],46:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4985,7 +5052,68 @@ function sizeToggle() {
   }
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],46:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],47:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = updateHelperText;
+
+function updateHelperText(cityId) {
+  var helperText = document.querySelector('.js-helper-text');
+  var _window$chartData = window.chartData,
+      data = _window$chartData.data,
+      xAxis = _window$chartData.xAxis;
+  var helperTextDictionary = {
+    racial: 'Raça',
+    sex: 'Gênero',
+    nse: 'Nível Sócio Econômico',
+    baixa: 'Baixa',
+    'medio-baixa': 'Médio Baixa',
+    media: 'Média',
+    'medio-alta': 'Médio Alta',
+    alta: 'Alta',
+    'desigualdade-extrema': 'Desigualdade Extrema',
+    'desigualdade-alta': 'Desigualdade Alta',
+    desigualdade: 'Desigualdade',
+    equidade: 'Equidade',
+    'situacoes-atipicas': 'Situações Atípicas'
+  };
+
+  if (!cityId) {
+    helperText.setAttribute('hidden', '');
+    return;
+  }
+
+  function getCityInfo() {
+    return data.filter(function (item) {
+      return item.city.id === cityId;
+    });
+  }
+
+  var cityInfo = getCityInfo(cityId);
+  var ptInfo = cityInfo.find(function (item) {
+    return item.subject === 'Português';
+  });
+  var matInfo = cityInfo.find(function (item) {
+    return item.subject === 'Matemática';
+  });
+  helperText.removeAttribute('hidden'); // city info
+
+  helperText.querySelector('.js-city').textContent = ptInfo.city.name;
+  helperText.querySelector('.js-uf').textContent = ptInfo.state.uf;
+  helperText.querySelector('.js-inhabitants').textContent = ptInfo.city.inhabitants;
+  helperText.querySelector('.js-xAxis').textContent = helperTextDictionary[xAxis]; // pt info
+
+  helperText.querySelector('.js-pt-quality').textContent = helperTextDictionary[ptInfo.range_quality];
+  helperText.querySelector('.js-pt-inequality').textContent = helperTextDictionary[ptInfo.range_inequality]; // mat info
+
+  helperText.querySelector('.js-mat-quality').textContent = helperTextDictionary[matInfo.range_quality];
+  helperText.querySelector('.js-mat-inequality').textContent = helperTextDictionary[matInfo.range_inequality];
+}
+
+},{}],48:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -5025,69 +5153,67 @@ function updateTableInfo(id) {
     matTable.getElementsByTagName('h2')[0].textContent = "".concat(matInfo.city.name, " - ").concat(matInfo.state.uf);
 
     if (xAxis === 'racial') {
-      ptTable.querySelector('.js-unprivileged-title').textContent = 'Npretos';
+      ptTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos pretos';
       ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
-      ptTable.querySelector('.js-privileged-title').textContent = 'Nbrancos';
-      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
-      document.querySelectorAll('.js-xAxis-text').forEach(function (span) {
-        var domSpan = span;
-        domSpan.textContent = 'Raça';
-      });
+      ptTable.querySelector('.js-privileged-title').textContent = 'Número de alunos brancos';
+      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group; // document.querySelectorAll('.js-xAxis-text').forEach((span) => {
+      //   const domSpan = span;
+      //   domSpan.textContent = 'Raça';
+      // });
     }
 
     if (xAxis === 'sex') {
-      ptTable.querySelector('.js-unprivileged-title').textContent = 'Nmulheres';
+      ptTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos mulheres';
       ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
-      ptTable.querySelector('.js-privileged-title').textContent = 'Nhomens';
-      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
-      document.querySelectorAll('.js-xAxis-text').forEach(function (span) {
-        var domSpan = span;
-        domSpan.textContent = 'Gênero';
-      });
+      ptTable.querySelector('.js-privileged-title').textContent = 'Número de alunos homens';
+      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group; // document.querySelectorAll('.js-xAxis-text').forEach((span) => {
+      //   const domSpan = span;
+      //   domSpan.textContent = 'Gênero';
+      // });
     }
 
     if (xAxis === 'nse') {
-      ptTable.querySelector('.js-unprivileged-title').textContent = 'nNSE1';
+      ptTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos nível socioeconômico baixo';
       ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
-      ptTable.querySelector('.js-privileged-title').textContent = 'nNSE5';
-      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group;
-      document.querySelectorAll('.js-xAxis-text').forEach(function (span) {
-        var domSpan = span;
-        domSpan.textContent = 'NSE';
-      });
+      ptTable.querySelector('.js-privileged-title').textContent = 'Número de alunos nível socioeconômico alto';
+      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group; // document.querySelectorAll('.js-xAxis-text').forEach((span) => {
+      //   const domSpan = span;
+      //   domSpan.textContent = 'NSE';
+      // });
     }
 
     ptTable.querySelector('.js-total-students').textContent = ptInfo.count_total;
     ptTable.querySelector('.js-xAxis').textContent = Number(ptInfo.x).toFixed(2);
+    ptTable.querySelector('.js-quality').textContent = ptInfo.range_quality;
     ptTable.querySelector('.js-yAxis').textContent = Number(ptInfo.y).toFixed(2);
+    ptTable.querySelector('.js-inequality').textContent = ptInfo.range_inequality;
 
     if (xAxis === 'racial') {
-      matTable.querySelector('.js-unprivileged-title').textContent = 'Npretos';
+      matTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos pretos';
       matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_first_group;
-      matTable.querySelector('.js-privileged-title').textContent = 'Nbrancos';
-      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group;
-      matTable.querySelector('.js-xAxis-text').textContent = 'Raça';
+      matTable.querySelector('.js-privileged-title').textContent = 'Número de alunos brancos';
+      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group; // matTable.querySelector('.js-xAxis-text').textContent = 'Raça';
     }
 
     if (xAxis === 'sex') {
-      matTable.querySelector('.js-unprivileged-title').textContent = 'Nmulheres';
+      matTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos mulheres';
       matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_first_group;
-      matTable.querySelector('.js-privileged-title').textContent = 'Nhomens';
-      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group;
-      matTable.querySelector('.js-xAxis-text').textContent = 'Gênero';
+      matTable.querySelector('.js-privileged-title').textContent = 'Número de alunos homens';
+      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group; // matTable.querySelector('.js-xAxis-text').textContent = 'Gênero';
     }
 
     if (xAxis === 'nse') {
-      matTable.querySelector('.js-unprivileged-title').textContent = 'nNSE1';
+      matTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos nível socioeconômico baixo';
       matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_first_group;
-      matTable.querySelector('.js-privileged-title').textContent = 'nNSE5';
-      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group;
-      matTable.querySelector('.js-xAxis-text').textContent = 'NSE';
+      matTable.querySelector('.js-privileged-title').textContent = 'Número de alunos nível socioeconômico alto';
+      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group; // matTable.querySelector('.js-xAxis-text').textContent = 'NSE';
     }
 
     matTable.querySelector('.js-total-students').textContent = matInfo.count_total;
     matTable.querySelector('.js-xAxis').textContent = Number(matInfo.x).toFixed(2);
+    matTable.querySelector('.js-quality').textContent = matInfo.range_quality;
     matTable.querySelector('.js-yAxis').textContent = Number(matInfo.y).toFixed(2);
+    matTable.querySelector('.js-inequality').textContent = matInfo.range_inequality;
   }
 
   function getCityInfo(cityId) {
@@ -5106,18 +5232,20 @@ function clearTableInfo() {
   ptTable.querySelector('.js-privileged-value').textContent = '';
   ptTable.querySelector('.js-total-students').textContent = '';
   ptTable.querySelector('.js-xAxis').textContent = '';
+  ptTable.querySelector('.js-quality').textContent = '';
   ptTable.querySelector('.js-yAxis').textContent = '';
-  ptTable.querySelector('.js-xAxis-text').textContent = '';
+  ptTable.querySelector('.js-inequality').textContent = '';
   matTable.getElementsByTagName('h2')[0].textContent = '';
   matTable.querySelector('.js-unprivileged-value').textContent = '';
   matTable.querySelector('.js-privileged-value').textContent = '';
   matTable.querySelector('.js-total-students').textContent = '';
   matTable.querySelector('.js-xAxis').textContent = '';
+  matTable.querySelector('.js-quality').textContent = '';
   matTable.querySelector('.js-yAxis').textContent = '';
-  matTable.querySelector('.js-xAxis-text').textContent = '';
+  matTable.querySelector('.js-quality').textContent = '';
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],47:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],49:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5131,4 +5259,4 @@ var _default = {
 };
 exports.default = _default;
 
-},{}]},{},[43]);
+},{}]},{},[44]);

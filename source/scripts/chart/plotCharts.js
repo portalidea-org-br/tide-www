@@ -1,6 +1,8 @@
 import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
 import { updateTableInfo } from './updateTableInfo';
+import updateHelperText from './updateHelperText';
+import addTableDestak from './addTableDestak';
 import getChartData from './getChartData';
 import clearFilters from './filter/clearFilters';
 import { highlightPoint } from './filter/highlightPoint';
@@ -154,6 +156,8 @@ function drawChart(chartData, subject) {
             clearFilters();
             highlightPoint(this.id);
             updateTableInfo(this.id);
+            updateHelperText(this.id);
+            addTableDestak(this.id);
           },
         },
       },
@@ -166,7 +170,7 @@ function formatItemsToHighCharts(items) {
   return Object.keys(items).map(item => ({
     x: Number(items[item].x),
     y: Number(items[item].y),
-    // className: 'cssClass', @TK add the graphic class so the points can have it's own colors
+    className: items[item].range_inequality,
     id: Number(items[item].city.id),
     city: items[item].city.name,
     state: items[item].state.uf,
@@ -198,6 +202,9 @@ async function populateChartData(payload) {
   if (ptChartElement && matChartElement) {
     try {
       await getChartData(payload);
+
+      updateHelperText();
+      addTableDestak();
 
       let chartData = window.chartData.data;
       chartData = chartData.filter(item => item.x !== null);

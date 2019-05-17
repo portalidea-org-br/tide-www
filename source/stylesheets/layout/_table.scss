@@ -65,7 +65,7 @@ td {
 
 thead th,
 thead td {
-  text-align: right;
+  text-align: left;
   vertical-align: bottom;
 }
 
@@ -87,6 +87,11 @@ tbody {
 tbody th {
   text-align: left;
 }
+
+tbody .destak {
+  color: palette('red');
+}
+
 
 tbody td {
   // text-align: right;

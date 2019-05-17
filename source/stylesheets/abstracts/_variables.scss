@@ -173,6 +173,23 @@ $palette: (
     'foreground': hsl(0, 0%, 94%),
     'background': hsla(0, 0%, 7%, 0.8),
   ),
+  'graph_inequality': (
+
+    'desigualdade-extrema': rgb(237, 82, 85),
+    'desigualdade-extrema-destak': rgb(170, 13, 16),
+
+    'desigualdade-alta': rgb(247, 148, 45),
+    'desigualdade-alta-destak': rgb(170, 84, 15),
+
+    'desigualdade': rgb(255, 198, 47),
+    'desigualdade-destak': rgb(161, 123, 23),
+
+    'equidade': rgb(95, 193, 170),
+    'equidade-destak': rgb(19, 113, 104),
+
+    'situacoes-atipicas':  rgb(180, 151, 227),
+    'situacoes-atipicas-destak': rgb(105, 51, 147),
+  ),
   'label': (
     'default': rgb(119, 119, 119),
     'primary': rgb(51, 122, 183),
