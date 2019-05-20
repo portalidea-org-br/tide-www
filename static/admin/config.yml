@@ -85,44 +85,6 @@ collections:
         name: "body"
         widget: "markdown"
   -
-    label: "Pesquisa"
-    name: "pesquisa"
-    folder: "content/pesquisas"
-    create: false
-    delete: false
-    slug: "{{slug}}"
-    fields:
-      -
-        label: "Titulo"
-        name: "title"
-        widget: "string"
-        tagname: "h1"
-        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
-      -
-        label: "Data"
-        name: "date"
-        widget: "datetime"
-        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
-      -
-        label: "Rascunho"
-        name: "draft"
-        widget: "boolean"
-        default: true
-      -
-        label: "layout"
-        name: "layout"
-        widget: "hidden"
-        default: "single"
-      -
-        label: "type"
-        name: "type"
-        widget: "hidden"
-        default: "pesquisa"
-      -
-        label: "Conteúdo"
-        name: "body"
-        widget: "markdown"
-  -
     label: "Depoimentos"
     name: "testimonials"
     folder: "content/depoimentos"
