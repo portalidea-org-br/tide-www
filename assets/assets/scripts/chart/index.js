@@ -5103,7 +5103,7 @@ function updateHelperText(cityId) {
   helperText.removeAttribute('hidden'); // city info
 
   helperText.querySelector('.js-city').textContent = ptInfo.city.name;
-  helperText.querySelector('.js-uf').textContent = ptInfo.state.uf;
+  helperText.querySelector('.js-uf').textContent = ptInfo.state.name;
   helperText.querySelector('.js-inhabitants').textContent = ptInfo.city.inhabitants;
   helperText.querySelector('.js-xAxis').textContent = helperTextDictionary[xAxis]; // pt info
 
