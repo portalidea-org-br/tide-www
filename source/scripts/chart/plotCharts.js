@@ -206,6 +206,7 @@ async function populateChartData(payload) {
 
       updateHelperText();
       addTableDestak();
+      updateTableInfo();
 
       let chartData = window.chartData.data;
       chartData = chartData.filter(item => item.x !== null);

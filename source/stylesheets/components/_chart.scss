@@ -17,6 +17,7 @@
 .chart__legend {
   display: flex;
   flex-direction: column;
+  margin-bottom: 3.5rem;
   font-size: ms(-1);
 }
 
@@ -155,12 +156,19 @@
   }
 }
 
+
+.chart__main--mat {
+  @media screen and (min-width: breakpoint('desktop')) {
+    margin-bottom: 11.4rem;
+  }
+}
+
 .chart__table {
   width: 100%;
 }
 
 .chart__table h2 {
-  min-height: 1.51em;
+  margin-top: -2.31rem;
   font-weight: 300;
   color: palette('purple');
   border-bottom: 1px solid palette('gray');
@@ -177,7 +185,8 @@
   font-size: ms(2);
 }
 
-.chart__table h4 {
+.pt-crossed-table h4,
+.mat-crossed-table h4 {
   padding-top: 1.5rem;
   margin-top: 1.5rem;
   font-size: ms(2);
@@ -186,7 +195,6 @@
 
 .chart:nth-child(2) .chart__table {
   @media screen and (min-width: breakpoint('desktop')) {
-    margin-top: 11.4rem;
     border-top: 1px solid palette('gray');
   }
 }

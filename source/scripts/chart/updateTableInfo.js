@@ -17,6 +17,9 @@ function updateTableInfo(id) {
       return;
     }
 
+    ptTable.removeAttribute('hidden');
+    matTable.removeAttribute('hidden');
+
     ptTable.getElementsByTagName('h2')[0].textContent = `${ptInfo.city.name} - ${ptInfo.state.uf}`;
     matTable.getElementsByTagName('h2')[0].textContent = `${matInfo.city.name} - ${matInfo.state.uf}`;
 
@@ -108,6 +111,10 @@ function updateTableInfo(id) {
   }
 
   function getCityInfo(cityId) {
+    if (!cityId) {
+      ptTable.setAttribute('hidden', '');
+      matTable.setAttribute('hidden', '');
+    }
     return data.filter(item => item.city.id === cityId);
   }
 
