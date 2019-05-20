@@ -4745,6 +4745,7 @@ function drawChart(chartData, subject) {
         enabled: true,
         text: "".concat(xAxisText, " | [Desigualdade]")
       },
+      tickInterval: 1,
       max: 3.5,
       min: -3.5,
       startOnTick: true,
@@ -4917,7 +4918,7 @@ function _populateChartData() {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 23;
+              _context.next = 24;
               break;
             }
 
@@ -4928,6 +4929,7 @@ function _populateChartData() {
           case 4:
             (0, _updateHelperText.default)();
             (0, _addTableDestak.default)();
+            (0, _updateTableInfo.updateTableInfo)();
             chartData = window.chartData.data;
             chartData = chartData.filter(function (item) {
               return item.x !== null;
@@ -4955,21 +4957,21 @@ function _populateChartData() {
 
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 23;
+            _context.next = 24;
             break;
 
-          case 19:
-            _context.prev = 19;
+          case 20:
+            _context.prev = 20;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
             toggleLoading();
 
-          case 23:
+          case 24:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 19]]);
+    }, _callee, this, [[1, 20]]);
   }));
   return _populateChartData.apply(this, arguments);
 }
@@ -5102,7 +5104,7 @@ function updateHelperText(cityId) {
   helperText.removeAttribute('hidden'); // city info
 
   helperText.querySelector('.js-city').textContent = ptInfo.city.name;
-  helperText.querySelector('.js-uf').textContent = ptInfo.state.uf;
+  helperText.querySelector('.js-uf').textContent = ptInfo.state.name;
   helperText.querySelector('.js-inhabitants').textContent = ptInfo.city.inhabitants;
   helperText.querySelector('.js-xAxis').textContent = helperTextDictionary[xAxis]; // pt info
 
@@ -5149,6 +5151,8 @@ function updateTableInfo(id) {
       return;
     }
 
+    ptTable.removeAttribute('hidden');
+    matTable.removeAttribute('hidden');
     ptTable.getElementsByTagName('h2')[0].textContent = "".concat(ptInfo.city.name, " - ").concat(ptInfo.state.uf);
     matTable.getElementsByTagName('h2')[0].textContent = "".concat(matInfo.city.name, " - ").concat(matInfo.state.uf);
 
@@ -5217,6 +5221,11 @@ function updateTableInfo(id) {
   }
 
   function getCityInfo(cityId) {
+    if (!cityId) {
+      ptTable.setAttribute('hidden', '');
+      matTable.setAttribute('hidden', '');
+    }
+
     return data.filter(function (item) {
       return item.city.id === cityId;
     });

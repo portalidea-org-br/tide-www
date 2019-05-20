@@ -43,6 +43,7 @@ function drawChart(chartData, subject) {
         enabled: true,
         text: `${xAxisText} | [Desigualdade]`,
       },
+      tickInterval: 1,
       max: 3.5,
       min: -3.5,
       startOnTick: true,
@@ -205,6 +206,7 @@ async function populateChartData(payload) {
 
       updateHelperText();
       addTableDestak();
+      updateTableInfo();
 
       let chartData = window.chartData.data;
       chartData = chartData.filter(item => item.x !== null);

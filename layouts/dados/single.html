@@ -128,7 +128,7 @@
               <span class="chart__label chart__label-equidade">Equidade</span>
               <span class="chart__label chart__label-situacoes-atipicas">Situações atípicas</span>
             </div>
-            <div class="js-pt-table chart__table">
+            <div class="js-pt-table chart__table" hidden>
               <h2></h2>
               <h3>Português (2007 a 2015)</h3>
               <table>
@@ -163,6 +163,8 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
+            <div class="pt-crossed-table">
               <h4>Faixas de nível de desigualdade</h4>
               <table class="js-pt-crossed-table">
                 <thead>
@@ -211,8 +213,16 @@
                 <button class="js-shrink-mat-chart chart__button chart__button--shrink">Reduzir gráfico</button>
               </div>
             </div>
-            <div class="chart__main" id="mat-chart"></div>
-            <div class="js-mat-table chart__table">
+            <div class="chart__main chart__main--mat" id="mat-chart"></div>
+            <div class="chart__legend chart__legend--mat-legend">
+              <strong>Legenda:</strong>
+              <span class="chart__label chart__label-desigualdade-extrema">Desigualdade extrema</span>
+              <span class="chart__label chart__label-desigualdade-alta">Desigualdade alta</span>
+              <span class="chart__label chart__label-desigualdade">Desigualdade</span>
+              <span class="chart__label chart__label-equidade">Equidade</span>
+              <span class="chart__label chart__label-situacoes-atipicas">Situações atípicas</span>
+            </div>
+            <div class="js-mat-table chart__table" hidden>
               <h2></h2>
               <h3>Matemática (2007 a 2015)</h3>
               <table>
@@ -247,6 +257,8 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
+            <div class="mat-crossed-table">
               <h4>Faixas de nível de desigualdade</h4>
               <table class="js-mat-crossed-table">
                 <thead>
@@ -285,9 +297,10 @@
                 </tbody>
               </table>
             </div>
+
           </section>
           <div class="js-helper-text charts__helper" hidden>
-            <h3>O QUE ISSO SIGNIFICA?</h3>
+            <h3>Perfil do município</h3>
             <p>
               O município de <span class="js-city"></span>, localizado no estado de <span class="js-uf"></span>,
               possui <span class="js-inhabitants"></span> habitantes, de acordo com a estimativa populacional do IBGE
