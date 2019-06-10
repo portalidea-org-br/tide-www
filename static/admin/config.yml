@@ -284,3 +284,21 @@ collections:
         label: "Conteúdo"
         name: "body"
         widget: "markdown"
+  -
+    label: "Parceiros"
+    name: "parceiros"
+    folder: "content/parceiros"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h3"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
