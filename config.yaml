@@ -53,10 +53,14 @@ menu:
     name: "Novidades"
     url: "/novidades"
     weight: 6
+  - identifier: "parceiros"
+    name: "Parceiros"
+    url: "/parceiros"
+    weight: 7
   - identifier: "contato"
     name: "Contato"
     url: "/#contato"
-    weight: 7
+    weight: 8
 metaDataFormat: "yaml"
 title: "Eduquidade"
 params:

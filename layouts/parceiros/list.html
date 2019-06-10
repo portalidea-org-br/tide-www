@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <title>tide</title>
+
+    {{ partial "head.html" . }}
+
+    <body>
+
+      {{ partial "header.html" . }}
+
+      <section class="page-title page-title--yellow page-title--no-icon">
+        <div class="container">
+          <h1> {{ .Title }}</h1>
+        </div>
+      </section>
+
+      <div class="container">
+        {{ .Content }}
+      </div>
+
+      {{ partial "footer.html" . }}
+
+      {{ $vendorJS := resources.Get "assets/scripts/vendor.js" }}
+      {{ $secureVendorJS := $vendorJS | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureVendorJS.RelPermalink }}" integrity="{{ $secureVendorJS.Data.Integrity }}"></script>
+
+      {{ $js := resources.Get "assets/scripts/index.js" }}
+      {{ $secureJS := $js | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+    </body>
+</html>
