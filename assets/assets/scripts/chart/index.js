@@ -4760,7 +4760,7 @@ function drawChart(chartData, subject) {
     },
     yAxis: {
       title: {
-        text: "".concat(subject === 'pt' ? 'Português' : 'Matemática', " | [N\xEDvel de aprendizado]")
+        text: "".concat(subject === 'pt' ? 'Português' : 'Matemática', " | [N\xEDvel de aprendizagem]")
       },
       lineWidth: 1,
       gridZIndex: 0,
