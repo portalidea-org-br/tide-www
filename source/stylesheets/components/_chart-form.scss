@@ -31,6 +31,25 @@
   }
 }
 
+.chart-form__tutorial-link:link,
+.chart-form__tutorial-link:visited {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+  text-decoration: underline;
+  vertical-align: middle;
+  color: palette('black');
+
+  &::before {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5em;
+    background: image('youtube-icon.svg');
+    content: '';
+  }
+}
+
 .chart-form__group--inline {
   display: flex;
   align-items: center;
