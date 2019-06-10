@@ -5068,19 +5068,19 @@ function updateHelperText(cityId) {
       data = _window$chartData.data,
       xAxis = _window$chartData.xAxis;
   var helperTextDictionary = {
-    racial: 'Raça',
-    sex: 'Gênero',
-    nse: 'Nível Sócio Econômico',
+    racial: 'raça',
+    sex: 'gênero',
+    nse: 'nível sócio econômico',
     baixa: 'Baixa',
-    'medio-baixa': 'Médio Baixa',
+    'medio-baixa': 'médio baixa',
     media: 'Média',
-    'medio-alta': 'Médio Alta',
-    alta: 'Alta',
-    'desigualdade-extrema': 'Desigualdade Extrema',
-    'desigualdade-alta': 'Desigualdade Alta',
-    desigualdade: 'Desigualdade',
-    equidade: 'Equidade',
-    'situacoes-atipicas': 'Situações Atípicas'
+    'medio-alta': 'médio alta',
+    alta: 'alta',
+    'desigualdade-extrema': 'desigualdade extrema',
+    'desigualdade-alta': 'desigualdade alta',
+    desigualdade: 'desigualdade',
+    equidade: 'equidade',
+    'situacoes-atipicas': 'situações atípicas'
   };
 
   if (!cityId) {
