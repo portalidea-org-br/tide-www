@@ -8,7 +8,7 @@ paises:
 image: 'https://placehold.it/600x500/ccc'
 image_big: 'https://placehold.it/1000x600/ccc'
 alt: aaa
-file: 'http://www.pdf995.com/samples/pdf.pdf'
+file: /uploads/catarina-segatto_canada.pdf
 author: Catarina Ianni Segatto
 short_description: >-
   Este estudo busca investigar as iniciativas implementadas em Ontário, no
