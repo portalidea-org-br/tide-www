@@ -54,6 +54,13 @@ function mountNovidadesHtml(items, id) {
   }
 }
 
+function getYoutubeVideoId(url) {
+  const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+  const match = url.match(regExp);
+  return match[7];
+}
+
+
 function mountDepoimentosHtml(items, id) {
   let sections = '';
   const element = document.getElementById(id);
@@ -67,14 +74,7 @@ function mountDepoimentosHtml(items, id) {
       sections += `
         <blockquote>
           <div class="testimonials__content">
-            ${
-              item.video
-                ? `<a
-                    class="testimonials__video-link"
-                    data-micromodal-trigger="js-${videoId}">
-                  `
-                : ''
-            }
+            ${item.video ? `<a class="testimonials__video-link" data-micromodal-trigger="js-${videoId}"> ` : ''}
               <figure>
                 <img src="${item.image}" alt="${item.alt}">
               </figure>
@@ -83,23 +83,21 @@ function mountDepoimentosHtml(items, id) {
             <footer><cite>${item.name}</cite></footer>
           </div>
           ${item.video
-              ?
-              `
-                <div class="modal micromodal-slide" id="js-${videoId}" aria-hidden="true">
-                  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-                    <div class="modal__container modal__container--auto" role="dialog" aria-modal="true" aria-labelledby="js-modal-user-popup-title">
-                      <header class="modal__header">
-                        <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
-                      </header>
-                      <main id="js-modal-user-popup-content">
-                        <iframe class="modal__video" src="https://www.youtube-nocookie.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                      </main>
-                    </div>
-                  </div>
-                </div>
-                `
-              : ''
-          }
+    ? `<div class="modal micromodal-slide" id="js-${videoId}" aria-hidden="true">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+          <div class="modal__container modal__container--auto" role="dialog" aria-modal="true" aria-labelledby="js-modal-user-popup-title">
+            <header class="modal__header">
+              <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+            </header>
+            <main id="js-modal-user-popup-content">
+              <iframe class="modal__video" src="https://www.youtube-nocookie.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </main>
+          </div>
+        </div>
+      </div>
+      `
+    : ''
+}
         </blockquote>
       `;
     });
@@ -124,17 +122,6 @@ function mountPesquisasHtml(items, id) {
       `;
     });
     element.innerHTML = sections;
-  }
-}
-
-function getYoutubeVideoId(url) {
-  const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-  const match = url.match(regExp);
-  if (match && match[7].length === 11) {
-    return match[7];
-  }
-  else {
-    return null;
   }
 }
 

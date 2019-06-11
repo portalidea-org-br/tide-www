@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <testsuites>
-<testsuite package="org.eslint" time="0" tests="2" errors="2" name="/home/eduruiz/code/tide/source/scripts/chart/addTableDestak.js">
-<testcase time="0" name="org.eslint.semi"><failure message="Missing semicolon."><![CDATA[line 2, col 72, Error - Missing semicolon. (semi)]]></failure></testcase>
-<testcase time="0" name="org.eslint.semi"><failure message="Missing semicolon."><![CDATA[line 3, col 74, Error - Missing semicolon. (semi)]]></failure></testcase>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/chart/addTableDestak.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/chart/addTableDestak.js" />
 </testsuite>
 <testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/chart/downloadCharts.js">
 <testcase time="0" name="/home/eduruiz/code/tide/source/scripts/chart/downloadCharts.js" />
@@ -28,8 +27,8 @@
 <testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/chart/sizeToggle.js">
 <testcase time="0" name="/home/eduruiz/code/tide/source/scripts/chart/sizeToggle.js" />
 </testsuite>
-<testsuite package="org.eslint" time="0" tests="1" errors="1" name="/home/eduruiz/code/tide/source/scripts/chart/updateHelperText.js">
-<testcase time="0" name="org.eslint.semi"><failure message="Missing semicolon."><![CDATA[line 2, col 63, Error - Missing semicolon. (semi)]]></failure></testcase>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/chart/updateHelperText.js">
+<testcase time="0" name="/home/eduruiz/code/tide/source/scripts/chart/updateHelperText.js" />
 </testsuite>
 <testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide/source/scripts/chart/updateTableInfo.js">
 <testcase time="0" name="/home/eduruiz/code/tide/source/scripts/chart/updateTableInfo.js" />

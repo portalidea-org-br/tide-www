@@ -12184,6 +12184,12 @@ function mountNovidadesHtml(items, id) {
   }
 }
 
+function getYoutubeVideoId(url) {
+  var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+  var match = url.match(regExp);
+  return match[7];
+}
+
 function mountDepoimentosHtml(items, id) {
   var sections = '';
   var element = document.getElementById(id);
@@ -12196,7 +12202,7 @@ function mountDepoimentosHtml(items, id) {
         videoId = getYoutubeVideoId(item.video);
       }
 
-      sections += "\n        <blockquote>\n          <div class=\"testimonials__content\">\n            ".concat(item.video ? "<a\n                    class=\"testimonials__video-link\"\n                    data-micromodal-trigger=\"js-".concat(videoId, "\">\n                  ") : '', "\n              <figure>\n                <img src=\"").concat(item.image, "\" alt=\"").concat(item.alt, "\">\n              </figure>\n            ").concat(item.video ? '</a>' : '', "\n            ").concat(item.content, "\n            <footer><cite>").concat(item.name, "</cite></footer>\n          </div>\n          ").concat(item.video ? "\n                <div class=\"modal micromodal-slide\" id=\"js-".concat(videoId, "\" aria-hidden=\"true\">\n                  <div class=\"modal__overlay\" tabindex=\"-1\" data-micromodal-close>\n                    <div class=\"modal__container modal__container--auto\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"js-modal-user-popup-title\">\n                      <header class=\"modal__header\">\n                        <button class=\"modal__close\" aria-label=\"Close modal\" data-micromodal-close></button>\n                      </header>\n                      <main id=\"js-modal-user-popup-content\">\n                        <iframe class=\"modal__video\" src=\"https://www.youtube-nocookie.com/embed/").concat(videoId, "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n                      </main>\n                    </div>\n                  </div>\n                </div>\n                ") : '', "\n        </blockquote>\n      ");
+      sections += "\n        <blockquote>\n          <div class=\"testimonials__content\">\n            ".concat(item.video ? "<a class=\"testimonials__video-link\" data-micromodal-trigger=\"js-".concat(videoId, "\"> ") : '', "\n              <figure>\n                <img src=\"").concat(item.image, "\" alt=\"").concat(item.alt, "\">\n              </figure>\n            ").concat(item.video ? '</a>' : '', "\n            ").concat(item.content, "\n            <footer><cite>").concat(item.name, "</cite></footer>\n          </div>\n          ").concat(item.video ? "<div class=\"modal micromodal-slide\" id=\"js-".concat(videoId, "\" aria-hidden=\"true\">\n        <div class=\"modal__overlay\" tabindex=\"-1\" data-micromodal-close>\n          <div class=\"modal__container modal__container--auto\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"js-modal-user-popup-title\">\n            <header class=\"modal__header\">\n              <button class=\"modal__close\" aria-label=\"Close modal\" data-micromodal-close></button>\n            </header>\n            <main id=\"js-modal-user-popup-content\">\n              <iframe class=\"modal__video\" src=\"https://www.youtube-nocookie.com/embed/").concat(videoId, "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n            </main>\n          </div>\n        </div>\n      </div>\n      ") : '', "\n        </blockquote>\n      ");
     });
     element.innerHTML = sections;
   }
@@ -12211,17 +12217,6 @@ function mountPesquisasHtml(items, id) {
       sections += "\n        <section>\n          <header>\n            <h2>".concat(item.title, "</h2>\n          </header>\n          <p>").concat(item.short_description, "</p>\n          <a href=\"").concat(item.file, "\" class=\"button button--black\">ler pesquisa</a>\n        </section>\n      ");
     });
     element.innerHTML = sections;
-  }
-}
-
-function getYoutubeVideoId(url) {
-  var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-  var match = url.match(regExp);
-
-  if (match && match[7].length === 11) {
-    return match[7];
-  } else {
-    return null;
   }
 }
 
