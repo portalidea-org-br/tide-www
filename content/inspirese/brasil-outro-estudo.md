@@ -14,6 +14,10 @@ alt: >-
   7 anos, garantindo as competências de leitura e escrita. 
 file: /uploads/carminhameirelles_ceara.pdf
 author: Maria do Carmo Meirelles Toledo Cruz
-short_description: aaa
+short_description: >-
+  O Programa Alfabetização na Idade Certa (Paic) foi concebido pelo Comitê
+  Cearense para Eliminação do Analfabetismo Escolar, em 2004, para promover a
+  alfabetização de todas as crianças cearenses das redes públicas de ensino até
+  7 anos, garantindo as competências de leitura e escrita.
 ---
 aaa
