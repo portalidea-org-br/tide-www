@@ -1,9 +1,8 @@
 ---
-title: 300 reais
+title: 08%
 callToActionText: Saiba mais
 callToActionUrl: /dados/
 date: 2018-09-14T14:58:16.000Z
 draft: false
 ---
-
-é o custo médio mensal de um aluno do ensino médio na rede pública. Enquanto que em uma escola particular esse custo salta para, em média, R$ 700 por aluno
+No 5º ano, ao passo que 8% dos municípios que possuem qualidade alta em Língua Portuguesa estão em situação de equidade de aça, a proporção chega a 49% de municípios com desigualdade alta.
