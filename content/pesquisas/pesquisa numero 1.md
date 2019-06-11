@@ -4,7 +4,7 @@ date: '2017-03-20T20:55:00Z'
 areas:
   - Gênero e raça
 file: /uploads/carminhameirelles_ceara.pdf
-short_description: aaa
+short_description: Conheça mais sobre a pesquisa
 ---
 Introdução
 
