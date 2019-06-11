@@ -1,10 +1,8 @@
 ---
-title: 56%
+title: 08%
 callToActionText: Saiba mais
 callToActionUrl: /dados/
 date: 2018-09-14T14:58:16.000Z
 draft: false
 ---
-
-dos recursos para investimento educacional é o que dispõe os municípios de nível socioeconômico baixo em relação aos municípios de nível socioeconômico mais alto
-
+No 5º ano, ao passo que 8% dos municípios que possuem qualidade alta em Língua Portuguesa estão em situação de equidade de aça, a proporção chega a 49% de municípios com desigualdade alta.
