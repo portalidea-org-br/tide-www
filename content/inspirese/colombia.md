@@ -1,13 +1,21 @@
 ---
-title: Colombia
-date: 2017-03-23
+title: >-
+  As reformas implementadas em Ontário (Canadá) e suas implicações no sistema de
+  ensino e nos resultados educacionais
+date: 2017-03-23T00:00:00.000Z
+paises:
+  - Canadá
 image: 'https://placehold.it/600x500/ccc'
 image_big: 'https://placehold.it/1000x600/ccc'
-paises: ['colombia']
+alt: aaa
 file: 'http://www.pdf995.com/samples/pdf.pdf'
-author: 'Nome Sobrenome'
-short_description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren'
-publishdate: 2017-03-24
+author: Catarina Ianni Segatto
+short_description: >-
+  Este estudo busca investigar as iniciativas implementadas em Ontário, no
+  Canadá, que, segundo a literatura, produziram uma série de resultados, dentre
+  eles a redução das desigualdades educacionais, no Ensino Fundamental,
+  relacionadas ao desempenho dos alunos em Inglês e Matemática e também o
+  aumento da taxa de conclusão do Ensino Médio.
 ---
 
 I decided to start learning Go in March 2017.
