@@ -1,9 +1,6 @@
 ---
-title: "A desigualdade educacional no centro do debate"
-date: 2018-09-14T11:58:16-03:00
+title: O IDeA
+date: 2018-09-14T14:58:16.000Z
 draft: false
-callToActionText:
-callToActionUrl:
 ---
-
-O projeto Indicador de Desigualdades Educacionais é movido por uma convicção: a defesa do direito à educação requer a construção de instrumentos de verificação da realização desse direito
+O Indicador de Desigualdades e Aprendizagens (IDeA) aponta, para cada munícipio brasileiro, qual é o nível de aprendizagem e, ao mesmo tempo, a desigualdade de aprendizagem  entre grupos sociais, definidos por nível socioeconômico, raça, ou gênero.
