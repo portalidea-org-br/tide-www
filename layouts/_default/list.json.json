@@ -12,6 +12,9 @@
       {{ with .Params.image_big }}
         "image_big" : "{{ . }}",
       {{ end }}
+      {{ with .Params.video }}
+        "video" : "{{ . }}",
+      {{ end }}
       {{ with .Params.alt }}
         "alt" : "{{ . }}",
       {{ end }}

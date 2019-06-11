@@ -4,6 +4,7 @@ date: 2018-09-14T11:58:16-03:00
 draft: false
 name: "Maria Victoria Benevides"
 image: "https://placehold.it/295/295"
+video: "https://www.youtube.com/watch?v=aVS4W7GZSq0"
 alt: "Maria Victoria Benevides"
 weight: 1
 type: item

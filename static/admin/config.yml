@@ -117,6 +117,10 @@ collections:
         name: "Image"
         widget: "image"
       -
+        label: "Video"
+        name: "video"
+        widget: "string"
+      -
         label: "Texto alternativo da imagem"
         name: "alt"
         widget: "string"
