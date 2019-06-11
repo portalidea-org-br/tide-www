@@ -1,15 +1,15 @@
 ---
-title: Brasil
-date: 2017-03-23
-paises: ['brasil']
+title: >-
+  Ações sistêmicas pelo direito à educação e atendimento aos povos da floresta:
+  o caso do Acre
+date: 2017-03-23T00:00:00.000Z
+paises:
+  - Brasil
 image: 'https://placehold.it/600x500/ccc'
 image_big: 'https://placehold.it/1000x600/ccc'
-file: 'http://www.pdf995.com/samples/pdf.pdf'
-author: 'Nome Sobrenome'
-short_description: 'Ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren'
-publishdate: 2017-03-24
+alt: aaaa
+file: /uploads/joana_acre.pdf
+author: Joana Buarque Gussmão
+short_description: bbb
 ---
-
-I decided to start learning Go in March 2017.
-
-Follow my journey through this new blog.
+Este texto tem como foco a política implementada pelo governo do Acre entre 1999 e 2010 com vistas a garantir condições para a efetivação do direito à educação no estado tendo como principal eixo orientador das ações a promoção da aprendizagem dos estudantes. Trata-se de uma política sistêmica, que abrange um conjunto de ações, nas quais se destacam, nesta sistematização, as direcionadas ao atendimento às especificidades dos povos da floresta — indígenas, ribeirinhos, seringueiros e outras populações rurais. Foi desenvolvida uma política ampla capaz de atender à diversidade dessas populações, na qual se destacam as seguintes estratégias: dotação de padrões mínimos de funcionamento para escolas situadas em diferentes territórios, atendimento semanal das crianças em idade pré-escolar (5 e 6 anos) por um educador em suas residências, criação de um modelo de unidocência para os anos finais do Ensino Fundamental na educação rural, rodízio de professores nas comunidades para o Ensino Médio, produção de material didático para as diversas etnias indígenas, seleção dos professores indígenas pelas próprias comunidades e consideração das identidades locais nos projetos arquitetônicos das escolas. As ações impactam, prioritariamente, a rede estadual, mas abrangem também o conjunto de municípios acreanos. Como resultados, indica-se o aumento do acesso das matrículas na educação rural.
