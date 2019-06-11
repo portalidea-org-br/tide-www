@@ -3,8 +3,8 @@ title: Marcadores de desigualdade na educação - gênero e raça
 date: '2017-03-20T20:55:00Z'
 areas:
   - Gênero e raça
-file: /uploads/carminhameirelles_ceara.pdf
-short_description: Conheça mais sobre a pesquisa
+file: /uploads/desigualdades-de-gênero-e-raça-na-educação.pdf
+short_description: Marília Moshkovich
 ---
 Introdução
 
