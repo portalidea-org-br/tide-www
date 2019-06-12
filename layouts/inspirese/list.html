@@ -28,7 +28,7 @@
           {{ range $name, $taxonomy := .Site.Taxonomies.paises }}
               <li>
                 <a class="shadow {{ if eq $.Data.Term $name }} active {{ end }}" href="/paises/{{ $name | urlize }}">
-                  {{ $name }}
+                  {{ $name | humanize }}
                 </a>
               </li>
           {{ end }}
