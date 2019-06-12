@@ -290,6 +290,11 @@ collections:
         label: "Conteúdo"
         name: "body"
         widget: "markdown"
+      -
+        label: "Arquivo"
+        name: "file"
+        widget: "file"
+        allow_multiple: false
   -
     label: "Parceiros"
     name: "parceiros"

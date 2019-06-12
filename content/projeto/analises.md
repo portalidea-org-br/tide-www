@@ -1,5 +1,6 @@
 ---
 title: Análises
+file: /uploads/pdf.pdf
 ---
 
 No Indicador de Desigualdades Educacionais a educação é entendida como um direito universal. É exatamente o que aponta a Constituição de 1988 no artigo 205: “a educação, direito de todos e dever do Estado e da família, será promovida e incentivada com a colaboração da sociedade, visando ao pleno desenvolvimento da pessoa, seu preparo para o exercício da cidadania e sua qualificação para o trabalho”.

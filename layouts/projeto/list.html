@@ -37,6 +37,9 @@
                 <div class="text-content">
                   {{ .Content }}
                 </div>
+                {{ with .Params.file }}
+                  <a href="{{ . }}" class="button button--black">Baixar pdf</a>
+                {{ end }}
               </div>
           {{ end }}
           </div>
