@@ -209,10 +209,12 @@ collections:
         label: "Imagem (600x500)"
         name: "image"
         widget: "image"
+        required: false
       -
         label: "Imagem (1000x600)"
         name: "image_big"
         widget: "image"
+        required: false
       -
         label: "Texto alternativo da imagem"
         name: "alt"
