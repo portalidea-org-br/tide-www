@@ -21,7 +21,6 @@ collections:
         name: "title"
         widget: "string"
         tagname: "h1"
-        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
       -
         label: "Texto do Botão"
         name: "callToActionText"
