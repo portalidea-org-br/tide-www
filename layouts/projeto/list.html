@@ -20,9 +20,8 @@
       <div class="container">
         <div class="tabs">
           <div class="tabs__controller">
-
             {{ range $index, $value := .Data.Pages }}
-              <a href="#{{ .Params.id }}"
+              <a href="#{{ .UniqueID }}"
                 {{ if (eq $index 0) }}class="active"{{ end }}>
                 {{ .Title }}
               </a>
@@ -33,7 +32,7 @@
 
           {{ range $index, $value := .Data.Pages }}
               <div
-                id="{{ .Params.id }}"
+                id="{{ .UniqueID }}"
                 {{ if (eq $index 0) }}class="visible"{{ end }}>
                 <div class="text-content">
                   {{ .Content }}

@@ -1,19 +1,6 @@
 ---
 title: Análises
-id: analises
-date: 2017-03-23
-publishdate: 2017-03-24
-weight: 2
 ---
-
-## Indicador de Desigualdades Educacionais – definições e medidas
-
-
-**Por que o Indicador de Desigualdades Educacionais foi criado**
-
-A Educação Básica é um direito de todos. Para garanti-lo, ferramentas que verifiquem a realização desse direito são necessárias. Por isso, o Indicador de Desigualdades Educacionais foi criado. É um instrumento que permite à sociedade brasileira medir, descrever e explicar a realidade de sua educação, enxergar avanços e desafios e criar políticas públicas para solucionar situações de desigualdades educacionais.
-
-**Direito à educação: o que é**
 
 No Indicador de Desigualdades Educacionais a educação é entendida como um direito universal. É exatamente o que aponta a Constituição de 1988 no artigo 205: “a educação, direito de todos e dever do Estado e da família, será promovida e incentivada com a colaboração da sociedade, visando ao pleno desenvolvimento da pessoa, seu preparo para o exercício da cidadania e sua qualificação para o trabalho”.
 
