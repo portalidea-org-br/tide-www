@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <title>tide</title>
+
+    {{ partial "head.html" . }}
+
+    <body>
+
+      {{ partial "header.html" . }}
+
+      <section class="page-title page-title--yellow page-title--no-icon">
+        <div class="container">
+          <h1>{{ .Title }}</h1>
+        </div>
+      </section>
+
+
+      <div class="container">
+        <ul class="tags tags--orange">
+          <li>
+            <a class="shadow {{ if eq .Page.RelPermalink "/pesquisas/" }} active {{ end }}" href="/pesquisas">
+              Todas
+            </a>
+          </li>
+          {{ range $name, $taxonomy := .Site.Taxonomies.areas }}
+              <li><a class="shadow" href="/areas/{{ $name | urlize }}">{{ $name | humanize }}</a></li>
+          {{ end }}
+          <li><a class="shadow" href="/probreza-desigualdade-e-educacao">Pobreza Desigualdade e Educação</a></li>
+        </ul>
+      </div>
+
+      <div class="container">
+        <div class="posts">
+
+          {{ range .Data.Pages }}
+            <section class="posts__post">
+              <h3 class="posts__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+
+              <!-- Save post title for use in image alt -->
+              {{ $title := .Title }}
+
+              <div class="posts__text">
+                <p>{{ .Params.short_description }}</p>
+                <p>{{ .Params.short_description }}</p>
+              </div>
+              <ul class="unstyled-list">
+                <li>
+                  <a href="{{ .Permalink }}#pt-text">Texto em português</a>
+                </li>
+                <li>
+                  Texto em inglês
+                </li>
+                <li>
+                  Bibliografia principal
+                </li>
+                <li>
+                  Bibliografia secundária
+                </li>
+              </ul>
+
+              <a href="{{ .Permalink }}" class="button button--black">saiba mais</a>
+            </section>
+          {{ end }}
+        </div>
+      </div>
+
+      {{ partial "footer.html" . }}
+
+      {{ $vendorJS := resources.Get "assets/scripts/vendor.js" }}
+      {{ $secureVendorJS := $vendorJS | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureVendorJS.RelPermalink }}" integrity="{{ $secureVendorJS.Data.Integrity }}"></script>
+
+      {{ $js := resources.Get "assets/scripts/index.js" }}
+      {{ $secureJS := $js | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+    </body>
+</html>
