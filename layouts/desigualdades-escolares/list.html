@@ -29,15 +29,19 @@
           {{ range $name, $taxonomy := .Site.Taxonomies.areas }}
               <li><a class="shadow" href="/areas/{{ $name | urlize }}">{{ $name | humanize }}</a></li>
           {{ end }}
-          <li><a class="shadow" href="/probreza-desigualdade-e-educacao">Pobreza Desigualdade e Educação</a></li>
         </ul>
       </div>
 
       <div class="container">
-        <div class="posts">
-
+        <div class="post">
+          <section class="posts__post">
+          <div class="posts__text">
+            {{ .Content }}
+          </div>
+          {{ with .Params.file }}
+            <a href="{{ . }}" class="simple-link">Ler pesquisa completa em pdf</a>
+          {{ end }}
           {{ range .Data.Pages }}
-            <section class="posts__post">
               <h3 class="posts__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
 
               <!-- Save post title for use in image alt -->
@@ -45,26 +49,26 @@
 
               <div class="posts__text">
                 <p>{{ .Params.short_description }}</p>
-                <p>{{ .Params.short_description }}</p>
               </div>
               <ul class="unstyled-list">
-                <li>
-                  <a href="{{ .Permalink }}#pt-text">Texto em português</a>
-                </li>
-                <li>
-                  Texto em inglês
-                </li>
-                <li>
-                  Bibliografia principal
-                </li>
-                <li>
-                  Bibliografia secundária
-                </li>
-              </ul>
-
-              <a href="{{ .Permalink }}" class="button button--black">saiba mais</a>
-            </section>
-          {{ end }}
+                  <li>
+                    <a href="{{ .Permalink }}#pt-text">Texto em português</a>
+                  </li>
+                  <li>
+                    <a href="{{ .Permalink }}#en-text">Texto em inglês</a>
+                  </li>
+                  <li>
+                    <a href="{{ .Permalink }}#main-bibliography">Bibliografia principal</a>
+                  </li>
+                  <li>
+                    <a href="{{ .Permalink }}#secondary-bibliography">Bibliografia secundária</a>
+                  </li>
+                </ul>
+            {{ end }}
+            {{ with .Params.file }}
+            <a href="{{ . }}">Ler pesquisa completa em pdf</a>
+            {{ end }}
+          </section>
         </div>
       </div>
 

@@ -292,6 +292,16 @@ collections:
         name: "bibliografia_secundaria"
         widget: "markdown"
       -
+        label: "Bibliografia principal PDF"
+        name: "main_bibliography_pdf"
+        widget: "file"
+        allow_multiple: false
+      -
+        label: "Bibliografia secundária PDF"
+        name: "secondary_bibliography_pdf"
+        widget: "file"
+        allow_multiple: false
+      -
         label: "Arquivo"
         name: "file"
         widget: "file"

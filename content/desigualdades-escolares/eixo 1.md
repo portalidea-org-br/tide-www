@@ -1,6 +1,10 @@
 ---
 title: Eixo 1
 date: 2017-03-23T00:00:00.000Z
+areas: ['Pobreza Desigualdade e Educação']
+custom_link: '/desigualdades-escolares'
+main_bibliography_pdf: /uploads/pdf.pdf
+secondary_bibliography_pdf: /uploads/pdf.pdf
 texto_portugues: >-
   Texto em português Neste eixo se agrupam estudos que realizam comparações de
   dados internacionais sobre resultados de **aprendizagem e de políticas
