@@ -257,6 +257,78 @@ collections:
         widget: "file"
         allow_multiple: false
   -
+    label: "Desigualdades Escolares"
+    name: "desigualdades escolares"
+    folder: "content/desigualdades-escolares"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h3"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Data"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
+      -
+        label: "Texto em português"
+        name: "texto_portugues"
+        widget: "markdown"
+      -
+        label: "Texto em inglês"
+        name: "texto_ingles"
+        widget: "markdown"
+      -
+        label: "Bibliografia principal"
+        name: "bibliografia_principal"
+        widget: "markdown"
+      -
+        label: "Bibliografia secundária"
+        name: "bibliografia_secundaria"
+        widget: "markdown"
+      -
+        label: "Arquivo"
+        name: "file"
+        widget: "file"
+        allow_multiple: false
+      -
+        label: "Descrição curta"
+        name: "short_description"
+        widget: "string"
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
+  -
+    label: "Projeto"
+    name: "projeto"
+    folder: "content/projeto"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h3"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
+      -
+        label: "Arquivo"
+        name: "file"
+        widget: "file"
+        allow_multiple: false
+
+  -
     label: "Parceiros"
     name: "parceiros"
     folder: "content/parceiros"
