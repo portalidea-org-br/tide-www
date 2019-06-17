@@ -94,4 +94,4 @@ Para gênero, foram adotadas só duas categorias: equidade e desigualdades. Já 
 
 Por fim, é necessário mencionar as “situações atípicas”: elas contrariam o padrão conhecido das desigualdades no Brasil, e há pouquíssimos municípios nessa condição.
 
-\* Há uma variação em torno de zero que é aceita como equidade, pois o zero exato é praticamente impossível de ser verificado. Essa variação é, resumidamente, correspondente à situação em que os grupos comparados não se afastam mais do que 5 pontos na Prova Brasil, o que equivale a um bimestre escolar.
+**\*** Há uma variação em torno de zero que é aceita como equidade, pois o zero exato é praticamente impossível de ser verificado. Essa variação é, resumidamente, correspondente à situação em que os grupos comparados não se afastam mais do que 5 pontos na Prova Brasil, o que equivale a um bimestre escolar.
