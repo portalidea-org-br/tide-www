@@ -310,10 +310,6 @@ collections:
         label: "Descrição curta"
         name: "short_description"
         widget: "string"
-      -
-        label: "Conteúdo"
-        name: "body"
-        widget: "markdown"
   -
     label: "Projeto"
     name: "projeto"

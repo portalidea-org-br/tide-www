@@ -86,6 +86,42 @@ p {
   color: palette('orange');
 }
 
+.icon-link {
+  &::before {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.3em;
+    vertical-align: top;
+    background-size: cover;
+    content: '';
+  }
+}
+
+.icon-link__pt-text {
+  &::before {
+    background-image: image('pt-text.svg');
+  }
+}
+
+.icon-link__en-text {
+  &::before {
+    background-image: image('en-text.svg');
+  }
+}
+
+.icon-link__library-main-text {
+  &::before {
+    background-image: image('library-main.svg');
+  }
+}
+
+.icon-link__library-secondary-text {
+  &::before {
+    background-image: image('library-secondary.svg');
+  }
+}
+
 /**
  * @see: http://demosthenes.info/blog/946/Controlling-Widows--Orphans
  */
