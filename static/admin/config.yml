@@ -257,7 +257,7 @@ collections:
         widget: "file"
         allow_multiple: false
   -
-    label: "Desigualdades Escolares"
+    label: "Pobreza desigualdade e educação"
     name: "desigualdades escolares"
     folder: "content/desigualdades-escolares"
     create: true
