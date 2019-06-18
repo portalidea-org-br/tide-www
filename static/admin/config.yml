@@ -296,11 +296,13 @@ collections:
         name: "main_bibliography_pdf"
         widget: "file"
         allow_multiple: false
+        required: false
       -
         label: "Bibliografia secundária PDF"
         name: "secondary_bibliography_pdf"
         widget: "file"
         allow_multiple: false
+        required: false
       -
         label: "Arquivo"
         name: "file"
