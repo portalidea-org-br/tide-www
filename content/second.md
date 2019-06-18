@@ -1,5 +1,5 @@
 ---
-title: 01%
+title: 1%
 callToActionText: Saiba mais
 callToActionUrl: /idea/
 date: 2018-09-14T14:58:16.000Z
