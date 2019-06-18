@@ -1,6 +1,8 @@
 ---
 title: Eixo 1 teste
 date: 2017-03-23T00:00:00.000Z
+areas:
+  - Pobreza Desigualdade e Educação
 texto_portugues: >-
   Texto em português Neste eixo se agrupam estudos que realizam comparações de
   dados internacionais sobre resultados de **aprendizagem e de políticas
