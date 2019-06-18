@@ -156,9 +156,11 @@
                       <h2>{{ .Title }}<span>{{ .Params.author }}</span></h2>
                       <p>{{ .Params.short_description }}</p>
                     </header>
+                    {{ if (isset .Params "image") }}
                     <img
                       srcset="{{ .Params.image }} 600w, {{ .Params.image_big }} 1000w"
                       src="{{ .Params.image }}" alt="{{ .Params.alt }}">
+                    {{ end }}
                     <a href="{{.Params.file}}" class="button button--black" target="_blank">ler experiencia</a>
                   </section>
                 {{ end }}
