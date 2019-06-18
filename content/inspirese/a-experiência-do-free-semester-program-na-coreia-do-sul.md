@@ -9,12 +9,11 @@ alt: aaa
 file: /uploads/filomena_coreia-do-sul.pdf
 author: Filomena Siqueira
 short_description: >-
-  As políticas educacionais implementadas pela Coreia do Sul desde a sua
-  independência mostram uma trajetória de expansão do acesso e melhoria da
-  qualidade. Não obstante, ainda que os testes de proficiência, como o Pisa da
-  OCDE, coloquem a Coreia do Sul entre aqueles com melhores resultados, o país
-  realiza mudanças contínuas nas suas políticas educacionais, o que indica uma
-  disposição permanente de adequar seu sistema aos desafios de uma sociedade em
-  constante transformação.
+  Relata a experiência recente do Free Semester Program, voltado ao
+  enfrentamento de dois problemas no Ensino Médio coreano: o alto nível de
+  exigência quanto à dedicação aos estudos, o que torna a escolarização nesta
+  etapa desgastante, e a diferenciação nas chances de acesso ao Ensino Superior
+  para alunos de origem social desfavorecida, que não podem arcar com reforço
+  escolar de melhor qualidade e mais caro.
 ---
 aaa
