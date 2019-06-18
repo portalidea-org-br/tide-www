@@ -1,7 +1,9 @@
 ---
 title: Adicional
 date: 2017-03-23T00:00:00.000Z
-custom_link: '/desigualdades-escolares'
+areas:
+  - Pobreza Desigualdade e Educação
+custom_link: /desigualdades-escolares
 texto_portugues: >-
   Texto em português Neste eixo se agrupam estudos que realizam comparações de
   dados internacionais sobre resultados de **aprendizagem e de políticas
@@ -66,6 +68,7 @@ main_bibliography_pdf: /uploads/pdf.pdf
 secondary_bibliography_pdf: /uploads/pdf.pdf
 file: 'http://www.pdf995.com/samples/pdf.pdf'
 short_description: >-
-  Pobreza Desigualdade e Educação lorem ipsum dolor sit amet, consetetur
-  dolores et ea rebum. Stet clita kasd gubergren
+  Pobreza Desigualdade e Educação lorem ipsum dolor sit amet, consetetur dolores
+  et ea rebum. Stet clita kasd gubergren
 ---
+
