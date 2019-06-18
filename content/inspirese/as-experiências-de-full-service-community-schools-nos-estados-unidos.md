@@ -9,12 +9,13 @@ alt: aaa
 file: /uploads/viviane_eua.pdf
 author: Viviane Coelho Caldeira Ramos
 short_description: >-
-  Neste trabalho, sistematizamos a política de financiamento do governo federal
-  americano para as FSCS, por meio da descrição de alguns casos de implementação
-  da política e de seus resultados, cujas estratégias adotadas focam as
-  necessidades básicas dos alunos e das famílias, o enriquecimento cultural, o
-  desenvolvimento físico, acadêmico e profissional, estabelecendo laços com a
-  comunidade mais ampla e auxiliando as famílias no acesso a serviços públicos e
-  garantia de seus direitos.
+  Trata de uma política de financiamento do governo federal estadunidense
+  voltada a escolas localizadas em regiões com alto índice de pobreza, número
+  elevado de minorias raciais/étnicas e casos de violência. As experiências
+  relatadas demonstram que, por meio de parcerias entre governos (federal,
+  estaduais, municipais) e sociedade civil, são ofertados diversos tipos de
+  serviços aos alunos, pais e comunidade, o que gera impactos positivos na
+  permanência, desempenho e taxa de conclusão dos estudantes que vivem em
+  regiões vulneráveis.
 ---
 aaa
