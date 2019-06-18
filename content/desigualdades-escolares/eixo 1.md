@@ -1,6 +1,8 @@
 ---
 title: Eixo 1 teste
 date: 2017-03-23T00:00:00.000Z
+areas: ['Pobreza Desigualdade e Educação']
+custom_link: '/desigualdades-escolares'
 areas:
   - Pobreza Desigualdade e Educação
 texto_portugues: >-
