@@ -30,6 +30,17 @@
   box-sizing: border-box;
 }
 
+.modal__container--auto {
+  width: auto;
+  max-width: 100%;
+}
+
+.modal__video {
+  width: 35rem;
+  height: 19.688rem;
+  max-width: 100%;
+}
+
 .modal__header {
   display: flex;
 
@@ -62,6 +73,12 @@
 
 .modal__header .modal__close::before {
   content: '\2715';
+  // background: white;
+  // border-radius: 50%;
+  // display: inline-flex;
+  // width: 27px;
+  // height: 27px;
+  // justify-content: center;
 }
 
 .modal__content {
@@ -70,7 +87,6 @@
 
   line-height: 1.5;
 }
-
 
 /**************************\
   Demo Animation Style

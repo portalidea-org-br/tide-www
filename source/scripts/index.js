@@ -7,12 +7,12 @@ import initSlider from './slider';
 import initRandomize from './randomize';
 
 initMenuToggle();
-initModal();
 initContactForm();
 goBack();
 initTabs();
 async function handleSliderTimer() {
   await initRandomize();
   await initSlider();
+  await initModal();
 }
 handleSliderTimer();

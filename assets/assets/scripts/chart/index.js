@@ -4760,7 +4760,7 @@ function drawChart(chartData, subject) {
     },
     yAxis: {
       title: {
-        text: "".concat(subject === 'pt' ? 'Português' : 'Matemática', " | [N\xEDvel de aprendizado]")
+        text: "".concat(subject === 'pt' ? 'Português' : 'Matemática', " | [N\xEDvel de aprendizagem]")
       },
       lineWidth: 1,
       gridZIndex: 0,
@@ -5068,19 +5068,19 @@ function updateHelperText(cityId) {
       data = _window$chartData.data,
       xAxis = _window$chartData.xAxis;
   var helperTextDictionary = {
-    racial: 'Raça',
-    sex: 'Gênero',
-    nse: 'Nível Sócio Econômico',
-    baixa: 'Baixa',
-    'medio-baixa': 'Médio Baixa',
-    media: 'Média',
-    'medio-alta': 'Médio Alta',
-    alta: 'Alta',
-    'desigualdade-extrema': 'Desigualdade Extrema',
-    'desigualdade-alta': 'Desigualdade Alta',
-    desigualdade: 'Desigualdade',
-    equidade: 'Equidade',
-    'situacoes-atipicas': 'Situações Atípicas'
+    racial: 'raça',
+    sex: 'gênero',
+    nse: 'nível sócio econômico',
+    baixa: 'baixa',
+    'medio-baixa': 'médio baixa',
+    media: 'média',
+    'medio-alta': 'médio alta',
+    alta: 'alta',
+    'desigualdade-extrema': 'desigualdade extrema',
+    'desigualdade-alta': 'desigualdade alta',
+    desigualdade: 'desigualdade',
+    equidade: 'equidade',
+    'situacoes-atipicas': 'situações atípicas'
   };
 
   if (!cityId) {

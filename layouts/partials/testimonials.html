@@ -1,6 +1,6 @@
 <section class="testimonials">
   <div class="container">
-    <h4>Depoimentos</h4>
+    <h4>Conheça mais sobre o debate</h4>
   </div>
   <div class="slider" id="js-depoimentos">
     <p class="js-loading-indicator">Carregando...</p>
@@ -8,10 +8,17 @@
   <noscript>
     <div class="slider">
       {{ range first 3 (sort ((where .Site.Pages ".Params.role" "testimonials") "weight" "desc")) }}
+
       <blockquote>
         <div class="testimonials__content">
           <figure>
-            <img src="{{ .Params.Image }}" alt="{{ .Params.Alt }}">
+            {{ with .Params.video }}
+              <a href="#video">
+            {{ end }}
+              <img src="{{ .Params.Image }}" alt="{{ .Params.Alt }}">
+            {{ with .Params.video }}
+              </a>
+            {{ end }}
           </figure>
           <p>{{ .Content | plainify }}</p>
           {{ if .Params.Name }}

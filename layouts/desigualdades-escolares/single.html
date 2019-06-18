@@ -1,0 +1,149 @@
+    {{ partial "head.html" . }}
+
+    <body>
+
+      {{ partial "header.html" . }}
+
+      <section class="page-title page-title--yellow page-title--no-icon">
+        <div class="container">
+          <h1>{{ .Title }}</h1>
+        </div>
+      </section>
+
+
+      <div class="container container--small">
+        <ul class="tags tags--orange">
+          <!-- Set tags limit for loop -->
+
+          <li>
+            <a class="shadow {{ if eq .Page.RelPermalink "/pesquisas/" }} active {{ end }}" href="/pesquisas">
+              Todas
+            </a>
+          </li>
+
+          <!--
+            Here we loop over all taxonomies from the site and from the item,
+            and "humanize" them, if they match we set an active class to the list
+            also we set a variable to be the tags length limit and compare it with the
+            array length before printing anything
+          -->
+
+
+          {{- $.Scratch.Set "myLimit" 0 }}
+          {{ range $name, $taxonomy := .Site.Taxonomies.areas }}
+            {{- $.Scratch.Set "myLimit" (add ($.Scratch.Get "myLimit") 1) }}
+            {{- if le ($.Scratch.Get "myLimit") (6) }}
+              <li><a class="shadow
+                    {{ range $area := $.Params.areas }}
+                      {{ if eq ($area | humanize) ($name | humanize) }}
+                        active
+                      {{ end }}
+                    {{ end }}
+                    "
+                    href="/areas/{{ $name | urlize }}">{{ $name | humanize }}</a></li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </div>
+
+      <!--
+        here we get the current post "index" by looping through all posts, reversing it's order
+        and checking if the post is the one being showed, if it is we set assing it to the currentItem
+        variable and add one 'cause the range index is zero base
+      -->
+      {{ range $index, $element := (where .Site.RegularPages "Type" "novidades" ).Reverse }}
+        {{ if eq . $ }}
+          {{- $.Scratch.Set "currentItem" (add $index 1) }}
+        {{ end }}
+      {{end}}
+
+      <div class="container container--small">
+
+        {{ .Params.short_description }}
+
+        <div class="custom-research">
+            <section>
+              <div class="custom-research__section">
+                <h3>Sumário</h3>
+                <ul class="unstyled-list">
+                  <li>
+                    <a
+                      class="simple-link icon-link icon-link__pt-text"
+                      href="{{ .Permalink }}#pt-text"
+                    >Texto em português</a>
+                  </li>
+                  <li>
+                    <a
+                      class="simple-link icon-link icon-link__en-text"
+                      href="{{ .Permalink }}#en-text"
+                    >Texto em inglês</a>
+                  </li>
+                  <li>
+                    <a
+                      class="simple-link icon-link icon-link__library-main-text"
+                      href="{{ .Permalink }}#main-bibliography"
+                    >Bibliografia principal</a>
+                  </li>
+                  <li>
+                    <a
+                      class="simple-link icon-link icon-link__library-secondary-text"
+                      href="{{ .Permalink }}#secondary-bibliography"
+                    >Bibliografia secundária</a>
+                  </li>
+                </ul>
+              </div>
+
+              <section class="posts__section posts__togglable" id="pt-text">
+                {{ .Params.texto_portugues | markdownify  }}
+              </section>
+
+              <section class="posts__section posts__togglable" id="en-text">
+                {{ .Params.texto_ingles | markdownify }}
+              </section>
+
+              <section class="posts__section posts__togglable" id="main-bibliography">
+                {{ .Params.bibliografia_principal | markdownify }}
+              </section>
+
+              <section class="posts__section posts__togglable" id="secondary-bibliography">
+                {{ .Params.bibliografia_secundaria | markdownify }}
+              </section>
+
+              <div class="custom-research__buttons">
+                <a
+                  href="{{ .Params.file }}"
+                  target="_blank"
+                  class="button button--black"
+                >
+                  Ler pesquisa em PDF
+                </a>
+                <a
+                  href="{{ .Params.main_bibliography_pdf }}"
+                  target="_blank"
+                  class="button button--black"
+                >
+                  Ler biblioteca principal
+                </a>
+                <a
+                  href="{{ .Params.secondary_bibliography_pdf }}"
+                  target="_blank"
+                  class="button button--black"
+                >
+                  Ler biblioteca secundária
+                </a>
+              </div>
+            </section>
+        </div>
+      </div>
+
+      {{ partial "footer.html" . }}
+
+      {{ $vendorJS := resources.Get "assets/scripts/vendor.js" }}
+      {{ $secureVendorJS := $vendorJS | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureVendorJS.RelPermalink }}" integrity="{{ $secureVendorJS.Data.Integrity }}"></script>
+
+      {{ $js := resources.Get "assets/scripts/index.js" }}
+      {{ $secureJS := $js | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+    </body>
+</html>

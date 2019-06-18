@@ -33,9 +33,9 @@ menu:
     name: "Home"
     url: "/"
     weight: 1
-  - identifier: "dados"
-    name: "Dados"
-    url: "/dados"
+  - identifier: "idea"
+    name: "IDeA"
+    url: "/idea"
     weight: 2
   - identifier: "Project"
     name: "Projeto"
@@ -53,10 +53,14 @@ menu:
     name: "Novidades"
     url: "/novidades"
     weight: 6
+  - identifier: "parceiros"
+    name: "Parceiros"
+    url: "/parceiros"
+    weight: 7
   - identifier: "contato"
     name: "Contato"
     url: "/#contato"
-    weight: 7
+    weight: 8
 metaDataFormat: "yaml"
 title: "Eduquidade"
 params:

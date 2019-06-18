@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico">
-    <title>tide</title>
-
     {{ partial "head.html" . }}
 
     <body>
@@ -28,7 +20,7 @@
           {{ range $name, $taxonomy := .Site.Taxonomies.paises }}
               <li>
                 <a class="shadow {{ if eq $.Data.Term $name }} active {{ end }}" href="/paises/{{ $name | urlize }}">
-                  {{ $name }}
+                  {{ $name | humanize }}
                 </a>
               </li>
           {{ end }}

@@ -2,7 +2,7 @@
 title: Terceira pesquisa
 date: '2017-03-20T20:55:00Z'
 areas:
-  - 'Pobreza, desigualdade e educação'
+  - 'Classe e gênero'
 file: /uploads/pdf.pdf
 short_description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
 ---

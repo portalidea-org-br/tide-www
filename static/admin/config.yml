@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   repo: AppCivico/tide-www # Path to your Github repository
-  branch: master # Branch to update (optional; defaults to master)
+  branch: dev # Branch to update (optional; defaults to master)
   accept_roles:
     - admin
     - editor
@@ -21,7 +21,6 @@ collections:
         name: "title"
         widget: "string"
         tagname: "h1"
-        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
       -
         label: "Texto do Botão"
         name: "callToActionText"
@@ -42,44 +41,6 @@ collections:
         name: "draft"
         widget: "boolean"
         default: true
-      -
-        label: "Conteúdo"
-        name: "body"
-        widget: "markdown"
-  -
-    label: "Biblioteca"
-    name: "biblioteca"
-    folder: "content/biblioteca"
-    create: false
-    delete: false
-    slug: "{{slug}}"
-    fields:
-      -
-        label: "Titulo"
-        name: "title"
-        widget: "string"
-        tagname: "h1"
-        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
-      -
-        label: "Data"
-        name: "date"
-        widget: "datetime"
-        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
-      -
-        label: "Rascunho"
-        name: "draft"
-        widget: "boolean"
-        default: true
-      -
-        label: "layout"
-        name: "layout"
-        widget: "hidden"
-        default: "single"
-      -
-        label: "type"
-        name: "type"
-        widget: "hidden"
-        default: "biblioteca"
       -
         label: "Conteúdo"
         name: "body"
@@ -116,6 +77,10 @@ collections:
         label: "Imagem (432 X 432)"
         name: "Image"
         widget: "image"
+      -
+        label: "Video"
+        name: "video"
+        widget: "string"
       -
         label: "Texto alternativo da imagem"
         name: "alt"
@@ -205,10 +170,12 @@ collections:
         label: "Imagem (600x500)"
         name: "image"
         widget: "image"
+        required: false
       -
         label: "Imagem (1000x600)"
         name: "image_big"
         widget: "image"
+        required: false
       -
         label: "Texto alternativo da imagem"
         name: "alt"
@@ -270,6 +237,107 @@ collections:
     label: "Projeto"
     name: "projeto"
     folder: "content/projeto"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h3"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
+      -
+        label: "Arquivo"
+        name: "file"
+        widget: "file"
+        allow_multiple: false
+  -
+    label: "Pobreza desigualdade e educação"
+    name: "desigualdades escolares"
+    folder: "content/desigualdades-escolares"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h3"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Data"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
+      -
+        label: "Texto em português"
+        name: "texto_portugues"
+        widget: "markdown"
+      -
+        label: "Texto em inglês"
+        name: "texto_ingles"
+        widget: "markdown"
+      -
+        label: "Bibliografia principal"
+        name: "bibliografia_principal"
+        widget: "markdown"
+      -
+        label: "Bibliografia secundária"
+        name: "bibliografia_secundaria"
+        widget: "markdown"
+      -
+        label: "Bibliografia principal PDF"
+        name: "main_bibliography_pdf"
+        widget: "file"
+        allow_multiple: false
+      -
+        label: "Bibliografia secundária PDF"
+        name: "secondary_bibliography_pdf"
+        widget: "file"
+        allow_multiple: false
+      -
+        label: "Arquivo"
+        name: "file"
+        widget: "file"
+        allow_multiple: false
+      -
+        label: "Descrição curta"
+        name: "short_description"
+        widget: "string"
+  -
+    label: "Projeto"
+    name: "projeto"
+    folder: "content/projeto"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    fields:
+      -
+        label: "Titulo"
+        name: "title"
+        widget: "string"
+        tagname: "h3"
+        pattern: ['.{3,40}', "Must have between 3 and 40 characters"]
+      -
+        label: "Conteúdo"
+        name: "body"
+        widget: "markdown"
+      -
+        label: "Arquivo"
+        name: "file"
+        widget: "file"
+        allow_multiple: false
+
+  -
+    label: "Parceiros"
+    name: "parceiros"
+    folder: "content/parceiros"
     create: false
     delete: false
     slug: "{{slug}}"

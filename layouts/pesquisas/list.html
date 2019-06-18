@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico">
-    <title>tide</title>
-
     {{ partial "head.html" . }}
 
     <body>
@@ -46,7 +38,11 @@
                 <p>{{ .Params.short_description }}</p>
               </div>
 
-              <a href="{{ .Permalink }}" class="button button--black">saiba mais</a>
+              {{ with .Params.custom_link }}
+                <a href="{{ . }}" class="button button--black">saiba mais</a>
+              {{ else }}
+                <a href="{{ .Permalink }}" class="button button--black">saiba mais</a>
+              {{ end }}
             </section>
           {{ end }}
         </div>

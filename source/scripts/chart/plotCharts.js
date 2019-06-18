@@ -57,7 +57,7 @@ function drawChart(chartData, subject) {
       }],
     },
     yAxis: {
-      title: { text: `${subject === 'pt' ? 'Português' : 'Matemática'} | [Nível de aprendizado]` },
+      title: { text: `${subject === 'pt' ? 'Português' : 'Matemática'} | [Nível de aprendizagem]` },
       lineWidth: 1,
       gridZIndex: 0,
       max: 10,

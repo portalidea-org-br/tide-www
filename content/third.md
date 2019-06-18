@@ -1,7 +1,7 @@
 ---
 title: 08%
 callToActionText: Saiba mais
-callToActionUrl: /dados/
+callToActionUrl: /idea/
 date: 2018-09-14T14:58:16.000Z
 draft: false
 ---

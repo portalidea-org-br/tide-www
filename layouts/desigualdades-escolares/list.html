@@ -1,0 +1,98 @@
+    {{ partial "head.html" . }}
+
+    <body>
+
+      {{ partial "header.html" . }}
+
+      <section class="page-title page-title--yellow page-title--no-icon">
+        <div class="container">
+          <h1>{{ .Title }}</h1>
+        </div>
+      </section>
+
+
+      <div class="container">
+        <ul class="tags tags--orange">
+          <li>
+            <a class="shadow {{ if eq .Page.RelPermalink "/pesquisas/" }} active {{ end }}" href="/pesquisas">
+              Todas
+            </a>
+          </li>
+          {{ range $name, $taxonomy := .Site.Taxonomies.areas }}
+              <li><a class="shadow" href="/areas/{{ $name | urlize }}">{{ $name | humanize }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <div class="container">
+        <div class="custom-search">
+          <section class="">
+            <div class="custom-research__section">
+              {{ with .Content }}
+                {{ . }}
+              {{ end }}
+
+              {{ with .Params.file }}
+                <a href="{{ . }}" class="simple-link">Ler pesquisa completa em pdf</a>
+              {{ end }}
+            </div>
+
+            {{ range .Data.Pages }}
+              <div class="custom-research__section">
+                <h3 class="posts__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+
+                <!-- Save post title for use in image alt -->
+                {{ $title := .Title }}
+
+                <div class="posts__text">
+                  <p>{{ .Params.short_description }}</p>
+                </div>
+                <ul class="unstyled-list">
+                  <li>
+                    <a
+                      class="simple-link icon-link icon-link__pt-text"
+                      href="{{ .Permalink }}#pt-text"
+                    >Texto em português</a>
+                  </li>
+                  <li>
+                    <a
+                      class="simple-link icon-link icon-link__en-text"
+                      href="{{ .Permalink }}#en-text"
+                    >Texto em inglês</a>
+                  </li>
+                  <li>
+                    <a
+                      class="simple-link icon-link icon-link__library-main-text"
+                      href="{{ .Permalink }}#main-bibliography"
+                    >Bibliografia principal</a>
+                  </li>
+                  <li>
+                    <a
+                      class="simple-link icon-link icon-link__library-secondary-text"
+                      href="{{ .Permalink }}#secondary-bibliography"
+                    >Bibliografia secundária</a>
+                  </li>
+                </ul>
+              </div>
+            {{ end }}
+
+            {{ with .Params.file }}
+              <div class="custom-research__last-button">
+                <a href="{{ . }}" class="button button--black">Ler pesquisa completa em pdf</a>
+              </div>
+            {{ end }}
+          </section>
+        </div>
+      </div>
+
+      {{ partial "footer.html" . }}
+
+      {{ $vendorJS := resources.Get "assets/scripts/vendor.js" }}
+      {{ $secureVendorJS := $vendorJS | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureVendorJS.RelPermalink }}" integrity="{{ $secureVendorJS.Data.Integrity }}"></script>
+
+      {{ $js := resources.Get "assets/scripts/index.js" }}
+      {{ $secureJS := $js | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+    </body>
+</html>
