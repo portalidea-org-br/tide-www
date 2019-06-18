@@ -11,11 +11,12 @@ alt: aaa
 file: /uploads/catarina-segatto_canada.pdf
 author: Catarina Ianni Segatto
 short_description: >-
-  Este estudo busca investigar as iniciativas implementadas em Ontário, no
-  Canadá, que, segundo a literatura, produziram uma série de resultados, dentre
-  eles a redução das desigualdades educacionais, no Ensino Fundamental,
-  relacionadas ao desempenho dos alunos em Inglês e Matemática e também o
-  aumento da taxa de conclusão do Ensino Médio.
+  Relata a reestruturação da rede de ensino de Ontário, Canadá, após o ano de
+  2003, com intensa participação dos profissionais da educação, definições
+  claras de objetivos e trocas de experiência, o que resultou na redução das
+  diferenças de nível de aprendizado entre crianças de diferentes NSE, elevação
+  das taxas de conclusão no Ensino Médio, incluindo jovens com maior risco de
+  abandonar esse nível de escolaridade.
 ---
 
 I decided to start learning Go in March 2017.
