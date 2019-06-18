@@ -11,8 +11,8 @@ LAPOPE - Laboratório de Pesquisa em Oportunidades Educacionais (UFRJ)
 
 NAVE – Núcleo de Avaliação Educacional (UFOP)
 
-OIPP – Observatório Interdisciplinar de Políticas Públicas (USP)
-
 NUPEDE - Núcleo de Pesquisa em Desigualdades Escolares (UFMG)
+
+OIPP – Observatório Interdisciplinar de Políticas Públicas (USP)
 
 OSFE - Observatório Sociológico Família-Escola (UFMG)
