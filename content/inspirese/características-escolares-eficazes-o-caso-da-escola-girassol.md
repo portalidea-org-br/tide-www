@@ -9,9 +9,9 @@ alt: aaa
 file: /uploads/naira_escolas_es.pdf
 author: Naira da Costa Muylaert Lima
 short_description: >-
-  Este trabalho tem como objetivo apontar algumas características escolares,
-  consideradas como eficazes pela literatura especializada no campo da eficácia
-  escolar, que foram observadas em uma escola pública do município de Serra, no
-  Espírito Santo.
+  Sistematiza a experiência da Escola Girassol, localizada no município de Serra
+  (Espírito Santo), dando relevo às características escolares reportadas na
+  literatura como eficazes Tais características explicam os bons resultados
+  alcançados pelos alunos dessa escola nas avaliações estandardizadas.
 ---
 aaa
