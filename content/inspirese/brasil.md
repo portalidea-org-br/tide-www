@@ -11,9 +11,10 @@ alt: aaaa
 file: /uploads/joana_acre.pdf
 author: Joana Buarque Gussmão
 short_description: >-
-  Este texto tem como foco a política implementada pelo governo do Acre entre
-  1999 e 2010 com vistas a garantir condições para a efetivação do direito à
-  educação no estado tendo como principal eixo orientador das ações a promoção
-  da aprendizagem dos estudantes.
+  Relata a implementação de políticas educacionais no estado do Acre, entre 1999
+  e 2010, que visavam a efetivação do direito à educação. Focaliza,
+  especialmente, as estratégias voltadas ao acesso e ao atendimento das
+  especificidades dos povos da floresta: indígenas, ribeirinhos, seringueiros e
+  outras populações rurais.
 ---
 aaa
