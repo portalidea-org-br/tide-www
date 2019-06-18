@@ -1,14 +1,18 @@
 ---
 title: Parceiros
-date: 2018-09-14T14:58:16.000Z
-draft: false
 ---
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.
+## Rede de Grupos de Pesquisa em Educação e Desigualdades
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.
+Educação e Vulnerabilidade Social no Território (UNICID e UNIFESP)
+
+FOCUS - Grupo de Pesquisa sobre Educação, Instituições e Desigualdades (UNICAMP)
+
+LAPOPE - Laboratório de Pesquisa em Oportunidades Educacionais (UFRJ)
+
+NAVE – Núcleo de Avaliação Educacional (UFOP)
+
+OIPP – Observatório Interdisciplinar de Políticas Públicas (USP)
+
+NUPEDE - Núcleo de Pesquisa em Desigualdades Escolares (UFMG)
+
+OSFE - Observatório Sociológico Família-Escola (UFMG)
