@@ -29,28 +29,6 @@
   padding-bottom: 13em;
   margin: 0 auto;
 
-  &::before,
-  &::after {
-    position: absolute;
-    top: -17.875em;
-    left: -13em;
-    display: none;
-    width: 6.375em;
-    height: 13.875em;
-    background: image('tree.png');
-    background-size: contain;
-    content: '';
-
-    @media screen and (min-width: breakpoint('tablet')) {
-      display: block;
-    }
-
-    @media screen and (min-width: breakpoint('desktop')) {
-      top: -13em;
-      left: 1em;
-    }
-  }
-
   &::after {
     top: -14em;
     right: -17em;

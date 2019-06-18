@@ -106,26 +106,23 @@
   }
 }
 
-.trophy {
+.map-books {
   position: absolute;
-  bottom: 5.375em;
-
-  width: 5.56em;
+  top: -6rem;
+  left: 0;
+  width: 100%;
 
   @media screen and (min-width: breakpoint('desktop')) {
-    bottom: 188px;
-    left: 100px;
+    bottom: -13rem;
+    left: 6rem;
 
-    width: 11.062em;
+    width: 100%;
   }
-}
 
-.books-girl {
-  position: absolute;
-  bottom: 0;
-  left: 0;
 
-  width: 100%;
+  @media screen and (min-width: breakpoint('wide')) {
+    left: 16rem;
+  }
 }
 
 .hero-main .dots {
@@ -245,7 +242,7 @@
 
 .dots__dot:nth-child(6) {
   top: 19em;
-  left: 45.2em;
+  left: 43.2em;
 
   display: none;
 
