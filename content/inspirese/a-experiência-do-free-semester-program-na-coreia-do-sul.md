@@ -3,8 +3,8 @@ title: A experiência do Free Semester Program na Coreia do Sul
 date: '2019-06-11T16:23:32Z'
 paises:
   - Coreia do Sul
-image: /uploads/placeimg_1000_600_any.jpg
-image_big: /uploads/placeimg_1000_600_any.jpg
+image: ''
+image_big: ''
 alt: aaa
 file: /uploads/filomena_coreia-do-sul.pdf
 author: Filomena Siqueira
