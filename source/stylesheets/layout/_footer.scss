@@ -30,6 +30,9 @@
 
   color: palette('white');
 
+  background-image: image('logo.svg');
+  background-size: contain;
+
   @media screen and (min-width: breakpoint('desktop')) {
     font-size: ms(6);
   }
