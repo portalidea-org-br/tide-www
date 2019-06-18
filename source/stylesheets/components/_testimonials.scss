@@ -71,7 +71,7 @@
 .no-js .testimonials blockquote:nth-child(2),
 .testimonials blockquote:nth-child(3) {
   @media screen and (min-width: breakpoint('desktop')) {
-    margin-top: -6rem;
+    // margin-top: -6rem;
     margin-right: 20%;
     margin-left: auto;
   }

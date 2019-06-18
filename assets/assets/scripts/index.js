@@ -12192,6 +12192,7 @@ function getYoutubeVideoId(url) {
 
 function mountDepoimentosHtml(items, id) {
   var sections = '';
+  var videos = '';
   var element = document.getElementById(id);
 
   if (element) {
@@ -12202,9 +12203,17 @@ function mountDepoimentosHtml(items, id) {
         videoId = getYoutubeVideoId(item.video);
       }
 
-      sections += "\n        <blockquote>\n          <div class=\"testimonials__content\">\n            ".concat(item.video ? "<a class=\"testimonials__video-link\" data-micromodal-trigger=\"js-".concat(videoId, "\"> ") : '', "\n              <figure>\n                <img src=\"").concat(item.image, "\" alt=\"").concat(item.alt, "\">\n              </figure>\n            ").concat(item.video ? '</a>' : '', "\n            ").concat(item.content, "\n            <footer><cite>").concat(item.name, "</cite></footer>\n          </div>\n          ").concat(item.video ? "<div class=\"modal micromodal-slide\" id=\"js-".concat(videoId, "\" aria-hidden=\"true\">\n        <div class=\"modal__overlay\" tabindex=\"-1\" data-micromodal-close>\n          <div class=\"modal__container modal__container--auto\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"js-modal-user-popup-title\">\n            <header class=\"modal__header\">\n              <button class=\"modal__close\" aria-label=\"Close modal\" data-micromodal-close></button>\n            </header>\n            <main id=\"js-modal-user-popup-content\">\n              <iframe class=\"modal__video\" src=\"https://www.youtube-nocookie.com/embed/").concat(videoId, "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n            </main>\n          </div>\n        </div>\n      </div>\n      ") : '', "\n        </blockquote>\n      ");
+      sections += "\n        <blockquote>\n          <div class=\"testimonials__content\">\n            ".concat(item.video ? "<a class=\"testimonials__video-link\" data-micromodal-trigger=\"js-".concat(videoId, "\"> ") : '', "\n              <figure>\n                <img src=\"").concat(item.image, "\" alt=\"").concat(item.alt, "\">\n              </figure>\n            ").concat(item.video ? '</a>' : '', "\n            ").concat(item.content, "\n            <footer><cite>").concat(item.name, "</cite></footer>\n          </div>\n        </blockquote>\n      ");
+
+      if (item.video) {
+        videos += "<div class=\"modal micromodal-slide\" id=\"js-".concat(videoId, "\" aria-hidden=\"true\">\n        <div class=\"modal__overlay\" tabindex=\"-1\" data-micromodal-close>\n          <div class=\"modal__container modal__container--auto\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"js-modal-user-popup-title\">\n            <header class=\"modal__header\">\n              <button class=\"modal__close\" aria-label=\"Close modal\" data-micromodal-close></button>\n            </header>\n            <main id=\"js-modal-user-popup-content-").concat(videoId, "\">\n              <iframe class=\"modal__video\" src=\"https://www.youtube-nocookie.com/embed/").concat(videoId, "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n            </main>\n          </div>\n        </div>\n      </div>\n      ");
+      }
     });
     element.innerHTML = sections;
+
+    if (videos) {
+      document.querySelector('body').insertAdjacentHTML('beforeend', videos);
+    }
   }
 }
 
