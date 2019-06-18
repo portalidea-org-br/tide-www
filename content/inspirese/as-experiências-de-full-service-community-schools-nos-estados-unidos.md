@@ -3,8 +3,8 @@ title: As experiências de full-service community schools nos estados unidos
 date: '2019-06-11T16:33:26Z'
 paises:
   - Estados Unidos
-image: /uploads/placeimg_1000_600_any.jpg
-image_big: /uploads/placeimg_1000_600_any.jpg
+image: ''
+image_big: ''
 alt: aaa
 file: /uploads/viviane_eua.pdf
 author: Viviane Coelho Caldeira Ramos

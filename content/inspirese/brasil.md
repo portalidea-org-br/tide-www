@@ -5,8 +5,8 @@ title: >-
 date: 2017-03-23T00:00:00.000Z
 paises:
   - Brasil
-image: 'https://placehold.it/600x500/ccc'
-image_big: 'https://placehold.it/1000x600/ccc'
+image: ''
+image_big: ''
 alt: aaaa
 file: /uploads/joana_acre.pdf
 author: Joana Buarque Gussmão

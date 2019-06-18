@@ -3,8 +3,8 @@ title: Sobral e a garantia da aprendizagem de todas as crianças
 date: '2019-06-11T16:28:19Z'
 paises:
   - Brasil
-image: /uploads/placeimg_1000_600_any.jpg
-image_big: /uploads/placeimg_1000_600_any.jpg
+image: ''
+image_big: ''
 alt: aaa
 file: /uploads/lilia_sobral.pdf
 author: Lilia Asuca Sumiya
