@@ -276,6 +276,10 @@ collections:
         widget: "datetime"
         format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
       -
+        label: "Áreas"
+        name: "areas"
+        widget: "list"
+      -
         label: "Texto em português"
         name: "texto_portugues"
         widget: "markdown"
@@ -296,11 +300,13 @@ collections:
         name: "main_bibliography_pdf"
         widget: "file"
         allow_multiple: false
+        required: false
       -
         label: "Bibliografia secundária PDF"
         name: "secondary_bibliography_pdf"
         widget: "file"
         allow_multiple: false
+        required: false
       -
         label: "Arquivo"
         name: "file"
