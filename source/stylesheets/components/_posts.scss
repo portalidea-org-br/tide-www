@@ -101,6 +101,14 @@
   margin-bottom: 2rem;
 }
 
+.posts__togglable {
+  display: none;
+}
+
+.posts__togglable:target {
+  display: block;
+}
+
 .posts .button {
   align-self: flex-start;
 }

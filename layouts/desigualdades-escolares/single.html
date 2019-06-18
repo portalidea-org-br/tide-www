@@ -101,19 +101,19 @@
                 </ul>
               </div>
 
-              <section class="posts__section" id="pt-text">
+              <section class="posts__section posts__togglable" id="pt-text">
                 {{ .Params.texto_portugues | markdownify  }}
               </section>
 
-              <section class="posts__section" id="en-text">
+              <section class="posts__section posts__togglable" id="en-text">
                 {{ .Params.texto_ingles | markdownify }}
               </section>
 
-              <section class="posts__section" id="main-bibliography">
+              <section class="posts__section posts__togglable" id="main-bibliography">
                 {{ .Params.bibliografia_principal | markdownify }}
               </section>
 
-              <section class="posts__section" id="secondary-bibliography">
+              <section class="posts__section posts__togglable" id="secondary-bibliography">
                 {{ .Params.bibliografia_secundaria | markdownify }}
               </section>
 
