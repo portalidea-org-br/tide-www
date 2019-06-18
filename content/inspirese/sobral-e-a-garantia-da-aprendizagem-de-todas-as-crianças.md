@@ -9,9 +9,11 @@ alt: aaa
 file: /uploads/lilia_sobral.pdf
 author: Lilia Asuca Sumiya
 short_description: >-
-  O objetivo deste trabalho é apresentar a política de alfabetização do
-  município de Sobral, localizado no estado do Ceará, que teve início há duas
-  décadas visando enfrentar os baixos índices de aprendizagem no Ensino
-  Fundamental detectados por avaliação externa realizada no ano 2000.
+  Apresenta a política de alfabetização do município de Sobral (Ceará), criada
+  para enfrentar o baixo desempenho, que serviu de base para a construção
+  Programa Aprendizagem na Idade Certa (Mais PAIC-CE). Implementada há duas
+  décadas, compreende ações em quatro frentes estratégicas: gestão
+  institucional; fortalecimento da gestão escolar; fortalecimento da ação
+  pedagógica e valorização do magistério.
 ---
 aaa
