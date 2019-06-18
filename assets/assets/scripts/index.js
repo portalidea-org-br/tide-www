@@ -12166,7 +12166,7 @@ function mountInspireHtml(items, id) {
 
   if (element) {
     items.forEach(function (item) {
-      sections += "\n      <section>\n        <header>\n          <h2>".concat(item.title, "<span>").concat(item.author, "</span></h2>\n          <p>").concat(item.short_description, "</p>\n        </header>\n        <img\n          srcset=\"").concat(item.image, " 600w, ").concat(item.image_big, " 1000w\"\n          src=\"").concat(item.image, "\" alt=\"").concat(item.alt, "\">\n        <a href=\"").concat(item.file, "\" class=\"button button--black\" target=\"_blank\">ler experiencia</a>\n      </section>\n    ");
+      sections += "\n      <section>\n        <header>\n          <h2>".concat(item.title, "<span>").concat(item.author, "</span></h2>\n          <p>").concat(item.short_description, "</p>\n        </header>\n  ").concat(item.image ? "\n        <img\n          srcset=\"".concat(item.image, " 600w, ").concat(item.image_big, " 1000w\"\n          src=\"").concat(item.image, "\" alt=\"").concat(item.alt, "\">") : '', "\n        <a href=\"").concat(item.file, "\" class=\"button button--black\" target=\"_blank\">ler experiencia</a>\n      </section>\n    ");
     });
     element.innerHTML = sections;
   }

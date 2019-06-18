@@ -21,9 +21,12 @@ function mountInspireHtml(items, id) {
           <h2>${item.title}<span>${item.author}</span></h2>
           <p>${item.short_description}</p>
         </header>
+  ${item.image
+    ? `
         <img
           srcset="${item.image} 600w, ${item.image_big} 1000w"
-          src="${item.image}" alt="${item.alt}">
+          src="${item.image}" alt="${item.alt}">`
+    : ''}
         <a href="${item.file}" class="button button--black" target="_blank">ler experiencia</a>
       </section>
     `;
