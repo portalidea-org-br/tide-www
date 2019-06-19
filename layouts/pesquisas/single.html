@@ -74,9 +74,13 @@
                 {{ .Content }}
               </div>
 
-              <a href="{{ .Params.file }}" target="_blank" class="button button--black posts__center-button">
-                Ler pesquisa
-              </a>
+              {{ with .Params.custom_link }}
+                <a href="{{ . }}" class="button button--black">Ler pesquisa</a>
+              {{ else }}
+                <a href="{{ .Params.file }}" target="_blank" class="button button--black posts__center-button">
+                  Ler pesquisa
+                </a>
+              {{ end }}
             </section>
         </div>
       </div>
