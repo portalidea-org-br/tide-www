@@ -143,6 +143,10 @@ collections:
         widget: "string"
         required: false
       -
+        label: "Descrição curta (resumo)"
+        name: "short_description"
+        widget: "string"
+      -
         label: "Conteúdo"
         name: "body"
         widget: "markdown"
