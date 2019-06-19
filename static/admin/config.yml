@@ -317,10 +317,12 @@ collections:
         name: "file"
         widget: "file"
         allow_multiple: false
+        required: false
       -
         label: "Descrição curta"
         name: "short_description"
         widget: "string"
+        required: false
   -
     label: "Projeto"
     name: "projeto"
