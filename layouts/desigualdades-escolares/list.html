@@ -28,8 +28,8 @@
         <div class="custom-search">
           <section class="">
             <div class="custom-research__section">
-              {{ with .Content }}
-                {{ . }}
+              {{ with .Params.short_description }}
+                <p>{{ . }}</p>
               {{ end }}
 
               {{ with .Params.file }}
