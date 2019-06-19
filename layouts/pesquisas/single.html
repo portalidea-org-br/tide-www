@@ -67,7 +67,12 @@
 
               <div class="posts__text">
                 <p>{{ .Params.short_description }}</p>
-                <a href="{{ .Params.file }}" target="_blank" class="simple-link">Ler pesquisa</a>
+
+                {{ with .Params.custom_link }}
+                  <a href="{{ . }}" class="button button--black">Ler pesquisa</a>
+                {{ else }}
+                  <a href="{{ .Params.file }}" target="_blank" class="simple-link">Ler pesquisa</a>
+                {{ end }}
               </div>
 
               <div class="posts__text">
