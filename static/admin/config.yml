@@ -236,6 +236,11 @@ collections:
         label: "Conteúdo"
         name: "body"
         widget: "markdown"
+      -
+        label: "Custom link"
+        name: "custom_link"
+        widget: "hidden"
+        default: "/desigualdade-escolares"
   -
     label: "Projeto"
     name: "projeto"
