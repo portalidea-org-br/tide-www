@@ -131,14 +131,17 @@ collections:
         label: "Imagem (600x500)"
         name: "image"
         widget: "image"
+        require: false
       -
         label: "Imagem (1000x600)"
         name: "image_big"
         widget: "image"
+        required: false
       -
         label: "Texto alternativo da imagem"
         name: "alt"
         widget: "string"
+        required: false
       -
         label: "Conteúdo"
         name: "body"
@@ -276,6 +279,10 @@ collections:
         widget: "datetime"
         format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
       -
+        label: "Ordem"
+        name: "weight"
+        widget: "number"
+      -
         label: "Áreas"
         name: "areas"
         widget: "list"
@@ -317,10 +324,12 @@ collections:
         name: "file"
         widget: "file"
         allow_multiple: false
+        required: false
       -
         label: "Descrição curta"
         name: "short_description"
         widget: "string"
+        required: false
   -
     label: "Projeto"
     name: "projeto"

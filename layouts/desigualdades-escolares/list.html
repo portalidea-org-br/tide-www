@@ -18,7 +18,7 @@
               Todas
             </a>
           </li>
-          {{ range $name, $taxonomy := .Site.Taxonomies.areas }}
+          {{ range $name, $taxonomy := .Site.Taxonomies.areas.byWeight }}
               <li><a class="shadow" href="/areas/{{ $name | urlize }}">{{ $name | humanize }}</a></li>
           {{ end }}
         </ul>
