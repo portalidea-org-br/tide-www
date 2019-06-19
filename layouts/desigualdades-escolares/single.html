@@ -111,22 +111,19 @@
 
               <div class="custom-research__buttons">
                 <a
-                  href="{{ .Params.file }}"
-                  target="_blank"
+                  href="{{ $.Parent.Params.file }}"
                   class="button button--black"
                 >
                   Ler pesquisa em PDF
                 </a>
                 <a
-                  href="{{ .Params.main_bibliography_pdf }}"
-                  target="_blank"
+                  href="{{ .Permalink }}#main-bibliography"
                   class="button button--black"
                 >
                   Ler biblioteca principal
                 </a>
                 <a
-                  href="{{ .Params.secondary_bibliography_pdf }}"
-                  target="_blank"
+                  href="{{ .Permalink }}#secondary-bibliography"
                   class="button button--black"
                 >
                   Ler biblioteca secundária

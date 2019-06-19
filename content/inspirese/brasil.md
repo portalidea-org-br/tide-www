@@ -9,7 +9,7 @@ image: ''
 image_big: ''
 alt: aaaa
 file: /uploads/joana_acre.pdf
-author: Joana Buarque Gussmão
+author: Joana Buarque Gusmão
 short_description: >-
   Relata a implementação de políticas educacionais no estado do Acre, entre 1999
   e 2010, que visavam a efetivação do direito à educação. Focaliza,

@@ -131,7 +131,7 @@ collections:
         label: "Imagem (600x500)"
         name: "image"
         widget: "image"
-        require: false
+        required: false
       -
         label: "Imagem (1000x600)"
         name: "image_big"
@@ -142,6 +142,10 @@ collections:
         name: "alt"
         widget: "string"
         required: false
+      -
+        label: "Descrição curta (resumo)"
+        name: "short_description"
+        widget: "string"
       -
         label: "Conteúdo"
         name: "body"
@@ -228,6 +232,7 @@ collections:
         name: "file"
         widget: "file"
         allow_multiple: false
+        required: false
       -
         label: "Descrição curta"
         name: "short_description"
@@ -236,6 +241,11 @@ collections:
         label: "Conteúdo"
         name: "body"
         widget: "markdown"
+      -
+        label: "Custom link"
+        name: "custom_link"
+        widget: "string"
+        default: "/desigualdade-escolares"
   -
     label: "Projeto"
     name: "projeto"
@@ -282,10 +292,6 @@ collections:
         label: "Ordem"
         name: "weight"
         widget: "number"
-      -
-        label: "Áreas"
-        name: "areas"
-        widget: "list"
       -
         label: "Custom link"
         name: "custom_link"
