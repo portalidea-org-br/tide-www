@@ -293,10 +293,6 @@ collections:
         name: "weight"
         widget: "number"
       -
-        label: "Áreas"
-        name: "areas"
-        widget: "list"
-      -
         label: "Custom link"
         name: "custom_link"
         widget: "hidden"
