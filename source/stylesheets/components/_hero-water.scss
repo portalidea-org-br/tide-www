@@ -45,6 +45,7 @@
 
     width: auto;
     max-width: 93.75em;
+    min-height: 38rem;
 
     padding-top: 4em;
   }
@@ -96,11 +97,9 @@
 }
 
 .hero-water__images {
-  position: absolute;
-  top: 190px;
-  right: 0;
-  width: 11.875em;
-  height: 25em;
+  position: relative;
+  width: 10rem;
+  height: 25rem;
 
   @media screen and (min-width: breakpoint('desktop')) {
     top: 0;
@@ -108,50 +107,20 @@
   }
 }
 
-
-.hero-water__images .book {
-  @media screen and (min-width: breakpoint('desktop')) {
-    position: absolute;
-    top: -10em;
-    right: 0;
-    width: 20.85em;
-  }
-}
-
-.hero-water__images .boat {
-  position: absolute;
-  right: -8.75em;
-  bottom: 0;
-  width: 25em;
+.hero-water__images .map-single-book {
+  position: relative;
+  top: 7rem;
+  width: 100%;
 
   @media screen and (min-width: breakpoint('desktop')) {
     position: absolute;
-    top: 6em;
-    left: -8em;
+    top: 0;
+    left: 0;
     width: 31.25em;
   }
 
   @media screen and (min-width: breakpoint('wide')) {
-    left: 0;
-  }
-}
-
-.hero-water__images .book2 {
-  display: none;
-
-  @media screen and (min-width: breakpoint('tablet')) {
-    display: block;
-  }
-
-  @media screen and (min-width: breakpoint('desktop')) {
-    position: absolute;
-    top: 18em;
-    left: 8em;
-    width: 18em;
-  }
-
-  @media screen and (min-width: breakpoint('wide')) {
-    left: 22em;
+    left: 12rem;
   }
 }
 
