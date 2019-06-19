@@ -49,11 +49,7 @@
                 <p>{{ .Params.short_description }}</p>
               </div>
 
-              {{ with .Params.custom_link }}
-                <a href="{{ . }}" class="button button--black">saiba mais</a>
-              {{ else }}
-                <a href="{{ .Permalink }}" class="button button--black">saiba mais</a>
-              {{ end }}
+              <a href="{{ .Permalink }}" class="button button--black">saiba mais</a>
             </section>
           {{ end }}
         </div>
