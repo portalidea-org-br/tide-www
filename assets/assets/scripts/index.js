@@ -12118,15 +12118,25 @@ function setModalGlobalStatus() {
   sessionStorage.setItem('modalHasBeenClosed', 1);
 }
 
+function handleModalClose(modalId) {
+  if (modalId === 'js-modal-idea-video') {
+    var iframeYoutube = document.querySelector('#iframeYoutube');
+    iframeYoutube.contentWindow.postMessage('{"event":"command", "func":"pauseVideo", "args":""}', '*');
+  }
+
+  if (modalId === 'js-modal-user-popup') {
+    setModalGlobalStatus(1); // [2]
+  }
+}
+
 function initModal() {
   var $modalLink = document.getElementById('js-open-modal');
 
   _micromodal.default.init({
     // debugMode: true,
-    onClose: function onClose() {
-      return setModalGlobalStatus(1);
-    } // [2]
-
+    onClose: function onClose(modal) {
+      handleModalClose(modal.id);
+    }
   });
 
   if ($modalLink && !sessionStorage.getItem('modalHasBeenClosed')) {
