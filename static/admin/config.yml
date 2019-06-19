@@ -136,12 +136,12 @@ collections:
         label: "Imagem (1000x600)"
         name: "image_big"
         widget: "image"
-        require: false
+        required: false
       -
         label: "Texto alternativo da imagem"
         name: "alt"
         widget: "string"
-        require: false
+        required: false
       -
         label: "Conteúdo"
         name: "body"
