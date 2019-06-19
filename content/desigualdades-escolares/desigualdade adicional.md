@@ -1,6 +1,7 @@
 ---
 title: 'Eixo 1 – Desigualdades escolares: comparações internacionais'
 date: 2017-03-23T00:00:00.000Z
+weight: 1
 areas:
   - Educação e pobreza
 custom_link: /desigualdades-escolares

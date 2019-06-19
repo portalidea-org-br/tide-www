@@ -1,6 +1,7 @@
 ---
 title: Eixo 3 – Políticas de prevenção e combate à infrequência e à evasão escolar
 date: '2019-06-19T09:12:51Z'
+weight: 3
 areas:
   - Educação e Pobreza
 custom_link: /desigualdade-escolares

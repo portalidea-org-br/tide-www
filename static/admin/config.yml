@@ -276,6 +276,10 @@ collections:
         widget: "datetime"
         format: "YYYY-MM-DDTHH:mm:ss[Z]" # date sample 2018-03-06T14:48:47-03:00
       -
+        label: "Ordem"
+        name: "weight"
+        widget: "number"
+      -
         label: "Áreas"
         name: "areas"
         widget: "list"
