@@ -131,14 +131,17 @@ collections:
         label: "Imagem (600x500)"
         name: "image"
         widget: "image"
+        require: false
       -
         label: "Imagem (1000x600)"
         name: "image_big"
         widget: "image"
+        require: false
       -
         label: "Texto alternativo da imagem"
         name: "alt"
         widget: "string"
+        require: false
       -
         label: "Conteúdo"
         name: "body"
