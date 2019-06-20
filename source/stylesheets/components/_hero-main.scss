@@ -72,7 +72,8 @@
 }
 
 .hero-main__text p {
-  display: none;
+  max-width: 20rem;
+  margin: 0 auto;
 
   @media screen and (min-width: breakpoint('desktop')) {
     display: inline-block;
@@ -95,6 +96,7 @@
   width: 20em;
   height: 17em;
   margin: 0 auto;
+  margin-top: 4rem;
 
   @media screen and (min-width: breakpoint('desktop')) {
     width: 43.75em;
@@ -133,7 +135,7 @@
   width: 20em;
   height: 100%;
 
-  pointer-events: none;
+  // pointer-events: none;
 
   @media screen and (min-width: breakpoint('desktop')) {
     left: 0;
@@ -173,7 +175,7 @@
 }
 
 .dots__dot:nth-child(2) {
-  top: 10.7em;
+  top: 5em;
   left: 4.7em;
 
   width: 0.55em;
@@ -190,7 +192,7 @@
 
 .dots__dot:nth-child(3) {
   top: 13.2em;
-  left: 2.3em;
+  left: -0.6em;
 
   width: 0.3em;
   height: 0.3em;

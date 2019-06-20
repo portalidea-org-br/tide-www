@@ -1,6 +1,6 @@
 .bg-blue {
   position: relative;
-  background: palette('blue');
+  background: palette('green', 'hero');
 
   @media screen and (min-width: breakpoint('desktop')) {
     min-height: 30em;
