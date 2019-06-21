@@ -2,7 +2,7 @@
 title: 'Educação, pobreza e desigualdades'
 date: '2019-06-19T15:21:05Z'
 areas:
-  - Educação e pobreza
+  - ''
 file: /uploads/pesquisa-diagramada_ed.-pobreza-e-desigualdades-compactado.pdf
 short_description: 'Maria Alice Nogueira, Tânia F. Resende e Viviane Coelho C. Ramos'
 custom_link: /desigualdades-escolares
