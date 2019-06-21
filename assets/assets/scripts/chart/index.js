@@ -5263,7 +5263,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _default = {
   api: {
-    domain: window.location.hostname.indexOf('eduquidade.com.br') !== -1 ? '' : 'https://dapitide.eokoe.com/api/'
+    domain: window.location.hostname.indexOf('https://portalidea.org.br/') !== -1 ? 'https://api.portalidea.org.br/' : 'https://dapitide.eokoe.com/api/'
   }
 };
 exports.default = _default;
