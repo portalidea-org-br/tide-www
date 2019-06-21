@@ -13,24 +13,15 @@ Foi realizado um levantamento de obras em três línguas (inglês, francês e po
 
 Assim, partindo de um universo original de aproximadamente 7 mil títulos, foi feita uma seleção inicial de cerca de 280 trabalhos, a qual, submetida a um primeiro tratamento analítico,  resultou em um corpus de 180 textos – que são os efetivamente elencados nesta publicação –, oriundos de centros de pesquisa e organizações da sociedade civil de um número significativo de países, abordando realidades educacionais diversificadas. O tratamento analítico mais detalhado desse corpus resultou em uma bibliografia crítica organizada em oito eixos temáticos.  Os eixos foram concebidos a partir da identificação de grandes temas do debate internacional, visando facilitar o trato com os textos selecionados. Com o intuito de orientar a leitura foi construído, para cada eixo, um comentário introdutório destacando questões relevantes/emergentes, bem como estabelecendo relações entre diferentes subtemas, países e línguas. Os eixos são:
 
-
-
-1) Desigualdades escolares: comparações internacionais;
-
-2) Desigualdades escolares: diagnósticos e interpretações;
-
-3) Políticas de prevenção e combate à infrequência e à evasão escolar;
-
-4) Efeito-território e experiências de parceria escola-família-comunidade;
-
-5) Uso do tempo extraescolar (diagnósticos e intervenções);
-
-6) Educação infantil;
-
-7) Mobilização de recursos humanos;
-
-8) Currículo e interações na escola.
-
-
+1. Desigualdades escolares: comparações internacionais;
+2. Desigualdades escolares: diagnósticos e interpretações;
+3. Políticas de prevenção e combate à infrequência e à evasão escolar;
+4. Efeito-território e experiências de parceria escola-família-comunidade;
+5. Uso do tempo extraescolar (diagnósticos e intervenções);
+6. Educação infantil;
+7. Mobilização de recursos humanos;
+8. Currículo e interações na escola.
 
 Com base no critério do grau de pertinência ao tema, cada eixo foi organizado em bibliografia principal e bibliografia secundária. Para os textos da bibliografia principal de cada eixo, é apresentada uma ficha bibliográfica completa, incluindo: referência completa, link da publicação (quando disponível), resumo na língua original (e resumo traduzido para o português, no caso de textos estrangeiros), local da pesquisa. Já no caso da bibliografia secundária, são apresentadas as referências completas de cada texto, o link da publicação (quando disponível) e o resumo na língua original. Em todos os casos, os trabalhos são listados por língua e por ordem alfabética de sobrenome do primeiro autor. Trabalhos com conteúdo mais abrangente aparecem em mais de um eixo.
+
+Boa leitura!
