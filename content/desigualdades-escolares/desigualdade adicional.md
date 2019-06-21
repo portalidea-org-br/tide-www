@@ -335,7 +335,7 @@ bibliografia_principal: >-
   https://www.persee.fr/doc/caf_1149-1590_2001_num_66_1_985
 
 
-  Abstract/résumé/resumo: Cette note reprend, résume et commente un récent
+  **Abstract/résumé/resumo:** Cette note reprend, résume et commente un récent
   rapport de l'Organisation de coopération et de développement économique (OCDE)
   sur la petite enfance et les politiques développées en leur direction dans une
   douzaine de pays membres de cette organisation. Dans les pays de l'OCDE,
