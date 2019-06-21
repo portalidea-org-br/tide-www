@@ -5,7 +5,7 @@ title: >-
   educação 
 date: '2019-06-21T09:45:01Z'
 paises:
-  - Argentina
+  - América Latina
 alt: aaa
 file: /uploads/argentina_martinicgregorio_secundarias_rurais.pdf
 author: Sergio Martinic e Martin De Gregorio
