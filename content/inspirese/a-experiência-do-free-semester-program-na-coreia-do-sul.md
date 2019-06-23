@@ -6,7 +6,7 @@ paises:
 image: ''
 image_big: ''
 alt: aaa
-file: /uploads/filomena_coreia-do-sul.pdf
+file: /uploads/filomena_coreia-do-sul-v2.pdf
 author: Filomena Siqueira
 short_description: >-
   Relata a experiência recente do Free Semester Program, voltado ao
