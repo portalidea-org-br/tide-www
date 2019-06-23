@@ -1,12 +1,12 @@
 ---
-title: As experiências de full-service community schools nos estados unidos
+title: As experiências de full-service community schools nos Estados Unidos
 date: '2019-06-11T16:33:26Z'
 paises:
   - Estados Unidos
 image: ''
 image_big: ''
 alt: aaa
-file: /uploads/viviane_eua.pdf
+file: /uploads/viviane_eua-v2.pdf
 author: Viviane Coelho Caldeira Ramos
 short_description: >-
   Trata de uma política de financiamento do governo federal estadunidense
