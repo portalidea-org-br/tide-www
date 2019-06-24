@@ -1,10 +1,10 @@
 list:
-  - name: "twitter"
-    url: "https://twitter.com/appcivico"
-    svg: /uploads/twitter.svg
+  - name: "instagram"
+    url: "https://www.instagram.com/fundacaotide/"
+    svg: /uploads/instagram.svg
   - name: "facebook"
-    url: "https://www.facebook.com/AppCivicoCSB"
+    url: "https://www.facebook.com/fundacaotidesetubal/"
     svg: /uploads/facebook.svg
   - name: "youtube"
-    url: "https://www.youtube.com/channel/UCIuAzzWMogJV0r-mvFmjNNQ"
+    url: "https://www.youtube.com/channel/UCdJJqySAZGyj_Hy7SxfMmbg"
     svg: /uploads/youtube.svg
