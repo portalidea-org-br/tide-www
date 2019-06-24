@@ -109,7 +109,7 @@ bibliografia_principal: >-
   comparações internacionais, nível socioeconômico.
 
 
-  **Field of research/terrain de recherche/local da pesquisa: 41 países**
+  **Field of research/terrain de recherche/local da pesquisa:** 41 países
 
 
   ## CHMIELEWSKI, Anna K.; REARDON, Sean F. Patterns of Cross-National Variation
@@ -165,8 +165,8 @@ bibliografia_principal: >-
   avaliações internacionais de larga escala.
 
 
-  **Field of research/terrain de recherche/local da pesquisa: Comparação entre
-  15 países**
+  **Field of research/terrain de recherche/local da pesquisa:** Comparação entre
+  15 países
 
 
   ## LAVRIJSEN, Jeroen; NICAISE, Ides. Educational Tracking, Inequality and
@@ -277,8 +277,8 @@ bibliografia_principal: >-
   de rendimento, PISA, regressão de variância.
 
 
-  **Field of research/terrain de recherche/local da pesquisa: dados do PISA de
-  50 países**
+  **Field of research/terrain de recherche/local da pesquisa:** dados do PISA de
+  50 países
 
 
   ## OPPEDISANO, Veruska; TURATI, Gilberto. What Are the Causes of Educational
@@ -321,8 +321,8 @@ bibliografia_principal: >-
   descentralização das políticas educacionais.
 
 
-  **Field of research/terrain de recherche/local da pesquisa: Alemanha, França
-  Espanha, Itália**
+  **Field of research/terrain de recherche/local da pesquisa:** Alemanha, França
+  Espanha, Itália
 
 
   Francês
@@ -352,8 +352,8 @@ bibliografia_principal: >-
   acessibilidade como de qualidade.
 
 
-  **Field of research/terrain de recherche/local da pesquisa: 12 países da
-  OCDE**
+  **Field of research/terrain de recherche/local da pesquisa:** 12 países da
+  OCDE
 
 
   ## ROBERT, Bénédicte. Les politiques scolaires de compensation en France et
@@ -385,8 +385,8 @@ bibliografia_principal: >-
   significados nos dois países.
 
 
-  **Field of research/terrain de recherche/local da pesquisa: França e Estados
-  Unidos**
+  **Field of research/terrain de recherche/local da pesquisa:** França e Estados
+  Unidos
 
 
   Português
@@ -417,7 +417,7 @@ bibliografia_principal: >-
   comparada.
 
 
-  **Field of research/terrain de recherche/local da pesquisa: América Latina**
+  **Field of research/terrain de recherche/local da pesquisa:** América Latina
 bibliografia_secundaria: >-
   Inglês
 
