@@ -9,7 +9,7 @@ bibliografia_principal: >-
   Inglês
 
 
-  Advancement Project (sem data). Setting Students Up For Success: Expanded
+  ## Advancement Project (sem data). Setting Students Up For Success: Expanded
   Transitional Kindergarten. (ONG)
 
 
@@ -35,14 +35,14 @@ bibliografia_principal: >-
   para a prontidão escolar. 
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: TRÊS ESCOLAS NA
-  CALIFÓRNIA (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Três escolas na
+  Califórnia (EUA)
 
 
   Number of citations/Nombre de citations/Número de citações: -
 
 
-  BIERMAN, K. L.; HEINRICHS, B. S.; WELSH, J. A.; NIX, R. L.; GEST, S. D.
+  ## BIERMAN, K. L.; HEINRICHS, B. S.; WELSH, J. A.; NIX, R. L.; GEST, S. D.
   Enriching preschool classrooms and home visits with evidence-based
   programming: sustained benefits for low-income children. Journal of Child
   Psychology and Psychiatry, v. 58, p. 129-137, 2017.
@@ -123,10 +123,10 @@ bibliografia_principal: >-
   acompanhamento longitudinal.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  DENTON, Carolyn A.; SOLARI, Emily J.; CIANCIO, Dennis J.; HECHT, Steven A.;
+  ## DENTON, Carolyn A.; SOLARI, Emily J.; CIANCIO, Dennis J.; HECHT, Steven A.;
   SWANK, Paul R. A Pilot Study of a Kindergarten Summer School Reading Program
   in High-Poverty Urban Schools. The Elementary School Journal, v. 110, n. 4, p.
   423-439, June, 2010.
@@ -173,11 +173,11 @@ bibliografia_principal: >-
   estudos.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  JOE, Emanique M.; DAVIS, James Earl. Parental influence, school readiness and
-  early academic achievement of African American boys. Journal of Negro
+  ## JOE, Emanique M.; DAVIS, James Earl. Parental influence, school readiness
+  and early academic achievement of African American boys. Journal of Negro
   Education, v. 78, n. 3, p. 260-276, Summer, 2009.
 
 
@@ -217,10 +217,10 @@ bibliografia_principal: >-
   tipos de envolvimento parental na educação de meninos negros foram discutidas.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  KAINZ, Kirsten. The Ecology of Early Reading Development for Children in
+  ## KAINZ, Kirsten. The Ecology of Early Reading Development for Children in
   Poverty. Elementary School Journal, v. 107, p. 407-427, 2007.
 
 
@@ -265,10 +265,10 @@ bibliografia_principal: >-
   ensino em sala de aula e nível de pobreza escolar.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  REARDON, S. F.; PORTILLA, X.A. Recent Trends in Income, Racial, and Ethnic
+  ## REARDON, S. F.; PORTILLA, X.A. Recent Trends in Income, Racial, and Ethnic
   School Readiness Gaps at Kindergarten Entry. AERA Open, Aug., 2016.
 
 
@@ -313,11 +313,12 @@ bibliografia_principal: >-
   de gap racial/étnico.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  WALDFOGEL, J.; STEWART, K. Closing Gaps Early: The role of early years policy
-  in promoting social mobility in England, The Sutton Trust: London, 2017. (ONG)
+  ## WALDFOGEL, J.; STEWART, K. Closing Gaps Early: The role of early years
+  policy in promoting social mobility in England, The Sutton Trust: London,
+  2017. (ONG)
 
 
   https://www.suttontrust.com/research-paper/closinggaps-early/  
@@ -348,13 +349,13 @@ bibliografia_principal: >-
   progredir a mobilidade social.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: REINO UNIDO
+  **Field of research/terrain de recherche/local da pesquisa:** Reino Unido
 
 
   Francês
 
 
-  DAMON, Julien. L'éducation et l'accueil des jeunes enfants: un rapport de
+  ## DAMON, Julien. L'éducation et l'accueil des jeunes enfants: un rapport de
   l'OCDE sur la petite enfance. Recherches et Prévisions, n. 66, p. 117-123,
   2001.
 
@@ -365,12 +366,12 @@ bibliografia_principal: >-
   Abstract/résumé/resumo:  -
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: 12 PAÍSES DA OCDE
-  (AUSTRÁLIA, BÉLGICA, REPÚBLICA TCHECA, DINAMARCA, FINLÂNDIA, ITÁLIA, PAÍSES
-  BAIXOS, NORUEGA, PORTUGAL, SUÉCIA, REINO UNIDO, EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** 12 países da
+  OCDE PAÍSES DA OCDE (AUSTRÁLIA, BÉLGICA, REPÚBLICA TCHECA, DINAMARCA,
+  FINLÂNDIA, ITÁLIA, PAÍSES BAIXOS, NORUEGA, PORTUGAL, SUÉCIA, REINO UNIDO, EUA)
 
 
-  MYRE-BISAILLON, Julie et al. "Éveil à la lecture et à l’écriture dans les
+  ## MYRE-BISAILLON, Julie et al. "Éveil à la lecture et à l’écriture dans les
   services de garde en milieu scolaire: engagement et ouverture face aux
   livres." Nouveaux cahiers de la recherche en éducation, v. 17, n. 2, p.
   125-147, 2014.
@@ -415,10 +416,10 @@ bibliografia_principal: >-
   leitura; maternal; serviços de creche escolar; meios desfavorecidos.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: QUÉBEC (CANADÁ)
+  **Field of research/terrain de recherche/local da pesquisa:** Québe (Canadá)
 
 
-  THEPOT, Marie-Automne. Langagez-vous! Acquisition du langage et inégalités
+  ## THEPOT, Marie-Automne. Langagez-vous! Acquisition du langage et inégalités
   sociales. Colloque national organisé par le centre communal d’action sociale
   de la ville de Grenoble les 19 et 20 juin 2013. Politiques sociales et
   familiales,  v. 116,  n. 1,  p. 69-74, 2014.  
@@ -434,13 +435,13 @@ bibliografia_principal: >-
   Palavras-chave: colóquio, linguagem, infância, desenvolvimento de linguagem
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: FRANÇA, SUÍÇA,
-  BÉLGICA
+  **Field of research/terrain de recherche/local da pesquisa: França, Suíça,
+  Bélgica**
 bibliografia_secundaria: >-
   Inglês
 
 
-  BASSOK, Daphna; REARDON, Sean. “Academic Redshirting” in Kindergarten
+  ## BASSOK, Daphna; REARDON, Sean. “Academic Redshirting” in Kindergarten
   Prevalence, Patterns, and Implications. Educational Evaluation and Policy
   Analysis, v. 35, p. 283-297, 2013. 
 
@@ -481,10 +482,10 @@ bibliografia_secundaria: >-
   acadêmico.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  CLAESSENS, Amy; ENGEL, Mimi; CURRAN, F. Chris. Academic Content, Student
+  ## CLAESSENS, Amy; ENGEL, Mimi; CURRAN, F. Chris. Academic Content, Student
   Learning, and the Persistence of Preschool Effects. American Educational
   Research Journal, v. 51, n. 2, p. 403-434, Apr., 2014.
 
@@ -508,21 +509,21 @@ bibliografia_secundaria: >-
   **Keywords:** academic content, student achievement, kindergarten, preschool.
 
 
-  FELDMAN, Sandra. Closing the Achievement Gap. In: American Educator, v. 25, n.
-  3, p. 7-9, Fall, 2001. (ONG – American Federation of teachers)
+  ## FELDMAN, Sandra. Closing the Achievement Gap. In: American Educator, v. 25,
+  n. 3, p. 7-9, Fall, 2001. (ONG – American Federation of teachers)
 
 
   https://www.aft.org/periodical/american-educator/fall-2001/closing-achievement-gap
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
   Francês
 
 
-  BRADSHAW, Jonathan. La pauvreté infantile au Royaume-Uni. Politiques sociales
-  et familiales.  Volume 98,  Numéro 1, p. 37-47, 2009. 
+  ## BRADSHAW, Jonathan. La pauvreté infantile au Royaume-Uni. Politiques
+  sociales et familiales.  Volume 98,  Numéro 1, p. 37-47, 2009. 
 
 
   https://www.persee.fr/doc/caf_2101-8081_2009_num_98_1_2488
@@ -543,7 +544,7 @@ bibliografia_secundaria: >-
   **Mots-clés:** lutte contre la pauvrete, pauvrete infantile, Grande-Bretagne.
 
 
-  GONZALEZ, Maria-José ; VIDAL, Sergi. À qui confier mon bébé ? Pratique et
+  ## GONZALEZ, Maria-José ; VIDAL, Sergi. À qui confier mon bébé ? Pratique et
   développement de l’accueil des enfants d’âge préscolaire en Espagne.
   Recherches et Prévisions , Volume 83 , Numéro 1, p. 97-112, 2006.  
 
@@ -570,7 +571,7 @@ bibliografia_secundaria: >-
   municipalités.
 
 
-  HERRY, Yves et al. « Effets d’un programme de maternelle, à temps plein, en
+  ## HERRY, Yves et al. « Effets d’un programme de maternelle, à temps plein, en
   Ontario français, sur le développement des enfants à la fin de la 2e année
   primaire. » Revue des sciences de l'éducation, v. 34, n. 1, p. 87-106, 2008. 
 
