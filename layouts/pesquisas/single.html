@@ -33,14 +33,16 @@
           {{ range $name, $taxonomy := .Site.Taxonomies.areas }}
             {{- $.Scratch.Set "myLimit" (add ($.Scratch.Get "myLimit") 1) }}
             {{- if le ($.Scratch.Get "myLimit") (6) }}
-              <li><a class="shadow
-                    {{ range $area := $.Params.areas }}
-                      {{ if eq ($area | humanize) ($name | humanize) }}
-                        active
+              {{ with $name }}
+                <li><a class="shadow
+                      {{ range $area := $.Params.areas }}
+                        {{ if eq ($area | humanize) ( . | humanize) }}
+                          active
+                        {{ end }}
                       {{ end }}
-                    {{ end }}
-                    "
-                    href="/areas/{{ $name | urlize }}">{{ $name | humanize }}</a></li>
+                      "
+                      href="/areas/{{ $name | urlize }}">{{ $name | humanize }}</a></li>
+              {{ end }}
             {{ end }}
           {{ end }}
         </ul>
