@@ -8,8 +8,8 @@ bibliografia_principal: >-
   Inglês
 
 
-  DUNCAN, Greg; MURNANE, Richard. Growing Income Inequality Threatens American
-  Education. Phi Delta Kappan, v. 95, Mar., 2014.
+  ## DUNCAN, Greg; MURNANE, Richard. Growing Income Inequality Threatens
+  American Education. Phi Delta Kappan, v. 95, Mar., 2014.
 
 
   http://journals.sagepub.com/doi/abs/10.1177/003172171409500603
@@ -24,11 +24,12 @@ bibliografia_principal: >-
   e famílias de forma a tornar mais difíceis reformas efetivas nas escolas.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa: Estados Unidos**
+  Estados Unidos
 
 
-  EVANS, Robert. Reframing the Achievement Gap. Phi Delta Kappan, v. 86, n. 8,
-  Apr., 2005.
+  ## EVANS, Robert. Reframing the Achievement Gap. Phi Delta Kappan, v. 86, n.
+  8, Apr., 2005.
 
 
   http://www.robevans.org/Pages/articles/achievementgap.htm 
@@ -75,12 +76,12 @@ bibliografia_principal: >-
   as crianças mais vulneráveis. 
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  PARSONS, Carl; THOMPSON, Trevor. Ethnicity, Disadvantage and Other Variables
-  in the Analysis of Birmingham Longitudinal School Attainment Datasets.
-  Educational Review, v. 69, n. 5, 2017.
+  ## PARSONS, Carl; THOMPSON, Trevor. Ethnicity, Disadvantage and Other
+  Variables in the Analysis of Birmingham Longitudinal School Attainment
+  Datasets. Educational Review, v. 69, n. 5, 2017.
 
 
   **Abstract/résumé/resumo:** Explaining and responding to inequalities in
@@ -139,13 +140,13 @@ bibliografia_principal: >-
   resultados.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: BIRMINGHAM
-  (INGLATERRA)
+  **Field of research/terrain de recherche/local da pesquisa:** Birminghan
+  (Inglaterra)
 
 
-  PIETSCH, Marcus; STUBBE, Tobias C. Inequality in the Transition from Primary
-  to Secondary School: School Choices and Educational Disparities in Germany.
-  European Educational Research Journal, v. 6, n. 4, p. 424-445, 2007.
+  ## PIETSCH, Marcus; STUBBE, Tobias C. Inequality in the Transition from
+  Primary to Secondary School: School Choices and Educational Disparities in
+  Germany. European Educational Research Journal, v. 6, n. 4, p. 424-445, 2007.
 
 
   https://www.bvekennis.nl/Bibliotheek/07-1179_EERJ_inequality.pdf
@@ -197,11 +198,11 @@ bibliografia_principal: >-
   diferentes ramos educacionais ao fim da escola primária.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: ALEMANHA
+  **Field of research/terrain de recherche/local da pesquisa:** Alemanha
 
 
-  REARDON, Sean. The widening academic achievement gap between the rich and the
-  poor: New evidence and possible explanations. In: DUNCAN, Greg; MURNANE,
+  ## REARDON, Sean. The widening academic achievement gap between the rich and
+  the poor: New evidence and possible explanations. In: DUNCAN, Greg; MURNANE,
   Richard (Org.). Whither Opportunity?: Rising Inequality, Schools, and
   Children's Life Chances. New York: Russell Sage Foundation, p. 91-115, 2011. 
 
@@ -291,10 +292,10 @@ bibliografia_principal: >-
   educação parental.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  REARDON, S. F.; PORTILLA, X. A. Recent Trends in Income, Racial, and Ethnic
+  ## REARDON, S. F.; PORTILLA, X. A. Recent Trends in Income, Racial, and Ethnic
   School Readiness Gaps at Kindergarten Entry. AERA Open. DOI:
   10.1177/2332858416657343, Aug., 2016.
 
@@ -333,11 +334,13 @@ bibliografia_principal: >-
   renda, tendências de gap racial/étnico. 
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa: Estados Unidos**
+  Estados Unidos
 
 
-  SIRIN, Selcuk. Socioeconomic Status and Academic Achievement: A Meta-Analytic
-  Review of Research. Review of Educational Research. v. 75,n. 3, Autumn, 2005.
+  ## SIRIN, Selcuk. Socioeconomic Status and Academic Achievement: A
+  Meta-Analytic Review of Research. Review of Educational Research. v. 75,n. 3,
+  Autumn, 2005.
 
 
   http://journals.sagepub.com/doi/10.3102/00346543075003417
@@ -379,15 +382,15 @@ bibliografia_principal: >-
   socioeconômico.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: META-ANÁLISE DE
-  PESQUISAS
+  **Field of research/terrain de recherche/local da pesquisa:** meta análise de
+  pesquisas
 
 
   Francês
 
 
-  GOUX, Dominique ; MAURIN, Éric. Démocratisation de l'école et persistance des
-  inégalités. Economie et Statistique, v. 306, n. 1, 1997. 
+  ## GOUX, Dominique ; MAURIN, Éric. Démocratisation de l'école et persistance
+  des inégalités. Economie et Statistique, v. 306, n. 1, 1997. 
 
 
   https://www.persee.fr/doc/estat_0336-1454_1997_num_306_1_2570
@@ -423,8 +426,8 @@ bibliografia_principal: >-
   FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: FRANÇA
 
 
-  LE DONNÉ, Noémie. La réforme de 1999 du système éducatif polonais. Effets sur
-  les inégalités sociales de compétences scolaires. Revue française de
+  ## LE DONNÉ, Noémie. La réforme de 1999 du système éducatif polonais. Effets
+  sur les inégalités sociales de compétences scolaires. Revue française de
   sociologie, v. 55, n. 1, 2014.
 
 
@@ -477,10 +480,10 @@ bibliografia_principal: >-
   modelização multinível, Polônia.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: POLÔNIA
+  **Field of research/terrain de recherche/local da pesquisa:** Polônia
 
 
-  OCDE. Chapitre 4. Un défi de taille: des écoles plus performantes pour tous
+  ## OCDE. Chapitre 4. Un défi de taille: des écoles plus performantes pour tous
   les jeunes Chiliens. Etudes économiques de l’OCDE, v. 1, n. 1, 2010.
 
 
@@ -531,15 +534,15 @@ bibliografia_principal: >-
   contribuir para obter progressos consideráveis.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: CHILE
+  **Field of research/terrain de recherche/local da pesquisa:** Chile
 
 
   Português
 
 
-  ALVES, Maria Teresa Gonzaga; SOARES, José Francisco; XAVIER, Flavia Pereira.
-  Desigualdades educacionais no Ensino Fundamental de 2005 a 2013: Hiato entre
-  grupos sociais. Revista Brasileira de Sociologia, v. 4, 2016.
+  ## ALVES, Maria Teresa Gonzaga; SOARES, José Francisco; XAVIER, Flavia
+  Pereira. Desigualdades educacionais no Ensino Fundamental de 2005 a 2013:
+  Hiato entre grupos sociais. Revista Brasileira de Sociologia, v. 4, 2016.
 
 
   http://www.sbsociologia.com.br/revista/index.php/RBS/article/view/150
@@ -560,10 +563,10 @@ bibliografia_principal: >-
   sociais mais favorecidos.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: BRASIL
+  **Field of research/terrain de recherche/local da pesquisa:** Brasil
 
 
-  CASTRO, Jorge Abrahão de. Evolução e desigualdade na educação brasileira.
+  ## CASTRO, Jorge Abrahão de. Evolução e desigualdade na educação brasileira.
   Educação & Sociedade, v. 30, n. 108, out., 2009.
 
 
@@ -591,10 +594,10 @@ bibliografia_principal: >-
   escolarização.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: BRASIL
+  **Field of research/terrain de recherche/local da pesquisa:** Brasil
 
 
-  COSTA, Marcio da; BARTHOLO, Tiago Lisboa. Padrões de segregação escolar no
+  ## COSTA, Marcio da; BARTHOLO, Tiago Lisboa. Padrões de segregação escolar no
   Brasil: um estudo comparativo entre capitais do país. Educação & Sociedade,
   Campinas,  v. 35, n. 129, p. 1.183-1.203,  dez., 2014.
 
@@ -620,13 +623,13 @@ bibliografia_principal: >-
   alistamento escolar, desigualdade educacional.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: CIDADES DE BELO
-  HORIZONTE, CURITIBA, RIO DE JANEIRO E SÃO PAULO
+  **Field of research/terrain de recherche/local da pesquisa:**: Cidades de Belo
+  Horizonte, Curitba, Rio de Janeiro E São Paulo
 
 
-  MEDIAVILLA, Mauro; GALLEGO, Liliana. Condicionantes del rendimento académico
-  em la escolaridade primaria em Brasil: um análisis multifactorial. Educação &
-  Sociedade, v. 37, n. 134, p. 195-216, mar., 2016.
+  ## MEDIAVILLA, Mauro; GALLEGO, Liliana. Condicionantes del rendimento
+  académico em la escolaridade primaria em Brasil: um análisis multifactorial.
+  Educação & Sociedade, v. 37, n. 134, p. 195-216, mar., 2016.
 
 
   http://www.scielo.br/pdf/es/v37n134/1678-4626-es-37-134-00195.pdf
@@ -663,10 +666,10 @@ bibliografia_principal: >-
   avaliação da educação primária 2005, Brasil.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: BRASIL
+  **Field of research/terrain de recherche/local da pesquisa:** Brasil
 
 
-  RIBEIRO, Carlos Antonio Costa. Desigualdade de oportunidades e resultados
+  ## RIBEIRO, Carlos Antonio Costa. Desigualdade de oportunidades e resultados
   educacionais no Brasil. Dados, Rio de Janeiro, v. 54, n. 1, p. 41-87, 2011.
 
 
@@ -715,11 +718,11 @@ bibliografia_principal: >-
   **Palavras-chave:** desigualdade, educação, riqueza, estratificação social.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: BRASIL
+  **Field of research/terrain de recherche/local da pesquisa:** Brasil
 
 
-  SOARES, José Franciso; DELGADO, Victor Maia Senna. Medida das desigualdades de
-  aprendizado entre estudantes de ensino fundamental. Estudos em Avaliação
+  ## SOARES, José Franciso; DELGADO, Victor Maia Senna. Medida das desigualdades
+  de aprendizado entre estudantes de ensino fundamental. Estudos em Avaliação
   Educacional, v. 27, p. 754-780, 2016.
 
 
@@ -742,12 +745,12 @@ bibliografia_principal: >-
   prova Brasil, ensino fundamental.
 
 
-  FIELD OF RESEARCH /TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: BRASIL
+  **Field of research/terrain de recherche/local da pesquisa:** Brasil
 bibliografia_secundaria: >-
   Inglês
 
 
-  BELL, Genniver C.; JONES, Enid B.; JOHNSON, Joseph F. School Reform: Equal
+  ## BELL, Genniver C.; JONES, Enid B.; JOHNSON, Joseph F. School Reform: Equal
   Expectations on an Uneven Playing Field. Journal of School Leadership, v. 12,
   n. 3, maio, 2002.
 
@@ -795,9 +798,9 @@ bibliografia_secundaria: >-
   some practical implications for education administrators.
 
 
-  DARLING-HAMMOND, Linda. New Standards and Old Inequalities: School Reform and
-  the Education of African American Students. Journal of Negro Education, v. 69,
-  n. 4, p. 263-87, Fall, 2000.
+  ## DARLING-HAMMOND, Linda. New Standards and Old Inequalities: School Reform
+  and the Education of African American Students. Journal of Negro Education, v.
+  69, n. 4, p. 263-87, Fall, 2000.
 
 
   https://www.jstor.org/stable/2696245?seq=1#page_scan_tab_contents
@@ -817,7 +820,7 @@ bibliografia_secundaria: >-
   to equalize opportunities to learn.
 
 
-  FRANCO, C.; SZTAJN, P.; ORTIGÃO, M. I. R. Mathematics teachers, reform and
+  ## FRANCO, C.; SZTAJN, P.; ORTIGÃO, M. I. R. Mathematics teachers, reform and
   equity: results from the Brazilian national assessment. Journal for Research
   in Mathematics Education, Reston, v. 38, n. 4, p. 393 - 419, July, 2007.
 
@@ -841,7 +844,7 @@ bibliografia_secundaria: >-
   achievement.
 
 
-  MARTIN, Christopher; SOLORZANO, Cristian. Mass Education, Privatisation,
+  ## MARTIN, Christopher; SOLORZANO, Cristian. Mass Education, Privatisation,
   Compensation and Diversification: Issues on the Future of Public Education in
   Mexico. Compare, v. 33, n. 1, Mar., 2003.  
 
@@ -863,8 +866,8 @@ bibliografia_secundaria: >-
   high quality education for all.
 
 
-  HEYNEMAN, Stephen P. Student Background and Student Achievement: What Is the
-  Right Question? American Journal of Education, v. 112, n. 1, p. 1-9, Nov.,
+  ## HEYNEMAN, Stephen P. Student Background and Student Achievement: What Is
+  the Right Question? American Journal of Education, v. 112, n. 1, p. 1-9, Nov.,
   2005.
 
 
@@ -889,8 +892,8 @@ bibliografia_secundaria: >-
   effective in fostering social cohesion.
 
 
-  JOE, Emanique M.; DAVIS, James Earl. Parental influence, school readiness and
-  early academic achievement of African American boys. Journal of Negro
+  ## JOE, Emanique M.; DAVIS, James Earl. Parental influence, school readiness
+  and early academic achievement of African American boys. Journal of Negro
   Education, v. 78, n. 3, p. 260-276, Summer, 2009.
 
 
@@ -930,7 +933,7 @@ bibliografia_secundaria: >-
   tipos de envolvimento parental na educação de meninos negros foram discutidas.
 
 
-  LEE, Jung-Sook; BOWEN, Natasha K. Parent Involvement, Cultural Capital, and
+  ## LEE, Jung-Sook; BOWEN, Natasha K. Parent Involvement, Cultural Capital, and
   the Achievement Gap among Elementary School Children American Educational
   Research Journal, v. 43, n. 2, p. 193-2, Summer, 2006.
 
@@ -953,11 +956,11 @@ bibliografia_secundaria: >-
   discussed. 
 
 
-  **KEYWORDS:** Bourdieu, cultural capital, elementary school, habitus, parent
+  **Keywords:** Bourdieu, cultural capital, elementary school, habitus, parent
   involvement.
 
 
-  LUPTON, Ruth; THOMSON, Stephanie. Socio-Economic Inequalities in English
+  ## LUPTON, Ruth; THOMSON, Stephanie. Socio-Economic Inequalities in English
   Schooling under the Coalition Government 2010-15. London Review of Education,
   v. 13, n. 2, p. 4-20, Sept., 2015.
 
@@ -980,7 +983,7 @@ bibliografia_secundaria: >-
   funding, policy.
 
 
-  OKPALA, Confort; OKPALA, Amon; SMITH, Frederick E. Parental Involvement,
+  ## OKPALA, Confort; OKPALA, Amon; SMITH, Frederick E. Parental Involvement,
   Instructional Expenditures, Family Socioeconomic Attributes, and Student
   Achievement Comfort. The Journal of Educational Research, v. 95, n. 2, p.
   110-115, Nov.-Dec., 2001.
@@ -1009,7 +1012,7 @@ bibliografia_secundaria: >-
   achievement, parental involvement
 
 
-  ROSCIGNO, Vincent J. Family/School Inequality and African American/Hispanic
+  ## ROSCIGNO, Vincent J. Family/School Inequality and African American/Hispanic
   Achievement. Social Problems, v. 47, n. 2, p. 266-290, May, 2000. 
 
 
@@ -1043,8 +1046,8 @@ bibliografia_secundaria: >-
   area of education and stratification more broadly.
 
 
-  THOMPSON, Sharon M.; MEYERS, Joel; OSHIMA, T. Chris. Student Mobility and Its
-  Implications for Schools' Adequate Yearly Progress. The Journal of Negro
+  ## THOMPSON, Sharon M.; MEYERS, Joel; OSHIMA, T. Chris. Student Mobility and
+  Its Implications for Schools' Adequate Yearly Progress. The Journal of Negro
   Education, v. 80, n. 1, p. 12-21, Winter, 2011. 
 
 
@@ -1066,7 +1069,7 @@ bibliografia_secundaria: >-
   compared to schools that did not meet AYP.
 
 
-  VAN DE GRIFT, Wim; HOUTVEEN, Thoni. Weaknesses in Underperforming Schools.
+  ## VAN DE GRIFT, Wim; HOUTVEEN, Thoni. Weaknesses in Underperforming Schools.
   Journal of Education for Students Placed at Risk, v. 12, n. 4, p. 383-403,
   Dec., 2007.
 
@@ -1092,7 +1095,7 @@ bibliografia_secundaria: >-
   first language, and other factors. 
 
 
-  VOIGHT, Adam; SHINN, Marybeth; NATION, Maury. The Longitudinal Effects of
+  ## VOIGHT, Adam; SHINN, Marybeth; NATION, Maury. The Longitudinal Effects of
   Residential Mobility on the Academic Achievement of Urban Elementary and
   Middle School Students. Educational Researcher, v. 41, n. 9, p. 385-392, Dec.,
   2012.
@@ -1118,9 +1121,9 @@ bibliografia_secundaria: >-
   social context, urban education.
 
 
-  WILSON, Clancie Mavello. The Relation among Parental Factors and Achievement
-  of African American Urban Youth. The Journal of Negro Education, v. 78, n. 2,
-  p. 102-113, Spring, 2009.
+  ## WILSON, Clancie Mavello. The Relation among Parental Factors and
+  Achievement of African American Urban Youth. The Journal of Negro Education,
+  v. 78, n. 2, p. 102-113, Spring, 2009.
 
 
   https://www.jstor.org/stable/25608727?seq=1#page_scan_tab_contents
@@ -1141,9 +1144,9 @@ bibliografia_secundaria: >-
   relationships will be discussed.
 
 
-  WOLHUTER, C. C. Weaknesses of South African Education in the Mirror Image of
-  International Educational Development. South African Journal of Education, v.
-  34, n. 2, 2014.
+  ## WOLHUTER, C. C. Weaknesses of South African Education in the Mirror Image
+  of International Educational Development. South African Journal of Education,
+  v. 34, n. 2, 2014.
 
 
   http://www.scielo.org.za/scielo.php?script=sci_arttext&pid=S0256-01002014000200005
@@ -1178,7 +1181,7 @@ bibliografia_secundaria: >-
   Francês
 
 
-  HOHL, Janine. « Qui sont « les parents »? Le rapport de parents immigrants
+  ## HOHL, Janine. « Qui sont « les parents »? Le rapport de parents immigrants
   analphabètes à l’école. » Lien social et Politiques, n. 35, p. 51-62,
   Printemps, 1996. 
 
@@ -1193,7 +1196,7 @@ bibliografia_secundaria: >-
   scolarisation et de socialisation assignées à l'école.
 
 
-  KHERROUBI, Martine; ROCHEX, Jean-Yves. Note de synthèse \[La recherche en
+  ## KHERROUBI, Martine; ROCHEX, Jean-Yves. Note de synthèse \[La recherche en
   éducation et les ZEP en France. Politique ZEP, objets, postures, et
   orientations de recherche]. Revue française de pédagogie, v. 140,  n. 1,  p.
   103-132, 2002. 
@@ -1218,7 +1221,7 @@ bibliografia_secundaria: >-
   acteurs.
 
 
-  KUPIE, Mathias ; MISANGUMUKINI, Nicaise. « Environnements économique et
+  ## KUPIE, Mathias ; MISANGUMUKINI, Nicaise. « Environnements économique et
   éducatif des ménages et difficultés scolaires des enfants au Mali. »
   L'Actualité économique, v. 88, n. 4, p. 403-428, déc., 2012.
 
@@ -1238,7 +1241,7 @@ bibliografia_secundaria: >-
   cas chez les garçons.
 
 
-  MAISONNAVE, Hélène ; DECALUWÉ, Bernard. Politique éducative et marché du
+  ## MAISONNAVE, Hélène ; DECALUWÉ, Bernard. Politique éducative et marché du
   travail en Afrique du Sud. Une analyse en EGC. Recherches économiques de
   Louvain, v. 76, n. 3, 2010.
 
@@ -1259,9 +1262,9 @@ bibliografia_secundaria: >-
   d’emplois, une partie de ces nouveaux qualifiés se retrouve au chômage.
 
 
-  MURAT, Fabrice. Le retard scolaire en fonction du milieu parental: l'influence
-  des compétences des parents. Economie et Atatistique,  v. 424,  n. 1,  p.
-  103-124, 2009.  
+  ## MURAT, Fabrice. Le retard scolaire en fonction du milieu parental:
+  l'influence des compétences des parents. Economie et Atatistique,  v. 424,  n.
+  1,  p. 103-124, 2009.  
 
 
   https://www.persee.fr/doc/estat_0336-1454_2009_num_424_1_8033
@@ -1288,7 +1291,7 @@ bibliografia_secundaria: >-
   ménage et ses pratiques culturelles.
 
 
-  OCDE. Chapitre 2. Pour un enseignement efficient et équitable. Etudes
+  ## OCDE. Chapitre 2. Pour un enseignement efficient et équitable. Etudes
   économiques de l’OCDE, v. 18, n. 18, 2005.
 
 
@@ -1311,7 +1314,7 @@ bibliografia_secundaria: >-
   pouvoirs publics vont dans la bonne direction mais ils ne sont pas suffisants.
 
 
-  OCDE. Chapitre 4. Améliorer les performances du système éducatif. Etudes
+  ## OCDE. Chapitre 4. Améliorer les performances du système éducatif. Etudes
   économiques de l’OCDE, v. 15, n. 15, p. 135-168, 2009.
 
 
@@ -1354,9 +1357,9 @@ bibliografia_secundaria: >-
   Português
 
 
-  ALVES, Maria Teresa Gonzaga; SOARES, José Francisco; XAVIER, Flavia Pereira.
-  Índice socioeconômico das escolas de educação básica brasileiras. Ensaio:
-  Aval. Pol. Públ. Educ. \[online]. v. 22, n. 84, p.671-703, 2014.
+  ## ALVES, Maria Teresa Gonzaga; SOARES, José Francisco; XAVIER, Flavia
+  Pereira. Índice socioeconômico das escolas de educação básica brasileiras.
+  Ensaio: Aval. Pol. Públ. Educ. \[online]. v. 22, n. 84, p.671-703, 2014.
 
 
   http://www.scielo.br/pdf/ensaio/v22n84/a05v22n84.pdf
@@ -1382,7 +1385,7 @@ bibliografia_secundaria: >-
   desigualdades educacionais.
 
 
-  ALVES, Thiago; SILVA, Rejane Moreira da. Estratificação das oportunidades
+  ## ALVES, Thiago; SILVA, Rejane Moreira da. Estratificação das oportunidades
   educacionais no Brasil: contextos e desafios para a oferta de ensino em
   condições de qualidade para todos. Educ. Soc., Campinas,  v. 34, n. 124, p.
   851-879,  set.,  2013.
@@ -1409,7 +1412,7 @@ bibliografia_secundaria: >-
   do ensino, sistema público de educação básica, políticas educacionais.
 
 
-  BASSO, Andreza Cristina Moreira da Silva; RODRIGUES, Carolina Ferrreira;
+  ## BASSO, Andreza Cristina Moreira da Silva; RODRIGUES, Carolina Ferrreira;
   BROOKE, Daniel Aguiar de Leighton; VIGNOLI, Daniel Araújo; CANDIAN, Juliana
   Frizzoni; REZENDE, Wagner Silveira. Desigualdade de desempenho e raça: uma
   análise a partir do Paebes 2009. Estudos em avaliação educacional, v. 23, n.
@@ -1432,8 +1435,8 @@ bibliografia_secundaria: >-
   rendimento escolar.
 
 
-  BONAL, Xavier. Incentivos a la demanda y racionalidades de elección escolar:
-  reflexiones en entornos de pobreza. Em Aberto. v. 30, n. 99, 2017.
+  ## BONAL, Xavier. Incentivos a la demanda y racionalidades de elección
+  escolar: reflexiones en entornos de pobreza. Em Aberto. v. 30, n. 99, 2017.
 
 
   http://emaberto.inep.gov.br/index.php/emaberto/article/view/3254
@@ -1464,7 +1467,7 @@ bibliografia_secundaria: >-
   educativas; globalización.
 
 
-  CARPENTIER, Claude. As desigualdades escolares na África do Sul: força das
+  ## CARPENTIER, Claude. As desigualdades escolares na África do Sul: força das
   coisas e política educativa (o exemplo da Província do Cabo). Educ. Rev.
   \[online]. n. 48, 2008.
 
@@ -1500,7 +1503,7 @@ bibliografia_secundaria: >-
   socioeconômicas.
 
 
-  FRANCO, Creso et al. Qualidade e equidade em educação: reconsiderando o
+  ## FRANCO, Creso et al. Qualidade e equidade em educação: reconsiderando o
   significado de "fatores intraescolares". Ensaio: aval. pol. públ. Educ.
   \[online], v. 15, n. 55, p. 277-298, 2007.
 
@@ -1519,7 +1522,7 @@ bibliografia_secundaria: >-
   intraescolar, educação fundamental.
 
 
-  GARCIA, Adir Valdemare; HILLESHEIM, Jaime. Pobreza e desigualdades
+  ## GARCIA, Adir Valdemare; HILLESHEIM, Jaime. Pobreza e desigualdades
   educacionais: uma análise com base nos Planos Nacionais de Educação e nos
   Planos Plurianuais Federais. Educ. Rev. \[online]., n.spe.2, 2017.
 
@@ -1554,7 +1557,7 @@ bibliografia_secundaria: >-
   Educação, Plano Plurianual.
 
 
-  GENTILI, Pablo. O direito à educação e as dinâmicas de exclusão na América
+  ## GENTILI, Pablo. O direito à educação e as dinâmicas de exclusão na América
   Latina. Educ. Soc., Campinas, v. 30, n. 109, dez., 2009.
 
 
@@ -1578,8 +1581,9 @@ bibliografia_secundaria: >-
   de educação.
 
 
-  GRAMANI, Maria Cristina. A desigualdade socioeconômica afeta mais municípios
-  menos favorecidos?. Cadernos de Pesquisa \[online], v. 47, n. 164, 2017.
+  ## GRAMANI, Maria Cristina. A desigualdade socioeconômica afeta mais
+  municípios menos favorecidos?. Cadernos de Pesquisa \[online], v. 47, n. 164,
+  2017.
 
 
   http://www.scielo.br/pdf/cp/v47n164/1980-5314-cp-47-164-00470.pdf
@@ -1603,8 +1607,8 @@ bibliografia_secundaria: >-
   educação básica, desigualdade social.
 
 
-  MARTINS, Eliana; ALMEIDA, Ney. A expansão desigual das ofertas educacionais no
-  Brasil no século 21. Em Aberto, v. 30, n. 99, 2017.
+  ## MARTINS, Eliana; ALMEIDA, Ney. A expansão desigual das ofertas educacionais
+  no Brasil no século 21. Em Aberto, v. 30, n. 99, 2017.
 
 
   http://emaberto.inep.gov.br/index.php/emaberto/article/view/3356/pdf
@@ -1625,8 +1629,8 @@ bibliografia_secundaria: >-
   **Palavras-chave:** pobreza, educação, Estado.
 
 
-  PASSOS, Guiomar de Oliveira; GOMES, Marcelo Batista. Nossas escolas não são as
-  vossas: as diferenças de classe. Educ. Rev. \[online], v. 28, n. 2, 2012.
+  ## PASSOS, Guiomar de Oliveira; GOMES, Marcelo Batista. Nossas escolas não são
+  as vossas: as diferenças de classe. Educ. Rev. \[online], v. 28, n. 2, 2012.
 
 
   http://www.scielo.br/pdf/edur/v28n2/a16v28n2.pdf
@@ -1651,7 +1655,7 @@ bibliografia_secundaria: >-
   **Palavras-chave:** escolarização, sistema de ensino, classes sociais.
 
 
-  SOARES, José Francisco; ANDRADE, Renato Júdice de. Nível socioeconômico,
+  ## SOARES, José Francisco; ANDRADE, Renato Júdice de. Nível socioeconômico,
   qualidade e equidade das escolas de Belo Horizonte. Ensaio: Aval. Pol. Públ.
   Educ. \[online], v. 14, n. 50, 2006.
 
@@ -1686,7 +1690,7 @@ bibliografia_secundaria: >-
   sistemas.
 
 
-  TAVARES JÚNIOR, Fernando; MONT’ALVÃO, Arnaldo; NEUBERT, Luiz. Rendimento
+  ## TAVARES JÚNIOR, Fernando; MONT’ALVÃO, Arnaldo; NEUBERT, Luiz. Rendimento
   escolar e seus determinantes sociais no Brasil. Revista Brasileira de
   Sociologia (RBS), v. 3, n. 6, 2015.
 
@@ -1705,9 +1709,9 @@ bibliografia_secundaria: >-
   estudantes.
 
 
-  YANNOULAS, Silvia Cristina; ASSIS, Samuel Gabriel; FERREIRA, Kaline Monteiro.
-  Educação e pobreza: limiares de um campo em (re)definição. Rev. Bras. Educ.
-  \[online], v. 17, n. 50, p. 329-351, 2012.
+  ## YANNOULAS, Silvia Cristina; ASSIS, Samuel Gabriel; FERREIRA, Kaline
+  Monteiro. Educação e pobreza: limiares de um campo em (re)definição. Rev.
+  Bras. Educ. \[online], v. 17, n. 50, p. 329-351, 2012.
 
 
   http://www.scielo.br/pdf/rbedu/v17n50/v17n50a05.pdf
@@ -1742,7 +1746,7 @@ bibliografia_secundaria: >-
   socioeconômica, raça/cor.
 
 
-  XAVIER, Flavia Pereira; ALVES, Maria Teresa Gonzaga. A composição social
+  ## XAVIER, Flavia Pereira; ALVES, Maria Teresa Gonzaga. A composição social
   importa para os efeitos das escolas no ensino fundamental? Estudos em
   avaliação educacional. v. 26, n. 61, 2015.
 
