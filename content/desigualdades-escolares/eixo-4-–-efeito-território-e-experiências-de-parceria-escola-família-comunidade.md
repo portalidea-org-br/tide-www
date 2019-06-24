@@ -11,10 +11,10 @@ bibliografia_principal: >-
   Inglês
 
 
-  CATAMBIS, S; BEVERIDGE, A. Does Neighborhood matter? Family, neighborhood, and
-  school influences on eight-grade mathematics achievement. Sociological Focus,
-  v. 34, n. 4, SPECIAL ISSUE: Educational Stratification and the Life Course, p.
-  435-457, Oct./Nov., 2001.
+  ## CATAMBIS, S; BEVERIDGE, A. Does Neighborhood matter? Family, neighborhood,
+  and school influences on eight-grade mathematics achievement. Sociological
+  Focus, v. 34, n. 4, SPECIAL ISSUE: Educational Stratification and the Life
+  Course, p. 435-457, Oct./Nov., 2001.
 
 
   https://www.tandfonline.com/doi/abs/10.1080/00380237.2001.10571212
@@ -60,10 +60,10 @@ bibliografia_principal: >-
   oferecer-lhes oportunidades extras de aprendizagem.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  DOBBIE, Will; FRYER Junior, Roland. Are High-Quality Schools Enough to
+  ## DOBBIE, Will; FRYER Junior, Roland. Are High-Quality Schools Enough to
   Increase Achievement Among the Poor? Evidence from the Harlem Children’s Zone.
   American Economic Journal: Applied Economics, v. 3, n. 3, 2011.
 
@@ -96,10 +96,10 @@ bibliografia_principal: >-
   comunitários não parecem ser necessários ou suficientes.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: HARLEM, NY (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Harlem, NY (EUA)
 
 
-  GALINDO, Claudia; SANDERS, Mavis; ABEL, Yolanda. Transforming Educational
+  ## GALINDO, Claudia; SANDERS, Mavis; ABEL, Yolanda. Transforming Educational
   Experiences in Low Income Communities: A Qualitative Case Study of Social
   Capital in a Full-Service Community School. American Educational Research
   Journal, v. 54, p. 140-163, 2017.
@@ -146,10 +146,10 @@ bibliografia_principal: >-
   raciais/étnicas, capital social, ameaças ao capital social.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  LEVENTHAL, T. BROOKS-GUNN, J. A Randomized Study of Neighborhood Effects on
+  ## LEVENTHAL, T. BROOKS-GUNN, J. A Randomized Study of Neighborhood Effects on
   Low Income Children's Educational Outcomes. Developmental psychology, v. 40,
   n. 4, p. 488-507, 2004.
 
@@ -195,10 +195,10 @@ bibliografia_principal: >-
   menos privilegiados que estavam em risco de abandonar a escola.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: NOVA YORK (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Nova York (EUA)
 
 
-  SHELDON, Steven; EPSTEIN, Joyce. Involvement Counts: Family and Community
+  ## SHELDON, Steven; EPSTEIN, Joyce. Involvement Counts: Family and Community
   Partnerships and Mathematics Achievement. Journal of Educational Research, v.
   98, p. 196-207, 2005. 
 
@@ -243,14 +243,14 @@ bibliografia_principal: >-
   parental, parcerias, desempenho estudantil.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  WALSH, Mary; MADAUS, George; RACZEK, Anastasia; DEARING, Eric; FOLEY, Claire;
-  AN, Chen; LEE-ST. JOHN, Terrence; BEATON, Albert. A New Model for Student
-  Support in High-Poverty Urban Elementary Schools: Effects on Elementary and
-  Middle School Academic Outcomes. American Educational Research Journal, v. 51,
-  p. 704-737, 2014.
+  ## WALSH, Mary; MADAUS, George; RACZEK, Anastasia; DEARING, Eric; FOLEY,
+  Claire; AN, Chen; LEE-ST. JOHN, Terrence; BEATON, Albert. A New Model for
+  Student Support in High-Poverty Urban Elementary Schools: Effects on
+  Elementary and Middle School Academic Outcomes. American Educational Research
+  Journal, v. 51, p. 704-737, 2014.
 
 
   http://journals.sagepub.com/doi/abs/10.3102/0002831214541669
@@ -294,12 +294,12 @@ bibliografia_principal: >-
   fundamental, pobreza.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: BOSTON (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Boston (EUA)
 
 
-  ZHANG, H.; COWEN, D. J. "Mapping Academic Achievement and Public School Choice
-  Under the No Child Left Behind Legislation." Southeastern Geographer, v. 49,
-  n. 1, p. 24-40, 2009.
+  ## ZHANG, H.; COWEN, D. J. "Mapping Academic Achievement and Public School
+  Choice Under the No Child Left Behind Legislation." Southeastern Geographer,
+  v. 49, n. 1, p. 24-40, 2009.
 
 
   https://muse.jhu.edu/article/259849
@@ -338,15 +338,15 @@ bibliografia_principal: >-
   aspectos espaciais no fenômeno educacional.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: CAROLINA DO SUL
+  **Field of research/terrain de recherche/local da pesquisa:** Carolina do Sul
   (EUA)
 
 
   Francês
 
 
-  BAUMANN BURGOS, Marcelo. Devenir élève au Brésil en contexte ségrégué. Un défi
-  impossible?, Espaces et sociétés, v. 166, n. 3, p. 113-125, 2016.
+  ## BAUMANN BURGOS, Marcelo. Devenir élève au Brésil en contexte ségrégué. Un
+  défi impossible?, Espaces et sociétés, v. 166, n. 3, p. 113-125, 2016.
 
 
   https://www.cairn.info/revue-espaces-et-societes-2016-3-p-113.htm
@@ -380,11 +380,11 @@ bibliografia_principal: >-
   grande favela do Rio de Janeiro.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: RIO DE JANEIRO,
-  BRASIL
+  **Field of research/terrain de recherche/local da pesquisa:** Rio de Janeiro,
+  Brasil
 
 
-  BILODEAU, A. ; LEFEBVRE, C., DESHAIES ; S., GAGNON ; F., BASTIEN, R.;
+  ## BILODEAU, A. ; LEFEBVRE, C., DESHAIES ; S., GAGNON ; F., BASTIEN, R.;
   BELANGER, J. ; COUTURIER, Y.; POTVIN, M.; CARIGNAN, N. Les interventions
   issues de la collaboration école-communauté dans quatre territoires
   montréalais pluriethniques et défavorisés. Service social, v. 57, n. 2, p.
@@ -429,11 +429,12 @@ bibliografia_principal: >-
   sucesso acadêmico em contexto pluriétnico e desfavorecido. 
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: MONTREAL (CANADÁ)
+  **Field of research/terrain de recherche/local da pesquisa:** Montreal
+  (Canadá)
 
 
-  BLAYA, Catherine et al. « Accrochage scolaire et alliances éducatives : vers
-  une intégration des approches scolaires et communautaires. » Éducation et
+  ## BLAYA, Catherine et al. « Accrochage scolaire et alliances éducatives :
+  vers une intégration des approches scolaires et communautaires. » Éducation et
   Francophonie, v. 39, n. 2, p. 227-249, automne, 2011. 
 
 
@@ -491,10 +492,10 @@ bibliografia_principal: >-
   alianças educativas, incorporando as abordagens escolares e comunitárias.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: BÉLGICA
+  **Field of research/terrain de recherche/local da pesquisa:** Bélgica
 
 
-  TRANCART, D. « Quel impact des ségrégations socio-spatiales sur la réussite
+  ## TRANCART, D. « Quel impact des ségrégations socio-spatiales sur la réussite
   scolaire au collège ? », Formation emploi, n. 120, p. 35-55, 2012.
 
 
@@ -525,10 +526,10 @@ bibliografia_principal: >-
   (estudantes entre 11 e 15 anos de idade).
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: FRANÇA
+  **Field of research/terrain de recherche/local da pesquisa:** França
 
 
-  KANOUTE, Fasal; ANDRE, Joslyne; CHARETTE, Josée; LAFORTUNE, Gina; LAVOIE,
+  ## KANOUTE, Fasal; ANDRE, Joslyne; CHARETTE, Josée; LAFORTUNE, Gina; LAVOIE,
   Annick; GOSSELIN-GAGNE, Justine.  Les relations école-organisme communautaire
   en contexte de pluriethnicité et de défavorisation /School-Community
   Organization Relations in Pluri-Ethnic and Under-Resourced Contexts. Revue
@@ -559,13 +560,14 @@ bibliografia_principal: >-
   crianças/alunos são apresentados.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: MONTREAL (CANADÁ)
+  **Field of research/terrain de recherche/local da pesquisa:** Montreal
+  (Canadá)
 
 
   Português
 
 
-  ALMEIDA, Luana Costa. As desigualdades e o trabalho das escolas:
+  ## ALMEIDA, Luana Costa. As desigualdades e o trabalho das escolas:
   problematizando a relação entre desempenho e localização socioespacial. Rev.
   Bras. Educ. \[online], 2017.
 
@@ -592,10 +594,10 @@ bibliografia_principal: >-
   **Palavras-chave:** entorno social, avaliação escolar, qualidade educacional.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: CAMPINAS (SP)
+  **Field of research/terrain de recherche/local da pesquisa:** Campinas (SP)
 
 
-  ERNICA, Maurício; BATISTA, Antônio Augusto Gomes. A escola, a metrópole e a
+  ## ERNICA, Maurício; BATISTA, Antônio Augusto Gomes. A escola, a metrópole e a
   vizinhança vulnerável. Cad. Pesqui. \[online], v. 42, n. 146, p. 640-666,
   2012. 
 
@@ -627,11 +629,11 @@ bibliografia_principal: >-
   sociais, educação.
 
 
-  Field of research/terrain de recherche/local da pesquisa: São Miguel Paulista,
-  São Paulo (SP)
+  **Field of research/terrain de recherche/local da pesquisa:** São Miguel
+  Paulista, São Paulo (SP)
 
 
-  KOSLINSKI, Mariane Campelo; ALVES, Fátima; LANGE, Wolfram Johannes.
+  ## KOSLINSKI, Mariane Campelo; ALVES, Fátima; LANGE, Wolfram Johannes.
   Desigualdades educacionais em contextos urbanos: um estudo da geografia de
   oportunidades educacionais na cidade do Rio de Janeiro. Educ. Soc., Campinas, 
   v. 34, n. 125, p. 1.175-1.202,  dez.,  2013.
@@ -660,10 +662,10 @@ bibliografia_principal: >-
   educacionais, segregação residencial.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: RIO DE JANEIRO
+  **Field of research/terrain de recherche/local da pesquisa:** Rio de Janeiro
 
 
-  RIBEIRO, Luiz Cesar de Queiroz et al. Desafios Urbanos à Democratização do
+  ## RIBEIRO, Luiz Cesar de Queiroz et al. Desafios Urbanos à Democratização do
   Acesso às Oportunidades Educacionais nas Metrópoles Brasileiras. Educ. Soc.,
   Campinas, v. 37, n. 134, p. 171-193, mar., 2016.
 
@@ -689,11 +691,11 @@ bibliografia_principal: >-
   desigualdades urbanas, desigualdades educacionais.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: REGIÕES
-  METROPOLITANAS DA CIDADE DO RIO DE JANEIRO E BELO HORIZONTE
+  **Field of research/terrain de recherche/local da pesquisa:** Regiões
+  Metropolitanas da cidade do Rio de janeiro e Belo Horizonte
 
 
-  RIBEIRO, Vanda Mendes; VOVIO, Cláudia Lemos. Desigualdade escolar e
+  ## RIBEIRO, Vanda Mendes; VOVIO, Cláudia Lemos. Desigualdade escolar e
   vulnerabilidade social no território. Educ. Rev., Curitiba, n. spe. 2, p.
   71-87, set., 2017.
 
@@ -730,16 +732,16 @@ bibliografia_principal: >-
   política educacional.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: DISCUSSÃO DE
-  PESQUISAS REALIZADAS NAS CIDADES DE SÃO PAULO E RIO DE JANEIRO
+  **Field of research/terrain de recherche/local da pesquisa: Discussão de
+  pesquisas realizadas nas cidades de São Paulo e Rio de Janeiro**
 bibliografia_secundaria: >-
   Inglês
 
 
-  AGIRDAG, Orhan; VAN HOUTT, Mieke; VAN AVERMAET, Piet. Why Does the Ethnic and
-  Socio-economic Composition of Schools Influence Math Achievement? The Role of
-  Sense of Futility and Futility Culture. European Sociological Review, v. 28,
-  n. 3, p. 366-378, June, 2012.
+  ## AGIRDAG, Orhan; VAN HOUTT, Mieke; VAN AVERMAET, Piet. Why Does the Ethnic
+  and Socio-economic Composition of Schools Influence Math Achievement? The Role
+  of Sense of Futility and Futility Culture. European Sociological Review, v.
+  28, n. 3, p. 366-378, June, 2012.
 
 
   https://academic.oup.com/esr/article-abstract/28/3/366/545704
@@ -781,7 +783,7 @@ bibliografia_secundaria: >-
   to have a negative impact on pupils’ study involvement.
 
 
-  BODOVSKI, Katerina; NAHUM-SHANI, Inbal, WALSH, Rachael. School Climate and
+  ## BODOVSKI, Katerina; NAHUM-SHANI, Inbal, WALSH, Rachael. School Climate and
   Students’ Early Mathematics Learning: Another Search for Contextual Effects.
   American Journal of Education, v. 119, n. 2, p. 209-234, Feb., 2013.
 
@@ -807,7 +809,7 @@ bibliografia_secundaria: >-
   demographic characteristics.
 
 
-  FARBMAN, D., WOLF, D. P.; SHERLOCK, D. Advancing arts education through an
+  ## FARBMAN, D., WOLF, D. P.; SHERLOCK, D. Advancing arts education through an
   expanded school day: Lessons from five schools. National Center on Time &
   Learning, p. 1-66, June, 2013. (ONG)
 
@@ -824,9 +826,9 @@ bibliografia_secundaria: >-
   engagement.
 
 
-  HOXBY, Caroline M.; ROCKOFF, Jonah E. Findings from the City of Big Shoulders:
-  Younger Students Learn More in Charter Schools. Education Next, v. 5, n. 4, p.
-  52-58, Fall, 2005.
+  ## HOXBY, Caroline M.; ROCKOFF, Jonah E. Findings from the City of Big
+  Shoulders: Younger Students Learn More in Charter Schools. Education Next, v.
+  5, n. 4, p. 52-58, Fall, 2005.
 
 
   https://www.educationnext.org/files/ednext20054_52.pdf
@@ -850,7 +852,7 @@ bibliografia_secundaria: >-
   all policymakers. 
 
 
-  KOLODNY, Kelly Ann. Inequalities in the Overlooked Associations in Urban
+  ## KOLODNY, Kelly Ann. Inequalities in the Overlooked Associations in Urban
   Educational Collaborations. Urban Review, v. 33, n. 2, p. 151-78, June, 2001
 
 
@@ -866,9 +868,9 @@ bibliografia_secundaria: >-
   families and staff assumed with each other in their daily associations.
 
 
-  LEWIS, Jeffrey L.; KIM, Eunhee. A Desire to Learn: African American Children's
-  Positive Attitudes toward Learning within School Cultures of Low Expectations.
-  Teachers College Record, v. 110, n. 6, p. 1.304-1.329, 2008.
+  ## LEWIS, Jeffrey L.; KIM, Eunhee. A Desire to Learn: African American
+  Children's Positive Attitudes toward Learning within School Cultures of Low
+  Expectations. Teachers College Record, v. 110, n. 6, p. 1.304-1.329, 2008.
 
 
   https://eric.ed.gov/?id=EJ825712
@@ -914,7 +916,7 @@ bibliografia_secundaria: >-
   behaviors.
 
 
-  MANTZICOPOULOS, Panayota; KNUTSON, Dana J. Head Start Children: School
+  ## MANTZICOPOULOS, Panayota; KNUTSON, Dana J. Head Start Children: School
   Mobility and Achievement in the Early Grades. The Journal of Educational
   Research, v. 93, n. 5, p. 305-311, May-June, 2000.
 
@@ -933,9 +935,9 @@ bibliografia_secundaria: >-
   and the effects of achievement prior to the school moves.
 
 
-  OWENS, Ann; REARDON, Sean F.; JENCKS, Christopher. Income Segregation between
-  Schools and School Districts. American Educational Research Journal, v. 53, n.
-  4, p. 1.159-1.197, 2016.
+  ## OWENS, Ann; REARDON, Sean F.; JENCKS, Christopher. Income Segregation
+  between Schools and School Districts. American Educational Research Journal,
+  v. 53, n. 4, p. 1.159-1.197, 2016.
 
 
   https://journals.sagepub.com/doi/10.3102/0002831216652722
@@ -959,9 +961,9 @@ bibliografia_secundaria: >-
   segregation, school segregation, social stratification.
 
 
-  RHODES, Anna; WARKENTIEN, Siri. Unwrapping the Suburban "Package Deal": Race,
-  Class, and School Access. American Educational Research Journal, v. 54 n.1
-  suppl. P. 168S-189S, Apr., 2017.
+  ## RHODES, Anna; WARKENTIEN, Siri. Unwrapping the Suburban "Package Deal":
+  Race, Class, and School Access. American Educational Research Journal, v. 54
+  n.1 suppl. P. 168S-189S, Apr., 2017.
 
 
   https://journals.sagepub.com/doi/10.3102/0002831216634456
@@ -983,7 +985,7 @@ bibliografia_secundaria: >-
   reduce growing suburban inequality.
 
 
-  VOIGHT, Adam; SHINN, Marybeth; NATION, Maury. The Longitudinal Effects of
+  ## VOIGHT, Adam; SHINN, Marybeth; NATION, Maury. The Longitudinal Effects of
   Residential Mobility on the Academic Achievement of Urban Elementary and
   Middle School Students. Educational Researcher, v. 41, n. 9, p. 385-392, Dec.,
   2012.
@@ -1012,9 +1014,9 @@ bibliografia_secundaria: >-
   Francês
 
 
-  COLLAS, Thomas. « Le public du soutien scolaire privé. Cours particuliers et
-  façonnement familial de la scolarité\[*] », Revue française de sociologie, v.
-  54, n. 3, p. 465-506, 2013.
+  ## COLLAS, Thomas. « Le public du soutien scolaire privé. Cours particuliers
+  et façonnement familial de la scolarité\[*] », Revue française de sociologie,
+  v. 54, n. 3, p. 465-506, 2013.
 
 
   https://www.cairn.info/revue-francaise-de-sociologie-2013-3-page-465.htm
@@ -1038,7 +1040,7 @@ bibliografia_secundaria: >-
   cours particuliers.
 
 
-  COMHAIRE, Gaël ; MRSIC-GARAC, Sonia . « La “participation” des parents dans
+  ## COMHAIRE, Gaël ; MRSIC-GARAC, Sonia . « La “participation” des parents dans
   des contextes de systèmes éducatifs en crise. Études de cas au Bénin et en
   République Démocratique du Congo », Mondes en développement, v. 139, n. 3, p.
   43-56, 2007. 
@@ -1055,7 +1057,7 @@ bibliografia_secundaria: >-
   où elles sont livrées à elles-mêmes.
 
 
-  DELCROIX. Catherine. Les parents des cités : la prévention familiale des
+  ## DELCROIX. Catherine. Les parents des cités : la prévention familiale des
   risques encourus par les enfants. Les Annales de la recherche urbaine, v. 83,
   n. 1,  p. 97-107, 1999.
 
@@ -1081,7 +1083,7 @@ bibliografia_secundaria: >-
   de transmission des valeurs.
 
 
-  J. LARIVEE, Serge, et al. "La collaboration école-famille en contexte
+  ## J. LARIVEE, Serge, et al. "La collaboration école-famille en contexte
   d’inclusion : entre obstacles, risques et facteurs de réussite." Revue des
   sciences de l’éducation, v. 32, n. 3, p. 525-543, 2006.
 
@@ -1101,7 +1103,7 @@ bibliografia_secundaria: >-
   collaboration ainsi que la qualite des services offerts.
 
 
-  LAROSE, François et al. "L’arrimage de l’intervention éducative et
+  ## LAROSE, François et al. "L’arrimage de l’intervention éducative et
   socioéducative en contexte de réussite éducative. Empowerment en perspective
   écosystémique et impact sur l’intervention." Nouveaux cahiers de la recherche
   en éducation, v. 16, n. 1, p. 24-49, 2013.
@@ -1131,7 +1133,7 @@ bibliografia_secundaria: >-
   éducative.
 
 
-  LE MENER, Erwan; OPPENCHAIM. Nicolas. Pouvoir aller à l’école. La
+  ## LE MENER, Erwan; OPPENCHAIM. Nicolas. Pouvoir aller à l’école. La
   vulnérabilité résidentielle d’enfants vivant en hôtel social. Les Annales de
   la recherche urbaine, Volume 110,  Numéro 1, p. 74-87, 2015.
 
@@ -1152,7 +1154,7 @@ bibliografia_secundaria: >-
   familles sans logement.
 
 
-  RAHM, Jrène. « L’accès des jeunes provenant de milieux défavorisés aux
+  ## RAHM, Jrène. « L’accès des jeunes provenant de milieux défavorisés aux
   activités scientifiques extrascolaires: une question d’équité. » Revue des
   sciences de l'éducation, v. 32, n. 3,  p. 733-758, 2006.
 
@@ -1174,9 +1176,9 @@ bibliografia_secundaria: >-
   des jeunes des milieux défavorisés.
 
 
-  VATZ-LAAROUSSI, Michèle. « Les nouveaux partenariats famille-école au Québec :
-  l’extériorité comme stratégie de survie des familles défavorisées ?. » Lien
-  social et Politiques, n. 35,  p. 87-97, printemps, 1996.
+  ## VATZ-LAAROUSSI, Michèle. « Les nouveaux partenariats famille-école au
+  Québec : l’extériorité comme stratégie de survie des familles défavorisées ?.
+  » Lien social et Politiques, n. 35,  p. 87-97, printemps, 1996.
 
 
   https://www.erudit.org/en/journals/lsp/1996-n35-lsp346/005245ar/
@@ -1198,8 +1200,8 @@ bibliografia_secundaria: >-
   entité.
 
 
-  ZAGO, Nadir. Une école au cœur de la favela à Florianópolis. Les Annales de la
-  recherche urbaine.  v. 75,  Numéro 1,  p. 106-112, 1997.
+  ## ZAGO, Nadir. Une école au cœur de la favela à Florianópolis. Les Annales de
+  la recherche urbaine.  v. 75,  Numéro 1,  p. 106-112, 1997.
 
 
   https://www.persee.fr/doc/aru_0180-930x_1997_num_75_1_2098
@@ -1217,7 +1219,7 @@ bibliografia_secundaria: >-
   Português
 
 
-  ERNICA, Mauricio. Desigualdades educacionais no espaço urbano: o caso de
+  ## ERNICA, Mauricio. Desigualdades educacionais no espaço urbano: o caso de
   Teresina. Rev. Bras. Educ. \[online], v. 18, n. 54, p. 523-788, 2013.
 
 
