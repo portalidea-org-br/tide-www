@@ -1,6 +1,6 @@
 ---
 title: Nota técnica
-file: /uploads/idea-nota-técnica.pdf
+file: /uploads/nota-técnica_idea.pdf
 ---
 ## Indicador de Desigualdades Educacionais (IDeA) – definições e medidas
 
