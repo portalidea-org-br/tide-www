@@ -9,8 +9,8 @@ bibliografia_principal: >-
   Inglês
 
 
-  BODOVSKI, Katerina; BYUN, Soo-Yong; CHYKINA, Volha; CHUNG, HeeJin. Searching
-  for the Golden Model of Education: Cross-National Analysis of Math
+  ## BODOVSKI, Katerina; BYUN, Soo-Yong; CHYKINA, Volha; CHUNG, HeeJin.
+  Searching for the Golden Model of Education: Cross-National Analysis of Math
   Achievement. Compare: A Journal of Comparative and International Education, v.
   47, n. 5, 2017.
 
@@ -60,10 +60,10 @@ bibliografia_principal: >-
   matemática, gaps socioeconômicos em rendimento.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA:
+  **Field of research/terrain de recherche/local da pesquisa: -**
 
 
-  CHIU, Ming Ming; KHOO, Lawrence. Effects of Resources, Inequality, and
+  ## CHIU, Ming Ming; KHOO, Lawrence. Effects of Resources, Inequality, and
   Privilege Bias on Achievement: Country, School and Student Level Analyses.
   American Educational Research Journal, v. 42, n. 4, Winter, 2005.
 
@@ -109,12 +109,12 @@ bibliografia_principal: >-
   comparações internacionais, nível socioeconômico.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: 41 PAÍSES
+  **Field of research/terrain de recherche/local da pesquisa: 41 países**
 
 
-  CHMIELEWSKI, Anna K.; REARDON, Sean F. Patterns of Cross-National Variation in
-  the Association Between Income and Academic Achievement. AERA Open, v. 2, n.
-  3, 2016.
+  ## CHMIELEWSKI, Anna K.; REARDON, Sean F. Patterns of Cross-National Variation
+  in the Association Between Income and Academic Achievement. AERA Open, v. 2,
+  n. 3, 2016.
 
 
   http://journals.sagepub.com/doi/abs/10.1177/2332858416649593
@@ -165,11 +165,11 @@ bibliografia_principal: >-
   avaliações internacionais de larga escala.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: COMPARAÇÃO ENTRE 15
-  PAÍSES
+  **Field of research/terrain de recherche/local da pesquisa: Comparação entre
+  15 países**
 
 
-  LAVRIJSEN, Jeroen; NICAISE, Ides. Educational Tracking, Inequality and
+  ## LAVRIJSEN, Jeroen; NICAISE, Ides. Educational Tracking, Inequality and
   Performance: New Evidence from a Differences-in-Differences Technique.
   Research in Comparative and International Education, v. 11, n. 3, Sept., 2016.
 
@@ -221,10 +221,10 @@ bibliografia_principal: >-
   letramento, numeramento, tracking.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA:
+  **Field of research/terrain de recherche/local da pesquisa: -**
 
 
-  MONTT, Guillermo. Cross-national Differences in Educational Achievement
+  ## MONTT, Guillermo. Cross-national Differences in Educational Achievement
   Inequality. Sociology of Education, n. 84, 2011.
 
 
@@ -277,11 +277,11 @@ bibliografia_principal: >-
   de rendimento, PISA, regressão de variância.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: DADOS DO PISA DE 50
-  PAÍSES
+  **Field of research/terrain de recherche/local da pesquisa: dados do PISA de
+  50 países**
 
 
-  OPPEDISANO, Veruska; TURATI, Gilberto. What Are the Causes of Educational
+  ## OPPEDISANO, Veruska; TURATI, Gilberto. What Are the Causes of Educational
   Inequality and of Its Evolution over Time in Europe? Evidence from PISA.
   Education Economics, v. 23, n. 1, 2015.
 
@@ -321,14 +321,14 @@ bibliografia_principal: >-
   descentralização das políticas educacionais.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: ALEMANHA, ESPANHA,
-  FRANÇA, ITÁLIA:
+  **Field of research/terrain de recherche/local da pesquisa: Alemanha, França
+  Espanha, Itália**
 
 
   Francês
 
 
-  DAMON, Julien. L'éducation et l'accueil des jeunes enfants: un rapport de
+  ## DAMON, Julien. L'éducation et l'accueil des jeunes enfants: un rapport de
   l'OCDE sur la petite enfance. Recherches et Prévisions, n. 66, 2001.
 
 
@@ -352,11 +352,12 @@ bibliografia_principal: >-
   acessibilidade como de qualidade.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: 12 PAÍSES DA OCDE
+  **Field of research/terrain de recherche/local da pesquisa: 12 países da
+  OCDE**
 
 
-  ROBERT, Bénédicte. Les politiques scolaires de compensation en France et aux
-  États-Unis. Diversité des acceptions et convergence des choix. Revue
+  ## ROBERT, Bénédicte. Les politiques scolaires de compensation en France et
+  aux États-Unis. Diversité des acceptions et convergence des choix. Revue
   internationale de politique comparée, v. 14, n. 3, 2007.
 
 
@@ -384,13 +385,14 @@ bibliografia_principal: >-
   significados nos dois países.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: FRANÇA E EUA
+  **Field of research/terrain de recherche/local da pesquisa: França e Estados
+  Unidos**
 
 
   Português
 
 
-  CRAHAY, Marcel  e  BAYE, Ariane. Existem escolas justas e eficazes?. Cad.
+  ## CRAHAY, Marcel  e  BAYE, Ariane. Existem escolas justas e eficazes?. Cad.
   Pesqui. \[online], v. 43, n. 150, 2013.
 
 
@@ -415,8 +417,47 @@ bibliografia_principal: >-
   comparada.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: AMÉRICA LATINA
-bibliografia_secundaria: "Inglês\r\n\nFARNEN, Russell F. Class Matters: Inequality, SES, Education and Childhood in the USA and Canada Today. Policy Futures in Education, v. 5, n. 3, 2007.\r\n\nhttp://journals.sagepub.com/doi/10.2304/pfie.2007.5.3.278\r\n\n\r\n\nThis article examines recent trends in childhood and youth policy, political socialization, and civic education in the USA and Canada since 2000. It examines some of the current trends (such as political socialization and education research findings on children and youth) as well as policy initiatives (such as the landmark federal legislation called the \"No Child Left Behind\" law which mandates yearly testing in reading, writing, and mathematics from grade 5 on while totally ignoring other fields critical to democratic political development (such as social studies and civics). In addition, the article broaches the subject of class and socio-economic status (SES) in the US educational system and other trends such as introducing service learning into the elementary grades. Briefly put, all measures used for evaluation to date point to SES as the principal determinant of test performance, along with race, ethnicity, urban residence, and other such background factors. Service learning is also worth discussing both for its philosophical roots (which are firmly middle class) but also for its fit with the US and Canadian volunteeristic capitalistic political cultures which stress self-reliance and individualism. The article also considers some of the counter-effectiveness research that people (such as Gerald Bracey) use to indicate that except for its elitism, the US/Canadian educational systems are not underperforming and that educational critics have a hostile anti-public policy stance because they wish to privatize everything, regardless of the consequences therefrom to a democratic society.\r\n\n\r\n\nGRUBB, W. Dynamic Inequality and Intervention: Lessons from a Small Country. The Phi Delta Kappan, 89(2), 105-114, 2007. \r\n\nhttp://journals.sagepub.com/doi/abs/10.1177/003172170708900206"
+  **Field of research/terrain de recherche/local da pesquisa: América Latina**
+bibliografia_secundaria: >-
+  Inglês
+
+
+  ## FARNEN, Russell F. Class Matters: Inequality, SES, Education and Childhood
+  in the USA and Canada Today. Policy Futures in Education, v. 5, n. 3, 2007.
+
+
+  http://journals.sagepub.com/doi/10.2304/pfie.2007.5.3.278
+
+
+  This article examines recent trends in childhood and youth policy, political
+  socialization, and civic education in the USA and Canada since 2000. It
+  examines some of the current trends (such as political socialization and
+  education research findings on children and youth) as well as policy
+  initiatives (such as the landmark federal legislation called the "No Child
+  Left Behind" law which mandates yearly testing in reading, writing, and
+  mathematics from grade 5 on while totally ignoring other fields critical to
+  democratic political development (such as social studies and civics). In
+  addition, the article broaches the subject of class and socio-economic status
+  (SES) in the US educational system and other trends such as introducing
+  service learning into the elementary grades. Briefly put, all measures used
+  for evaluation to date point to SES as the principal determinant of test
+  performance, along with race, ethnicity, urban residence, and other such
+  background factors. Service learning is also worth discussing both for its
+  philosophical roots (which are firmly middle class) but also for its fit with
+  the US and Canadian volunteeristic capitalistic political cultures which
+  stress self-reliance and individualism. The article also considers some of the
+  counter-effectiveness research that people (such as Gerald Bracey) use to
+  indicate that except for its elitism, the US/Canadian educational systems are
+  not underperforming and that educational critics have a hostile anti-public
+  policy stance because they wish to privatize everything, regardless of the
+  consequences therefrom to a democratic society.
+
+
+  ## GRUBB, W. Dynamic Inequality and Intervention: Lessons from a Small
+  Country. The Phi Delta Kappan, 89(2), 105-114, 2007. 
+
+
+  http://journals.sagepub.com/doi/abs/10.1177/003172170708900206
 main_bibliography_pdf: ''
 secondary_bibliography_pdf: ''
 file: ''
