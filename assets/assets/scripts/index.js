@@ -12054,12 +12054,15 @@ function initContactForm() {
       }
     }
   });
-  document.addEventListener('bouncerFormInvalid', function (event) {
-    window.scrollTo(0, event.detail.errors[0].offsetTop - 30);
-  }, false);
-  document.addEventListener('bouncerFormValid', function (event) {
-    submitForm(event);
-  }, false);
+
+  if (form) {
+    form.addEventListener('bouncerFormInvalid', function (event) {
+      window.scrollTo(0, event.detail.errors[0].offsetTop - 30);
+    }, false);
+    form.addEventListener('bouncerFormValid', function (event) {
+      submitForm(event);
+    }, false);
+  }
 }
 
 },{"../config":83,"@babel/runtime/helpers/interopRequireDefault":2,"axios":6,"bouncer":32,"imask":33,"qs":37}],85:[function(require,module,exports){
@@ -12094,6 +12097,8 @@ var _menuToggle = _interopRequireDefault(require("./menuToggle"));
 
 var _contactForm = _interopRequireDefault(require("./contactForm"));
 
+var _newsletterForm = _interopRequireDefault(require("./newsletterForm"));
+
 var _modal = _interopRequireDefault(require("./modal"));
 
 var _goBack = _interopRequireDefault(require("./goBack"));
@@ -12106,6 +12111,7 @@ var _randomize = _interopRequireDefault(require("./randomize"));
 
 (0, _menuToggle.default)();
 (0, _contactForm.default)();
+(0, _newsletterForm.default)();
 (0, _goBack.default)();
 (0, _tabs.default)();
 
@@ -12144,7 +12150,7 @@ function _handleSliderTimer() {
 
 handleSliderTimer();
 
-},{"./contactForm":84,"./goBack":85,"./menuToggle":87,"./modal":88,"./randomize":89,"./slider":90,"./tabs":91,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5}],87:[function(require,module,exports){
+},{"./contactForm":84,"./goBack":85,"./menuToggle":87,"./modal":88,"./newsletterForm":89,"./randomize":90,"./slider":91,"./tabs":92,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5}],87:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12208,6 +12214,121 @@ function initModal() {
 }
 
 },{"@babel/runtime/helpers/interopRequireDefault":2,"micromodal":34}],89:[function(require,module,exports){
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = initNewsletterForm;
+
+var _bouncer = _interopRequireDefault(require("bouncer"));
+
+var _axios = _interopRequireDefault(require("axios"));
+
+var _qs = _interopRequireDefault(require("qs"));
+
+var _config = _interopRequireDefault(require("../config"));
+
+function initNewsletterForm() {
+  // Mask phone number
+  var form = document.querySelector('.js-newsletter-form');
+  var loading = false;
+  var message = form ? form.querySelector('#js-response-message') : '';
+
+  function showSuccess() {
+    message.hidden = false;
+    message.classList.add('response-message--success');
+    message.textContent = 'Mensagem enviada com sucesso!';
+  }
+
+  function showError() {
+    message.hidden = false;
+    message.classList.add('response-message--error');
+    message.textContent = 'Houve um erro ao enviar sua mensagem! Por favor, tente novamente.';
+  }
+
+  function clearForm() {
+    form.reset();
+  }
+
+  function toggleFormLoading() {
+    form.setAttribute('aria-busy', !(form.getAttribute('aria-busy') === 'true'));
+    loading = !loading;
+  }
+
+  function submitForm(event) {
+    // const formData = new FormData(event.target);
+    toggleFormLoading();
+    var data = {
+      name: event.target.name.value,
+      email: event.target.email.value,
+      organization: event.target.organization.value,
+      role: event.target.role.value
+    };
+    (0, _axios.default)({
+      method: 'post',
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      url: 'newsletter',
+      data: _qs.default.stringify(data),
+      baseURL: _config.default.api.domain
+    }).then(function () {
+      showSuccess();
+      clearForm();
+      toggleFormLoading();
+    }).catch(function () {
+      showError();
+      toggleFormLoading();
+    });
+  } // eslint-disable-next-line no-unused-vars
+
+
+  var validate = new _bouncer.default('.js-newsletter-form', {
+    disableSubmit: true,
+    // Error messages by error type
+    messages: {
+      missingValue: {
+        checkbox: 'Campo obrigatório.',
+        radio: 'Por favor, selecione um valor.',
+        select: 'Por favor, selecione um valor.',
+        'select-multiple': 'Por favor, selecione ao menos um valor',
+        default: 'Campo obrigatório.'
+      },
+      patternMismatch: {
+        email: 'Por favor, preenhca com um email válido.',
+        url: 'Por favor, digite uma URL válida.',
+        number: 'Por favor, digite uma número válido.',
+        color: 'Por favor, siga o formato: #rrggbb.',
+        date: 'Por favor use o formato: YYYY-MM-DD.',
+        time: 'Por favor use o formato: 24-hour time. Ex. 23:00',
+        month: 'Por favor use o formato YYYY-MM.',
+        default: 'Por favor use o formato requerido.'
+      },
+      outOfRange: {
+        over: 'Por favor selecione uma valor de no máximo {max}.',
+        under: 'Por favor selecione a valor de no mínimo {min}.'
+      },
+      wrongLength: {
+        over: 'O texto deve ter no máximo {maxLength} caracteres. Você usou {length} caracteres.',
+        under: 'O texto deve ter no mínimo {minLength} caracteres. Você já usou {length} caracteres.'
+      }
+    }
+  });
+
+  if (form) {
+    form.addEventListener('bouncerFormInvalid', function (event) {
+      window.scrollTo(0, event.detail.errors[0].offsetTop - 30);
+    }, false);
+    form.addEventListener('bouncerFormValid', function (event) {
+      submitForm(event);
+    }, false);
+  }
+}
+
+},{"../config":83,"@babel/runtime/helpers/interopRequireDefault":2,"axios":6,"bouncer":32,"qs":37}],90:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -12363,7 +12484,7 @@ function _initRamdomize() {
   return _initRamdomize.apply(this, arguments);
 }
 
-},{"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"axios":6}],90:[function(require,module,exports){
+},{"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"axios":6}],91:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12394,7 +12515,7 @@ function initSlider() {
   });
 }
 
-},{"tiny-slider/src/tiny-slider":82}],91:[function(require,module,exports){
+},{"tiny-slider/src/tiny-slider":82}],92:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

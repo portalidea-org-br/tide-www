@@ -1,24 +1,13 @@
 import Bouncer from 'bouncer';
-import IMask from 'imask';
 import axios from 'axios';
 import qs from 'qs';
 import config from '../config';
 
-export default function initContactForm() {
+export default function initNewsletterForm() {
   // Mask phone number
-  const form = document.querySelector('.js-contato');
+  const form = document.querySelector('.js-newsletter-form');
   let loading = false;
   const message = form ? form.querySelector('#js-response-message') : '';
-  const phone = document.getElementById('phone');
-  const maskOptions = { mask: '+00 (00) 000000000' };
-  if (phone) {
-    // eslint-disable-next-line no-unused-vars
-    const mask = new IMask(phone, maskOptions);
-  }
-
-  function clearPhone(dirtyPhone) {
-    return dirtyPhone.replace(/[^0-9$+]/g, '');
-  }
 
   function showSuccess() {
     message.hidden = false;
@@ -48,14 +37,14 @@ export default function initContactForm() {
     const data = {
       name: event.target.name.value,
       email: event.target.email.value,
-      phone: clearPhone(event.target.phone.value),
-      message: event.target.message.value,
+      organization: event.target.organization.value,
+      role: event.target.role.value,
     };
 
     axios({
       method: 'post',
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      url: 'contact',
+      url: 'newsletter',
       data: qs.stringify(data),
       baseURL: config.api.domain,
     })
@@ -71,7 +60,7 @@ export default function initContactForm() {
   }
 
   // eslint-disable-next-line no-unused-vars
-  const validate = new Bouncer('.js-contato', {
+  const validate = new Bouncer('.js-newsletter-form', {
     disableSubmit: true,
     // Error messages by error type
     messages: {
