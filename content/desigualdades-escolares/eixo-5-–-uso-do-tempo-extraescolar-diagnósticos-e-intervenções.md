@@ -9,7 +9,7 @@ bibliografia_principal: >-
   Inglês
 
 
-  Afterschool Alliance. The importance of afterschool and summer learning
+  ## Afterschool Alliance. The importance of afterschool and summer learning
   programs in African American and Latino communities. Afterschool Alert Issue
   Brief, n. 59, Washington DC: Afterschool Alliance, 2013. (ONG)
 
@@ -104,10 +104,10 @@ bibliografia_principal: >-
   e mede o apoio do público a esses programas.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  ALEXANDER, K. L.; ENTWISLE, D. R.; OLSON, L. S. Schools, achievement, and
+  ## ALEXANDER, K. L.; ENTWISLE, D. R.; OLSON, L. S. Schools, achievement, and
   inequality: A seasonal perspective. Educational Evaluation and Policy
   Analysis, v. 23, n. 2, p. 171-191, 2001.
 
@@ -158,10 +158,10 @@ bibliografia_principal: >-
   todo ano.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: BALTIMORE (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Baltimore (EUA)
 
 
-  ALLINGTON, Richard L.; MCGILL-FRANZEN, Anne; CAMILLI, Gregory; WILLIAMS,
+  ## ALLINGTON, Richard L.; MCGILL-FRANZEN, Anne; CAMILLI, Gregory; WILLIAMS,
   Lunetta; GRAFF, Jennifer; ZEIG, Jacqueline; ZMACH, Courtney; NOWAK, Rhonda.
   Addressing Summer Reading Setback among Economically Disadvantaged Elementary
   Students. Reading Psychology, v. 31, n. 5, p. 411-427, 2010.
@@ -208,11 +208,11 @@ bibliografia_principal: >-
   dos alunos menos privilegiados nos grupos de tratamento e controle.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: FLÓRIDA (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Flórida (EUA)
 
 
-  ALLINGTON, Richard; MCGILL-FRANZEN, Anne. The Impact of Summer Setback on the
-  Reading Achievement Gap. Phi Delta Kappan, v. 85, p. 68-75, 2003.
+  ## ALLINGTON, Richard; MCGILL-FRANZEN, Anne. The Impact of Summer Setback on
+  the Reading Achievement Gap. Phi Delta Kappan, v. 85, p. 68-75, 2003.
 
 
   https://www.researchgate.net/publication/270666612_The_Impact_of_Summer_Setback_on_the_Reading_Achievement_Gap
@@ -221,12 +221,12 @@ bibliografia_principal: >-
   Abstract/résumé/resumo: -
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  AUGUSTINE, Catherine H; THOMPSON, Lindsey E. Making Summer Last: Integrating
-  Summer Programming into Core District Priorities and Operations. Santa Monica,
-  CA: RAND Corporation, 2017. (ONG)
+  ## AUGUSTINE, Catherine H; THOMPSON, Lindsey E. Making Summer Last:
+  Integrating Summer Programming into Core District Priorities and Operations.
+  Santa Monica, CA: RAND Corporation, 2017. (ONG)
 
 
   https://www.rand.org/pubs/research_reports/RR2038.html.
@@ -274,11 +274,11 @@ bibliografia_principal: >-
   quais as estratégias usadas pelos líderes para garantir essa integração.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: DALLAS, PITTSBURG E
-  ROCHESTER  (EUA)
+  **Field of research/terrain de recherche/local da pesquisa: Dallas, Pittsburg
+  e Rochester (EUA)** 
 
 
-  DENTON, Carolyn A; SOLARI, Emily J.; CIANCIO, Dennis J.; HECHT, Steven A.;
+  ## DENTON, Carolyn A; SOLARI, Emily J.; CIANCIO, Dennis J.; HECHT, Steven A.;
   SWANK, Paul R. A Pilot Study of a Kindergarten Summer School Reading Program
   in High-Poverty Urban Schools. The Elementary School Journal, v. 110, n. 4, p.
   423-439, June, 2010.
@@ -325,10 +325,10 @@ bibliografia_principal: >-
   estudos.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  DOBBIE, Will; FRYER JUNIOR, Roland. Are High-Quality Schools Enough to
+  ## DOBBIE, Will; FRYER JUNIOR, Roland. Are High-Quality Schools Enough to
   Increase Achievement Among the Poor? Evidence from the Harlem Children’s Zone.
   American Economic Journal: Applied Economics, v. 3, n. 3, 2011.
 
@@ -361,10 +361,10 @@ bibliografia_principal: >-
   comunitários não parecem ser necessários ou suficientes.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: HARLEM, NY (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Harlem, NY (EUA)
 
 
-  JERRIM, John. Extra time: Private tuition and out-of-school study, new
+  ## JERRIM, John. Extra time: Private tuition and out-of-school study, new
   international evidence.  Sutton Trust, Sept, 2017. (ONG)
 
 
@@ -401,12 +401,12 @@ bibliografia_principal: >-
   momento da vida. Em Londres, essa proporção é de quase metade dos jovens.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: GRÃ-BRETANHA
+  **Field of research/terrain de recherche/local da pesquisa:** Grã-Bretanha
 
 
-  JONES, S.; BRUSH, K.; BAILEY, R.; BRION-MEISELS, G.; MCINTYRE, J.; KAHN, J.;
-  NELSON, B.; STICKLE, L. Navigating SEL from the inside out: Looking inside &
-  across 25 leading SEL programs – A practical resource for schools and OST
+  ## JONES, S.; BRUSH, K.; BAILEY, R.; BRION-MEISELS, G.; MCINTYRE, J.; KAHN,
+  J.; NELSON, B.; STICKLE, L. Navigating SEL from the inside out: Looking inside
+  & across 25 leading SEL programs – A practical resource for schools and OST
   providers. Cambridge, MA: Harvard Graduate School of Education, 2017. (ONG)
 
 
@@ -436,7 +436,7 @@ bibliografia_principal: >-
   NUMBER OF CITATIONS/NOMBRE DE CITATIONS/NÚMERO DE CITAÇÕES: 2
 
 
-  MCCOMBS, J. S.; WHITAKER, A.;  YOO, P. Y. The Value of Out-of-School Time
+  ## MCCOMBS, J. S.; WHITAKER, A.;  YOO, P. Y. The Value of Out-of-School Time
   Programs. Santa Monica, CA: RAND Corporation. 2017. (ONG)
 
 
@@ -446,10 +446,10 @@ bibliografia_principal: >-
   **Abstract/résumé/resumo: -**
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:**: Estados Unidos
 
 
-  SLOAN MCCOMBS, Jennifer; PANE, John; H. AUGUSTINE, Catherine; SCHWARTZ,
+  ## SLOAN MCCOMBS, Jennifer; PANE, John; H. AUGUSTINE, Catherine; SCHWARTZ,
   Heather;  MARTORELL, Paco; ZAKARAS, Laura. Ready for Fall? Near-Term Effects
   of Voluntary Summer Learning Programs on Low-Income Students' Learning
   Opportunities and Outcomes, 2014. (ONG)
@@ -494,12 +494,12 @@ bibliografia_principal: >-
   leitura e capacidade social e emocional no outono de 2013.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: BOSTON; DALLAS;
-  DUVAL COUNTY, FLÓRIDA; PITTSBURGH; ROCHESTER, NOVA YORK (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Boston, Dallas,
+  Duval County, Flórida, Pittsburgh, Rochester, Nova York (EUA)
 
 
-  SOMERS, Marie-Andree; WELBECK, Rashida; GROSSMAN, Jean B.; GOODEN, Susan. An
-  Analysis of the Effects of an Academic Summer Program for Middle School
+  ## SOMERS, Marie-Andree; WELBECK, Rashida; GROSSMAN, Jean B.; GOODEN, Susan.
+  An Analysis of the Effects of an Academic Summer Program for Middle School
   Students. New York: MDRC, Mar., 2015. (NGO).
 
 
@@ -590,15 +590,15 @@ bibliografia_principal: >-
   leitura, atribuição aleatória.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: TRÊS DISTRITOS
-  ESCOLARES NOS EUA
+  **Field of research/terrain de recherche/local da pesquisa: Três distritos
+  escolares nos EUA** 
 
 
-  WALSH, Mary; MADAUS, George; RACZEK, Anastasia; DEARING, Eric; FOLEY, Claire;
-  AN, Chen; LEE-ST. JOHN, Terrence; BEATON, Albert. A New Model for Student
-  Support in High-Poverty Urban Elementary Schools: Effects on Elementary and
-  Middle School Academic Outcomes. American Educational Research Journal, v. 51,
-  p. 704-737, 2014.
+  ## WALSH, Mary; MADAUS, George; RACZEK, Anastasia; DEARING, Eric; FOLEY,
+  Claire; AN, Chen; LEE-ST. JOHN, Terrence; BEATON, Albert. A New Model for
+  Student Support in High-Poverty Urban Elementary Schools: Effects on
+  Elementary and Middle School Academic Outcomes. American Educational Research
+  Journal, v. 51, p. 704-737, 2014.
 
 
   http://journals.sagepub.com/doi/abs/10.3102/0002831214541669
@@ -639,13 +639,13 @@ bibliografia_principal: >-
   estudantil, resultados acadêmicos, escolas de ensino fundamental, pobreza.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: BOSTON (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Boston (EUA)
 
 
   Francês
 
 
-  RAHM, Jrène. « L’accès des jeunes provenant de milieux défavorisés aux
+  ## RAHM, Jrène. « L’accès des jeunes provenant de milieux défavorisés aux
   activités scientifiques extrascolaires : une question d’équité. » Revue des
   sciences de l'éducation, v. 32, n. 3, p. 733-758, 2006.
 
@@ -680,13 +680,13 @@ bibliografia_principal: >-
   meios desfavorecidos.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: CANADÁ
+  **Field of research/terrain de recherche/local da pesquisa:** Canadá
 bibliografia_secundaria: >-
   Inglês
 
 
-  FELDMAN, Sandra. Closing the Achievement Gap. In: American Educator, v. 25 n.
-  3 p. 7-9, Fall, 2001. (ONG – American Federation of teachers)
+  ## FELDMAN, Sandra. Closing the Achievement Gap. In: American Educator, v. 25
+  n. 3 p. 7-9, Fall, 2001. (ONG – American Federation of teachers)
 
 
   https://www.aft.org/periodical/american-educator/fall-2001/closing-achievement-gap
@@ -695,10 +695,10 @@ bibliografia_secundaria: >-
   **Abstract/résumé/resumo:**
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  KIM, James S. Effects of a Voluntary Summer Reading Intervention on Reading
+  ## KIM, James S. Effects of a Voluntary Summer Reading Intervention on Reading
   Achievement: Results from a Randomized Field Trial. Educational Evaluation and
   Policy Analysis, v. 28, n. 4, p. 335-355, Winter, 2006.
 
@@ -725,11 +725,11 @@ bibliografia_secundaria: >-
   **Keywords:** randomized experiments, summer learning, voluntary reading.
 
 
-  KIM, James S.; GURYAN, Jonathan; WHITE, Thomas G.; QUINN, David M.; CAPOTOSTO,
-  Lauren; KINGSTON, Helen Chen.  Delayed Effects of a Low-Cost and Large-Scale
-  Summer Reading Intervention on Elementary School Children's Reading
-  Comprehension. Journal of Research on Educational Effectiveness, v. 9 suppl.
-  1, p. 1-22, 2016.
+  ## KIM, James S.; GURYAN, Jonathan; WHITE, Thomas G.; QUINN, David M.;
+  CAPOTOSTO, Lauren; KINGSTON, Helen Chen.  Delayed Effects of a Low-Cost and
+  Large-Scale Summer Reading Intervention on Elementary School Children's
+  Reading Comprehension. Journal of Research on Educational Effectiveness, v. 9
+  suppl. 1, p. 1-22, 2016.
 
 
   https://www.tandfonline.com/doi/abs/10.1080/19345747.2016.1164780?journalCode=uree20
@@ -759,9 +759,9 @@ bibliografia_secundaria: >-
   Francês
 
 
-  COLLAS, Thomas. « Le public du soutien scolaire privé. Cours particuliers et
-  façonnement familial de la scolarité\[*] », Revue française de sociologie, v.
-  54, n. 3, p. 465-506, 2013.
+  ## COLLAS, Thomas. « Le public du soutien scolaire privé. Cours particuliers
+  et façonnement familial de la scolarité\[*] », Revue française de sociologie,
+  v. 54, n. 3, p. 465-506, 2013.
 
 
   https://www.cairn.info/revue-francaise-de-sociologie-2013-3-page-465.htm
@@ -785,7 +785,7 @@ bibliografia_secundaria: >-
   cours particuliers.
 
 
-  BILODEAU, A.;LEFEBVRE, C.; DESHAIES, S.; GAGNON, F.; BASTIEN, R.; BELANGER,
+  ## BILODEAU, A.;LEFEBVRE, C.; DESHAIES, S.; GAGNON, F.; BASTIEN, R.; BELANGER,
   J.; COUTURIER, Y.; POTVIN, M.;  CARIGNAN, N. Les interventions issues de la
   collaboration école-communauté dans quatre territoires montréalais
   pluriethniques et défavorisés. Service social, v. 57, n. 2, p. 37-54, 2011.
@@ -829,6 +829,7 @@ bibliografia_secundaria: >-
   sucesso acadêmico em contexto pluriétnico e desfavorecido.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: MONTRÉAL (CANADÁ)
+  **Field of research/terrain de recherche/local da pesquisa:** Montreal
+  (CANADÁ)
 ---
 
