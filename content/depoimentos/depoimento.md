@@ -1,14 +1,13 @@
 ---
-title: "86%"
-date: 2018-09-14T11:58:16-03:00
+title: As desigualdades educacionais e seus efeitos – professora Ana Maria F. Almeida
+date: 2018-09-14T14:58:16.000Z
 draft: false
-name: "Maria Victoria Benevides"
-image: "https://placehold.it/295/295"
-video: "https://www.youtube.com/watch?v=aVS4W7GZSq0"
-alt: "Maria Victoria Benevides"
-weight: 1
+name: aa
+Image: /uploads/placeimg_1000_600_any.jpg
+video: 'https://youtu.be/LRcR3oyej-Y'
+alt: aa
+weight: 2
 type: item
 role: testimonials
 ---
-
-Proin nec dui id ipsum interdum convallis. Nam et tempus augue, dapibus imperdiet quam. Pellentesque tortor nisl, ornare et tristique at, vehicula vel tortor.
+aa
