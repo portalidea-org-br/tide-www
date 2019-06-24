@@ -6,7 +6,7 @@ texto_portugues: (item oculto - não deletar esse texto)
 texto_ingles: (item oculto - não deletar esse texto)
 bibliografia_principal: (item oculto - não deletar esse texto)
 bibliografia_secundaria: (item oculto - não deletar esse texto)
-file: /uploads/pdf.pdf
-short_description: Descrição curta não obrigatória - altere aqui
+file: /uploads/pesquisa-diagramada_ed.-pobreza-e-desigualdades-v1.pdf
+short_description: ''
 ---
 
