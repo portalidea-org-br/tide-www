@@ -62,7 +62,7 @@ menu:
     url: "/#contato"
     weight: 8
 metaDataFormat: "yaml"
-title: "Eduquidade"
+title: "IDeA"
 params:
   mailchimpNewsletterFormAction: ""
   siteDescription: ""
