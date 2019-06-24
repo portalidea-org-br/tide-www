@@ -9,10 +9,10 @@ bibliografia_principal: >-
   Inglês
 
 
-  ANDERSEN, Ida Gran; ANDERSEN, Simon Calmar. Student-Centered Instruction and
-  Academic Achievement: Linking Mechanisms of Educational Inequality to Schools'
-  Instructional Strategy. British Journal of Sociology of Education, v. 38, n.
-  4, p. 533-550, 2017.
+  ## ANDERSEN, Ida Gran; ANDERSEN, Simon Calmar. Student-Centered Instruction
+  and Academic Achievement: Linking Mechanisms of Educational Inequality to
+  Schools' Instructional Strategy. British Journal of Sociology of Education, v.
+  38, n. 4, p. 533-550, 2017.
 
 
   https://www.tandfonline.com/doi/full/10.1080/01425692.2015.1093409
@@ -62,13 +62,13 @@ bibliografia_principal: >-
   educacionais, estratégias de instrução, instrução centrada no aluno.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: INGLATERRA
+  **Field of research/terrain de recherche/local da pesquisa:** Inglaterra
 
 
-  BALFANZ, Robert; MAC IVER, Douglas J.; BYRNES, Vaughan. The Implementation and
-  Impact of Evidence-Based Mathematics Reforms in High-Poverty Middle Schools: A
-  Multi-Site, Multi-Year Study. Journal for Research in Mathematics Education,
-  v. 37, n. 1, p. 33-64, Jan., 2006.
+  ## BALFANZ, Robert; MAC IVER, Douglas J.; BYRNES, Vaughan. The Implementation
+  and Impact of Evidence-Based Mathematics Reforms in High-Poverty Middle
+  Schools: A Multi-Site, Multi-Year Study. Journal for Research in Mathematics
+  Education, v. 37, n. 1, p. 33-64, Jan., 2006.
   https://www.jstor.org/stable/30035051?seq=1#page_scan_tab_contents
 
 
@@ -101,11 +101,11 @@ bibliografia_principal: >-
   Ensino Médio foi de 0,24.
 
 
-  FIELD OF RESEARCH /TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  BITTER, Catherine; O'DAY, Jennifer; GUBBINS, Paul; SOCIAS, Miguel. What Works
-  to Improve Student Literacy Achievement? An Examination of Instructional
+  ## BITTER, Catherine; O'DAY, Jennifer; GUBBINS, Paul; SOCIAS, Miguel. What
+  Works to Improve Student Literacy Achievement? An Examination of Instructional
   Practices in a Balanced Literacy Approach. Journal of Education for Students
   Placed at Risk, v. 14, n. 1, p. 17-44, Jan., 2009.
 
@@ -148,12 +148,14 @@ bibliografia_principal: >-
   estavam associadas com o aumento da compreensão escrita dos alunos.
 
 
-  FIELD OF RESEARCH /TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: SAN DIEGO, EUA.
+  **Field of research/terrain de recherche/local da pesquisa:** San Diego, EUA.
 
 
-  BODOVSKI, Katerina; NAHUM-SHANI, Inbal; WALSH, Rachael. School Climate and
+  ## BODOVSKI, Katerina; NAHUM-SHANI, Inbal; WALSH, Rachael. School Climate and
   Students’ Early Mathematics Learning: Another Search for Contextual Effects.
-  American Journal of Education, v. 119, n. 2, p. 209-234, Feb., 2013.
+  American Journal of Education, v. 119, n. 2, p. 209-234, Feb., 2013. 
+
+
   https://www.jstor.org/stable/10.1086/667227?seq=1#page_scan_tab_contents
 
 
@@ -192,13 +194,13 @@ bibliografia_principal: >-
   características demográficas dos alunos e das escolas. 
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  CUNNINGTON, Marisol; KANTROWITZ, Andrea; HARNETT, Susanne; HILL-RIES, Aline.
-  Cultivating Common Ground: Integrating Standards-Based Visual Arts, Math and
-  Literacy in High-Poverty Urban Classrooms. Journal for Learning through the
-  Arts, v. 10, n. 1, 2014.
+  ## CUNNINGTON, Marisol; KANTROWITZ, Andrea; HARNETT, Susanne; HILL-RIES,
+  Aline. Cultivating Common Ground: Integrating Standards-Based Visual Arts,
+  Math and Literacy in High-Poverty Urban Classrooms. Journal for Learning
+  through the Arts, v. 10, n. 1, 2014.
 
 
   https://files.eric.ed.gov/fulltext/EJ1050589.pdf
@@ -278,10 +280,10 @@ bibliografia_principal: >-
   competências acadêmicas e cognitivas.
 
 
-  FIELD OF RESEARCH /TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: NOVA YORK (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Nova Yrok (EUA)
 
 
-  FARBMAN, D.; WOLF, D. P.; SHERLOCK, D. Advancing arts education through an
+  ## FARBMAN, D.; WOLF, D. P.; SHERLOCK, D. Advancing arts education through an
   expanded school day: Lessons from five schools. National Center on Time &
   Learning, 1-66, June, 2013. (ONG)
 
@@ -307,11 +309,11 @@ bibliografia_principal: >-
   uma forma de melhorar o engajamento dos alunos.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: ESCOLAS EM
-  MASSACHUSETTS, CALIFÓRNIA, COLORADO E RHODE ISLAND (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Escolas em
+  Massachusetts, Califórnia, Colorado e Rhode Island (EUA)
 
 
-  FREIBERG, H. Jerome; HUZINEC, Chris A.; TEMPLETON, Stacey M. Classroom
+  ## FREIBERG, H. Jerome; HUZINEC, Chris A.; TEMPLETON, Stacey M. Classroom
   Management – a Pathway to Student Achievement: A Study of Fourteen Inner‐City
   Elementary Schools. The Elementary School Journal, v. 110, n. 1, p. 63-80,
   Sept., 2009.
@@ -359,12 +361,12 @@ bibliografia_principal: >-
   melhorar as condições de aprendizagem devem ser mais bem analisadas.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: TEXAS (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Texas (EUA)
 
 
-  JONES, S.; BRUSH, K.; BAILEY, R.; BRION-MEISELS, G.; MCINTYRE, J.; KAHN, J.;
-  NELSON, B.; STICKLE, L. Navigating SEL from the inside out: Looking inside &
-  across 25 leading SEL programs – A practical resource for schools and OST
+  ## JONES, S.; BRUSH, K.; BAILEY, R.; BRION-MEISELS, G.; MCINTYRE, J.; KAHN,
+  J.; NELSON, B.; STICKLE, L. Navigating SEL from the inside out: Looking inside
+  & across 25 leading SEL programs – A practical resource for schools and OST
   providers. Cambridge, MA: Harvard Graduate School of Education, 2017. (ONG)
 
 
@@ -391,10 +393,10 @@ bibliografia_principal: >-
   escolares e paraescolares, tais como programas de verão ou extraescolares.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  LUDWIG, M., BOYLE, A., LINDSAY, J. Review of evidence: Arts integration
+  ## LUDWIG, M., BOYLE, A., LINDSAY, J. Review of evidence: Arts integration
   research through the lens of Every Students Succeeds Act. Washington, DC:
   American Institutes for Research, 2017. (ONG)
 
@@ -475,12 +477,12 @@ bibliografia_principal: >-
   ESSA.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  MCCLUSKEY, G. Closing the attainment gap in Scottish schools: Three challenges
-  in an unequal society. Education, Citizenship and Social Justice, v. 12, n. 1,
-  p. 24-35, 2017.
+  ## MCCLUSKEY, G. Closing the attainment gap in Scottish schools: Three
+  challenges in an unequal society. Education, Citizenship and Social Justice,
+  v. 12, n. 1, p. 24-35, 2017.
 
 
   http://journals.sagepub.com/doi/abs/10.1177/1746197916683468
@@ -536,13 +538,13 @@ bibliografia_principal: >-
   desigualdades, envolvimento parental, participação estudantil.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: ESCÓCIA
+  **Field of research/terrain de recherche/local da pesquisa:** Escócia
 
 
-  MCDONALD, Aaron J.; ROSS, Steven M.; BOL, Linda; MCSPARRIN-GALLAGHER, Brenda.
-  Charter Schools as a Vehicle for Education Reform: Implementation and Outcomes
-  at Three Inner-City Sites. Journal of Education for Students Placed at Risk,
-  v. 12, n. 3, p. 271-300, Oct., 2007.
+  ## MCDONALD, Aaron J.; ROSS, Steven M.; BOL, Linda; MCSPARRIN-GALLAGHER,
+  Brenda. Charter Schools as a Vehicle for Education Reform: Implementation and
+  Outcomes at Three Inner-City Sites. Journal of Education for Students Placed
+  at Risk, v. 12, n. 3, p. 271-300, Oct., 2007.
 
 
   https://pdfs.semanticscholar.org/5f4a/97713cf464b080b69a863100d6c4da9b3b1c.pdf
@@ -581,13 +583,13 @@ bibliografia_principal: >-
   acadêmicos e organizacionais das escolas charter.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: TRÊS ESCOLAS EM
-  ÁREAS URBANAS NOS EUA
+  **Field of research/terrain de recherche/local da pesquisa:** três escolas em
+  áreas urbanas nos EUA 
 
 
-  POGROW, Stanley. Restructuring High-Poverty Elementary Schools for Success: A
-  Description of the Hi-Perform School Design. Phi Delta Kappan, v. 88, n. 3, p.
-  223-229, Nov., 2006.
+  ## POGROW, Stanley. Restructuring High-Poverty Elementary Schools for Success:
+  A Description of the Hi-Perform School Design. Phi Delta Kappan, v. 88, n. 3,
+  p. 223-229, Nov., 2006.
 
 
   http://www.pdkmembers.org/members_online/publications/Archive/pdf/k0611pog.pdf
@@ -617,12 +619,12 @@ bibliografia_principal: >-
   Habilidades de Pensamento de Alto Nível (Higher Order Thinking Skills – HOTS).
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA:
+  **Field of research/terrain de recherche/local da pesquisa: -**
 bibliografia_secundaria: >-
   Inglês
 
 
-  BRANDT, Ron. The Case for Diversified Schooling. Educational Leadership, v.
+  ## BRANDT, Ron. The Case for Diversified Schooling. Educational Leadership, v.
   59, n. 7, p. 12-19, Apr., 2002.
 
 
@@ -650,7 +652,7 @@ bibliografia_secundaria: >-
   people, including some professional mathematicians, do not.
 
 
-  CARLSON, Deven; BORMAN, Geoffrey D.; ROBINSON, Michelle. A Multistate
+  ## CARLSON, Deven; BORMAN, Geoffrey D.; ROBINSON, Michelle. A Multistate
   District-Level Cluster Randomized Trial of the Impact of Data-Driven Reform on
   Reading and Mathematics Achievement. Educational Evaluation and Policy
   Analysis, v. 33, n. 3, p. 378-398, Sept., 2011.
@@ -676,7 +678,7 @@ bibliografia_secundaria: >-
   multilevel design.
 
 
-  DURU-BELLAT, Marie. Social Inequalities in the French Education System: The
+  ## DURU-BELLAT, Marie. Social Inequalities in the French Education System: The
   Joint Effect of Individual and Contextual Factors. Journal of Education
   Policy, v. 15, n. 1, p. 33-40, Jan.-Feb., 2000.
 
@@ -700,7 +702,7 @@ bibliografia_secundaria: >-
   job shortage.
 
 
-  HOY, Wayne K.; TARTER, C. John; HOY, Anita Woolfolk. Academic Optimism of
+  ## HOY, Wayne K.; TARTER, C. John; HOY, Anita Woolfolk. Academic Optimism of
   Schools: A Force for Student Achievement. American Educational Research
   Journal, v. 43, n. 3, p. 425-446, Autumn, 2006.
 
@@ -723,7 +725,7 @@ bibliografia_secundaria: >-
   achievement. The findings support the critical nature of academic optimism.
 
 
-  LAVRIJSEN, Jeroen; NICAISE, Ides. Educational Tracking, Inequality and
+  ## LAVRIJSEN, Jeroen; NICAISE, Ides. Educational Tracking, Inequality and
   Performance: New Evidence from a Differences-in-Differences Technique.
   Research in Comparative and International Education, v. 11, n. 3, p. 334-349,
   Sept., 2016.
@@ -751,10 +753,10 @@ bibliografia_secundaria: >-
   challenge high performers to learn at a high pace.
 
 
-  MOLLER, Stephanie; STEARNS, Elizabeth; MICKELSON, Roslyn Arlin; BOTTIA, Martha
-  Cecilia; BANERJEE, Neena. Is Academic Engagement the Panacea for Achievement
-  in Mathematics across Racial/Ethnic Groups? Assessing the Role of Teacher
-  Culture. Social Forces, v. 92, n. 4, p. 1.513-1.544, June, 2014.
+  ## MOLLER, Stephanie; STEARNS, Elizabeth; MICKELSON, Roslyn Arlin; BOTTIA,
+  Martha Cecilia; BANERJEE, Neena. Is Academic Engagement the Panacea for
+  Achievement in Mathematics across Racial/Ethnic Groups? Assessing the Role of
+  Teacher Culture. Social Forces, v. 92, n. 4, p. 1.513-1.544, June, 2014.
 
 
   https://muse.jhu.edu/article/546225/summary
@@ -781,7 +783,7 @@ bibliografia_secundaria: >-
   higher.
 
 
-  PARSONS, Eric. Does Attending a Low-Achieving School Affect High-Performing
+  ## PARSONS, Eric. Does Attending a Low-Achieving School Affect High-Performing
   Student Outcomes? Teachers College Record, v. 118, n. 8, 2016. 
 
 
@@ -825,7 +827,7 @@ bibliografia_secundaria: >-
   substantial benefits in terms of college readiness.
 
 
-  REIS, Sally M.; MCCOACH, D. Betsy; LITTLE, Catherine A.; MULLER, Lisa M.;
+  ## REIS, Sally M.; MCCOACH, D. Betsy; LITTLE, Catherine A.; MULLER, Lisa M.;
   KANISKAN, R. Burcu.  The Effects of Differentiated Instruction and Enrichment
   Pedagogy on Reading Achievement in Five Elementary Schools. American
   Educational Research Journal, v. 48, n. 2, p. 462-501, Apr., 2011.
@@ -846,9 +848,9 @@ bibliografia_secundaria: >-
   traditional whole group basal approach.
 
 
-  SKINDRUD, Karl; GERSTEN, Russell. An Evaluation of Two Contrasting Approaches
-  for Improving Reading Achievement in a Large Urban District. The Elementary
-  School Journal, v. 106, n. 5, p. 389-408, May, 2006.
+  ## SKINDRUD, Karl; GERSTEN, Russell. An Evaluation of Two Contrasting
+  Approaches for Improving Reading Achievement in a Large Urban District. The
+  Elementary School Journal, v. 106, n. 5, p. 389-408, May, 2006.
 
 
   https://www.jstor.org/stable/10.1086/505437?seq=1#page_scan_tab_contents
@@ -871,9 +873,9 @@ bibliografia_secundaria: >-
   Court as superior on academic outcomes and SFA on social outcomes.
 
 
-  SLAVIN, Robert E.; MADDEN, Nancy A. Success for All at 27: New Developments in
-  Whole-School Reform. Journal of Education for Students Placed at Risk, v. 18,
-  n. 3-4, p. 169-176, 2013.
+  ## SLAVIN, Robert E.; MADDEN, Nancy A. Success for All at 27: New Developments
+  in Whole-School Reform. Journal of Education for Students Placed at Risk, v.
+  18, n. 3-4, p. 169-176, 2013.
 
 
   https://www.tandfonline.com/doi/abs/10.1080/10824669.2013.862095
@@ -889,8 +891,8 @@ bibliografia_secundaria: >-
   Francês
 
 
-  CHOUINARD, Roch et al. "Les devoirs, corvée inutile ou élément essentiel de la
-  réussite scolaire ?." Revue des sciences de l’éducation, v. 32, n. 2, p.
+  ## CHOUINARD, Roch et al. "Les devoirs, corvée inutile ou élément essentiel de
+  la réussite scolaire ?." Revue des sciences de l’éducation, v. 32, n. 2, p.
   307-324, 2006.  
   https://www.erudit.org/fr/revues/rse/2006-v32-n2-rse1456/014410ar.pdf
 
@@ -910,9 +912,9 @@ bibliografia_secundaria: >-
   Português
 
 
-  MORGADO, José Carlos. Democratizar a escola através do currículo: em busca de
-  uma nova utopia.... Ensaio: Aval. Pol. Públ. Educ. \[online], v. 21, n. 80, p.
-  433-448, 2013.
+  ## MORGADO, José Carlos. Democratizar a escola através do currículo: em busca
+  de uma nova utopia.... Ensaio: Aval. Pol. Públ. Educ. \[online], v. 21, n. 80,
+  p. 433-448, 2013.
 
 
   http://www.scielo.br/scielo.php?pid=S0104-40362013000300003&script=sci_abstract
