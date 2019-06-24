@@ -2,12 +2,12 @@
 title: As desigualdades educacionais e seus efeitos – professora Ana Maria F. Almeida
 date: 2018-09-14T14:58:16.000Z
 draft: false
-name: professora Ana Maria F. Almeida
-Image: /uploads/placeimg_1000_600_any.jpg
+name: Professora Ana Maria F. Almeida
+Image: /uploads/tumb_depoimentos2.png
 video: 'https://youtu.be/LRcR3oyej-Y'
-alt: As desigualdades educacionais e seus efeitos
+alt: As desigualdades educacionais e seus efeitos – professora Ana Maria F. Almeida
 weight: 2
 type: item
 role: testimonials
 ---
-aa
+As desigualdades educacionais e seus efeitos
