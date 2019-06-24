@@ -10,4 +10,4 @@ weight: 2
 type: item
 role: testimonials
 ---
-As desigualdades educacionais e seus efeitos
+"O julgamento escolar, o veredicto escolar, em função do respeito, que a sociedade concede à escola do peso que a sociedade da para a escola, tem um efeito enorme sobre essa percepção de si. A desigualdade  escolar e as diferenças de aprendizagem são dinâmicas que têm um peso psíquico muito grande, duradouro, por isso elas são muito importantes e tem que ser adressadas com uma precocidade enorme."
