@@ -1,7 +1,8 @@
 ---
-title: "A contribuição do IDeA para a educação\t"
-date: 2017-03-23T00:00:00.000Z
-alt: '123'
+title: Por que criar o IDeA
+date: '2019-06-24T11:32:03Z'
+tags:
+  - news
 short_description: >-
   A educação básica é direito de todos. Para garanti-lo, são necessárias
   ferramentas que verifiquem a realização efetiva desse direito. Uma delas é o
