@@ -9,7 +9,7 @@ bibliografia_principal: >-
   Francês
 
 
-  BISSONNETTE, Steve ; MARIO, Richard ; CLERMONT, Gauthier. Interventions
+  ## BISSONNETTE, Steve ; MARIO, Richard ; CLERMONT, Gauthier. Interventions
   pédagogiques efficaces et réussite scolaire des élèves provenant de milieux
   défavorisés. Revue française de pédagogie, v. 150, n. 1, p. 87-141, 2005.  
 
@@ -20,8 +20,8 @@ bibliografia_principal: >-
   FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: 
 
 
-  BLAYA, Catherine et al. Accrochage scolaire et alliances éducatives : vers une
-  intégration des approches scolaires et communautaires.  Éducation et
+  ## BLAYA, Catherine et al. Accrochage scolaire et alliances éducatives : vers
+  une intégration des approches scolaires et communautaires.  Éducation et
   francophonie, v. 39, n. 2, p. 227-249, 2011.
 
 
@@ -79,10 +79,10 @@ bibliografia_principal: >-
   comunitárias.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: BÉLGICA
+  **Field of research/terrain de recherche/local da pesquisa:** Bélgica
 
 
-  BRUNO, F.; SAUJAT, F.; FÉLIX, C. Les programmes de prévention et de lutte
+  ## BRUNO, F.; SAUJAT, F.; FÉLIX, C. Les programmes de prévention et de lutte
   contre le décrochage scolaire et leurs conséquences sur le travail enseignant:
   revue de littérature. Revue française de pédagogie, v. 193, n. 4, p. 89-104,
   2015.
@@ -124,10 +124,10 @@ bibliografia_principal: >-
   método de avaliação, absenteísmo.
 
 
-  FIELD OF RESEARCH /TERRAIN DE RECHERCHE/LOCAL DA PESQUISA:
+  **Field of research/terrain de recherche/local da pesquisa: -**
 
 
-  PARSONS, Carl. Enseigner, gérer, survivre dans les zones socialement
+  ## PARSONS, Carl. Enseigner, gérer, survivre dans les zones socialement
   défavorisées en Angleterre. Recherche & Formation, v. 44, n. 1, p. 11-27,
   2003.
 
@@ -170,14 +170,14 @@ bibliografia_principal: >-
   crianças.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: INGLATERRA
+  **Field of research/terrain de recherche/local da pesquisa:** Inglaterra
 
 
   Português
 
 
-  ABREU, Domingos; AQUINO, Jakson Alves de. Contexto familiar e cumprimento da
-  condicionalidade de frequência escolar no Programa Bolsa Família no Ceará.
+  ## ABREU, Domingos; AQUINO, Jakson Alves de. Contexto familiar e cumprimento
+  da condicionalidade de frequência escolar no Programa Bolsa Família no Ceará.
   Educ. Rev., Curitiba, n. spe. 2, p. 55-69, set., 2017.
 
 
@@ -200,12 +200,12 @@ bibliografia_principal: >-
   condicionalidade, frequência escolar.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: CEARÁ
+  **Field of research/terrain de recherche/local da pesquisa:** Ceará
 
 
-  DE LIMA MONTEIRO, Maria Therezinha. O impacto social do Programa Bolsa Escola
-  no Distrito Federal. Revista Estudos em Avaliação Educacional. Fundação Carlos
-  Chagas, n. 22, p. 37-91, 2000.
+  ## DE LIMA MONTEIRO, Maria Therezinha. O impacto social do Programa Bolsa
+  Escola no Distrito Federal. Revista Estudos em Avaliação Educacional. Fundação
+  Carlos Chagas, n. 22, p. 37-91, 2000.
 
 
   http://publicacoes.fcc.org.br/ojs/index.php/eae/article/view/2216
@@ -225,10 +225,10 @@ bibliografia_principal: >-
   escolas públicas, renda familiar, rendimento escolar.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: DISTRITO FEDERAL
+  **Field of research/terrain de recherche/local da pesquisa**: Distrito Federal
 
 
-  PIRES, André. Afinal, para que servem as condicionalidades em educação do
+  ## PIRES, André. Afinal, para que servem as condicionalidades em educação do
   Programa Bolsa Família?. Ensaio: Aval. Pol. Públ. Educ., Rio de Janeiro, v.
   21, n. 80, p. 513-531,  set., 2013.
 
@@ -261,12 +261,12 @@ bibliografia_principal: >-
   de renda condicionada, Campinas (SP).
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: CAMPINAS (SP)
+  **Field of research/terrain de recherche/local da pesquisa:** Campinas (SP)
 
 
-  PIRES, A. Efeitos da Condicionalidade em Educação do Programa Bolsa Família em
-  Campinas (SP). Estudos em Avaliação Educacional, São Paulo, v. 24, n. 55, p.
-  170-196, abr./ago., 2013b.
+  ## PIRES, A. Efeitos da Condicionalidade em Educação do Programa Bolsa Família
+  em Campinas (SP). Estudos em Avaliação Educacional, São Paulo, v. 24, n. 55,
+  p. 170-196, abr./ago., 2013b.
 
 
   http://www.fcc.org.br/pesquisa/publicacoes/eae/arquivos/1817/1817.pdf
@@ -292,7 +292,7 @@ bibliografia_principal: >-
   escolar.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: CAMPINAS (SP)
+  **Field of research/terrain de recherche/local da pesquisa:** Campinas (SP)
 
 
   SILVEIRA, Adriana Dragone, SCHNEIDER, Gabriela. Política educacional, pobreza
@@ -324,15 +324,15 @@ bibliografia_principal: >-
   qualidade, política educacional.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: PARANÁ
+  **Field of research/terrain de recherche/local da pesquisa:** Paraná
 bibliografia_secundaria: >-
   Inglês
 
 
-  GOTTFRIED, Michael A. Evaluating the Relationship Between Student Attendance
-  and Achievement in Urban Elementary and Middle Schools: An Instrumental
-  Variables Approach. American Educational Research Journal, v. 47, n. 2, p.
-  434-465, June, 2010.
+  ## GOTTFRIED, Michael A. Evaluating the Relationship Between Student
+  Attendance and Achievement in Urban Elementary and Middle Schools: An
+  Instrumental Variables Approach. American Educational Research Journal, v. 47,
+  n. 2, p. 434-465, June, 2010.
 
 
   https://journals.sagepub.com/doi/abs/10.3102/0002831209350494?journalCode=aera
@@ -360,7 +360,7 @@ bibliografia_secundaria: >-
   **Keywords:** achievement, attendance, urban education.
 
 
-  GUMUS, Sedat; CHUDGAR, Amita. Factors Affecting School Participation in
+  ## GUMUS, Sedat; CHUDGAR, Amita. Factors Affecting School Participation in
   Turkey: An Analysis of Regional Differences. Compare: A Journal of Comparative
   and International Education, v. 46, n. 6, p. 929-951, 2016.
 
@@ -381,7 +381,7 @@ bibliografia_secundaria: >-
   and future research were made.
 
 
-  KERBOW, David; AZCOITIA, Carlos; BUELL, Barbara. Student Mobility and Local
+  ## KERBOW, David; AZCOITIA, Carlos; BUELL, Barbara. Student Mobility and Local
   School Improvement in Chicago. The Journal of Negro Education, v. 72, n. 1, p.
   158-164, Winter, 2003.
 
@@ -404,9 +404,9 @@ bibliografia_secundaria: >-
   Francês
 
 
-  GIGNOUX, Jérémie. Évaluations ex ante et ex post d'un programme d'allocations
-  scolaires conditionnées au Mexique. Economie & prévision, v. 174, n. 3, p.
-  59-85, 2006.
+  ## GIGNOUX, Jérémie. Évaluations ex ante et ex post d'un programme
+  d'allocations scolaires conditionnées au Mexique. Economie & prévision, v.
+  174, n. 3, p. 59-85, 2006.
 
 
   https://www.cairn.info/revue-economie-et-prevision-2006-3-page-59.htm?contenu=resume
@@ -428,7 +428,7 @@ bibliografia_secundaria: >-
   Português
 
 
-  VALDEMAR GARCIA, Adir; CRISTINA YANNOULAS, Silvia. Educação, pobreza e
+  ## VALDEMAR GARCIA, Adir; CRISTINA YANNOULAS, Silvia. Educação, pobreza e
   desigualdade social. Em Aberto, v. 30, n. 99, 2017.
 
 
