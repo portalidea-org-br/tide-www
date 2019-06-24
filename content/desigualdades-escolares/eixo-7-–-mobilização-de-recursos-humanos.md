@@ -9,7 +9,7 @@ bibliografia_principal: >-
   Inglês
 
 
-  AMATEA, E.; WEST-OLATUNJI, C. Joining the Conversation about Educating Our
+  ## AMATEA, E.; WEST-OLATUNJI, C. Joining the Conversation about Educating Our
   Poorest Children: Emerging Leadership Roles for School Counselors in
   High-Poverty Schools. Professional School Counseling, v. 11, n. 2, p. 81-89,
   2007.
@@ -39,10 +39,10 @@ bibliografia_principal: >-
   centrado na família.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: EUA
+  **Field of research/terrain de recherche/local da pesquisa:** Estados Unidos
 
 
-  CAMPBELL, P.; MALKUS, N. The Impact of Elementary Mathematics Coaches on
+  ## CAMPBELL, P.; MALKUS, N. The Impact of Elementary Mathematics Coaches on
   Student Achievement. The Elementary School Journal, v. 111, n. 3, p. 430-454,
   2011.
 
@@ -82,13 +82,13 @@ bibliografia_principal: >-
   generalizados para coaches com menos conhecimento.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: VIRGÍNIA (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Virgínia (EUA)
 
 
-  CUNNINGTON, Marisol; KANTROWITZ, Andrea; HARNETT, Susanne; HILL-RIES, Aline.
-  Cultivating Common Ground: Integrating Standards-Based Visual Arts, Math and
-  Literacy in High-Poverty Urban Classrooms. Journal for Learning Through the
-  Arts, v. 10, n. 1, 2014.
+  ## CUNNINGTON, Marisol; KANTROWITZ, Andrea; HARNETT, Susanne; HILL-RIES,
+  Aline. Cultivating Common Ground: Integrating Standards-Based Visual Arts,
+  Math and Literacy in High-Poverty Urban Classrooms. Journal for Learning
+  Through the Arts, v. 10, n. 1, 2014.
 
 
   https://files.eric.ed.gov/fulltext/EJ1050589.pdf
@@ -168,10 +168,10 @@ bibliografia_principal: >-
   competências acadêmicas e cognitivas.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: NOVA YORK (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Nova York (EUA)
 
 
-  DRETZKE, B. J.; RICKERS, S. R. The family liaison position in high-poverty,
+  ## DRETZKE, B. J.; RICKERS, S. R. The family liaison position in high-poverty,
   urban schools. Education and Urban Society, v. 48, n. 4, p. 346-363, 2016.
 
 
@@ -218,12 +218,12 @@ bibliografia_principal: >-
   **Palavras-chave:** educação urbana, melhoria escolar, escolas.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: DISTRITO ESCOLAR
-  URBANO NO MEIO OESTE DOS EUA (CIDADE NÃO ESPECIFICADA)
+  **Field of research/terrain de recherche/local da pesquisa:** Distrito escolar
+  urbano no meio oeste dos EUA (cidade não especificada)
 
 
-  GRUBB, W. Dynamic Inequality and Intervention: Lessons from a Small Country.
-  The Phi Delta Kappan, v. 89, n. 2, p. 105-114, 2007. 
+  ## GRUBB, W. Dynamic Inequality and Intervention: Lessons from a Small
+  Country. The Phi Delta Kappan, v. 89, n. 2, p. 105-114, 2007. 
 
 
   http://journals.sagepub.com/doi/abs/10.1177/003172170708900206
@@ -232,12 +232,13 @@ bibliografia_principal: >-
   Abstract/résumé/resumo:  -
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: FINLÂNDIA
+  **Field of research/terrain de recherche/local da pesquisa:** Finlândia
 
 
-  JACOBSON, Stephen L.; BROOKS, Sharon; GILES, Corrie; JOHNSON, Lauri; YLIMAKI,
-  Rose. Successful Leadership in Three High-Poverty Urban Elementary Schools.
-  Leadership and Policy in Schools, v. 6, n. 4, p. 291-317, Oct., 2007. 
+  ## JACOBSON, Stephen L.; BROOKS, Sharon; GILES, Corrie; JOHNSON, Lauri;
+  YLIMAKI, Rose. Successful Leadership in Three High-Poverty Urban Elementary
+  Schools. Leadership and Policy in Schools, v. 6, n. 4, p. 291-317, Oct.,
+  2007. 
 
 
   https://ed.buffalo.edu/content/dam/ed/main/docs/newsletter/Fall08-Commissioned-Report-NYS-Ed-Dept.pdf
@@ -291,11 +292,11 @@ bibliografia_principal: >-
   precariedade.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: ESTADO DE NOVA YORK
-  (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Estado de Nova
+  York (EUA)
 
 
-  KAMPER, Gerrit. A profile of effective leadership in some South African
+  ## KAMPER, Gerrit. A profile of effective leadership in some South African
   high-poverty schools. S. Afr. J. Educ., Pretoria,  v. 28, n. 1, p. 1-18, 
   Feb.,  2008.
 
@@ -329,10 +330,10 @@ bibliografia_principal: >-
   pobreza sul-africanas.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: ÁFRICA DO SUL
+  **Field of research/terrain de recherche/local da pesquisa:** África do Sul
 
 
-  LAPAN, Richard; GYSBERS, Norman; STANLEY, Bragg; PIERCE, Margaret. Missouri
+  ## LAPAN, Richard; GYSBERS, Norman; STANLEY, Bragg; PIERCE, Margaret. Missouri
   Professional School Counselors: Ratios Matter, Especially in High-Poverty
   Schools. Professional School Counseling, v. 16, n. 2, p. 108-116, 2012.
 
@@ -360,10 +361,10 @@ bibliografia_principal: >-
   melhores taxas de formatura e de frequência e menos incidentes disciplinares.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: MISSOURI (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Missouri (EUA)
 
 
-  LEITHWOOD, Kenneth; LOUIS, Karen; ANDERSON, Stephen; WAHLSTROM, Kyla. How
+  ## LEITHWOOD, Kenneth; LOUIS, Karen; ANDERSON, Stephen; WAHLSTROM, Kyla. How
   Leadership Influences Student Learning. Review of Research. The Wallace
   Foundation, 2004. (ONG)
 
@@ -413,11 +414,11 @@ bibliografia_principal: >-
   a implementação de uma reforma de grande escala.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: NÃO DEFINIDO
+  **Field of research/terrain de recherche/local da pesquisa:** - 
 
 
-  LYMAN, L. Women principals leading learning at poverty’s edge. Journal of 128
-  Women in Educational Leadership, v. 6, n. 3, p. 187-200, 2008.
+  ## LYMAN, L. Women principals leading learning at poverty’s edge. Journal of
+  128 Women in Educational Leadership, v. 6, n. 3, p. 187-200, 2008.
 
 
   http://digitalcommons.unl.edu/jwel/63/
@@ -446,13 +447,13 @@ bibliografia_principal: >-
   escolares.
 
 
-  FIELD OF RESEARCH /TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: ILLINOIS (EUA)
+  **Field of research/terrain de recherche/local da pesquisa:** Illinois (EUA)
 bibliografia_secundaria: >-
   Inglês
 
 
-  FANNING, Michael C. P. Developing a Perspective on the Global Achievement Gap:
-  School Leaders as International Collaborators. Educational Leadership and
+  ## FANNING, Michael C. P. Developing a Perspective on the Global Achievement
+  Gap: School Leaders as International Collaborators. Educational Leadership and
   Administration: Teaching and Program Development, v. 19, p. 25-42, Fall, 2007.
 
 
@@ -473,7 +474,7 @@ bibliografia_secundaria: >-
   children an equitable education in order to close the Global Achievement Gap.
 
 
-  IIZUKA, C.; BARRETT, P.; GILLIES, R.; COOK, C.; MARINOVIC, W. Preliminary
+  ## IIZUKA, C.; BARRETT, P.; GILLIES, R.; COOK, C.; MARINOVIC, W. Preliminary
   evaluation of the friends for life program on students' and teachers'
   emotional states for a school in a low socio-economic status area. Australian
   Journal of Teacher Education, v. 40, n. 3, p. 1-20, 2015.
@@ -506,12 +507,13 @@ bibliografia_secundaria: >-
   significativas em sua resiliência emocional.
 
 
-  FIELD OF RESEARCH/TERRAIN DE RECHERCHE/LOCAL DA PESQUISA: BRISBANE (AUSTRÁLIA)
+  **Field of research/terrain de recherche/local da pesquisa:** Brisbane
+  (Austrália)
 
 
-  LEWIS, Jeffrey L.; KIM, Eunhee. A Desire to Learn: African American Children's
-  Positive Attitudes toward Learning within School Cultures of Low Expectations.
-  Teachers College Record, v. 110, n. 6, p. 1.304-1.329, 2008.
+  ## LEWIS, Jeffrey L.; KIM, Eunhee. A Desire to Learn: African American
+  Children's Positive Attitudes toward Learning within School Cultures of Low
+  Expectations. Teachers College Record, v. 110, n. 6, p. 1.304-1.329, 2008.
 
 
   http://www.tcrecord.org/Content.asp?ContentId=14749
@@ -557,9 +559,9 @@ bibliografia_secundaria: >-
   behaviors.
 
 
-  NYE, Barbara; KONSTANTOPOULOS, Spyros; HEDGES, Larry V.  How Large Are Teacher
-  Effects? Educational Evaluation and Policy Analysis, v. 26, n. 3, p. 237-257,
-  Autumn, 2004.
+  ## NYE, Barbara; KONSTANTOPOULOS, Spyros; HEDGES, Larry V.  How Large Are
+  Teacher Effects? Educational Evaluation and Policy Analysis, v. 26, n. 3, p.
+  237-257, Autumn, 2004.
 
 
   https://steinhardt.nyu.edu/scmsAdmin/uploads/002/834/127%20-%20Nye%20B%20%20Hedges%20L%20%20V%20%20%20Konstantopoulos%20S%20%20(2004).pdf
@@ -582,7 +584,7 @@ bibliografia_secundaria: >-
   socioeconomic status (SES) schools than in high SES schools.
 
 
-  SINK,  Christopher A.; STROH, Heather R. Raising Achievement Test Scores of
+  ## SINK,  Christopher A.; STROH, Heather R. Raising Achievement Test Scores of
   Early Elementary School Students Through Comprehensive School Counseling
   Programs Professional School Counseling, v. 6, n. 5, p. 350-364, June, 2003. 
 
@@ -593,7 +595,7 @@ bibliografia_secundaria: >-
   Francês
 
 
-  TREMBLAY, N.; DUMOULIN, C.; GAGNON, M.; COTE, P. (2014). Les défis de la
+  ## TREMBLAY, N.; DUMOULIN, C.; GAGNON, M.; COTE, P. (2014). Les défis de la
   formation initiale des enseignants du primaire en milieu à risque. McGill
   Journal of Education, v. 49, n. 2, p. 307–328, 2014.
 
@@ -617,7 +619,7 @@ bibliografia_secundaria: >-
   Português
 
 
-  DRAGONE SILVEIRA, Adriana; GOUVEIA, Andréa; SCHNEIDER, Gabriela; FERRAZ,
+  ## DRAGONE SILVEIRA, Adriana; GOUVEIA, Andréa; SCHNEIDER, Gabriela; FERRAZ,
   Marcos. (2017). O direito à educação dos alunos em situação de pobreza: uma
   problematização das condições de qualidade com base no perfil dos
   professores.  Em aberto, v. 30, p. 79, 2017.
@@ -642,7 +644,7 @@ bibliografia_secundaria: >-
   papel fundamental para a permanência com aprendizagem de todos os estudantes.
 
 
-  MARIA CLEMENTINO, Ana; ANDRADE OLIVEIRA, Dalila. Novos sujeitos docentes e
+  ## MARIA CLEMENTINO, Ana; ANDRADE OLIVEIRA, Dalila. Novos sujeitos docentes e
   suas condições de trabalho: uma comparação entre o Programa Escola Integrada e
   o Projeto Educação em Tempo Integral. Em Aberto, Brasília, v. 30, n. 99, p.
   99-113, maio/ago., 2017.
@@ -671,7 +673,7 @@ bibliografia_secundaria: >-
   infraestrutura disponível e oferta de docentes qualificados.
 
 
-  MEDEIROS, Simone. Iniciativa Educação, Pobreza e Desigualdade Social:
+  ## MEDEIROS, Simone. Iniciativa Educação, Pobreza e Desigualdade Social:
   concepção e instituição. Em Aberto, v. 30, n. 99, p. 115-128, 2017.
 
 
