@@ -1,4 +1,4 @@
-baseURL: "https://wonderful-swanson-f65e38.netlify.com"
+baseURL: "/"
 defaultContentLanguage: "pt"
 enableGitInfo: true
 enableMissingTranslationPlaceholders: true
