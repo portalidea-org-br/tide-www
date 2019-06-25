@@ -12208,8 +12208,7 @@ function initModal() {
     }
   });
 
-  if ($modalLink && !sessionStorage.getItem('modalHasBeenClosed')) {
-    $modalLink.click();
+  if ($modalLink && !sessionStorage.getItem('modalHasBeenClosed')) {// $modalLink.click();
   }
 }
 

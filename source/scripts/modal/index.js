@@ -25,6 +25,6 @@ export default function initModal() {
   });
 
   if ($modalLink && !sessionStorage.getItem('modalHasBeenClosed')) {
-    $modalLink.click();
+    // $modalLink.click();
   }
 }
