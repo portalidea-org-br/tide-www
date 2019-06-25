@@ -246,6 +246,7 @@ collections:
         name: "custom_link"
         widget: "string"
         default: "/desigualdade-escolares"
+        required: false
   -
     label: "Projeto"
     name: "projeto"
