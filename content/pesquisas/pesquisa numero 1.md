@@ -5,7 +5,7 @@ areas:
   - ''
 file: /uploads/marcadores-de-desigualdades.pdf
 short_description: Marília Moshkovich
-custom_link: marcadores
+custom_link: ''
 ---
 Esta publicação apresenta um levantamento bibliográfico sobre desigualdades de gênero e raça na educação brasileira. A seleção reúne 32 trabalhos, dentre artigos, livros e outros materiais, que se constituíram como fontes científicas para o estudo desses fenômenos no Brasil contemporâneo.
 
