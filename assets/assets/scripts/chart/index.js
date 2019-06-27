@@ -5221,9 +5221,9 @@ function updateTableInfo(id) {
 
     if (xAxis === 'racial') {
       ptTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos pretos';
-      ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
+      ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_second_group;
       ptTable.querySelector('.js-privileged-title').textContent = 'Número de alunos brancos';
-      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group; // document.querySelectorAll('.js-xAxis-text').forEach((span) => {
+      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_first_group; // document.querySelectorAll('.js-xAxis-text').forEach((span) => {
       //   const domSpan = span;
       //   domSpan.textContent = 'Raça';
       // });
@@ -5231,9 +5231,9 @@ function updateTableInfo(id) {
 
     if (xAxis === 'sex') {
       ptTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos mulheres';
-      ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
+      ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_second_group;
       ptTable.querySelector('.js-privileged-title').textContent = 'Número de alunos homens';
-      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group; // document.querySelectorAll('.js-xAxis-text').forEach((span) => {
+      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_first_group; // document.querySelectorAll('.js-xAxis-text').forEach((span) => {
       //   const domSpan = span;
       //   domSpan.textContent = 'Gênero';
       // });
@@ -5241,9 +5241,9 @@ function updateTableInfo(id) {
 
     if (xAxis === 'nse') {
       ptTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos nível socioeconômico baixo';
-      ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_first_group;
+      ptTable.querySelector('.js-unprivileged-value').textContent = ptInfo.count_second_group;
       ptTable.querySelector('.js-privileged-title').textContent = 'Número de alunos nível socioeconômico alto';
-      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_second_group; // document.querySelectorAll('.js-xAxis-text').forEach((span) => {
+      ptTable.querySelector('.js-privileged-value').textContent = ptInfo.count_first_group; // document.querySelectorAll('.js-xAxis-text').forEach((span) => {
       //   const domSpan = span;
       //   domSpan.textContent = 'NSE';
       // });
@@ -5257,23 +5257,23 @@ function updateTableInfo(id) {
 
     if (xAxis === 'racial') {
       matTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos pretos';
-      matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_first_group;
+      matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_second_group;
       matTable.querySelector('.js-privileged-title').textContent = 'Número de alunos brancos';
-      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group; // matTable.querySelector('.js-xAxis-text').textContent = 'Raça';
+      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_first_group; // matTable.querySelector('.js-xAxis-text').textContent = 'Raça';
     }
 
     if (xAxis === 'sex') {
       matTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos mulheres';
-      matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_first_group;
+      matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_second_group;
       matTable.querySelector('.js-privileged-title').textContent = 'Número de alunos homens';
-      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group; // matTable.querySelector('.js-xAxis-text').textContent = 'Gênero';
+      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_first_group; // matTable.querySelector('.js-xAxis-text').textContent = 'Gênero';
     }
 
     if (xAxis === 'nse') {
       matTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos nível socioeconômico baixo';
-      matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_first_group;
+      matTable.querySelector('.js-unprivileged-value').textContent = matInfo.count_second_group;
       matTable.querySelector('.js-privileged-title').textContent = 'Número de alunos nível socioeconômico alto';
-      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_second_group; // matTable.querySelector('.js-xAxis-text').textContent = 'NSE';
+      matTable.querySelector('.js-privileged-value').textContent = matInfo.count_first_group; // matTable.querySelector('.js-xAxis-text').textContent = 'NSE';
     }
 
     matTable.querySelector('.js-total-students').textContent = matInfo.count_total;
