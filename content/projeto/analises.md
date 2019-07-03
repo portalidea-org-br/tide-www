@@ -1,6 +1,6 @@
 ---
 title: Relatório de análise
-file: /uploads/pdf.pdf
+file: /uploads/idea-nota-técnica.pdf
 ---
 ## 5o ano:
 
