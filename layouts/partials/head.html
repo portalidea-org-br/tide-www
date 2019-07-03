@@ -35,6 +35,18 @@
       href="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}">
   {{ end }}
 
+  {{ if eq (getenv "BRANCH") "master" }}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143084422-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-143084422-1');
+    </script>
+  {{ end }}
+
   <script type="text/javascript">
     document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, '');
   </script>
