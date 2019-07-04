@@ -8,7 +8,7 @@ paises:
 image: ''
 image_big: ''
 alt: aaa
-file: 'http://www.pdf995.com/samples/pdf.pdf'
+file: /uploads/marília_cpimenta_29052019_versaofinal.pdf
 author: Cláudia Oliveira Pimenta
 short_description: >-
   Sistematiza a política implementada na rede municipal de educação de Marília
