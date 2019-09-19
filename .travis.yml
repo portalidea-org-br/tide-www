@@ -22,7 +22,7 @@ deploy:
   skip-cleanup: true
   script: rsync -r --quiet --delete-after ${TRAVIS_BUILD_DIR}/public/* ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIRECTORY}
   on:
-    branch: dev
+    branch: master
 env:
   global:
   - PRODUCTION=true
