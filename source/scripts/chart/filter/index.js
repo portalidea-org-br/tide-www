@@ -33,7 +33,7 @@ export default function handleChartFilters() {
     if (cityInput) {
       // const citiesList = document.getElementById('cities-list');
       const cities = await getCities();
-      const cityNames = cities.map(city => ({ label: `${city.name} - ${city.state.name}`, value: city.id }));
+      const cityNames = cities.map(city => ({ label: `${city.name} - ${city.state.uf}`, value: city.id }));
 
       const awesomplete = new Awesomplete(document.querySelector('#city'), {
         nChars: 1,
