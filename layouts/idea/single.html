@@ -12,10 +12,18 @@
 
       <div class="bg-light-gray">
         <div class="container">
+          {{ .Content }}
+
+          <a
+            href="#tutorial"
+            class="chart-form__tutorial-link"
+            data-micromodal-trigger="js-modal-idea-video">
+            Ver tutorial
+          </a>
           <form action="" method="post" id="js-chart-form" class="chart-form">
             <div class="chart-form__group">
               <label for="grade">
-                Série
+                Ano Letivo
                 <select name="grade" id="grade">
                   <option value="5">5º ano</option>
                   <option value="9">9º ano</option>
@@ -32,12 +40,6 @@
               <div class="chart-form__buttons">
                 <button type="submit" class="button">Filtrar</button>
               </div>
-              <a
-                href="#tutorial"
-                class="chart-form__tutorial-link"
-                data-micromodal-trigger="js-modal-idea-video">
-                Ver tutorial
-              </a>
             </div>
             <div class="js-form-filter chart-form__group">
               <span class="chart-form__clue">
