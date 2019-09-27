@@ -22,6 +22,40 @@
           </a>
           <form action="" method="post" id="js-chart-form" class="chart-form">
             <div class="chart-form__group">
+              <strong>Série:</strong>
+              <ul class="chart-form__buttons">
+                <li>
+                  <input type="radio" value="5" name="grade" id="5">
+                  <label for="5">5º ano</label>
+                </li>
+                <li>
+                  <input type="radio" value="9" name="grade" id="9">
+                  <label for="9">9º ano</label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="chart-form__group">
+              <strong>Tipo de desigualdade:</strong>
+              <ul class="chart-form__buttons">
+                <li>
+                  <input type="radio" value="racial" name="xAxis" id="racial">
+                  <label for="racial">Raça</label>
+                </li>
+                <li>
+                  <input type="radio" value="sex" name="xAxis" id="sex">
+                  <label for="sex">Gênero</label>
+                </li>
+                <li>
+                  <input type="radio" value="nse" name="xAxis" id="nse">
+                  <label for="nse">Nível Sócio Econômico</label>
+                </li>
+              </ul>
+
+              <button class="button button--right button--destak">Avançar</button>
+            </div>
+
+            <div class="chart-form__group chart-form__group--buttons" style="display: none">
               <label for="grade">
                 Ano Letivo
                 <select name="grade" id="grade">
@@ -41,7 +75,7 @@
                 <button type="submit" class="button">Filtrar</button>
               </div>
             </div>
-            <div class="js-form-filter chart-form__group">
+            <div class="js-form-filter chart-form__group" style="display: none">
               <span class="chart-form__clue">
                 Escolha uma das opções abaixo para destacar no gráfico:
               </span>
@@ -102,6 +136,81 @@
                 <input id="city" type="text" placeholder="Ex. São Paulo" />
               </label>
               <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="bg-yellow-simple">
+        <div class="container">
+          <p>
+            Os filtros são equivalentes os dados que temos ou sejam excluem alguns opções.
+            Essas configurações avançada permite que sua análise seja mais precisa.
+            Para compreender melhor o estudo,
+            <a
+              href="#tutorial"
+              data-micromodal-trigger="js-modal-idea-video">
+              veja o tutorial
+            </a>
+          </p>
+          <form action="" method="post" id="js-chart-form" class="chart-form">
+            <div class="chart-form__group chart-form__group--half">
+              <strong>Regiões:</strong>
+              <ul class="chart-form__buttons">
+                <li>
+                  <input type="radio" name="region" value="" id="nenhuma">
+                  <label for="nenhuma">Nenhuma</label>
+                </li>
+                <li>
+                  <input type="radio" name="region" value="1" id="centro-oeste">
+                  <label for="centro-oeste">Centro Oeste</label>
+                </li>
+                <li>
+                  <input type="radio" name="region" value="2" id="nordeste">
+                  <label for="nordeste">Nordeste</label>
+                </li>
+                <li>
+                  <input type="radio" name="region" value="3" id="norte">
+                  <label for="norte">Norte</label>
+                </li>
+                <li>
+                  <input type="radio" name="region" value="4" id="sudeste">
+                  <label for="sudeste">Sudeste</label>
+                </li>
+                <li>
+                  <input type="radio" name="region" value="5" id="sul">
+                  <label for="sul">Sul</label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="chart-form__group chart-form__group--half">
+              <strong>Nível de desigualdade:</strong>
+              <ul class="chart-form__buttons">
+                <li>
+                  <input type="radio" name="region" value="" id="equidade">
+                  <label for="equidade">Equidade</label>
+                </li>
+                <li>
+                  <input type="radio" name="region" value="1" id="desigualdade">
+                  <label for="desigualdade">Desigualdade</label>
+                </li>
+                <li>
+                  <input type="radio" name="region" value="2" id="alta">
+                  <label for="alta">Alta</label>
+                </li>
+                <li>
+                  <input type="radio" name="region" value="3" id="extrema">
+                  <label for="extrema">Extrema</label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="chart-form__group chart-form__group--half">
+              <strong>Número de habitantes</strong>
+              <div class="chart-form__buttons">
+
+              </div>
             </div>
           </form>
         </div>

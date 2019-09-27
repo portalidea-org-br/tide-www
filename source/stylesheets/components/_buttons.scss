@@ -69,3 +69,14 @@
     content: '';
   }
 }
+
+.button--destak {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: palette('white');
+  background: palette('yellow');
+}
+
+.button--right {
+  align-self: flex-end;
+}

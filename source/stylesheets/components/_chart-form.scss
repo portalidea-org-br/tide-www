@@ -4,6 +4,12 @@
   background: palette('gray', 'x-light');
 }
 
+.bg-yellow-simple {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  background: palette('yellow');
+}
+
 .charts {
   margin-bottom: 5rem;
 }
@@ -23,12 +29,54 @@
 
 
 .chart-form__group {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.chart-form__group--half {
   width: 100%;
   margin-bottom: 2rem;
 
   @media screen and (min-width: breakpoint('tablet')) {
     width: 50%;
   }
+}
+
+.chart-form__buttons {
+  display: flex;
+}
+
+.chart-form__buttons input[type='radio'] {
+  display: none;
+}
+
+.chart-form__buttons li {
+  margin: 0 0.2rem;
+  list-style-type: none;
+  border-bottom: 0;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.chart-form__buttons li label {
+  width: auto;
+  min-width: max-content;
+  padding: 0.2em 1.1em;
+  text-transform: none;
+  cursor: pointer;
+  color: palette('purple');
+  background: palette('gray', 'light');
+  border-radius: 20px;
+}
+
+.chart-form__buttons li input:checked + label {
+  color: palette('white');
+  background: palette('purple');
 }
 
 .chart-form__tutorial-link:link,
