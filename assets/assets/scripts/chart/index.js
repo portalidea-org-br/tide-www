@@ -1360,6 +1360,7 @@ return _;
 },{}],7:[function(require,module,exports){
 module.exports = require('./lib/axios');
 },{"./lib/axios":9}],8:[function(require,module,exports){
+(function (process){
 'use strict';
 
 var utils = require('./../utils');
@@ -1368,6 +1369,7 @@ var buildURL = require('./../helpers/buildURL');
 var parseHeaders = require('./../helpers/parseHeaders');
 var isURLSameOrigin = require('./../helpers/isURLSameOrigin');
 var createError = require('../core/createError');
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || require('./../helpers/btoa');
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -1379,6 +1381,22 @@ module.exports = function xhrAdapter(config) {
     }
 
     var request = new XMLHttpRequest();
+    var loadEvent = 'onreadystatechange';
+    var xDomain = false;
+
+    // For IE 8/9 CORS support
+    // Only supports POST and GET calls and doesn't returns the response headers.
+    // DON'T do this for testing b/c XMLHttpRequest is mocked, not XDomainRequest.
+    if (process.env.NODE_ENV !== 'test' &&
+        typeof window !== 'undefined' &&
+        window.XDomainRequest && !('withCredentials' in request) &&
+        !isURLSameOrigin(config.url)) {
+      request = new window.XDomainRequest();
+      loadEvent = 'onload';
+      xDomain = true;
+      request.onprogress = function handleProgress() {};
+      request.ontimeout = function handleTimeout() {};
+    }
 
     // HTTP basic authentication
     if (config.auth) {
@@ -1393,8 +1411,8 @@ module.exports = function xhrAdapter(config) {
     request.timeout = config.timeout;
 
     // Listen for ready state
-    request.onreadystatechange = function handleLoad() {
-      if (!request || request.readyState !== 4) {
+    request[loadEvent] = function handleLoad() {
+      if (!request || (request.readyState !== 4 && !xDomain)) {
         return;
       }
 
@@ -1411,26 +1429,15 @@ module.exports = function xhrAdapter(config) {
       var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
       var response = {
         data: responseData,
-        status: request.status,
-        statusText: request.statusText,
+        // IE sends 1223 instead of 204 (https://github.com/axios/axios/issues/201)
+        status: request.status === 1223 ? 204 : request.status,
+        statusText: request.status === 1223 ? 'No Content' : request.statusText,
         headers: responseHeaders,
         config: config,
         request: request
       };
 
       settle(resolve, reject, response);
-
-      // Clean up request
-      request = null;
-    };
-
-    // Handle browser request cancellation (as opposed to a manual cancellation)
-    request.onabort = function handleAbort() {
-      if (!request) {
-        return;
-      }
-
-      reject(createError('Request aborted', config, 'ECONNABORTED', request));
 
       // Clean up request
       request = null;
@@ -1463,8 +1470,8 @@ module.exports = function xhrAdapter(config) {
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
-        cookies.read(config.xsrfCookieName) :
-        undefined;
+          cookies.read(config.xsrfCookieName) :
+          undefined;
 
       if (xsrfValue) {
         requestHeaders[config.xsrfHeaderName] = xsrfValue;
@@ -1535,13 +1542,13 @@ module.exports = function xhrAdapter(config) {
   });
 };
 
-},{"../core/createError":15,"./../core/settle":19,"./../helpers/buildURL":23,"./../helpers/cookies":25,"./../helpers/isURLSameOrigin":27,"./../helpers/parseHeaders":29,"./../utils":31}],9:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"../core/createError":15,"./../core/settle":18,"./../helpers/btoa":22,"./../helpers/buildURL":23,"./../helpers/cookies":25,"./../helpers/isURLSameOrigin":27,"./../helpers/parseHeaders":29,"./../utils":31,"_process":36}],9:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
 var bind = require('./helpers/bind');
 var Axios = require('./core/Axios');
-var mergeConfig = require('./core/mergeConfig');
 var defaults = require('./defaults');
 
 /**
@@ -1571,7 +1578,7 @@ axios.Axios = Axios;
 
 // Factory for creating new instances
 axios.create = function create(instanceConfig) {
-  return createInstance(mergeConfig(axios.defaults, instanceConfig));
+  return createInstance(utils.merge(defaults, instanceConfig));
 };
 
 // Expose Cancel & CancelToken
@@ -1590,7 +1597,7 @@ module.exports = axios;
 // Allow use of default import syntax in TypeScript
 module.exports.default = axios;
 
-},{"./cancel/Cancel":10,"./cancel/CancelToken":11,"./cancel/isCancel":12,"./core/Axios":13,"./core/mergeConfig":18,"./defaults":21,"./helpers/bind":22,"./helpers/spread":30,"./utils":31}],10:[function(require,module,exports){
+},{"./cancel/Cancel":10,"./cancel/CancelToken":11,"./cancel/isCancel":12,"./core/Axios":13,"./defaults":20,"./helpers/bind":21,"./helpers/spread":30,"./utils":31}],10:[function(require,module,exports){
 'use strict';
 
 /**
@@ -1680,11 +1687,10 @@ module.exports = function isCancel(value) {
 },{}],13:[function(require,module,exports){
 'use strict';
 
+var defaults = require('./../defaults');
 var utils = require('./../utils');
-var buildURL = require('../helpers/buildURL');
 var InterceptorManager = require('./InterceptorManager');
 var dispatchRequest = require('./dispatchRequest');
-var mergeConfig = require('./mergeConfig');
 
 /**
  * Create a new instance of Axios
@@ -1708,14 +1714,13 @@ Axios.prototype.request = function request(config) {
   /*eslint no-param-reassign:0*/
   // Allow for axios('example/url'[, config]) a la fetch API
   if (typeof config === 'string') {
-    config = arguments[1] || {};
-    config.url = arguments[0];
-  } else {
-    config = config || {};
+    config = utils.merge({
+      url: arguments[0]
+    }, arguments[1]);
   }
 
-  config = mergeConfig(this.defaults, config);
-  config.method = config.method ? config.method.toLowerCase() : 'get';
+  config = utils.merge(defaults, {method: 'get'}, this.defaults, config);
+  config.method = config.method.toLowerCase();
 
   // Hook up interceptors middleware
   var chain = [dispatchRequest, undefined];
@@ -1734,11 +1739,6 @@ Axios.prototype.request = function request(config) {
   }
 
   return promise;
-};
-
-Axios.prototype.getUri = function getUri(config) {
-  config = mergeConfig(this.defaults, config);
-  return buildURL(config.url, config.params, config.paramsSerializer).replace(/^\?/, '');
 };
 
 // Provide aliases for supported request methods
@@ -1765,7 +1765,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = Axios;
 
-},{"../helpers/buildURL":23,"./../utils":31,"./InterceptorManager":14,"./dispatchRequest":16,"./mergeConfig":18}],14:[function(require,module,exports){
+},{"./../defaults":20,"./../utils":31,"./InterceptorManager":14,"./dispatchRequest":16}],14:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -1927,7 +1927,7 @@ module.exports = function dispatchRequest(config) {
   });
 };
 
-},{"../cancel/isCancel":12,"../defaults":21,"./../helpers/combineURLs":24,"./../helpers/isAbsoluteURL":26,"./../utils":31,"./transformData":20}],17:[function(require,module,exports){
+},{"../cancel/isCancel":12,"../defaults":20,"./../helpers/combineURLs":24,"./../helpers/isAbsoluteURL":26,"./../utils":31,"./transformData":19}],17:[function(require,module,exports){
 'use strict';
 
 /**
@@ -1945,86 +1945,12 @@ module.exports = function enhanceError(error, config, code, request, response) {
   if (code) {
     error.code = code;
   }
-
   error.request = request;
   error.response = response;
-  error.isAxiosError = true;
-
-  error.toJSON = function() {
-    return {
-      // Standard
-      message: this.message,
-      name: this.name,
-      // Microsoft
-      description: this.description,
-      number: this.number,
-      // Mozilla
-      fileName: this.fileName,
-      lineNumber: this.lineNumber,
-      columnNumber: this.columnNumber,
-      stack: this.stack,
-      // Axios
-      config: this.config,
-      code: this.code
-    };
-  };
   return error;
 };
 
 },{}],18:[function(require,module,exports){
-'use strict';
-
-var utils = require('../utils');
-
-/**
- * Config-specific merge-function which creates a new config-object
- * by merging two configuration objects together.
- *
- * @param {Object} config1
- * @param {Object} config2
- * @returns {Object} New object resulting from merging config2 to config1
- */
-module.exports = function mergeConfig(config1, config2) {
-  // eslint-disable-next-line no-param-reassign
-  config2 = config2 || {};
-  var config = {};
-
-  utils.forEach(['url', 'method', 'params', 'data'], function valueFromConfig2(prop) {
-    if (typeof config2[prop] !== 'undefined') {
-      config[prop] = config2[prop];
-    }
-  });
-
-  utils.forEach(['headers', 'auth', 'proxy'], function mergeDeepProperties(prop) {
-    if (utils.isObject(config2[prop])) {
-      config[prop] = utils.deepMerge(config1[prop], config2[prop]);
-    } else if (typeof config2[prop] !== 'undefined') {
-      config[prop] = config2[prop];
-    } else if (utils.isObject(config1[prop])) {
-      config[prop] = utils.deepMerge(config1[prop]);
-    } else if (typeof config1[prop] !== 'undefined') {
-      config[prop] = config1[prop];
-    }
-  });
-
-  utils.forEach([
-    'baseURL', 'transformRequest', 'transformResponse', 'paramsSerializer',
-    'timeout', 'withCredentials', 'adapter', 'responseType', 'xsrfCookieName',
-    'xsrfHeaderName', 'onUploadProgress', 'onDownloadProgress', 'maxContentLength',
-    'validateStatus', 'maxRedirects', 'httpAgent', 'httpsAgent', 'cancelToken',
-    'socketPath'
-  ], function defaultToConfig2(prop) {
-    if (typeof config2[prop] !== 'undefined') {
-      config[prop] = config2[prop];
-    } else if (typeof config1[prop] !== 'undefined') {
-      config[prop] = config1[prop];
-    }
-  });
-
-  return config;
-};
-
-},{"../utils":31}],19:[function(require,module,exports){
 'use strict';
 
 var createError = require('./createError');
@@ -2038,7 +1964,8 @@ var createError = require('./createError');
  */
 module.exports = function settle(resolve, reject, response) {
   var validateStatus = response.config.validateStatus;
-  if (!validateStatus || validateStatus(response.status)) {
+  // Note: status is not exposed by XDomainRequest
+  if (!response.status || !validateStatus || validateStatus(response.status)) {
     resolve(response);
   } else {
     reject(createError(
@@ -2051,7 +1978,7 @@ module.exports = function settle(resolve, reject, response) {
   }
 };
 
-},{"./createError":15}],20:[function(require,module,exports){
+},{"./createError":15}],19:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2073,7 +2000,7 @@ module.exports = function transformData(data, headers, fns) {
   return data;
 };
 
-},{"./../utils":31}],21:[function(require,module,exports){
+},{"./../utils":31}],20:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2092,13 +2019,12 @@ function setContentTypeIfUnset(headers, value) {
 
 function getDefaultAdapter() {
   var adapter;
-  // Only Node.JS has a process variable that is of [[Class]] process
-  if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
-    // For node use HTTP adapter
-    adapter = require('./adapters/http');
-  } else if (typeof XMLHttpRequest !== 'undefined') {
+  if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
     adapter = require('./adapters/xhr');
+  } else if (typeof process !== 'undefined') {
+    // For node use HTTP adapter
+    adapter = require('./adapters/http');
   }
   return adapter;
 }
@@ -2107,7 +2033,6 @@ var defaults = {
   adapter: getDefaultAdapter(),
 
   transformRequest: [function transformRequest(data, headers) {
-    normalizeHeaderName(headers, 'Accept');
     normalizeHeaderName(headers, 'Content-Type');
     if (utils.isFormData(data) ||
       utils.isArrayBuffer(data) ||
@@ -2175,7 +2100,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 }).call(this,require('_process'))
-},{"./adapters/http":8,"./adapters/xhr":8,"./helpers/normalizeHeaderName":28,"./utils":31,"_process":36}],22:[function(require,module,exports){
+},{"./adapters/http":8,"./adapters/xhr":8,"./helpers/normalizeHeaderName":28,"./utils":31,"_process":36}],21:[function(require,module,exports){
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -2187,6 +2112,44 @@ module.exports = function bind(fn, thisArg) {
     return fn.apply(thisArg, args);
   };
 };
+
+},{}],22:[function(require,module,exports){
+'use strict';
+
+// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
+
+var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+function E() {
+  this.message = 'String contains an invalid character';
+}
+E.prototype = new Error;
+E.prototype.code = 5;
+E.prototype.name = 'InvalidCharacterError';
+
+function btoa(input) {
+  var str = String(input);
+  var output = '';
+  for (
+    // initialize result and counter
+    var block, charCode, idx = 0, map = chars;
+    // if the next str index does not exist:
+    //   change the mapping table to "="
+    //   check if d has no fractional digits
+    str.charAt(idx | 0) || (map = '=', idx % 1);
+    // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
+    output += map.charAt(63 & block >> 8 - idx % 1 * 8)
+  ) {
+    charCode = str.charCodeAt(idx += 3 / 4);
+    if (charCode > 0xFF) {
+      throw new E();
+    }
+    block = block << 8 | charCode;
+  }
+  return output;
+}
+
+module.exports = btoa;
 
 },{}],23:[function(require,module,exports){
 'use strict';
@@ -2250,11 +2213,6 @@ module.exports = function buildURL(url, params, paramsSerializer) {
   }
 
   if (serializedParams) {
-    var hashmarkIndex = url.indexOf('#');
-    if (hashmarkIndex !== -1) {
-      url = url.slice(0, hashmarkIndex);
-    }
-
     url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
   }
 
@@ -2286,50 +2244,50 @@ module.exports = (
   utils.isStandardBrowserEnv() ?
 
   // Standard browser envs support document.cookie
-    (function standardBrowserEnv() {
-      return {
-        write: function write(name, value, expires, path, domain, secure) {
-          var cookie = [];
-          cookie.push(name + '=' + encodeURIComponent(value));
+  (function standardBrowserEnv() {
+    return {
+      write: function write(name, value, expires, path, domain, secure) {
+        var cookie = [];
+        cookie.push(name + '=' + encodeURIComponent(value));
 
-          if (utils.isNumber(expires)) {
-            cookie.push('expires=' + new Date(expires).toGMTString());
-          }
-
-          if (utils.isString(path)) {
-            cookie.push('path=' + path);
-          }
-
-          if (utils.isString(domain)) {
-            cookie.push('domain=' + domain);
-          }
-
-          if (secure === true) {
-            cookie.push('secure');
-          }
-
-          document.cookie = cookie.join('; ');
-        },
-
-        read: function read(name) {
-          var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
-          return (match ? decodeURIComponent(match[3]) : null);
-        },
-
-        remove: function remove(name) {
-          this.write(name, '', Date.now() - 86400000);
+        if (utils.isNumber(expires)) {
+          cookie.push('expires=' + new Date(expires).toGMTString());
         }
-      };
-    })() :
+
+        if (utils.isString(path)) {
+          cookie.push('path=' + path);
+        }
+
+        if (utils.isString(domain)) {
+          cookie.push('domain=' + domain);
+        }
+
+        if (secure === true) {
+          cookie.push('secure');
+        }
+
+        document.cookie = cookie.join('; ');
+      },
+
+      read: function read(name) {
+        var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+        return (match ? decodeURIComponent(match[3]) : null);
+      },
+
+      remove: function remove(name) {
+        this.write(name, '', Date.now() - 86400000);
+      }
+    };
+  })() :
 
   // Non standard browser env (web workers, react-native) lack needed support.
-    (function nonStandardBrowserEnv() {
-      return {
-        write: function write() {},
-        read: function read() { return null; },
-        remove: function remove() {}
-      };
-    })()
+  (function nonStandardBrowserEnv() {
+    return {
+      write: function write() {},
+      read: function read() { return null; },
+      remove: function remove() {}
+    };
+  })()
 );
 
 },{"./../utils":31}],26:[function(require,module,exports){
@@ -2358,64 +2316,64 @@ module.exports = (
 
   // Standard browser envs have full support of the APIs needed to test
   // whether the request URL is of the same origin as current location.
-    (function standardBrowserEnv() {
-      var msie = /(msie|trident)/i.test(navigator.userAgent);
-      var urlParsingNode = document.createElement('a');
-      var originURL;
+  (function standardBrowserEnv() {
+    var msie = /(msie|trident)/i.test(navigator.userAgent);
+    var urlParsingNode = document.createElement('a');
+    var originURL;
 
-      /**
+    /**
     * Parse a URL to discover it's components
     *
     * @param {String} url The URL to be parsed
     * @returns {Object}
     */
-      function resolveURL(url) {
-        var href = url;
+    function resolveURL(url) {
+      var href = url;
 
-        if (msie) {
+      if (msie) {
         // IE needs attribute set twice to normalize properties
-          urlParsingNode.setAttribute('href', href);
-          href = urlParsingNode.href;
-        }
-
         urlParsingNode.setAttribute('href', href);
-
-        // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
-        return {
-          href: urlParsingNode.href,
-          protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
-          host: urlParsingNode.host,
-          search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
-          hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
-          hostname: urlParsingNode.hostname,
-          port: urlParsingNode.port,
-          pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
-            urlParsingNode.pathname :
-            '/' + urlParsingNode.pathname
-        };
+        href = urlParsingNode.href;
       }
 
-      originURL = resolveURL(window.location.href);
+      urlParsingNode.setAttribute('href', href);
 
-      /**
+      // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+      return {
+        href: urlParsingNode.href,
+        protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+        host: urlParsingNode.host,
+        search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+        hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+        hostname: urlParsingNode.hostname,
+        port: urlParsingNode.port,
+        pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+                  urlParsingNode.pathname :
+                  '/' + urlParsingNode.pathname
+      };
+    }
+
+    originURL = resolveURL(window.location.href);
+
+    /**
     * Determine if a URL shares the same origin as the current location
     *
     * @param {String} requestURL The URL to test
     * @returns {boolean} True if URL shares the same origin, otherwise false
     */
-      return function isURLSameOrigin(requestURL) {
-        var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
-        return (parsed.protocol === originURL.protocol &&
+    return function isURLSameOrigin(requestURL) {
+      var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+      return (parsed.protocol === originURL.protocol &&
             parsed.host === originURL.host);
-      };
-    })() :
+    };
+  })() :
 
   // Non standard browser envs (web workers, react-native) lack needed support.
-    (function nonStandardBrowserEnv() {
-      return function isURLSameOrigin() {
-        return true;
-      };
-    })()
+  (function nonStandardBrowserEnv() {
+    return function isURLSameOrigin() {
+      return true;
+    };
+  })()
 );
 
 },{"./../utils":31}],28:[function(require,module,exports){
@@ -2696,13 +2654,9 @@ function trim(str) {
  *
  * react-native:
  *  navigator.product -> 'ReactNative'
- * nativescript
- *  navigator.product -> 'NativeScript' or 'NS'
  */
 function isStandardBrowserEnv() {
-  if (typeof navigator !== 'undefined' && (navigator.product === 'ReactNative' ||
-                                           navigator.product === 'NativeScript' ||
-                                           navigator.product === 'NS')) {
+  if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
     return false;
   }
   return (
@@ -2784,32 +2738,6 @@ function merge(/* obj1, obj2, obj3, ... */) {
 }
 
 /**
- * Function equal to merge with the difference being that no reference
- * to original objects is kept.
- *
- * @see merge
- * @param {Object} obj1 Object to merge
- * @returns {Object} Result of all merge properties
- */
-function deepMerge(/* obj1, obj2, obj3, ... */) {
-  var result = {};
-  function assignValue(val, key) {
-    if (typeof result[key] === 'object' && typeof val === 'object') {
-      result[key] = deepMerge(result[key], val);
-    } else if (typeof val === 'object') {
-      result[key] = deepMerge({}, val);
-    } else {
-      result[key] = val;
-    }
-  }
-
-  for (var i = 0, l = arguments.length; i < l; i++) {
-    forEach(arguments[i], assignValue);
-  }
-  return result;
-}
-
-/**
  * Extends object a by mutably adding to it the properties of object b.
  *
  * @param {Object} a The object to be extended
@@ -2847,25 +2775,11 @@ module.exports = {
   isStandardBrowserEnv: isStandardBrowserEnv,
   forEach: forEach,
   merge: merge,
-  deepMerge: deepMerge,
   extend: extend,
   trim: trim
 };
 
-},{"./helpers/bind":22,"is-buffer":32}],32:[function(require,module,exports){
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-
-module.exports = function isBuffer (obj) {
-  return obj != null && obj.constructor != null &&
-    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
-}
-
-},{}],33:[function(require,module,exports){
+},{"./helpers/bind":21,"is-buffer":35}],32:[function(require,module,exports){
 (function (setImmediate){
 /*
 WHAT: SublimeText-like Fuzzy Search
@@ -3473,7 +3387,7 @@ return fuzzysortNew()
 // TODO: (performance) i have no idea how well optizmied the allowing typos algorithm is
 
 }).call(this,require("timers").setImmediate)
-},{"timers":37}],34:[function(require,module,exports){
+},{"timers":37}],33:[function(require,module,exports){
 /*
  Highcharts JS v7.0.0 (2018-12-11)
 
@@ -3910,7 +3824,7 @@ this.options.responsive,r=[],w=this.currentResponsive;h&&h.rules&&h.rules.forEac
 function(a,d){var r=a.condition;(r.callback||function(){return this.chartWidth<=h(r.maxWidth,Number.MAX_VALUE)&&this.chartHeight<=h(r.maxHeight,Number.MAX_VALUE)&&this.chartWidth>=h(r.minWidth,0)&&this.chartHeight>=h(r.minHeight,0)}).call(this)&&d.push(a._id)};y.prototype.currentOptions=function(h){function r(h,n,g,c){var m;a.objectEach(h,function(a,b){if(!c&&-1<["series","xAxis","yAxis"].indexOf(b))for(a=d(a),g[b]=[],m=0;m<a.length;m++)n[b][m]&&(g[b][m]={},r(a[m],n[b][m],g[b][m],c+1));else E(a)?
 (g[b]=G(a)?[]:{},r(a,n[b]||{},g[b],c+1)):g[b]=n[b]||null})}var v={};r(h,this.options,v,0);return v}})(J);return J});
 
-},{}],35:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 /*
  Highcharts JS v7.0.0 (2018-12-11)
  Exporting module
@@ -3944,6 +3858,29 @@ e[d.nodeName]||(n=k.getElementsByTagName("svg")[0],w=k.createElementNS(d.namespa
 l=d.inlineWhitelist,h=d.unstyledElements,e={},n,k,d=z.createElement("iframe");r(d,{width:"1px",height:"1px",visibility:"hidden"});z.body.appendChild(d);k=d.contentWindow.document;k.open();k.write('\x3csvg xmlns\x3d"http://www.w3.org/2000/svg"\x3e\x3c/svg\x3e');k.close();a(this.container.querySelector("svg"));n.parentNode.removeChild(n)};H.menu=function(b,a,d,c){return["M",b,a+2.5,"L",b+d,a+2.5,"M",b,a+c/2+.5,"L",b+d,a+c/2+.5,"M",b,a+c-1.5,"L",b+d,a+c-1.5]};H.menuball=function(b,a,d,c){b=[];c=c/3-
 2;return b=b.concat(this.circle(d-c,a,c,c),this.circle(d-c,a+c+4,c,c),this.circle(d-c,a+2*(c+4),c,c))};l.prototype.renderExporting=function(){var b=this,a=b.options.exporting,d=a.buttons,c=b.isDirtyExporting||!b.exportSVGElements;b.buttonOffset=0;b.isDirtyExporting&&b.destroyExport();c&&!1!==a.enabled&&(b.exportEvents=[],b.exportingGroup=b.exportingGroup||b.renderer.g("exporting-group").attr({zIndex:3}).add(),E(d,function(a){b.addButton(a)}),b.isDirtyExporting=!1);q(b,"destroy",b.destroyExport)};
 q(l,"init",function(){var b=this;["exporting","navigation"].forEach(function(a){b[a]={update:function(d,c){b.isDirtyExporting=!0;p(!0,b.options[a],d);u(c,!0)&&b.redraw()}}})});l.prototype.callbacks.push(function(b){b.renderExporting();q(b,"redraw",b.renderExporting)})})(l)});
+
+},{}],35:[function(require,module,exports){
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+// The _isBuffer check is for Safari 5-7 support, because it's missing
+// Object.prototype.constructor. Remove this eventually
+module.exports = function (obj) {
+  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer)
+}
+
+function isBuffer (obj) {
+  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+}
+
+// For Node v0.10 support. Remove this eventually.
+function isSlowBuffer (obj) {
+  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
+}
 
 },{}],36:[function(require,module,exports){
 // shim for using process in browser
@@ -4316,7 +4253,7 @@ function downloadCharts() {
   }
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":34,"highcharts/modules/exporting":35}],40:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],40:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4391,7 +4328,7 @@ function highlightPoint(id) {
   return true;
 }
 
-},{"../updateHelperText":47,"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":34,"highcharts/modules/exporting":35}],42:[function(require,module,exports){
+},{"../updateHelperText":47,"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],42:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4433,6 +4370,15 @@ function handleChartFilters() {
   var highlightInput = document.getElementById('highlight');
   var stateInput = document.getElementById('state');
   var regionInput = document.getElementById('region');
+  var showAdvancedFiltersButton = document.querySelector('.js-show-advanced');
+  var advancedFieldsContainer = document.querySelector('.js-advanced-filters');
+
+  if (showAdvancedFiltersButton) {
+    showAdvancedFiltersButton.addEventListener('click', function () {
+      advancedFieldsContainer.classList.toggle('chart-form__advanced-filters--active');
+      advancedFieldsContainer.scrollIntoView();
+    });
+  }
 
   function getCities() {
     var url = "".concat(_config.default.api.domain, "cities");
@@ -4647,7 +4593,7 @@ function handleChartFilters() {
   populateCitiesList();
 }
 
-},{"../../config":49,"../plotCharts":45,"../updateTableInfo":48,"./clearFilters":40,"./highlightPoint":41,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"awesomplete":6,"axios":7,"fuzzysort":33,"highcharts":34,"highcharts/modules/exporting":35}],43:[function(require,module,exports){
+},{"../../config":49,"../plotCharts":45,"../updateTableInfo":48,"./clearFilters":40,"./highlightPoint":41,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"awesomplete":6,"axios":7,"fuzzysort":32,"highcharts":33,"highcharts/modules/exporting":34}],43:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -5039,7 +4985,7 @@ function _populateChartData() {
   return _populateChartData.apply(this, arguments);
 }
 
-},{"./addTableDestak":38,"./filter/clearFilters":40,"./filter/highlightPoint":41,"./getChartData":43,"./updateHelperText":47,"./updateTableInfo":48,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":34,"highcharts/modules/exporting":35}],46:[function(require,module,exports){
+},{"./addTableDestak":38,"./filter/clearFilters":40,"./filter/highlightPoint":41,"./getChartData":43,"./updateHelperText":47,"./updateTableInfo":48,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":33,"highcharts/modules/exporting":34}],46:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -5117,7 +5063,7 @@ function sizeToggle() {
   }
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":34,"highcharts/modules/exporting":35}],47:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],47:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5317,7 +5263,7 @@ function clearTableInfo() {
   matTable.querySelector('.js-quality').textContent = '';
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":34,"highcharts/modules/exporting":35}],49:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],49:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

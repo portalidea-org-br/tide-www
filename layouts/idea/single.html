@@ -52,7 +52,7 @@
                 </li>
               </ul>
 
-              <button class="button button--right button--destak">Avançar</button>
+              <button type="button" class="js-show-advanced button button--right button--destak">Avançar</button>
             </div>
 
             <div class="chart-form__group chart-form__group--buttons" style="display: none">
@@ -141,7 +141,7 @@
         </div>
       </div>
 
-      <div class="bg-yellow-simple">
+      <div class="bg-yellow-simple chart-form__advanced-filters js-advanced-filters">
         <div class="container">
           <p>
             Os filtros são equivalentes os dados que temos ou sejam excluem alguns opções.
@@ -185,7 +185,7 @@
             </div>
 
             <div class="chart-form__group chart-form__group--half">
-              <strong>Nível de desigualdade:</strong>
+              <strong>nível de desigualdade:</strong>
               <ul class="chart-form__buttons">
                 <li>
                   <input type="radio" name="region" value="" id="equidade">
@@ -211,6 +211,81 @@
               <div class="chart-form__buttons">
 
               </div>
+            </div>
+
+            <div class="chart-form__group chart-form__group--half">
+              <strong>Nível de aprendizagem:</strong>
+              <ul class="chart-form__buttons">
+                <li>
+                  <input type="radio" name="quality" value="" id="baixa">
+                  <label for="baixa">Baixa</label>
+                </li>
+                <li>
+                  <input type="radio" name="quality" value="1" id="media-baixa">
+                  <label for="media-baixa">Média-baixa</label>
+                </li>
+                <li>
+                  <input type="radio" name="quality" value="1" id="media">
+                  <label for="media">Média</label>
+                </li>
+                <li>
+                  <input type="radio" name="quality" value="1" id="media-alta">
+                  <label for="media-alta">Média-alta</label>
+                </li>
+                <li>
+                  <input type="radio" name="quality" value="2" id="alta">
+                  <label for="alta">Alta</label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="chart-form__group">
+              <label for="state">
+                Estado
+                <select id="state" name="state">
+                  <option value="">Estados</option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Roraima</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="chart-form__group">
+              <label for="city">
+                Município
+                <input id="city" type="text" placeholder="Ex. São Paulo" />
+              </label>
+              <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>
+            </div>
+
+            <div class="chart-form__group chart-form__submit">
+              <input class="button button--like-text" type="reset" value="Limpar todos os filtros" />
+              <button class="button button--right button--destak button--purple" type="submit">Filtrar</button>
             </div>
           </form>
         </div>

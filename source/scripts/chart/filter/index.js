@@ -18,6 +18,16 @@ export default function handleChartFilters() {
   const stateInput = document.getElementById('state');
   const regionInput = document.getElementById('region');
 
+  const showAdvancedFiltersButton = document.querySelector('.js-show-advanced');
+  const advancedFieldsContainer = document.querySelector('.js-advanced-filters');
+
+  if (showAdvancedFiltersButton) {
+    showAdvancedFiltersButton.addEventListener('click', () => {
+      advancedFieldsContainer.classList.toggle('chart-form__advanced-filters--active');
+      advancedFieldsContainer.scrollIntoView();
+    });
+  }
+
   function getCities() {
     const url = `${config.api.domain}cities`;
 
