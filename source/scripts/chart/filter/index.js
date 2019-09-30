@@ -3,6 +3,7 @@ import Exporting from 'highcharts/modules/exporting';
 import axios from 'axios';
 import Awesomplete from 'awesomplete';
 import fuzzysort from 'fuzzysort';
+import startRange from './noUiSlider';
 import { updateTableInfo, clearTableInfo } from '../updateTableInfo';
 import { populateChartData, toggleLoading } from '../plotCharts';
 import clearFilters from './clearFilters';
@@ -212,4 +213,5 @@ export default function handleChartFilters() {
   }
 
   populateCitiesList();
+  startRange();
 }

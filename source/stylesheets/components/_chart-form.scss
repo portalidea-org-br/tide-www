@@ -28,7 +28,7 @@
 }
 
 .chart-form__advanced-filters {
-  max-height: 0;
+  // max-height: 0;
   padding: 0;
   overflow: hidden;
   transition: max-height 0.6s;
@@ -91,6 +91,34 @@
 .chart-form__buttons li input:checked + label {
   color: palette('white');
   background: palette('purple');
+}
+
+.chart-form .noUi-connects {
+  width: 80%;
+}
+
+.chart-form .noUi-horizontal {
+  height: 0.5rem;
+}
+
+.chart-form .noUi-horizontal .noUi-handle {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+.chart-form .noUi-connect {
+  background: palette('red');
+}
+
+.chart-form .noUi-connects {
+  width: 100%;
+  margin: 0 0.188rem;
 }
 
 .chart-form__tutorial-link:link,
