@@ -27,6 +27,16 @@
   padding: 0;
 }
 
+.chart-form__range {
+  width: 100%;
+}
+
+.chart-form__range-values {
+  display: flex;
+  justify-content: space-between;
+  color: palette('black');
+}
+
 .chart-form__advanced-filters {
   // max-height: 0;
   padding: 0;
@@ -60,6 +70,7 @@
 .chart-form__buttons {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 0;
 }
 
 .chart-form__buttons input[type='radio'] {
@@ -163,6 +174,21 @@
   color: palette('purple');
 }
 
+.chart-form__group strong {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.chart-form__clear-section {
+  display: inline-block;
+  align-self: flex-start;
+  text-decoration: underline;
+  cursor: pointer;
+  color: palette('purple');
+  background: none;
+  border: 0;
+}
+
 .chart-form label[for='grade'] {
   width: 20%;
   margin-right: 2%;
@@ -212,16 +238,20 @@
   margin-bottom: 0.8em;
 }
 
-.chart-form select {
+.chart-form select,
+.chart-form input[type='text'] {
   width: 100%;
   padding: 0.5em 0.8em;
   font-size: ms(0);
-  background-image: url('data:image/png;base64,R0lGODlhDwAUAIABAAAAAP///yH5BAEAAAEALAAAAAAPABQAAAIXjI+py+0Po5wH2HsXzmw//lHiSJZmUAAAOw==');
-  background-position: 95% 50%;
   background-color: palette('white');
   border: 1px solid palette('gray');
   border-radius: 10px;
   appearance: none;
+}
+
+.chart-form select {
+  background-image: url('data:image/png;base64,R0lGODlhDwAUAIABAAAAAP///yH5BAEAAAEALAAAAAAPABQAAAIXjI+py+0Po5wH2HsXzmw//lHiSJZmUAAAOw==');
+  background-position: 95% 50%;
 }
 
 .chart-form__submit {

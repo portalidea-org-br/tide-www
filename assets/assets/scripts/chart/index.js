@@ -7190,10 +7190,19 @@ function startRange() {
   noUiSlider.create(range, {
     start: [20, 80],
     connect: true,
-    tooltips: true,
+    // tooltips: true,
     range: {
-      'min': 0,
-      'max': 100
+      min: 0,
+      max: 100
+    }
+  });
+  var minValue = document.getElementById('js-range-min-value');
+  var maxValue = document.getElementById('js-rang-max-value');
+  range.noUiSlider.on('update', function (values, handle) {
+    if (handle) {
+      maxValue.innerHTML = values[handle];
+    } else {
+      minValue.innerHTML = values[handle];
     }
   });
 }
