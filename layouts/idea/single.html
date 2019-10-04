@@ -12,8 +12,9 @@
 
       <div class="bg-light-gray">
         <div class="container">
-          {{ .Content }}
-
+          <p class="big-text">
+            {{ .Content | markdownify }}
+          </p>
           <a
             href="#tutorial"
             class="chart-form__tutorial-link"
@@ -90,7 +91,6 @@
               <label for="region">
                 Destacar Região Brasileira
                 <select name="region" id="region">
-                  <option value="">Nenhuma</option>
                   <option value="1">Centro Oeste</option>
                   <option value="2">Nordeste</option>
                   <option value="3">Norte</option>
@@ -143,157 +143,157 @@
 
       <div class="bg-yellow-simple chart-form__advanced-filters js-advanced-filters">
         <div class="container">
-          <p>
+          <p class="big-text">
             Os filtros são equivalentes os dados que temos ou sejam excluem alguns opções.
             Essas configurações avançada permite que sua análise seja mais precisa.
             Para compreender melhor o estudo,
-            <a
-              href="#tutorial"
-              data-micromodal-trigger="js-modal-idea-video">
-              veja o tutorial
-            </a>
           </p>
           <form action="" method="post" id="js-chart-form" class="chart-form">
-            <div class="chart-form__group chart-form__group--half">
-              <strong>Regiões:</strong>
-              <ul class="chart-form__buttons">
-                <li>
-                  <input type="radio" name="region" value="" id="nenhuma">
-                  <label for="nenhuma">Nenhuma</label>
-                </li>
-                <li>
-                  <input type="radio" name="region" value="1" id="centro-oeste">
-                  <label for="centro-oeste">Centro Oeste</label>
-                </li>
-                <li>
-                  <input type="radio" name="region" value="2" id="nordeste">
-                  <label for="nordeste">Nordeste</label>
-                </li>
-                <li>
-                  <input type="radio" name="region" value="3" id="norte">
-                  <label for="norte">Norte</label>
-                </li>
-                <li>
-                  <input type="radio" name="region" value="4" id="sudeste">
-                  <label for="sudeste">Sudeste</label>
-                </li>
-                <li>
-                  <input type="radio" name="region" value="5" id="sul">
-                  <label for="sul">Sul</label>
-                </li>
-              </ul>
-              <button class="chart-form__clear-section">
-                Limpar seleção
-              </button>
-            </div>
+            <div class="chart-form__half">
+              <div class="chart-form__group">
+                <strong>Regiões:</strong>
+                <ul class="chart-form__buttons">
+                  <li>
+                    <input type="radio" name="region" value="" id="nenhuma">
+                    <label for="nenhuma">Nenhuma</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="region" value="1" id="centro-oeste">
+                    <label for="centro-oeste">Centro Oeste</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="region" value="2" id="nordeste">
+                    <label for="nordeste">Nordeste</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="region" value="3" id="norte">
+                    <label for="norte">Norte</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="region" value="4" id="sudeste">
+                    <label for="sudeste">Sudeste</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="region" value="5" id="sul">
+                    <label for="sul">Sul</label>
+                  </li>
+                </ul>
+                <button class="chart-form__clear-section js-clear-inputs" data-clear="region">
+                  Limpar seleção
+                </button>
+              </div>
 
-            <div class="chart-form__group chart-form__group--half">
-              <strong>nível de desigualdade:</strong>
-              <ul class="chart-form__buttons">
-                <li>
-                  <input type="radio" name="region" value="" id="equidade">
-                  <label for="equidade">Equidade</label>
-                </li>
-                <li>
-                  <input type="radio" name="region" value="1" id="desigualdade">
-                  <label for="desigualdade">Desigualdade</label>
-                </li>
-                <li>
-                  <input type="radio" name="region" value="2" id="alta">
-                  <label for="alta">Alta</label>
-                </li>
-                <li>
-                  <input type="radio" name="region" value="3" id="extrema">
-                  <label for="extrema">Extrema</label>
-                </li>
-              </ul>
-              <button class="chart-form__clear-section">
-                Limpar seleção
-              </button>
-            </div>
-
-            <div class="chart-form__group chart-form__group--half">
-              <strong>Número de habitantes</strong>
-              <div class="chart-form__range">
-                <div id="js-range"></div>
-                <div class="chart-form__range-values">
-                  <span id="js-range-min-value"></span>
-                  <span id="js-rang-max-value"></span>
+              <div class="chart-form__group">
+                <strong>Número de habitantes</strong>
+                <div class="chart-form__range">
+                  <div id="js-range"></div>
+                  <div class="chart-form__range-values">
+                    <span id="js-range-min-value"></span>
+                    <span id="js-rang-max-value"></span>
+                  </div>
                 </div>
+              </div>
+
+              <div class="chart-form__group">
+                <label for="state">
+                  Estado
+                  <select id="state" name="state">
+                    <option value="">Estados</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="chart-form__group">
+                <label for="city">
+                  Município
+                  <input id="city" type="text" placeholder="Ex. São Paulo" />
+                </label>
+                <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>
               </div>
             </div>
 
-            <div class="chart-form__group chart-form__group--half">
-              <strong>Nível de aprendizagem:</strong>
-              <ul class="chart-form__buttons">
-                <li>
-                  <input type="radio" name="quality" value="" id="baixa">
-                  <label for="baixa">Baixa</label>
-                </li>
-                <li>
-                  <input type="radio" name="quality" value="1" id="media-baixa">
-                  <label for="media-baixa">Média-baixa</label>
-                </li>
-                <li>
-                  <input type="radio" name="quality" value="1" id="media">
-                  <label for="media">Média</label>
-                </li>
-                <li>
-                  <input type="radio" name="quality" value="1" id="media-alta">
-                  <label for="media-alta">Média-alta</label>
-                </li>
-                <li>
-                  <input type="radio" name="quality" value="2" id="alta">
-                  <label for="alta">Alta</label>
-                </li>
-              </ul>
-              <button class="chart-form__clear-section">
-                Limpar seleção
-              </button>
-            </div>
 
-            <div class="chart-form__group">
-              <label for="state">
-                Estado
-                <select id="state" name="state">
-                  <option value="">Estados</option>
-                  <option value="AC">Acre</option>
-                  <option value="AL">Alagoas</option>
-                  <option value="AP">Amapá</option>
-                  <option value="AM">Amazonas</option>
-                  <option value="BA">Bahia</option>
-                  <option value="CE">Ceará</option>
-                  <option value="DF">Distrito Federal</option>
-                  <option value="ES">Espírito Santo</option>
-                  <option value="GO">Goiás</option>
-                  <option value="MA">Maranhão</option>
-                  <option value="MT">Mato Grosso</option>
-                  <option value="MS">Mato Grosso do Sul</option>
-                  <option value="MG">Minas Gerais</option>
-                  <option value="PA">Pará</option>
-                  <option value="PB">Paraíba</option>
-                  <option value="PR">Paraná</option>
-                  <option value="PE">Pernambuco</option>
-                  <option value="PI">Piauí</option>
-                  <option value="RJ">Rio de Janeiro</option>
-                  <option value="RN">Rio Grande do Norte</option>
-                  <option value="RS">Rio Grande do Sul</option>
-                  <option value="RO">Rondônia</option>
-                  <option value="RR">Roraima</option>
-                  <option value="SC">Santa Catarina</option>
-                  <option value="SP">São Paulo</option>
-                  <option value="SE">Sergipe</option>
-                  <option value="TO">Tocantins</option>
-                </select>
-              </label>
-            </div>
+            <div class="chart-form__half">
+              <div class="chart-form__group">
+                <strong>nível de desigualdade:</strong>
+                <ul class="chart-form__buttons">
+                  <li>
+                    <input type="radio" name="inequality" value="" id="equidade">
+                    <label for="equidade">Equidade</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="inequality" value="1" id="desigualdade">
+                    <label for="desigualdade">Desigualdade</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="inequality" value="2" id="desigualdade-alta">
+                    <label for="desigualdade-alta">Alta</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="inequality" value="3" id="extrema">
+                    <label for="extrema">Extrema</label>
+                  </li>
+                </ul>
+                <button class="chart-form__clear-section js-clear-inputs" data-clear="inequality">
+                  Limpar seleção
+                </button>
+              </div>
 
-            <div class="chart-form__group">
-              <label for="city">
-                Município
-                <input id="city" type="text" placeholder="Ex. São Paulo" />
-              </label>
-              <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>
+              <div class="chart-form__group">
+                <strong>Nível de aprendizagem:</strong>
+                <ul class="chart-form__buttons">
+                  <li>
+                    <input type="radio" name="quality" value="" id="baixa">
+                    <label for="baixa">Baixa</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="quality" value="1" id="media-baixa">
+                    <label for="media-baixa">Média-baixa</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="quality" value="1" id="media">
+                    <label for="media">Média</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="quality" value="1" id="media-alta">
+                    <label for="media-alta">Média-alta</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="quality" value="2" id="alta">
+                    <label for="alta">Alta</label>
+                  </li>
+                </ul>
+                <button class="chart-form__clear-section js-clear-inputs" data-clear="quality">
+                  Limpar seleção
+                </button>
+              </div>
             </div>
 
             <div class="chart-form__group chart-form__submit">

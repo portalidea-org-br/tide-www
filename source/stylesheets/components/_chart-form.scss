@@ -25,6 +25,14 @@
   display: flex;
   flex-wrap: wrap;
   padding: 0;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    justify-content: space-between;
+  }
+}
+
+.chart-form__half {
+  width: 47%;
 }
 
 .chart-form__range {
@@ -91,7 +99,7 @@
 .chart-form__buttons li label {
   width: auto;
   min-width: max-content;
-  padding: 0.2em 1.1em;
+  padding: 0.2em 0.7em;
   text-transform: none;
   cursor: pointer;
   color: palette('purple');
@@ -136,10 +144,11 @@
 .chart-form__tutorial-link:visited {
   display: inline-flex;
   align-items: center;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: font-weight('bold');
   text-decoration: underline;
   vertical-align: middle;
-  color: palette('black');
+  color: palette('purple');
 
   &::before {
     display: inline-block;
@@ -176,7 +185,9 @@
 
 .chart-form__group strong {
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
+  font-size: ms(-1);
+  text-transform: uppercase;
 }
 
 .chart-form__clear-section {
@@ -204,24 +215,12 @@
   }
 }
 
-.chart-form label[for='city'] {
-  width: 75%;
-
-  @media screen and (min-width: breakpoint('desktop')) {
-    width: 48%;
-  }
-}
-
 .chart-form label {
   display: inline-block;
   width: 100%;
   font-weight: bold;
   font-size: ms(-1);
   text-transform: uppercase;
-
-  @media screen and (min-width: breakpoint('desktop')) {
-    width: 48%;
-  }
 }
 
 .chart-form .awesomplete {

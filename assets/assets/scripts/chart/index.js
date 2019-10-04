@@ -7158,8 +7158,26 @@ function handleChartFilters() {
     }, false);
   }
 
+  function watchClearButtons() {
+    var buttons = document.querySelectorAll('.js-clear-inputs');
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        console.log(event);
+        var toUncheck = document.querySelectorAll("input[name=\"".concat(event.target.dataset.clear, "\"]"));
+        toUncheck.forEach(function (item) {
+          var input = item;
+          input.checked = false;
+        });
+      });
+    }); // Array.from(document.querySelectorAll('js-clear-inputs'), (input) => {
+    //   input.checked = false;
+    // });
+  }
+
   populateCitiesList();
   (0, _noUiSlider.default)();
+  watchClearButtons();
 }
 
 },{"../../config":52,"../plotCharts":48,"../updateTableInfo":51,"./clearFilters":42,"./highlightPoint":43,"./noUiSlider":45,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":6,"awesomplete":7,"axios":8,"fuzzysort":34,"highcharts":35,"highcharts/modules/exporting":36}],45:[function(require,module,exports){

@@ -212,6 +212,26 @@ export default function handleChartFilters() {
     }, false);
   }
 
+
+  function watchClearButtons() {
+    const buttons = document.querySelectorAll('.js-clear-inputs');
+    buttons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        console.log(event);
+        const toUncheck = document.querySelectorAll(`input[name="${event.target.dataset.clear}"]`);
+        toUncheck.forEach((item) => {
+          const input = item;
+          input.checked = false;
+        })
+      });
+    });
+    // Array.from(document.querySelectorAll('js-clear-inputs'), (input) => {
+    //   input.checked = false;
+    // });
+  }
+
   populateCitiesList();
   startRange();
+  watchClearButtons()
 }
