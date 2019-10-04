@@ -24,15 +24,19 @@
 .chart-form {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   padding: 0;
 
   @media screen and (min-width: breakpoint('desktop')) {
-    justify-content: space-between;
   }
 }
 
 .chart-form__half {
-  width: 47%;
+  width: 100%;
+
+  @media screen and (min-width: breakpoint('tablet')) {
+    width: 47%;
+  }
 }
 
 .chart-form__range {
@@ -53,9 +57,13 @@
 }
 
 .chart-form__advanced-filters--active {
-  max-height: 45rem;
+  max-height: 80rem;
   padding-top: 3rem;
   padding-bottom: 2rem;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    max-height: 45rem;
+  }
 }
 
 .chart-form__group {
@@ -256,8 +264,18 @@
 .chart-form__submit {
   align-items: center;
   flex-direction: row;
-  flex-wrap: nowrap;
   width: max-content;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    flex-wrap: nowrap;
+    margin-right: 0;
+  }
+}
+
+.chart-form__submit button[type='submit'] {
+  margin-right: auto;
   margin-left: auto;
 }
 
