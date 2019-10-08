@@ -154,7 +154,7 @@ function drawChart(chartData, subject) {
       point: {
         events: {
           click() {
-            clearFilters();
+            // clearFilters();
             highlightPoint(this.id);
             updateTableInfo(this.id);
             updateHelperText(this.id);

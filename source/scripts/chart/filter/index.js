@@ -14,7 +14,7 @@ Exporting(Highcharts);
 
 export default function handleChartFilters() {
   const jsChartForm = document.getElementById('js-chart-form');
-  const cityInput = document.getElementById('city');
+  const cityInput = document.querySelector('#js-city');
   const highlightInput = document.getElementById('highlight');
   const stateInput = document.getElementById('state');
   const regionInput = document.getElementById('region');
@@ -46,7 +46,7 @@ export default function handleChartFilters() {
       const cities = await getCities();
       const cityNames = cities.map(city => ({ label: `${city.name} - ${city.state.uf}`, value: city.id }));
 
-      const awesomplete = new Awesomplete(document.querySelector('#city'), {
+      const awesomplete = new Awesomplete(cityInput, {
         nChars: 1,
         maxItems: 5,
         autoFirst: true,
@@ -82,17 +82,21 @@ export default function handleChartFilters() {
 
 
   if (jsChartForm) {
+    console.log('hey');
     jsChartForm.addEventListener('submit', (event) => {
       event.preventDefault();
+      console.log('submit');
       const formData = new FormData(event.target);
       const payload = {};
+
+      console.log(formData)
 
       payload.grade = formData.get('grade');
       payload.xAxis = formData.get('xAxis');
 
       toggleLoading();
       populateChartData(payload);
-      clearFilters();
+      // clearFilters();
       clearTableInfo();
       hideNoMatchesAlert();
       toggleLoading();
@@ -226,12 +230,13 @@ export default function handleChartFilters() {
         })
       });
     });
-    // Array.from(document.querySelectorAll('js-clear-inputs'), (input) => {
-    //   input.checked = false;
-    // });
+  }
+
+  function watchChanges() {
+    //
   }
 
   populateCitiesList();
   startRange();
-  watchClearButtons()
+  watchChanges();
 }

@@ -858,7 +858,8 @@ var _ = function (input, o) {
 	this.isOpened = false;
 
 	this.input = $(input);
-	this.input.setAttribute("autocomplete", "awesomplete");
+	this.input.setAttribute("autocomplete", "off");
+	this.input.setAttribute("aria-expanded", "false");
 	this.input.setAttribute("aria-owns", "awesomplete_list_" + this.count);
 	this.input.setAttribute("role", "combobox");
 
@@ -915,10 +916,10 @@ var _ = function (input, o) {
 				if(me.opened) {
 					if (c === 13 && me.selected) { // Enter
 						evt.preventDefault();
-						me.select();
+						me.select(undefined, undefined, evt);
 					}
 					else if (c === 9 && me.selected && me.tabSelect) {
-						me.select();
+						me.select(undefined, undefined, evt);
 					}
 					else if (c === 27) { // Esc
 						me.close({ reason: "esc" });
@@ -952,7 +953,7 @@ var _ = function (input, o) {
 
 					if (li && evt.button === 0) {  // Only select on left click
 						evt.preventDefault();
-						me.select(li, evt.target);
+						me.select(li, evt.target, evt);
 					}
 				}
 			}
@@ -1019,6 +1020,7 @@ _.prototype = {
 			return;
 		}
 
+		this.input.setAttribute("aria-expanded", "false");
 		this.ul.setAttribute("hidden", "");
 		this.isOpened = false;
 		this.index = -1;
@@ -1029,6 +1031,7 @@ _.prototype = {
 	},
 
 	open: function () {
+		this.input.setAttribute("aria-expanded", "true");
 		this.ul.removeAttribute("hidden");
 		this.isOpened = true;
 
@@ -1105,7 +1108,7 @@ _.prototype = {
 		}
 	},
 
-	select: function (selected, origin) {
+	select: function (selected, origin, originalEvent) {
 		if (selected) {
 			this.index = $.siblingIndex(selected);
 		} else {
@@ -1117,14 +1120,16 @@ _.prototype = {
 
 			var allowed = $.fire(this.input, "awesomplete-select", {
 				text: suggestion,
-				origin: origin || selected
+				origin: origin || selected,
+				originalEvent: originalEvent
 			});
 
 			if (allowed) {
 				this.replace(suggestion);
 				this.close({ reason: "select" });
 				$.fire(this.input, "awesomplete-selectcomplete", {
-					text: suggestion
+					text: suggestion,
+					originalEvent: originalEvent
 				});
 			}
 		}
@@ -1208,8 +1213,9 @@ _.ITEM = function (text, input, item_id) {
 	var html = input.trim() === "" ? text : text.replace(RegExp($.regExpEscape(input.trim()), "gi"), "<mark>$&</mark>");
 	return $.create("li", {
 		innerHTML: html,
+		"role": "option",
 		"aria-selected": "false",
-        "id": "awesomplete_list_" + this.count + "_item_" + item_id
+		"id": "awesomplete_list_" + this.count + "_item_" + item_id
 	});
 };
 
@@ -6827,20 +6833,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = clearFilters;
 
-function clearFilters(exception) {
-  var formContainer = document.querySelector('.js-form-filter');
-  formContainer.querySelectorAll('select').forEach(function (select) {
-    if (select.id !== exception) {
-      var selectEl = select;
-      selectEl.selectedIndex = 0;
-    }
-  });
-  formContainer.querySelectorAll('input[type="text"]').forEach(function (input) {
-    if (input.id !== exception) {
-      var inputEl = input;
-      inputEl.value = '';
-    }
-  });
+function clearFilters(exception) {// const formContainer = document.querySelector('.js-form-filter');
+  // formContainer.querySelectorAll('select').forEach((select) => {
+  //   if (select.id !== exception) {
+  //     const selectEl = select;
+  //     selectEl.selectedIndex = 0;
+  //   }
+  // });
+  // formContainer.querySelectorAll('input[type="text"]').forEach((input) => {
+  //   if (input.id !== exception) {
+  //     const inputEl = input;
+  //     inputEl.value = '';
+  //   }
+  // });
 }
 
 },{}],43:[function(require,module,exports){
@@ -6934,7 +6939,7 @@ var _config = _interopRequireDefault(require("../../config"));
 
 function handleChartFilters() {
   var jsChartForm = document.getElementById('js-chart-form');
-  var cityInput = document.getElementById('city');
+  var cityInput = document.querySelector('#js-city');
   var highlightInput = document.getElementById('highlight');
   var stateInput = document.getElementById('state');
   var regionInput = document.getElementById('region');
@@ -6988,7 +6993,7 @@ function handleChartFilters() {
                   value: city.id
                 };
               });
-              awesomplete = new _awesomplete.default(document.querySelector('#city'), {
+              awesomplete = new _awesomplete.default(cityInput, {
                 nChars: 1,
                 maxItems: 5,
                 autoFirst: true,
@@ -7033,15 +7038,18 @@ function handleChartFilters() {
   }
 
   if (jsChartForm) {
+    console.log('hey');
     jsChartForm.addEventListener('submit', function (event) {
       event.preventDefault();
+      console.log('submit');
       var formData = new FormData(event.target);
       var payload = {};
+      console.log(formData);
       payload.grade = formData.get('grade');
       payload.xAxis = formData.get('xAxis');
       (0, _plotCharts.toggleLoading)();
-      (0, _plotCharts.populateChartData)(payload);
-      (0, _clearFilters.default)();
+      (0, _plotCharts.populateChartData)(payload); // clearFilters();
+
       (0, _updateTableInfo.clearTableInfo)();
       hideNoMatchesAlert();
       (0, _plotCharts.toggleLoading)();
@@ -7170,14 +7178,15 @@ function handleChartFilters() {
           input.checked = false;
         });
       });
-    }); // Array.from(document.querySelectorAll('js-clear-inputs'), (input) => {
-    //   input.checked = false;
-    // });
+    });
+  }
+
+  function watchChanges() {//
   }
 
   populateCitiesList();
   (0, _noUiSlider.default)();
-  watchClearButtons();
+  watchChanges();
 }
 
 },{"../../config":52,"../plotCharts":48,"../updateTableInfo":51,"./clearFilters":42,"./highlightPoint":43,"./noUiSlider":45,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":6,"awesomplete":7,"axios":8,"fuzzysort":34,"highcharts":35,"highcharts/modules/exporting":36}],45:[function(require,module,exports){
@@ -7495,7 +7504,7 @@ function drawChart(chartData, subject) {
       point: {
         events: {
           click: function click() {
-            (0, _clearFilters.default)();
+            // clearFilters();
             (0, _highlightPoint.highlightPoint)(this.id);
             (0, _updateTableInfo.updateTableInfo)(this.id);
             (0, _updateHelperText.default)(this.id);
