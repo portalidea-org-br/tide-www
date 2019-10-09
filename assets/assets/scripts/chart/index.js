@@ -858,8 +858,7 @@ var _ = function (input, o) {
 	this.isOpened = false;
 
 	this.input = $(input);
-	this.input.setAttribute("autocomplete", "off");
-	this.input.setAttribute("aria-expanded", "false");
+	this.input.setAttribute("autocomplete", "awesomplete");
 	this.input.setAttribute("aria-owns", "awesomplete_list_" + this.count);
 	this.input.setAttribute("role", "combobox");
 
@@ -916,10 +915,10 @@ var _ = function (input, o) {
 				if(me.opened) {
 					if (c === 13 && me.selected) { // Enter
 						evt.preventDefault();
-						me.select(undefined, undefined, evt);
+						me.select();
 					}
 					else if (c === 9 && me.selected && me.tabSelect) {
-						me.select(undefined, undefined, evt);
+						me.select();
 					}
 					else if (c === 27) { // Esc
 						me.close({ reason: "esc" });
@@ -953,7 +952,7 @@ var _ = function (input, o) {
 
 					if (li && evt.button === 0) {  // Only select on left click
 						evt.preventDefault();
-						me.select(li, evt.target, evt);
+						me.select(li, evt.target);
 					}
 				}
 			}
@@ -1020,7 +1019,6 @@ _.prototype = {
 			return;
 		}
 
-		this.input.setAttribute("aria-expanded", "false");
 		this.ul.setAttribute("hidden", "");
 		this.isOpened = false;
 		this.index = -1;
@@ -1031,7 +1029,6 @@ _.prototype = {
 	},
 
 	open: function () {
-		this.input.setAttribute("aria-expanded", "true");
 		this.ul.removeAttribute("hidden");
 		this.isOpened = true;
 
@@ -1108,7 +1105,7 @@ _.prototype = {
 		}
 	},
 
-	select: function (selected, origin, originalEvent) {
+	select: function (selected, origin) {
 		if (selected) {
 			this.index = $.siblingIndex(selected);
 		} else {
@@ -1120,16 +1117,14 @@ _.prototype = {
 
 			var allowed = $.fire(this.input, "awesomplete-select", {
 				text: suggestion,
-				origin: origin || selected,
-				originalEvent: originalEvent
+				origin: origin || selected
 			});
 
 			if (allowed) {
 				this.replace(suggestion);
 				this.close({ reason: "select" });
 				$.fire(this.input, "awesomplete-selectcomplete", {
-					text: suggestion,
-					originalEvent: originalEvent
+					text: suggestion
 				});
 			}
 		}
@@ -1213,9 +1208,8 @@ _.ITEM = function (text, input, item_id) {
 	var html = input.trim() === "" ? text : text.replace(RegExp($.regExpEscape(input.trim()), "gi"), "<mark>$&</mark>");
 	return $.create("li", {
 		innerHTML: html,
-		"role": "option",
 		"aria-selected": "false",
-		"id": "awesomplete_list_" + this.count + "_item_" + item_id
+        "id": "awesomplete_list_" + this.count + "_item_" + item_id
 	});
 };
 
@@ -7047,6 +7041,8 @@ function handleChartFilters() {
       console.log(formData);
       payload.grade = formData.get('grade');
       payload.xAxis = formData.get('xAxis');
+      payload.region = formData.get('region');
+      payload.state = formData.get('state');
       (0, _plotCharts.toggleLoading)();
       (0, _plotCharts.populateChartData)(payload); // clearFilters();
 
@@ -7265,6 +7261,16 @@ function getChartData(receivedPayload) {
   }
 
   var url = "".concat(_config.default.api.domain, "data?school_grade=").concat(chartData.grade, "&x=").concat(chartData.xAxis);
+
+  if (receivedPayload && receivedPayload.region) {
+    url += "&region_id=".concat(receivedPayload.region);
+  }
+
+  if (receivedPayload && receivedPayload.state) {
+    url += "&state_id=".concat(receivedPayload.state);
+  }
+
+  console.log(receivedPayload);
   chartData.xAxis = chartData.xAxis; // xAxis = newXAxis;
 
   function populateGlobalChartData() {

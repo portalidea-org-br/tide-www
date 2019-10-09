@@ -13,7 +13,14 @@ export default function getChartData(receivedPayload) {
     chartData = receivedPayload;
   }
 
-  const url = `${config.api.domain}data?school_grade=${chartData.grade}&x=${chartData.xAxis}`;
+  let url = `${config.api.domain}data?school_grade=${chartData.grade}&x=${chartData.xAxis}`;
+  if (receivedPayload && receivedPayload.region) {
+    url += `&region_id=${receivedPayload.region}`;
+  }
+  if (receivedPayload && receivedPayload.state) {
+    url += `&state_id=${receivedPayload.state}`;
+  }
+  console.log(receivedPayload);
 
   chartData.xAxis = chartData.xAxis;
   // xAxis = newXAxis;

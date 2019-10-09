@@ -93,6 +93,8 @@ export default function handleChartFilters() {
 
       payload.grade = formData.get('grade');
       payload.xAxis = formData.get('xAxis');
+      payload.region = formData.get('region');
+      payload.state = formData.get('state');
 
       toggleLoading();
       populateChartData(payload);
