@@ -1,20 +1,13 @@
 import * as noUiSlider from 'nouislider/distribute/nouislider';
-// import 'nouislider/distribute/nouislider.css';
-// import 'nouislider';
-// import 'nouislider/distribute/nouislider.css';
-// import noUiSlider from 'nouislider';
-// import noUiSlider from "nouislider";
-// const noUiSlider = require('nouislider');
-// require('nouislider/distribute/nouislider.css');
-
-
-// require('nouislider');
-// require('nouislider/distribute/nouislider.css');
 
 export default function startRange() {
   // console.log(nouislider)
   const range = document.getElementById('js-range');
   // window.noUiSlider = noUiSlider;
+
+  if (!range) {
+    return;
+  }
 
   noUiSlider.create(range, {
     start: [20, 80],
@@ -31,9 +24,9 @@ export default function startRange() {
 
   range.noUiSlider.on('update', (values, handle) => {
     if (handle) {
-      maxValue.innerHTML = values[handle];
+      maxValue.value = values[handle];
     } else {
-      minValue.innerHTML = values[handle];
+      minValue.value = values[handle];
     }
   });
 }

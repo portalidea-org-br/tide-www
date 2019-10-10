@@ -1,5 +1,9 @@
     {{ partial "head.html" . }}
-
+    {{ if eq (getenv "NODE_ENV") "development" }}
+      <link rel="preload" src="https://vuejs.org/js/vue.js" crossorigin="anonymous">
+    {{ else }}
+      <link rel="preload" src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js" crossorigin="anonymous">
+    {{ end }}
     <body>
 
       {{ partial "header.html" . }}
@@ -142,153 +146,154 @@
           </div>
         </div>
 
-        <div class="bg-yellow-simple chart-form__advanced-filters js-advanced-filters">
-          <div class="container">
-            <p class="big-text">
-              Os filtros são equivalentes os dados que temos ou sejam excluem alguns opções.
-              Essas configurações avançada permite que sua análise seja mais precisa.
-              Para compreender melhor o estudo,
-            </p>
-            <div class="chart-form__half">
-              <div class="chart-form__group">
-                <strong>Regiões:</strong>
-                <ul class="chart-form__buttons">
-                  <li>
-                    <input type="radio" name="region" value="1" id="centro-oeste">
-                    <label for="centro-oeste">Centro Oeste</label>
-                  </li>
-                  <li>
-                    <input type="radio" name="region" value="2" id="nordeste">
-                    <label for="nordeste">Nordeste</label>
-                  </li>
-                  <li>
-                    <input type="radio" name="region" value="3" id="norte">
-                    <label for="norte">Norte</label>
-                  </li>
-                  <li>
-                    <input type="radio" name="region" value="4" id="sudeste">
-                    <label for="sudeste">Sudeste</label>
-                  </li>
-                  <li>
-                    <input type="radio" name="region" value="5" id="sul">
-                    <label for="sul">Sul</label>
-                  </li>
-                </ul>
-                <button class="chart-form__clear-section js-clear-inputs" data-clear="region">
-                  Limpar seleção
-                </button>
-              </div>
-
-              <div class="chart-form__group">
-                <strong>Número de habitantes</strong>
-                <div class="chart-form__range">
-                  <div id="js-range"></div>
-                  <div class="chart-form__range-values">
-                    <span id="js-range-min-value"></span>
-                    <span id="js-rang-max-value"></span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="chart-form__group">
-                <label for="state">
-                  Estado
-                  <select id="state" name="state">
-                    <option value="">Estados</option>
-                    <option value="1">Acre</option>
-                    <option value="2">Alagoas</option>
-                    <option value="3">Amapá</option>
-                    <option value="4">Amazonas</option>
-                    <option value="5">Bahia</option>
-                    <option value="6">Ceará</option>
-                    <option value="7">Distrito Federal</option>
-                    <option value="8">Espírito Santo</option>
-                    <option value="9">Goiás</option>
-                    <option value="10">Maranhão</option>
-                    <option value="11">Mato Grosso</option>
-                    <option value="12">Mato Grosso do Sul</option>
-                    <option value="13">Minas Gerais</option>
-                    <option value="14">Pará</option>
-                    <option value="15">Paraíba</option>
-                    <option value="16">Paraná</option>
-                    <option value="17">Pernambuco</option>
-                    <option value="18">Piauí</option>
-                    <option value="19">Rio de Janeiro</option>
-                    <option value="20">Rio Grande do Norte</option>
-                    <option value="21">Rio Grande do Sul</option>
-                    <option value="22">Rondônia</option>
-                    <option value="23">Roraima</option>
-                    <option value="24">Santa Catarina</option>
-                    <option value="25">São Paulo</option>
-                    <option value="26">Sergipe</option>
-                    <option value="27">Tocantins</option>
-                  </select>
-                </label>
-              </div>
-            </div>
-
-            <div class="chart-form__half">
-              <div class="chart-form__group">
-                <strong>nível de desigualdade:</strong>
-                <ul class="chart-form__buttons">
-                  <li>
-                    <input type="radio" name="inequality" value="" id="equidade">
-                    <label for="equidade">Equidade</label>
-                  </li>
-                  <li>
-                    <input type="radio" name="inequality" value="1" id="desigualdade">
-                    <label for="desigualdade">Desigualdade</label>
-                  </li>
-                  <li>
-                    <input type="radio" name="inequality" value="2" id="desigualdade-alta">
-                    <label for="desigualdade-alta">Alta</label>
-                  </li>
-                  <li>
-                    <input type="radio" name="inequality" value="3" id="extrema">
-                    <label for="extrema">Extrema</label>
-                  </li>
-                </ul>
-                <button class="chart-form__clear-section js-clear-inputs" data-clear="inequality">
-                  Limpar seleção
-                </button>
-              </div>
-
-              <div class="chart-form__group">
-                <strong>Nível de aprendizagem:</strong>
-                <ul class="chart-form__buttons">
-                  <li>
-                    <input type="radio" name="quality" value="" id="baixa">
-                    <label for="baixa">Baixa</label>
-                  </li>
-                  <li>
-                    <input type="radio" name="quality" value="1" id="media-baixa">
-                    <label for="media-baixa">Média-baixa</label>
-                  </li>
-                  <li>
-                    <input type="radio" name="quality" value="1" id="media">
-                    <label for="media">Média</label>
-                  </li>
-                  <li>
-                    <input type="radio" name="quality" value="1" id="media-alta">
-                    <label for="media-alta">Média-alta</label>
-                  </li>
-                  <li>
-                    <input type="radio" name="quality" value="2" id="alta">
-                    <label for="alta">Alta</label>
-                  </li>
-                </ul>
-                <button class="chart-form__clear-section js-clear-inputs" data-clear="quality">
-                  Limpar seleção
-                </button>
-              </div>
-            </div>
-
-            <div class="chart-form__group chart-form__submit">
-              <input class="button button--like-text" type="reset" value="Limpar todos os filtros" />
-              <button class="button button--destak button--purple" type="submit">Filtrar</button>
-            </div>
-          </div>
-        </div>
+        <div id="app"></div>
+        <!-- <div class="bg&#45;yellow&#45;simple chart&#45;form__advanced&#45;filters js&#45;advanced&#45;filters"> -->
+        <!--   <div class="container"> -->
+        <!--     <p class="big&#45;text"> -->
+        <!--       Os filtros são equivalentes os dados que temos ou sejam excluem alguns opções. -->
+        <!--       Essas configurações avançada permite que sua análise seja mais precisa. -->
+        <!--       Para compreender melhor o estudo, -->
+        <!--     </p> -->
+        <!--     <div class="chart&#45;form__half"> -->
+        <!--       <div class="chart&#45;form__group"> -->
+        <!--         <strong>Regiões:</strong> -->
+        <!--         <ul class="chart&#45;form__buttons"> -->
+        <!--           <li> -->
+        <!--             <input type="radio" name="region" value="1" id="centro&#45;oeste"> -->
+        <!--             <label for="centro&#45;oeste">Centro Oeste</label> -->
+        <!--           </li> -->
+        <!--           <li> -->
+        <!--             <input type="radio" name="region" value="2" id="nordeste"> -->
+        <!--             <label for="nordeste">Nordeste</label> -->
+        <!--           </li> -->
+        <!--           <li> -->
+        <!--             <input type="radio" name="region" value="3" id="norte"> -->
+        <!--             <label for="norte">Norte</label> -->
+        <!--           </li> -->
+        <!--           <li> -->
+        <!--             <input type="radio" name="region" value="4" id="sudeste"> -->
+        <!--             <label for="sudeste">Sudeste</label> -->
+        <!--           </li> -->
+        <!--           <li> -->
+        <!--             <input type="radio" name="region" value="5" id="sul"> -->
+        <!--             <label for="sul">Sul</label> -->
+        <!--           </li> -->
+        <!--         </ul> -->
+        <!--         <button class="chart&#45;form__clear&#45;section js&#45;clear&#45;inputs" data&#45;clear="region"> -->
+        <!--           Limpar seleção -->
+        <!--         </button> -->
+        <!--       </div> -->
+        <!--  -->
+        <!--       <div class="chart&#45;form__group"> -->
+        <!--         <strong>Número de habitantes</strong> -->
+        <!--         <div class="chart&#45;form__range"> -->
+        <!--           <div id="js&#45;range"></div> -->
+        <!--           <div class="chart&#45;form__range&#45;values"> -->
+        <!--             <input name="inhabitants&#45;min" id="js&#45;range&#45;min&#45;value"></input> -->
+        <!--             <input name="inhabitants&#45;max" id="js&#45;rang&#45;max&#45;value"></input> -->
+        <!--           </div> -->
+        <!--         </div> -->
+        <!--       </div> -->
+        <!--  -->
+        <!--       <div class="chart&#45;form__group"> -->
+        <!--         <label for="state"> -->
+        <!--           Estado -->
+        <!--           <select id="state" name="state"> -->
+        <!--             <option value="">Estados</option> -->
+        <!--             <option value="1">Acre</option> -->
+        <!--             <option value="2">Alagoas</option> -->
+        <!--             <option value="3">Amapá</option> -->
+        <!--             <option value="4">Amazonas</option> -->
+        <!--             <option value="5">Bahia</option> -->
+        <!--             <option value="6">Ceará</option> -->
+        <!--             <option value="7">Distrito Federal</option> -->
+        <!--             <option value="8">Espírito Santo</option> -->
+        <!--             <option value="9">Goiás</option> -->
+        <!--             <option value="10">Maranhão</option> -->
+        <!--             <option value="11">Mato Grosso</option> -->
+        <!--             <option value="12">Mato Grosso do Sul</option> -->
+        <!--             <option value="13">Minas Gerais</option> -->
+        <!--             <option value="14">Pará</option> -->
+        <!--             <option value="15">Paraíba</option> -->
+        <!--             <option value="16">Paraná</option> -->
+        <!--             <option value="17">Pernambuco</option> -->
+        <!--             <option value="18">Piauí</option> -->
+        <!--             <option value="19">Rio de Janeiro</option> -->
+        <!--             <option value="20">Rio Grande do Norte</option> -->
+        <!--             <option value="21">Rio Grande do Sul</option> -->
+        <!--             <option value="22">Rondônia</option> -->
+        <!--             <option value="23">Roraima</option> -->
+        <!--             <option value="24">Santa Catarina</option> -->
+        <!--             <option value="25">São Paulo</option> -->
+        <!--             <option value="26">Sergipe</option> -->
+        <!--             <option value="27">Tocantins</option> -->
+        <!--           </select> -->
+        <!--         </label> -->
+        <!--       </div> -->
+        <!--     </div> -->
+        <!--  -->
+        <!--     <div class="chart&#45;form__half"> -->
+        <!--       <div class="chart&#45;form__group"> -->
+        <!--         <strong>nível de desigualdade:</strong> -->
+        <!--         <ul class="chart&#45;form__buttons"> -->
+        <!--           <li> -->
+        <!--             <input type="radio" name="inequality" value="" id="equidade"> -->
+        <!--             <label for="equidade">Equidade</label> -->
+        <!--           </li> -->
+        <!--           <li> -->
+        <!--             <input type="radio" name="inequality" value="1" id="desigualdade"> -->
+        <!--             <label for="desigualdade">Desigualdade</label> -->
+        <!--           </li> -->
+        <!--           <li> -->
+        <!--             <input type="radio" name="inequality" value="2" id="desigualdade&#45;alta"> -->
+        <!--             <label for="desigualdade&#45;alta">Alta</label> -->
+        <!--           </li> -->
+        <!--           <li> -->
+        <!--             <input type="radio" name="inequality" value="3" id="extrema"> -->
+        <!--             <label for="extrema">Extrema</label> -->
+        <!--           </li> -->
+        <!--         </ul> -->
+        <!--         <button class="chart&#45;form__clear&#45;section js&#45;clear&#45;inputs" data&#45;clear="inequality"> -->
+        <!--           Limpar seleção -->
+        <!--         </button> -->
+        <!--       </div> -->
+        <!--  -->
+        <!--       <div class="chart&#45;form__group"> -->
+        <!--         <strong>Nível de aprendizagem:</strong> -->
+        <!--         <ul class="chart&#45;form__buttons"> -->
+        <!--           <li> -->
+        <!--             <input type="radio" name="quality" value="" id="baixa"> -->
+        <!--             <label for="baixa">Baixa</label> -->
+        <!--           </li> -->
+        <!--           <li> -->
+        <!--             <input type="radio" name="quality" value="1" id="media&#45;baixa"> -->
+        <!--             <label for="media&#45;baixa">Média&#45;baixa</label> -->
+        <!--           </li> -->
+        <!--           <li> -->
+        <!--             <input type="radio" name="quality" value="1" id="media"> -->
+        <!--             <label for="media">Média</label> -->
+        <!--           </li> -->
+        <!--           <li> -->
+        <!--             <input type="radio" name="quality" value="1" id="media&#45;alta"> -->
+        <!--             <label for="media&#45;alta">Média&#45;alta</label> -->
+        <!--           </li> -->
+        <!--           <li> -->
+        <!--             <input type="radio" name="quality" value="2" id="alta"> -->
+        <!--             <label for="alta">Alta</label> -->
+        <!--           </li> -->
+        <!--         </ul> -->
+        <!--         <button class="chart&#45;form__clear&#45;section js&#45;clear&#45;inputs" data&#45;clear="quality"> -->
+        <!--           Limpar seleção -->
+        <!--         </button> -->
+        <!--       </div> -->
+        <!--     </div> -->
+        <!--  -->
+        <!--     <div class="chart&#45;form__group chart&#45;form__submit"> -->
+        <!--       <input class="button button&#45;&#45;like&#45;text" type="reset" value="Limpar todos os filtros" /> -->
+        <!--       <button class="button button&#45;&#45;destak button&#45;&#45;purple" type="submit">Filtrar</button> -->
+        <!--     </div> -->
+        <!--   </div> -->
+        <!-- </div> -->
       </form>
 
       <div class="container">
@@ -551,8 +556,13 @@
         </div>
       </div>
 
-
       {{ partial "footer.html" . }}
+
+      {{ if eq (getenv "NODE_ENV") "development" }}
+        <script src="https://vuejs.org/js/vue.js"></script>
+      {{ else }}
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+      {{ end }}
 
       {{ $vendorJS := resources.Get "assets/scripts/vendor.js" }}
       {{ $secureVendorJS := $vendorJS | resources.Minify | resources.Fingerprint "sha512" }}
@@ -576,8 +586,6 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.theme.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.min.js"></script>
 
-      <script type="text/javascript">
-      </script>
 
     </body>
 </html>

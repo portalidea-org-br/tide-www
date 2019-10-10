@@ -3,10 +3,12 @@ import Exporting from 'highcharts/modules/exporting';
 import axios from 'axios';
 import Awesomplete from 'awesomplete';
 import fuzzysort from 'fuzzysort';
+import Vue from 'vue';
 import startRange from './noUiSlider';
 import { updateTableInfo, clearTableInfo } from '../updateTableInfo';
 import { populateChartData, toggleLoading } from '../plotCharts';
 import clearFilters from './clearFilters';
+import vueFilter from './vueFilter';
 import { highlightPoint } from './highlightPoint';
 import config from '../../config';
 
@@ -82,14 +84,10 @@ export default function handleChartFilters() {
 
 
   if (jsChartForm) {
-    console.log('hey');
     jsChartForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      console.log('submit');
       const formData = new FormData(event.target);
       const payload = {};
-
-      console.log(formData)
 
       payload.grade = formData.get('grade');
       payload.xAxis = formData.get('xAxis');
@@ -224,7 +222,6 @@ export default function handleChartFilters() {
     buttons.forEach((button) => {
       button.addEventListener('click', (event) => {
         event.preventDefault();
-        console.log(event);
         const toUncheck = document.querySelectorAll(`input[name="${event.target.dataset.clear}"]`);
         toUncheck.forEach((item) => {
           const input = item;
@@ -234,11 +231,27 @@ export default function handleChartFilters() {
     });
   }
 
+  function lockInput(inputName, lock = true) {
+    const inputs = document.querySelectorAll(`[name="${inputName}"]`);
+    inputs.forEach((input) => {
+      const toLock = input;
+      if (lock) {
+        toLock.disabled = true;
+        return;
+      }
+      toLock.disabled = false;
+    });
+  }
+
   function watchChanges() {
-    //
+
   }
 
   populateCitiesList();
   startRange();
   watchChanges();
+  watchClearButtons();
+  // filterVue();
+
+  window.$vueFilter = new Vue(vueFilter);
 }
