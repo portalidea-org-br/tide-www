@@ -3,7 +3,7 @@ import Exporting from 'highcharts/modules/exporting';
 import axios from 'axios';
 import Awesomplete from 'awesomplete';
 import fuzzysort from 'fuzzysort';
-import Vue from 'vue';
+// import Vue from 'vue';
 import startRange from './noUiSlider';
 import { updateTableInfo, clearTableInfo } from '../updateTableInfo';
 import { populateChartData, toggleLoading } from '../plotCharts';
@@ -253,5 +253,5 @@ export default function handleChartFilters() {
   watchClearButtons();
   // filterVue();
 
-  window.$vueFilter = new Vue(vueFilter);
+  // window.$vueFilter = new Vue(vueFilter);
 }
