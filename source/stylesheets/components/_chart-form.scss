@@ -44,8 +44,11 @@
 
 .chart-form {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
   padding: 0;
 
   @media screen and (min-width: breakpoint('desktop')) {
@@ -70,11 +73,29 @@
   color: palette('black');
 }
 
+.chart-form__range-values input {
+  width: auto;
+  font-size: ms(0);
+  text-align: left;
+  border: 0;
+
+  &:last-child {
+    text-align: right;
+  }
+}
+
+
 .chart-form__advanced-filters {
-  // max-height: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
   padding: 0;
-  // overflow: hidden;
   transition: max-height 0.6s;
+
+  // max-height: 0;
+  // overflow: hidden;
 }
 
 .chart-form__advanced-filters--active {
@@ -272,12 +293,12 @@
 .chart-form__submit {
   align-items: center;
   flex-direction: row;
-  width: max-content;
   margin-right: auto;
   margin-left: auto;
 
   @media screen and (min-width: breakpoint('desktop')) {
     flex-wrap: nowrap;
+    width: max-content;
     margin-right: 0;
   }
 }

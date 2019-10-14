@@ -7043,6 +7043,8 @@ function handleChartFilters() {
       payload.xAxis = formData.get('xAxis');
       payload.region = formData.get('region');
       payload.state = formData.get('state');
+      payload.inequality = formData.get('inequality');
+      payload.quality = formData.get('quality');
       (0, _plotCharts.toggleLoading)();
       (0, _plotCharts.populateChartData)(payload); // clearFilters();
 
@@ -7269,8 +7271,42 @@ window.$vue = new Vue({
       id: 'sul'
     }],
     selectedRegion: null,
-    states: ['Selecionar', 'Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará', 'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão', 'Mato Grosso', 'Mato Grosso do Sul', 'Minas Gerais', 'Pará', 'Paraíba', 'Paraná', 'Pernambuco', 'Piauí', 'Rio de Janeiro', 'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondônia', 'Roraima', 'Santa Catarina', 'São Paulo', 'Sergipe', 'Tocantins'],
-    selectedState: null
+    states: ['Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará', 'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão', 'Mato Grosso', 'Mato Grosso do Sul', 'Minas Gerais', 'Pará', 'Paraíba', 'Paraná', 'Pernambuco', 'Piauí', 'Rio de Janeiro', 'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondônia', 'Roraima', 'Santa Catarina', 'São Paulo', 'Sergipe', 'Tocantins'],
+    selectedState: null,
+    inequalityRange: [{
+      name: 'equidade',
+      id: 'equidade'
+    }, {
+      name: 'desigualdade',
+      id: 'desigualdade'
+    }, {
+      name: 'alta',
+      id: 'alta'
+    }, {
+      name: 'extrema',
+      id: 'extrema'
+    }, {
+      name: 'situações atípicas',
+      id: 'situações-atipicas'
+    }],
+    selectedInequality: null,
+    qualityRange: [{
+      name: 'baixa',
+      id: 'baixa'
+    }, {
+      name: 'media-baixa',
+      id: 'media-baixa'
+    }, {
+      name: 'media',
+      id: 'media'
+    }, {
+      name: 'media-alta',
+      id: 'media-alta'
+    }, {
+      name: 'alta',
+      id: 'alta'
+    }],
+    selectedQuality: null
   },
   created: function created() {},
   mounted: function mounted() {
@@ -7628,7 +7664,7 @@ function _populateChartData() {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 24;
+              _context.next = 26;
               break;
             }
 
@@ -7650,6 +7686,25 @@ function _populateChartData() {
             matItems = chartData.filter(function (item) {
               return item.subject === 'Matemática';
             });
+
+            if (payload && payload.inequality) {
+              ptItems = ptItems.filter(function (item) {
+                return item.range_inequality === payload.inequality;
+              });
+              matItems = matItems.filter(function (item) {
+                return item.range_inequality === payload.inequality;
+              });
+            }
+
+            if (payload && payload.quality) {
+              ptItems = ptItems.filter(function (item) {
+                return item.range_quality === payload.quality;
+              });
+              matItems = matItems.filter(function (item) {
+                return item.range_quality === payload.quality;
+              });
+            }
+
             formatedPtItems = formatItemsToHighCharts(ptItems);
             formatedMatItems = formatItemsToHighCharts(matItems);
 
@@ -7667,21 +7722,21 @@ function _populateChartData() {
 
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 24;
+            _context.next = 26;
             break;
 
-          case 20:
-            _context.prev = 20;
+          case 22:
+            _context.prev = 22;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
             toggleLoading();
 
-          case 24:
+          case 26:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 20]]);
+    }, _callee, this, [[1, 22]]);
   }));
   return _populateChartData.apply(this, arguments);
 }

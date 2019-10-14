@@ -33,7 +33,6 @@ window.$vue = new Vue({
     ],
     selectedRegion: null,
     states: [
-      'Selecionar',
       'Acre',
       'Alagoas',
       'Amapá',
@@ -63,6 +62,24 @@ window.$vue = new Vue({
       'Tocantins',
     ],
     selectedState: null,
+    inequalityRange: [
+      { name: 'equidade', id: 'equidade' },
+      { name: 'desigualdade', id: 'desigualdade' },
+      { name: 'alta', id: 'alta' },
+      { name: 'extrema', id: 'extrema' },
+      { name: 'situações atípicas', id: 'situações-atipicas' },
+
+    ],
+    selectedInequality: null,
+    qualityRange: [
+      { name: 'baixa', id: 'baixa' },
+      { name: 'media-baixa', id: 'media-baixa' },
+      { name: 'media', id: 'media' },
+      { name: 'media-alta', id: 'media-alta' },
+      { name: 'alta', id: 'alta' },
+
+    ],
+    selectedQuality: null,
   },
   created() {},
   mounted() {

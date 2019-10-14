@@ -210,8 +210,18 @@ async function populateChartData(payload) {
 
       let chartData = window.chartData.data;
       chartData = chartData.filter(item => item.x !== null);
-      const ptItems = chartData.filter(item => item.subject === 'Português');
-      const matItems = chartData.filter(item => item.subject === 'Matemática');
+      let ptItems = chartData.filter(item => item.subject === 'Português');
+      let matItems = chartData.filter(item => item.subject === 'Matemática');
+
+      if (payload && payload.inequality) {
+        ptItems = ptItems.filter(item => item.range_inequality === payload.inequality);
+        matItems = matItems.filter(item => item.range_inequality === payload.inequality);
+      }
+
+      if (payload && payload.quality) {
+        ptItems = ptItems.filter(item => item.range_quality === payload.quality);
+        matItems = matItems.filter(item => item.range_quality === payload.quality);
+      }
 
       const formatedPtItems = formatItemsToHighCharts(ptItems);
       const formatedMatItems = formatItemsToHighCharts(matItems);

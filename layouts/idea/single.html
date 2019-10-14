@@ -59,96 +59,12 @@
 
                 <button type="button" class="js-show-advanced button button--right button--destak">Avançar</button>
               </div>
-
-              <!--
-              <div class="chart-form__group chart-form__group--buttons" style="display: none">
-                <label for="grade">
-                  Ano Letivo
-                  <select name="grade" id="grade">
-                    <option value="5">5º ano</option>
-                    <option value="9">9º ano</option>
-                  </select>
-                </label>
-                <label for="x">
-                  Filtrar por
-                  <select name="xAxis" id="xAxis">
-                    <option value="racial">Raça</option>
-                    <option value="sex">Gênero</option>
-                    <option value="nse">Nível Sócio Econômico</option>
-                  </select>
-                </label>
-                <div class="chart-form__buttons">
-                  <button type="submit" class="button">Filtrar</button>
-                </div>
-              </div>
-              <div class="js-form-filter chart-form__group" style="display: none">
-                <span class="chart-form__clue">
-                  Escolha uma das opções abaixo para destacar no gráfico:
-                </span>
-                <label for="highlight">
-                  Destacar Cidades
-                  <select name="highlight" id="highlight">
-                    <option value="none">Nenhuma</option>
-                    <option value="big-cities">100 maiores cidades</option>
-                    <option value="capital">Capitais</option>
-                  </select>
-                </label>
-                <label for="region">
-                  Destacar Região Brasileira
-                  <select name="region" id="region">
-                    <option value="1">Centro Oeste</option>
-                    <option value="2">Nordeste</option>
-                    <option value="3">Norte</option>
-                    <option value="4">Sudeste</option>
-                    <option value="5">Sul</option>
-                  </select>
-                </label>
-                <label for="city">
-                  Destacar por Estado
-                  <select id="state" name="state">
-                    <option value="">Estados</option>
-                    <option value="AC">Acre</option>
-                    <option value="AL">Alagoas</option>
-                    <option value="AP">Amapá</option>
-                    <option value="AM">Amazonas</option>
-                    <option value="BA">Bahia</option>
-                    <option value="CE">Ceará</option>
-                    <option value="DF">Distrito Federal</option>
-                    <option value="ES">Espírito Santo</option>
-                    <option value="GO">Goiás</option>
-                    <option value="MA">Maranhão</option>
-                    <option value="MT">Mato Grosso</option>
-                    <option value="MS">Mato Grosso do Sul</option>
-                    <option value="MG">Minas Gerais</option>
-                    <option value="PA">Pará</option>
-                    <option value="PB">Paraíba</option>
-                    <option value="PR">Paraná</option>
-                    <option value="PE">Pernambuco</option>
-                    <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="RN">Rio Grande do Norte</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="RO">Rondônia</option>
-                    <option value="RR">Roraima</option>
-                    <option value="SC">Santa Catarina</option>
-                    <option value="SP">São Paulo</option>
-                    <option value="SE">Sergipe</option>
-                    <option value="TO">Tocantins</option>
-                  </select>
-                </label>
-                <label for="city">
-                  Município
-                  <input type="text" placeholder="Ex. São Paulo" />
-                </label>
-                <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>
-              </div>
-              -->
           </div>
         </div>
 
-        <div id="app">
-          <div class="bg-yellow-simple chart-form__advanced-filters js-advanced-filters">
-            <div class="container">
+        <div id="app" class="bg-yellow-simple">
+          <div class="container">
+            <div class="chart-form__advanced-filters js-advanced-filters">
               <p class="big-text">
                 Os filtros são equivalentes os dados que temos ou sejam excluem alguns opções.
                 Essas configurações avançada permite que sua análise seja mais precisa.
@@ -197,7 +113,7 @@
 
                 <div class="chart-form__group">
                   <strong>Número de habitantes</strong>
-                  <div class="chart-form__range">
+                  <div class="chart-form__range" hidden>
                     <div id="js-range"></div>
                     <div class="chart-form__range-values">
                       <input name="inhabitants-min" id="js-range-min-value"></input>
@@ -210,7 +126,12 @@
                   <label for="state">
                     Estado
                     <select v-model="selectedState" id="state" name="state" :disabled="selectedRegion">
-                      <option v-for="(state, index) in states" :value="index">{{ "{{ state }}" }}</option>
+                      <option :value="null">Selecionar</option>
+                      <option
+                        v-for="(state, index) in states"
+                        :value="index + 1">
+                          {{ "{{ state }}" }}
+                      </option>
                     </select>
                   </label>
                 </div>
@@ -220,24 +141,21 @@
                 <div class="chart-form__group">
                   <strong>nível de desigualdade:</strong>
                   <ul class="chart-form__buttons">
-                    <li>
-                      <input type="radio" name="inequality" value="" id="equidade">
-                      <label for="equidade">Equidade</label>
-                    </li>
-                    <li>
-                      <input type="radio" name="inequality" value="1" id="desigualdade">
-                      <label for="desigualdade">Desigualdade</label>
-                    </li>
-                    <li>
-                      <input type="radio" name="inequality" value="2" id="desigualdade-alta">
-                      <label for="desigualdade-alta">Alta</label>
-                    </li>
-                    <li>
-                      <input type="radio" name="inequality" value="3" id="extrema">
-                      <label for="extrema">Extrema</label>
+                    <li v-for="(inequality, index) in inequalityRange">
+                      <input
+                        v-model="selectedInequality"
+                        type="radio"
+                        name="inequality"
+                        :value="inequality.id"
+                        :id="inequality.id"
+                      >
+                      <label :for="inequality.id"> {{ "{{ inequality.name }}" }}</label>
                     </li>
                   </ul>
-                  <button class="chart-form__clear-section js-clear-inputs">
+                  <button
+                    class="chart-form__clear-section js-clear-inputs"
+                    @click.prevent="selectedInequality = null"
+                  >
                     Limpar seleção
                   </button>
                 </div>
@@ -245,28 +163,21 @@
                 <div class="chart-form__group">
                   <strong>Nível de aprendizagem:</strong>
                   <ul class="chart-form__buttons">
-                    <li>
-                      <input type="radio" name="quality" value="" id="baixa">
-                      <label for="baixa">Baixa</label>
-                    </li>
-                    <li>
-                      <input type="radio" name="quality" value="1" id="media-baixa">
-                      <label for="media-baixa">Média-baixa</label>
-                    </li>
-                    <li>
-                      <input type="radio" name="quality" value="1" id="media">
-                      <label for="media">Média</label>
-                    </li>
-                    <li>
-                      <input type="radio" name="quality" value="1" id="media-alta">
-                      <label for="media-alta">Média-alta</label>
-                    </li>
-                    <li>
-                      <input type="radio" name="quality" value="2" id="alta">
-                      <label for="alta">Alta</label>
+                    <li v-for="(quality, index) in qualityRange">
+                      <input
+                        v-model="selectedQuality"
+                        type="radio"
+                        name="quality"
+                        :value="quality.id"
+                        :id="quality.id"
+                      >
+                      <label :for="quality.id"> {{ "{{ quality.name }}" }}</label>
                     </li>
                   </ul>
-                  <button class="chart-form__clear-section js-clear-inputs" data-clear="quality">
+                  <button
+                    class="chart-form__clear-section js-clear-inputs"
+                    @click.prevent="selectedQuality = null"
+                  >
                     Limpar seleção
                   </button>
                 </div>
