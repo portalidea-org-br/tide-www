@@ -1,4 +1,8 @@
 import * as noUiSlider from 'nouislider/distribute/nouislider';
+import numbro from 'numbro';
+import 'numbro/languages/pt-BR';
+
+numbro.setLanguage('pt-BR');
 
 export default function startRange() {
   // console.log(nouislider)
@@ -10,7 +14,7 @@ export default function startRange() {
   }
 
   noUiSlider.create(range, {
-    start: [20, 80],
+    start: [0, 80],
     connect: true,
     // tooltips: true,
     range: {
@@ -24,9 +28,19 @@ export default function startRange() {
 
   range.noUiSlider.on('update', (values, handle) => {
     if (handle) {
-      maxValue.value = values[handle];
+      maxValue.value = numbro(values[handle]).format({
+        average: true,
+        mantissa: 1,
+        optionalMantissa: true,
+      });
     } else {
-      minValue.value = values[handle];
+      minValue.value = numbro(values[handle]).format({
+        average: true,
+        mantissa: 1,
+        optionalMantissa: true,
+      });
     }
   });
+
+  window.range = range;
 }
