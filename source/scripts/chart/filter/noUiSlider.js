@@ -14,16 +14,16 @@ export default function startRange() {
   }
 
   noUiSlider.create(range, {
-    start: [0, 80],
+    start: [0, 13000000],
     connect: true,
     // tooltips: true,
     range: {
       min: 0,
-      max: 100,
+      max: 13000000,
     },
   });
 
-  range.setAttribute('disabled', true);
+  // range.setAttribute('disabled', true);
 
   const minValue = document.getElementById('js-range-min-value');
   const maxValue = document.getElementById('js-rang-max-value');
