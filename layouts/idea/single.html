@@ -169,9 +169,9 @@
                         type="radio"
                         name="quality"
                         :value="quality.id"
-                        :id="quality.id"
+                        :id="'quality-' + quality.id"
                       >
-                      <label :for="quality.id"> {{ "{{ quality.name }}" }}</label>
+                      <label :for="'quality-' + quality.id"> {{ "{{ quality.name }}" }}</label>
                     </li>
                   </ul>
                   <button
