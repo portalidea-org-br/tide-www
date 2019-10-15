@@ -85,23 +85,24 @@
 }
 
 
+
+.chart-form__advanced-filters-container {
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: max-height 0.6s;
+}
+
 .chart-form__advanced-filters {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
   max-width: 100%;
-  padding: 0;
-  transition: max-height 0.6s;
-
-  // max-height: 0;
-  // overflow: hidden;
 }
 
-.chart-form__advanced-filters--active {
+.chart-form__advanced-filters-container--active {
   max-height: 80rem;
-  padding-top: 3rem;
-  padding-bottom: 2rem;
 
   @media screen and (min-width: breakpoint('desktop')) {
     max-height: 50rem;

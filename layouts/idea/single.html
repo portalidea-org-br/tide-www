@@ -62,130 +62,131 @@
           </div>
         </div>
 
-        <div id="app" class="bg-yellow-simple">
-          <div class="container">
-            <div class="chart-form__advanced-filters js-advanced-filters">
-              <p class="big-text">
-                Os filtros são equivalentes os dados que temos ou sejam excluem alguns opções.
-                Essas configurações avançada permite que sua análise seja mais precisa.
-                Para compreender melhor o estudo,
-              </p>
-              <div class="chart-form__half">
-                <div class="chart-form__group">
-                  <strong>Regiões:</strong>
-                  <ul class="chart-form__buttons">
-                    <li v-for="(region, index) in regions">
-                      <input
-                        v-model="selectedRegion"
-                        type="radio"
-                        name="region"
-                        :value="index + 1"
-                        :id="region.id"
-                        :disabled="selectedState"
+        <div class="chart-form__advanced-filters-container js-advanced-filters-container">
+          <div id="app" class="bg-yellow-simple">
+            <div class="container">
+              <div class="chart-form__advanced-filters js-advanced-filters">
+                <p class="big-text">
+                  Os filtros são equivalentes os dados que temos ou sejam excluem alguns opções.
+                  Essas configurações avançada permite que sua análise seja mais precisa.
+                  Para compreender melhor o estudo,
+                </p>
+                <div class="chart-form__half">
+                  <div class="chart-form__group">
+                    <strong>Regiões:</strong>
+                    <ul class="chart-form__buttons">
+                      <li v-for="(region, index) in regions">
+                        <input
+                          v-model="selectedRegion"
+                          type="radio"
+                          name="region"
+                          :value="index + 1"
+                          :id="region.id"
+                          :disabled="selectedState"
+                          >
+                          <label :for="region.id"> {{ "{{ region.name }}" }}</label>
+                      </li>
+                      <!-- <li> -->
+                      <!--   <input type="radio" v&#45;model="region" name="region" value="2" id="nordeste"> -->
+                      <!--   <label for="nordeste">Nordeste</label> -->
+                      <!-- </li> -->
+                      <!-- <li> -->
+                      <!--   <input type="radio" v&#45;model="region" name="region" value="3" id="norte"> -->
+                      <!--   <label for="norte">Norte</label> -->
+                      <!-- </li> -->
+                      <!-- <li> -->
+                      <!--   <input type="radio" v&#45;model="region" name="region" value="4" id="sudeste"> -->
+                      <!--   <label for="sudeste">Sudeste</label> -->
+                      <!-- </li> -->
+                      <!-- <li> -->
+                      <!--   <input type="radio" v&#45;model="region" name="region" value="5" id="sul"> -->
+                      <!--   <label for="sul">Sul</label> -->
+                      <!-- </li> -->
+                    </ul>
+                    <button
+                      class="chart-form__clear-section"
+                      data-clear="region"
+                      @click.prevent="selectedRegion = null"
                       >
-                      <label :for="region.id"> {{ "{{ region.name }}" }}</label>
-                    </li>
-                    <!-- <li> -->
-                    <!--   <input type="radio" v&#45;model="region" name="region" value="2" id="nordeste"> -->
-                    <!--   <label for="nordeste">Nordeste</label> -->
-                    <!-- </li> -->
-                    <!-- <li> -->
-                    <!--   <input type="radio" v&#45;model="region" name="region" value="3" id="norte"> -->
-                    <!--   <label for="norte">Norte</label> -->
-                    <!-- </li> -->
-                    <!-- <li> -->
-                    <!--   <input type="radio" v&#45;model="region" name="region" value="4" id="sudeste"> -->
-                    <!--   <label for="sudeste">Sudeste</label> -->
-                    <!-- </li> -->
-                    <!-- <li> -->
-                    <!--   <input type="radio" v&#45;model="region" name="region" value="5" id="sul"> -->
-                    <!--   <label for="sul">Sul</label> -->
-                    <!-- </li> -->
-                  </ul>
-                  <button
-                    class="chart-form__clear-section"
-                    data-clear="region"
-                    @click.prevent="selectedRegion = null"
-                  >
-                    Limpar seleção
-                  </button>
-                </div>
+                      Limpar seleção
+                    </button>
+                  </div>
 
-                <div class="chart-form__group">
-                  <strong>Número de habitantes</strong>
-                  <div class="chart-form__range">
-                    <div id="js-range"></div>
-                    <div class="chart-form__range-values">
-                      <input name="inhabitants-min" id="js-range-min-value"></input>
-                      <input name="inhabitants-max" id="js-rang-max-value"></input>
+                  <div class="chart-form__group">
+                    <strong>Número de habitantes</strong>
+                    <div class="chart-form__range">
+                      <div id="js-range"></div>
+                      <div class="chart-form__range-values">
+                        <input name="inhabitants-min" id="js-range-min-value" readonly></input>
+                        <input name="inhabitants-max" id="js-rang-max-value" readonly></input>
+                      </div>
                     </div>
+                  </div>
+
+                  <div class="chart-form__group">
+                    <label for="state">
+                      Estado
+                      <select v-model="selectedState" id="state" name="state" :disabled="selectedRegion">
+                        <option :value="null">Selecionar</option>
+                        <option
+                          v-for="(state, index) in states"
+                          :value="index + 1">
+                        {{ "{{ state }}" }}
+                        </option>
+                      </select>
+                    </label>
                   </div>
                 </div>
 
-                <div class="chart-form__group">
-                  <label for="state">
-                    Estado
-                    <select v-model="selectedState" id="state" name="state" :disabled="selectedRegion">
-                      <option :value="null">Selecionar</option>
-                      <option
-                        v-for="(state, index) in states"
-                        :value="index + 1">
-                          {{ "{{ state }}" }}
-                      </option>
-                    </select>
-                  </label>
-                </div>
-              </div>
-
-              <div class="chart-form__half">
-                <div class="chart-form__group">
-                  <strong>nível de desigualdade:</strong>
-                  <ul class="chart-form__buttons">
-                    <li v-for="(inequality, index) in inequalityRange">
-                      <input
-                        v-model="selectedInequality"
-                        type="radio"
-                        name="inequality"
-                        :value="inequality.id"
-                        :id="inequality.id"
+                <div class="chart-form__half">
+                  <div class="chart-form__group">
+                    <strong>nível de desigualdade:</strong>
+                    <ul class="chart-form__buttons">
+                      <li v-for="(inequality, index) in inequalityRange">
+                        <input
+                          v-model="selectedInequality"
+                          type="radio"
+                          name="inequality"
+                          :value="inequality.id"
+                          :id="inequality.id"
+                          >
+                          <label :for="inequality.id"> {{ "{{ inequality.name }}" }}</label>
+                      </li>
+                    </ul>
+                    <button
+                      class="chart-form__clear-section js-clear-inputs"
+                      @click.prevent="selectedInequality = null"
                       >
-                      <label :for="inequality.id"> {{ "{{ inequality.name }}" }}</label>
-                    </li>
-                  </ul>
-                  <button
-                    class="chart-form__clear-section js-clear-inputs"
-                    @click.prevent="selectedInequality = null"
-                  >
-                    Limpar seleção
-                  </button>
-                </div>
-
-                <div class="chart-form__group">
-                  <strong>Nível de aprendizagem:</strong>
-                  <ul class="chart-form__buttons">
-                    <li v-for="(quality, index) in qualityRange">
-                      <input
-                        v-model="selectedQuality"
-                        type="radio"
-                        name="quality"
-                        :value="quality.id"
-                        :id="'quality-' + quality.id"
+                      Limpar seleção
+                    </button>
+                  </div>
+                  <div class="chart-form__group">
+                    <strong>Nível de aprendizagem:</strong>
+                    <ul class="chart-form__buttons">
+                      <li v-for="(quality, index) in qualityRange">
+                        <input
+                          v-model="selectedQuality"
+                          type="radio"
+                          name="quality"
+                          :value="quality.id"
+                          :id="'quality-' + quality.id"
+                          >
+                          <label :for="'quality-' + quality.id"> {{ "{{ quality.name }}" }}</label>
+                      </li>
+                    </ul>
+                    <button
+                      class="chart-form__clear-section js-clear-inputs"
+                      @click.prevent="selectedQuality = null"
                       >
-                      <label :for="'quality-' + quality.id"> {{ "{{ quality.name }}" }}</label>
-                    </li>
-                  </ul>
-                  <button
-                    class="chart-form__clear-section js-clear-inputs"
-                    @click.prevent="selectedQuality = null"
-                  >
-                    Limpar seleção
-                  </button>
-                </div>
-              </div>
+                      Limpar seleção
+                    </button>
+                  </div>
 
-              <div class="chart-form__group chart-form__submit">
-                <input class="button button--like-text" type="reset" value="Limpar todos os filtros" />
-                <button class="button button--destak button--purple" type="submit">Filtrar</button>
+                  <div class="chart-form__group chart-form__submit">
+                    <input class="button button--like-text" type="reset" value="Limpar todos os filtros" />
+                    <button class="button button--destak button--purple" type="submit">Filtrar</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -198,7 +199,7 @@
           <div class="charts__city-finder">
             <label for="city">
               Município
-              <input id="js-city" type="text" placeholder="Ex. São Paulo" autocomplete="new-password">
+              <input id="js-city" type="text" placeholder="Ex. São Paulo" autocomplete="new-password" disabled>
             </label>
             <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>
           </div>

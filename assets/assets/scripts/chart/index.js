@@ -7048,11 +7048,11 @@ function handleChartFilters() {
   var stateInput = document.getElementById('state');
   var regionInput = document.getElementById('region');
   var showAdvancedFiltersButton = document.querySelector('.js-show-advanced');
-  var advancedFieldsContainer = document.querySelector('.js-advanced-filters');
+  var advancedFieldsContainer = document.querySelector('.js-advanced-filters-container');
 
-  if (showAdvancedFiltersButton) {
+  if (showAdvancedFiltersButton && advancedFieldsContainer) {
     showAdvancedFiltersButton.addEventListener('click', function () {
-      advancedFieldsContainer.classList.toggle('chart-form__advanced-filters--active');
+      advancedFieldsContainer.classList.add('chart-form__advanced-filters-container--active');
       advancedFieldsContainer.scrollIntoView();
     });
   }
@@ -7346,6 +7346,7 @@ function startRange() {
       max: 100
     }
   });
+  range.setAttribute('disabled', true);
   var minValue = document.getElementById('js-range-min-value');
   var maxValue = document.getElementById('js-rang-max-value');
   range.noUiSlider.on('update', function (values, handle) {

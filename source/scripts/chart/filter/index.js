@@ -22,11 +22,11 @@ export default function handleChartFilters() {
   const regionInput = document.getElementById('region');
 
   const showAdvancedFiltersButton = document.querySelector('.js-show-advanced');
-  const advancedFieldsContainer = document.querySelector('.js-advanced-filters');
+  const advancedFieldsContainer = document.querySelector('.js-advanced-filters-container');
 
-  if (showAdvancedFiltersButton) {
+  if (showAdvancedFiltersButton && advancedFieldsContainer) {
     showAdvancedFiltersButton.addEventListener('click', () => {
-      advancedFieldsContainer.classList.toggle('chart-form__advanced-filters--active');
+      advancedFieldsContainer.classList.add('chart-form__advanced-filters-container--active');
       advancedFieldsContainer.scrollIntoView();
     });
   }

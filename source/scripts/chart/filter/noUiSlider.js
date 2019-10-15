@@ -23,6 +23,8 @@ export default function startRange() {
     },
   });
 
+  range.setAttribute('disabled', true);
+
   const minValue = document.getElementById('js-range-min-value');
   const maxValue = document.getElementById('js-rang-max-value');
 
