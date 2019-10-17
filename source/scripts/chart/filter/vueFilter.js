@@ -81,14 +81,23 @@ window.$vue = new Vue({
     ],
     selectedQuality: null,
   },
+  watch: {
+    // whenever question changes, this function will run
+    selectedRegion: () => {
+      this.updateFormFilters();
+    }
+  },
   created() {},
   mounted() {
     console.log('mounted');
   },
   methods: {
-    clearInput(toClear) {
-      console.log(this.toClear);
-      this.toClear
-    },
+    // clearInput(toClear) {
+    //   console.log(this.toClear);
+    //   this.toClear;
+    // },
+    updateFormFilters() {
+      console.log('hey');
+    }
   },
 });

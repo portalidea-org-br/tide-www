@@ -206,8 +206,6 @@ function setRangeValues(ptItems, matItems) {
   const minValue = Math.min(...allItems.map(o => o.city.inhabitants));
   // console.log(maxValue, minValue);
 
-
-
   window.range.noUiSlider.updateOptions({
     start: [minValue, maxValue],
     // connect: true,
