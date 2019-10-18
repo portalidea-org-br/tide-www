@@ -16,6 +16,7 @@ Exporting(Highcharts);
 
 export default function handleChartFilters() {
   const jsChartForm = document.getElementById('js-chart-form');
+  const jsAxisForm = document.getElementById('js-axis-form');
   const cityInput = document.querySelector('#js-city');
   const highlightInput = document.getElementById('highlight');
   const stateInput = document.getElementById('state');
@@ -26,7 +27,7 @@ export default function handleChartFilters() {
 
   if (showAdvancedFiltersButton && advancedFieldsContainer) {
     showAdvancedFiltersButton.addEventListener('click', () => {
-      advancedFieldsContainer.classList.add('chart-form__advanced-filters-container--active');
+      advancedFieldsContainer.classList.toggle('chart-form__advanced-filters-container--active');
       advancedFieldsContainer.scrollIntoView();
     });
   }
@@ -95,6 +96,24 @@ export default function handleChartFilters() {
       payload.state = formData.get('state');
       payload.inequality = formData.get('inequality');
       payload.quality = formData.get('quality');
+
+      toggleLoading();
+      populateChartData(payload, true);
+      // clearFilters();
+      clearTableInfo();
+      hideNoMatchesAlert();
+      toggleLoading();
+    });
+  }
+
+  if (jsAxisForm) {
+    jsAxisForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const payload = {};
+
+      payload.grade = formData.get('grade');
+      payload.xAxis = formData.get('xAxis');
 
       toggleLoading();
       populateChartData(payload);

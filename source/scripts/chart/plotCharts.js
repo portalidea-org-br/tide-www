@@ -26,6 +26,7 @@ Highcharts.setOptions({
 });
 
 function drawChart(chartData, subject) {
+  console.log(chartData, subject);
   return Highcharts.chart(`${subject}-chart`, {
     chart: {
       type: 'scatter',
@@ -218,10 +219,12 @@ function setRangeValues(ptItems, matItems) {
   });
 }
 
-async function populateChartData(payload) {
+async function populateChartData(payload, isFilter) {
   if (ptChartElement && matChartElement) {
     try {
-      await getChartData(payload);
+      // if (!isFilter) {
+        await getChartData(payload);
+      // }
 
       updateHelperText();
       addTableDestak();
@@ -243,18 +246,18 @@ async function populateChartData(payload) {
       }
 
 
-      const minInhabitants = window.range.noUiSlider.get()[0];
-      const maxInhabitants = window.range.noUiSlider.get()[1];
-
-      console.log('min:', minInhabitants);
-      console.log('max:', maxInhabitants);
-
-      ptItems = ptItems.filter(
-        item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
-      );
-      matItems = matItems.filter(
-        item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
-      );
+      // const minInhabitants = window.range.noUiSlider.get()[0];
+      // const maxInhabitants = window.range.noUiSlider.get()[1];
+      //
+      // console.log('min:', minInhabitants);
+      // console.log('max:', maxInhabitants);
+      //
+      // ptItems = ptItems.filter(
+      //   item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
+      // );
+      // matItems = matItems.filter(
+      //   item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
+      // );
 
 
       // setRangeValues(ptItems, matItems);
@@ -273,7 +276,7 @@ async function populateChartData(payload) {
       if (window.chartData.xAxis === 'nse') {
         xAxisText = 'NSE';
       }
-
+      console.log('helow?');
       drawChart(formatedPtItems, 'pt');
       drawChart(formatedMatItems, 'mat');
     } catch (err) {

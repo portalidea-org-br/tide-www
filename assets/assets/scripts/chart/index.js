@@ -7043,6 +7043,7 @@ var _config = _interopRequireDefault(require("../../config"));
 
 function handleChartFilters() {
   var jsChartForm = document.getElementById('js-chart-form');
+  var jsAxisForm = document.getElementById('js-axis-form');
   var cityInput = document.querySelector('#js-city');
   var highlightInput = document.getElementById('highlight');
   var stateInput = document.getElementById('state');
@@ -7052,7 +7053,7 @@ function handleChartFilters() {
 
   if (showAdvancedFiltersButton && advancedFieldsContainer) {
     showAdvancedFiltersButton.addEventListener('click', function () {
-      advancedFieldsContainer.classList.add('chart-form__advanced-filters-container--active');
+      advancedFieldsContainer.classList.toggle('chart-form__advanced-filters-container--active');
       advancedFieldsContainer.scrollIntoView();
     });
   }
@@ -7152,6 +7153,22 @@ function handleChartFilters() {
       payload.state = formData.get('state');
       payload.inequality = formData.get('inequality');
       payload.quality = formData.get('quality');
+      (0, _plotCharts.toggleLoading)();
+      (0, _plotCharts.populateChartData)(payload, true); // clearFilters();
+
+      (0, _updateTableInfo.clearTableInfo)();
+      hideNoMatchesAlert();
+      (0, _plotCharts.toggleLoading)();
+    });
+  }
+
+  if (jsAxisForm) {
+    jsAxisForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var formData = new FormData(event.target);
+      var payload = {};
+      payload.grade = formData.get('grade');
+      payload.xAxis = formData.get('xAxis');
       (0, _plotCharts.toggleLoading)();
       (0, _plotCharts.populateChartData)(payload); // clearFilters();
 
@@ -7370,6 +7387,8 @@ function startRange() {
 },{"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/interopRequireWildcard":4,"nouislider/distribute/nouislider":41,"numbro":42,"numbro/languages/pt-BR":43}],52:[function(require,module,exports){
 "use strict";
 
+var _this = void 0;
+
 /* global Vue */
 var toPercentageFilter = function toPercentageFilter(value) {
   return "".concat(Math.round(parseFloat(value) * 100), "%");
@@ -7433,14 +7452,23 @@ window.$vue = new Vue({
     }],
     selectedQuality: null
   },
+  watch: {
+    // whenever question changes, this function will run
+    selectedRegion: function selectedRegion() {
+      _this.updateFormFilters();
+    }
+  },
   created: function created() {},
   mounted: function mounted() {
     console.log('mounted');
   },
   methods: {
-    clearInput: function clearInput(toClear) {
-      console.log(this.toClear);
-      this.toClear;
+    // clearInput(toClear) {
+    //   console.log(this.toClear);
+    //   this.toClear;
+    // },
+    updateFormFilters: function updateFormFilters() {
+      console.log('hey');
     }
   }
 });
@@ -7599,6 +7627,7 @@ _highcharts.default.setOptions({
 });
 
 function drawChart(chartData, subject) {
+  console.log(chartData, subject);
   return _highcharts.default.chart("".concat(subject, "-chart"), {
     chart: {
       type: 'scatter',
@@ -7799,21 +7828,21 @@ function setRangeValues(ptItems, matItems) {
   });
 }
 
-function populateChartData(_x) {
+function populateChartData(_x, _x2) {
   return _populateChartData.apply(this, arguments);
 }
 
 function _populateChartData() {
   _populateChartData = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
-  _regenerator.default.mark(function _callee(payload) {
-    var chartData, ptItems, matItems, minInhabitants, maxInhabitants, formatedPtItems, formatedMatItems;
+  _regenerator.default.mark(function _callee(payload, isFilter) {
+    var chartData, ptItems, matItems, formatedPtItems, formatedMatItems;
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 32;
+              _context.next = 27;
               break;
             }
 
@@ -7822,6 +7851,7 @@ function _populateChartData() {
             return (0, _getChartData.default)(payload);
 
           case 4:
+            // }
             (0, _updateHelperText.default)();
             (0, _addTableDestak.default)();
             (0, _updateTableInfo.updateTableInfo)();
@@ -7852,18 +7882,20 @@ function _populateChartData() {
               matItems = matItems.filter(function (item) {
                 return item.range_quality === payload.quality;
               });
-            }
+            } // const minInhabitants = window.range.noUiSlider.get()[0];
+            // const maxInhabitants = window.range.noUiSlider.get()[1];
+            //
+            // console.log('min:', minInhabitants);
+            // console.log('max:', maxInhabitants);
+            //
+            // ptItems = ptItems.filter(
+            //   item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
+            // );
+            // matItems = matItems.filter(
+            //   item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
+            // );
+            // setRangeValues(ptItems, matItems);
 
-            minInhabitants = window.range.noUiSlider.get()[0];
-            maxInhabitants = window.range.noUiSlider.get()[1];
-            console.log('min:', minInhabitants);
-            console.log('max:', maxInhabitants);
-            ptItems = ptItems.filter(function (item) {
-              return item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants;
-            });
-            matItems = matItems.filter(function (item) {
-              return item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants;
-            }); // setRangeValues(ptItems, matItems);
 
             formatedPtItems = formatItemsToHighCharts(ptItems);
             formatedMatItems = formatItemsToHighCharts(matItems);
@@ -7880,23 +7912,24 @@ function _populateChartData() {
               xAxisText = 'NSE';
             }
 
+            console.log('helow?');
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 32;
+            _context.next = 27;
             break;
 
-          case 28:
-            _context.prev = 28;
+          case 23:
+            _context.prev = 23;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
             toggleLoading();
 
-          case 32:
+          case 27:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 28]]);
+    }, _callee, this, [[1, 23]]);
   }));
   return _populateChartData.apply(this, arguments);
 }
