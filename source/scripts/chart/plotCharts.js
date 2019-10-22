@@ -10,8 +10,10 @@ import { highlightPoint } from './filter/highlightPoint';
 Exporting(Highcharts);
 
 let xAxisText;
+let isLoading = false;
 const ptChartElement = document.getElementById('pt-chart');
 const matChartElement = document.getElementById('mat-chart');
+
 
 Highcharts.setOptions({
   lang: {
@@ -26,7 +28,6 @@ Highcharts.setOptions({
 });
 
 function drawChart(chartData, subject) {
-  console.log(chartData, subject);
   return Highcharts.chart(`${subject}-chart`, {
     chart: {
       type: 'scatter',
@@ -184,11 +185,14 @@ function formatItemsToHighCharts(items) {
 }
 
 function toggleLoading() {
-  let isLoading = false;
   const ptChartDom = document.getElementById('pt-chart');
   const matChartDom = document.getElementById('mat-chart');
   const ptChart = Highcharts.charts[Highcharts.attr(ptChartDom, 'data-highcharts-chart')];
   const matChart = Highcharts.charts[Highcharts.attr(matChartDom, 'data-highcharts-chart')];
+
+  if (!ptChart || !matChart) {
+    return;
+  }
 
   if (!isLoading) {
     ptChart.showLoading();
@@ -219,12 +223,19 @@ function setRangeValues(ptItems, matItems) {
   });
 }
 
-async function populateChartData(payload, isFilter) {
+async function populateChartData(payload) {
   if (ptChartElement && matChartElement) {
     try {
-      // if (!isFilter) {
-        await getChartData(payload);
-      // }
+      // console.log('payload:', payload);
+      if (payload && payload.grade === null) {
+        payload.grade = window.chartData.grade;
+      }
+
+      if (payload && payload.xAxis === null) {
+        payload.xAxis = window.chartData.xAxis;
+      }
+
+      await getChartData(payload);
 
       updateHelperText();
       addTableDestak();
@@ -276,7 +287,6 @@ async function populateChartData(payload, isFilter) {
       if (window.chartData.xAxis === 'nse') {
         xAxisText = 'NSE';
       }
-      console.log('helow?');
       drawChart(formatedPtItems, 'pt');
       drawChart(formatedMatItems, 'mat');
     } catch (err) {

@@ -1,4 +1,5 @@
 /* global Vue */
+// import './handleChartFilters';
 
 const toPercentageFilter = function toPercentageFilter(value) {
   return `${Math.round(parseFloat(value) * 100)}%`;
@@ -9,6 +10,12 @@ Vue.filter('toPercentage', toPercentageFilter);
 window.$vue = new Vue({
   el: '#app',
   data: {
+    chartData: null,
+    selectedFilters: {
+      selectedInequality: null,
+      selectedRegion: null,
+      selectedQuality: null,
+    },
     regions: [
       {
         name: 'centro oeste',
@@ -31,7 +38,6 @@ window.$vue = new Vue({
         id: 'sul',
       },
     ],
-    selectedRegion: null,
     states: [
       'Acre',
       'Alagoas',
@@ -61,43 +67,56 @@ window.$vue = new Vue({
       'Sergipe',
       'Tocantins',
     ],
-    selectedState: null,
     inequalityRange: [
       { name: 'equidade', id: 'equidade' },
       { name: 'desigualdade', id: 'desigualdade' },
-      { name: 'alta', id: 'alta' },
-      { name: 'extrema', id: 'extrema' },
-      { name: 'situações atípicas', id: 'situações-atipicas' },
+      { name: 'alta', id: '"desigualdade-alta"' },
+      { name: 'extrema', id: 'desigualdade-extrema' },
+      { name: 'situações atípicas', id: 'situacoes-atipicas' },
 
     ],
-    selectedInequality: null,
     qualityRange: [
       { name: 'baixa', id: 'baixa' },
-      { name: 'media-baixa', id: 'media-baixa' },
+      { name: 'media-baixa', id: 'medio-baixa' },
       { name: 'media', id: 'media' },
-      { name: 'media-alta', id: 'media-alta' },
+      { name: 'media-alta', id: 'medio-alta' },
       { name: 'alta', id: 'alta' },
 
     ],
-    selectedQuality: null,
+    filterFormLoading: false,
   },
   watch: {
     // whenever question changes, this function will run
-    selectedRegion: () => {
-      this.updateFormFilters();
-    }
+    selectedFilters: () => {
+      this.handleChartFiltersAvailability();
+    },
+    deep: true,
   },
   created() {},
   mounted() {
-    console.log('mounted');
+    // this.chartData = window.chartData.data;
   },
   methods: {
     // clearInput(toClear) {
     //   console.log(this.toClear);
     //   this.toClear;
     // },
-    updateFormFilters() {
-      console.log('hey');
-    }
+    toggleFilterFormLoading() {
+      this.filterFormLoading = !this.toggleFilterFormLoading;
+    },
+    checkInequality() {
+      this.toggleFilterFormLoading();
+      this.checkInequalityRange = this.inequalityRange.some((item) => {
+        this.chartData.some((city) => {
+          const isTrue = city.range_inequality === item.id;
+          console.log(isTrue);
+        });
+      });
+    },
+    handleChartFiltersAvailability() {
+      this.chartData = window.chartData.data;
+      console.log(window.chartData);
+      this.checkInequality()
+    },
   },
 });

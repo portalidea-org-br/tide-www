@@ -8,7 +8,7 @@ import startRange from './noUiSlider';
 import { updateTableInfo, clearTableInfo } from '../updateTableInfo';
 import { populateChartData, toggleLoading } from '../plotCharts';
 import clearFilters from './clearFilters';
-import vueFilter from './vueFilter';
+import './vueFilter';
 import { highlightPoint } from './highlightPoint';
 import config from '../../config';
 
@@ -86,7 +86,11 @@ export default function handleChartFilters() {
 
   if (jsChartForm) {
     jsChartForm.addEventListener('submit', (event) => {
+      // debugger;
       event.preventDefault();
+
+      // toggleLoading();
+
       const formData = new FormData(event.target);
       const payload = {};
 
@@ -102,7 +106,6 @@ export default function handleChartFilters() {
       // clearFilters();
       clearTableInfo();
       hideNoMatchesAlert();
-      toggleLoading();
     });
   }
 
@@ -115,12 +118,12 @@ export default function handleChartFilters() {
       payload.grade = formData.get('grade');
       payload.xAxis = formData.get('xAxis');
 
-      toggleLoading();
+      // toggleLoading();
       populateChartData(payload);
       // clearFilters();
       clearTableInfo();
       hideNoMatchesAlert();
-      toggleLoading();
+      // toggleLoading();
     });
   }
 
@@ -237,42 +240,6 @@ export default function handleChartFilters() {
     }, false);
   }
 
-
-  function watchClearButtons() {
-    const buttons = document.querySelectorAll('.js-clear-inputs');
-    buttons.forEach((button) => {
-      button.addEventListener('click', (event) => {
-        event.preventDefault();
-        const toUncheck = document.querySelectorAll(`input[name="${event.target.dataset.clear}"]`);
-        toUncheck.forEach((item) => {
-          const input = item;
-          input.checked = false;
-        })
-      });
-    });
-  }
-
-  function lockInput(inputName, lock = true) {
-    const inputs = document.querySelectorAll(`[name="${inputName}"]`);
-    inputs.forEach((input) => {
-      const toLock = input;
-      if (lock) {
-        toLock.disabled = true;
-        return;
-      }
-      toLock.disabled = false;
-    });
-  }
-
-  function watchChanges() {
-
-  }
-
   populateCitiesList();
   startRange();
-  watchChanges();
-  watchClearButtons();
-  // filterVue();
-
-  // window.$vueFilter = new Vue(vueFilter);
 }

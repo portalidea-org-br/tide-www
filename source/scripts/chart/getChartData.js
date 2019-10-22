@@ -20,7 +20,6 @@ export default function getChartData(receivedPayload) {
   if (receivedPayload && receivedPayload.state) {
     url += `&state_id=${receivedPayload.state}`;
   }
-  console.log(receivedPayload);
 
   chartData.xAxis = chartData.xAxis;
   // xAxis = newXAxis;

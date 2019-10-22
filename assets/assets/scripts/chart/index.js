@@ -7032,7 +7032,7 @@ var _plotCharts = require("../plotCharts");
 
 var _clearFilters = _interopRequireDefault(require("./clearFilters"));
 
-var _vueFilter = _interopRequireDefault(require("./vueFilter"));
+require("./vueFilter");
 
 var _highlightPoint = require("./highlightPoint");
 
@@ -7144,7 +7144,9 @@ function handleChartFilters() {
 
   if (jsChartForm) {
     jsChartForm.addEventListener('submit', function (event) {
-      event.preventDefault();
+      // debugger;
+      event.preventDefault(); // toggleLoading();
+
       var formData = new FormData(event.target);
       var payload = {};
       payload.grade = formData.get('grade');
@@ -7158,7 +7160,6 @@ function handleChartFilters() {
 
       (0, _updateTableInfo.clearTableInfo)();
       hideNoMatchesAlert();
-      (0, _plotCharts.toggleLoading)();
     });
   }
 
@@ -7168,13 +7169,12 @@ function handleChartFilters() {
       var formData = new FormData(event.target);
       var payload = {};
       payload.grade = formData.get('grade');
-      payload.xAxis = formData.get('xAxis');
-      (0, _plotCharts.toggleLoading)();
+      payload.xAxis = formData.get('xAxis'); // toggleLoading();
+
       (0, _plotCharts.populateChartData)(payload); // clearFilters();
 
       (0, _updateTableInfo.clearTableInfo)();
-      hideNoMatchesAlert();
-      (0, _plotCharts.toggleLoading)();
+      hideNoMatchesAlert(); // toggleLoading();
     });
   }
 
@@ -7288,42 +7288,8 @@ function handleChartFilters() {
     }, false);
   }
 
-  function watchClearButtons() {
-    var buttons = document.querySelectorAll('.js-clear-inputs');
-    buttons.forEach(function (button) {
-      button.addEventListener('click', function (event) {
-        event.preventDefault();
-        var toUncheck = document.querySelectorAll("input[name=\"".concat(event.target.dataset.clear, "\"]"));
-        toUncheck.forEach(function (item) {
-          var input = item;
-          input.checked = false;
-        });
-      });
-    });
-  }
-
-  function lockInput(inputName) {
-    var lock = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-    var inputs = document.querySelectorAll("[name=\"".concat(inputName, "\"]"));
-    inputs.forEach(function (input) {
-      var toLock = input;
-
-      if (lock) {
-        toLock.disabled = true;
-        return;
-      }
-
-      toLock.disabled = false;
-    });
-  }
-
-  function watchChanges() {}
-
   populateCitiesList();
   (0, _noUiSlider.default)();
-  watchChanges();
-  watchClearButtons(); // filterVue();
-  // window.$vueFilter = new Vue(vueFilter);
 }
 
 },{"../../config":59,"../plotCharts":55,"../updateTableInfo":58,"./clearFilters":48,"./highlightPoint":49,"./noUiSlider":51,"./vueFilter":52,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"awesomplete":11,"axios":12,"fuzzysort":38,"highcharts":39,"highcharts/modules/exporting":40}],51:[function(require,module,exports){
@@ -7390,6 +7356,7 @@ function startRange() {
 var _this = void 0;
 
 /* global Vue */
+// import './handleChartFilters';
 var toPercentageFilter = function toPercentageFilter(value) {
   return "".concat(Math.round(parseFloat(value) * 100), "%");
 };
@@ -7398,6 +7365,12 @@ Vue.filter('toPercentage', toPercentageFilter);
 window.$vue = new Vue({
   el: '#app',
   data: {
+    chartData: null,
+    selectedFilters: {
+      selectedInequality: null,
+      selectedRegion: null,
+      selectedQuality: null
+    },
     regions: [{
       name: 'centro oeste',
       id: 'centro-oeste'
@@ -7414,9 +7387,7 @@ window.$vue = new Vue({
       name: 'sul',
       id: 'sul'
     }],
-    selectedRegion: null,
     states: ['Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará', 'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão', 'Minas Gerais', 'Mato Grosso do Sul', 'Mato Grosso', 'Pará', 'Paraíba', 'Paraná', 'Pernambuco', 'Piauí', 'Rio de Janeiro', 'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondônia', 'Roraima', 'Santa Catarina', 'São Paulo', 'Sergipe', 'Tocantins'],
-    selectedState: null,
     inequalityRange: [{
       name: 'equidade',
       id: 'equidade'
@@ -7425,50 +7396,65 @@ window.$vue = new Vue({
       id: 'desigualdade'
     }, {
       name: 'alta',
-      id: 'alta'
+      id: '"desigualdade-alta"'
     }, {
       name: 'extrema',
-      id: 'extrema'
+      id: 'desigualdade-extrema'
     }, {
       name: 'situações atípicas',
-      id: 'situações-atipicas'
+      id: 'situacoes-atipicas'
     }],
-    selectedInequality: null,
     qualityRange: [{
       name: 'baixa',
       id: 'baixa'
     }, {
       name: 'media-baixa',
-      id: 'media-baixa'
+      id: 'medio-baixa'
     }, {
       name: 'media',
       id: 'media'
     }, {
       name: 'media-alta',
-      id: 'media-alta'
+      id: 'medio-alta'
     }, {
       name: 'alta',
       id: 'alta'
     }],
-    selectedQuality: null
+    filterFormLoading: false
   },
   watch: {
     // whenever question changes, this function will run
-    selectedRegion: function selectedRegion() {
-      _this.updateFormFilters();
-    }
+    selectedFilters: function selectedFilters() {
+      _this.handleChartFiltersAvailability();
+    },
+    deep: true
   },
   created: function created() {},
-  mounted: function mounted() {
-    console.log('mounted');
+  mounted: function mounted() {// this.chartData = window.chartData.data;
   },
   methods: {
     // clearInput(toClear) {
     //   console.log(this.toClear);
     //   this.toClear;
     // },
-    updateFormFilters: function updateFormFilters() {
-      console.log('hey');
+    toggleFilterFormLoading: function toggleFilterFormLoading() {
+      this.filterFormLoading = !this.toggleFilterFormLoading;
+    },
+    checkInequality: function checkInequality() {
+      var _this2 = this;
+
+      this.toggleFilterFormLoading();
+      this.checkInequalityRange = this.inequalityRange.some(function (item) {
+        _this2.chartData.some(function (city) {
+          var isTrue = city.range_inequality === item.id;
+          console.log(isTrue);
+        });
+      });
+    },
+    handleChartFiltersAvailability: function handleChartFiltersAvailability() {
+      this.chartData = window.chartData.data;
+      console.log(window.chartData);
+      this.checkInequality();
     }
   }
 });
@@ -7513,7 +7499,6 @@ function getChartData(receivedPayload) {
     url += "&state_id=".concat(receivedPayload.state);
   }
 
-  console.log(receivedPayload);
   chartData.xAxis = chartData.xAxis; // xAxis = newXAxis;
 
   function populateGlobalChartData() {
@@ -7611,6 +7596,7 @@ var _highlightPoint = require("./filter/highlightPoint");
 
 (0, _exporting.default)(_highcharts.default);
 var xAxisText;
+var isLoading = false;
 var ptChartElement = document.getElementById('pt-chart');
 var matChartElement = document.getElementById('mat-chart');
 
@@ -7627,7 +7613,6 @@ _highcharts.default.setOptions({
 });
 
 function drawChart(chartData, subject) {
-  console.log(chartData, subject);
   return _highcharts.default.chart("".concat(subject, "-chart"), {
     chart: {
       type: 'scatter',
@@ -7787,13 +7772,16 @@ function formatItemsToHighCharts(items) {
 }
 
 function toggleLoading() {
-  var isLoading = false;
   var ptChartDom = document.getElementById('pt-chart');
   var matChartDom = document.getElementById('mat-chart');
 
   var ptChart = _highcharts.default.charts[_highcharts.default.attr(ptChartDom, 'data-highcharts-chart')];
 
   var matChart = _highcharts.default.charts[_highcharts.default.attr(matChartDom, 'data-highcharts-chart')];
+
+  if (!ptChart || !matChart) {
+    return;
+  }
 
   if (!isLoading) {
     ptChart.showLoading();
@@ -7828,30 +7816,39 @@ function setRangeValues(ptItems, matItems) {
   });
 }
 
-function populateChartData(_x, _x2) {
+function populateChartData(_x) {
   return _populateChartData.apply(this, arguments);
 }
 
 function _populateChartData() {
   _populateChartData = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
-  _regenerator.default.mark(function _callee(payload, isFilter) {
+  _regenerator.default.mark(function _callee(payload) {
     var chartData, ptItems, matItems, formatedPtItems, formatedMatItems;
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 27;
+              _context.next = 28;
               break;
             }
 
             _context.prev = 1;
-            _context.next = 4;
+
+            // console.log('payload:', payload);
+            if (payload && payload.grade === null) {
+              payload.grade = window.chartData.grade;
+            }
+
+            if (payload && payload.xAxis === null) {
+              payload.xAxis = window.chartData.xAxis;
+            }
+
+            _context.next = 6;
             return (0, _getChartData.default)(payload);
 
-          case 4:
-            // }
+          case 6:
             (0, _updateHelperText.default)();
             (0, _addTableDestak.default)();
             (0, _updateTableInfo.updateTableInfo)();
@@ -7912,24 +7909,23 @@ function _populateChartData() {
               xAxisText = 'NSE';
             }
 
-            console.log('helow?');
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 27;
+            _context.next = 28;
             break;
 
-          case 23:
-            _context.prev = 23;
+          case 24:
+            _context.prev = 24;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
             toggleLoading();
 
-          case 27:
+          case 28:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 23]]);
+    }, _callee, this, [[1, 24]]);
   }));
   return _populateChartData.apply(this, arguments);
 }
@@ -8221,7 +8217,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _default = {
   api: {
-    domain: window.location.hostname.indexOf('portalidea.org.br') !== -1 ? 'https://api.portalidea.org.br/api/' : 'https://dapitide.eokoe.com/api/'
+    domain: window.location.hostname.indexOf('portalidea.org.br') !== -1 ? 'https://api.portalidea.org.br/api/' : 'https://api.portalidea.org.br/api/'
   }
 };
 exports.default = _default;
