@@ -67,7 +67,7 @@
           </div>
         </form>
 
-        <form action="" method="post" id="js-chart-form" class="chart-form">
+        <form action="" method="post" id="js-chart-form" class="chart-form" :disabled="filterFormLoading">
           <div class="chart-form__advanced-filters-container js-advanced-filters-container">
               <div class="container">
                 <div class="chart-form__advanced-filters js-advanced-filters">
@@ -88,7 +88,6 @@
                             :value="index + 1"
                             :id="region.id"
                             :disabled="selectedFilters.selectedState"
-                            @change="handleChartFiltersAvailability"
                             >
                             <label :for="region.id"> {{ "{{ region.name }}" }}</label>
                         </li>
@@ -160,6 +159,7 @@
                             name="inequality"
                             :value="inequality.id"
                             :id="inequality.id"
+                            :disabled="inequality.disabled"
                             >
                             <label :for="inequality.id"> {{ "{{ inequality.name }}" }}</label>
                         </li>
@@ -181,6 +181,7 @@
                             name="quality"
                             :value="quality.id"
                             :id="'quality-' + quality.id"
+                            :disabled="quality.disabled"
                             >
                             <label :for="'quality-' + quality.id"> {{ "{{ quality.name }}" }}</label>
                         </li>

@@ -19,7 +19,7 @@ export default function handleChartFilters() {
   const jsAxisForm = document.getElementById('js-axis-form');
   const cityInput = document.querySelector('#js-city');
   const highlightInput = document.getElementById('highlight');
-  const stateInput = document.getElementById('state');
+  // const stateInput = document.getElementById('state');
   const regionInput = document.getElementById('region');
 
   const showAdvancedFiltersButton = document.querySelector('.js-show-advanced');
@@ -224,13 +224,13 @@ export default function handleChartFilters() {
     }, false);
   }
 
-  if (stateInput) {
-    stateInput.addEventListener('change', (event) => {
-      clearFilters(event.target.id);
-      clearTableInfo();
-      highlightPoints('state', event.target.value);
-    }, false);
-  }
+  // if (stateInput) {
+  //   stateInput.addEventListener('change', (event) => {
+  //     clearFilters(event.target.id);
+  //     clearTableInfo();
+  //     highlightPoints('state', event.target.value);
+  //   }, false);
+  // }
 
   if (regionInput) {
     regionInput.addEventListener('change', (event) => {

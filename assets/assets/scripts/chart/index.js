@@ -7045,8 +7045,8 @@ function handleChartFilters() {
   var jsChartForm = document.getElementById('js-chart-form');
   var jsAxisForm = document.getElementById('js-axis-form');
   var cityInput = document.querySelector('#js-city');
-  var highlightInput = document.getElementById('highlight');
-  var stateInput = document.getElementById('state');
+  var highlightInput = document.getElementById('highlight'); // const stateInput = document.getElementById('state');
+
   var regionInput = document.getElementById('region');
   var showAdvancedFiltersButton = document.querySelector('.js-show-advanced');
   var advancedFieldsContainer = document.querySelector('.js-advanced-filters-container');
@@ -7270,15 +7270,14 @@ function handleChartFilters() {
       (0, _updateTableInfo.clearTableInfo)();
       highlightPoints(event.target.value);
     }, false);
-  }
+  } // if (stateInput) {
+  //   stateInput.addEventListener('change', (event) => {
+  //     clearFilters(event.target.id);
+  //     clearTableInfo();
+  //     highlightPoints('state', event.target.value);
+  //   }, false);
+  // }
 
-  if (stateInput) {
-    stateInput.addEventListener('change', function (event) {
-      (0, _clearFilters.default)(event.target.id);
-      (0, _updateTableInfo.clearTableInfo)();
-      highlightPoints('state', event.target.value);
-    }, false);
-  }
 
   if (regionInput) {
     regionInput.addEventListener('change', function (event) {
@@ -7353,8 +7352,6 @@ function startRange() {
 },{"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/interopRequireWildcard":4,"nouislider/distribute/nouislider":41,"numbro":42,"numbro/languages/pt-BR":43}],52:[function(require,module,exports){
 "use strict";
 
-var _this = void 0;
-
 /* global Vue */
 // import './handleChartFilters';
 var toPercentageFilter = function toPercentageFilter(value) {
@@ -7396,7 +7393,7 @@ window.$vue = new Vue({
       id: 'desigualdade'
     }, {
       name: 'alta',
-      id: '"desigualdade-alta"'
+      id: 'desigualdade-alta'
     }, {
       name: 'extrema',
       id: 'desigualdade-extrema'
@@ -7424,10 +7421,17 @@ window.$vue = new Vue({
   },
   watch: {
     // whenever question changes, this function will run
-    selectedFilters: function selectedFilters() {
-      _this.handleChartFiltersAvailability();
-    },
-    deep: true
+    selectedFilters: {
+      // eslint-disable-next-line object-shorthand
+      handler: function handler() {
+        console.log('watcheeeer!');
+        this.handleChartFiltersAvailability();
+      },
+      deep: true
+    } // selectedFilters: function () {
+    // },
+    // deep: true,
+
   },
   created: function created() {},
   mounted: function mounted() {// this.chartData = window.chartData.data;
@@ -7441,20 +7445,63 @@ window.$vue = new Vue({
       this.filterFormLoading = !this.toggleFilterFormLoading;
     },
     checkInequality: function checkInequality() {
+      var _this = this;
+
+      this.inequalityRange = this.inequalityRange.filter(function (item) {
+        var itContains = _this.chartData.some(function (city) {
+          return city.range_inequality === item.id;
+        });
+
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+
+        return item;
+      });
+    },
+    checkQuality: function checkQuality() {
       var _this2 = this;
 
-      this.toggleFilterFormLoading();
-      this.checkInequalityRange = this.inequalityRange.some(function (item) {
-        _this2.chartData.some(function (city) {
-          var isTrue = city.range_inequality === item.id;
-          console.log(isTrue);
+      this.qualityRange = this.qualityRange.filter(function (item) {
+        console.log('quality?');
+
+        var itContains = _this2.chartData.some(function (city) {
+          return city.range_quality === item.id;
         });
+
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+
+        return item;
       });
     },
     handleChartFiltersAvailability: function handleChartFiltersAvailability() {
-      this.chartData = window.chartData.data;
-      console.log(window.chartData);
+      var _this3 = this;
+
+      this.toggleFilterFormLoading();
+      this.chartData = window.globalChartData; // console.log(this.chartData, this.inequalityRange);
+
+      if (this.selectedFilters.selectedState) {
+        this.chartData = this.chartData.filter(function (item) {
+          return item.state.id === _this3.selectedFilters.selectedState;
+        });
+      }
+
+      if (this.selectedFilters.selectedRegion) {
+        this.chartData = this.chartData.filter(function (item) {
+          return item.region.id === _this3.selectedFilters.selectedRegion;
+        });
+      } // console.log(this.chartData, this.inequalityRange);
+
+
       this.checkInequality();
+      this.checkQuality();
+      this.toggleFilterFormLoading();
     }
   }
 });
@@ -7479,8 +7526,10 @@ var _config = _interopRequireDefault(require("../config"));
 
 function getChartData(receivedPayload) {
   var chartData = {};
+  var firstLoad;
 
   if (receivedPayload === undefined) {
+    firstLoad = true;
     chartData = {
       grade: 5,
       xAxis: 'racial'
@@ -7522,20 +7571,25 @@ function getChartData(receivedPayload) {
               response = _context.sent;
               chartData.data = response.data.data;
               window.chartData = chartData;
-              _context.next = 11;
+
+              if (firstLoad) {
+                window.globalChartData = chartData.data;
+              }
+
+              _context.next = 12;
               break;
 
-            case 8:
-              _context.prev = 8;
+            case 9:
+              _context.prev = 9;
               _context.t0 = _context["catch"](0);
               window.console.error(_context.t0);
 
-            case 11:
+            case 12:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, this, [[0, 8]]);
+      }, _callee, this, [[0, 9]]);
     }));
     return _populateGlobalChartData.apply(this, arguments);
   }

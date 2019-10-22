@@ -287,6 +287,7 @@ async function populateChartData(payload) {
       if (window.chartData.xAxis === 'nse') {
         xAxisText = 'NSE';
       }
+
       drawChart(formatedPtItems, 'pt');
       drawChart(formatedMatItems, 'mat');
     } catch (err) {

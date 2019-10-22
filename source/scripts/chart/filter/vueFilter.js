@@ -70,7 +70,7 @@ window.$vue = new Vue({
     inequalityRange: [
       { name: 'equidade', id: 'equidade' },
       { name: 'desigualdade', id: 'desigualdade' },
-      { name: 'alta', id: '"desigualdade-alta"' },
+      { name: 'alta', id: 'desigualdade-alta' },
       { name: 'extrema', id: 'desigualdade-extrema' },
       { name: 'situações atípicas', id: 'situacoes-atipicas' },
 
@@ -87,10 +87,17 @@ window.$vue = new Vue({
   },
   watch: {
     // whenever question changes, this function will run
-    selectedFilters: () => {
-      this.handleChartFiltersAvailability();
+    selectedFilters: {
+      // eslint-disable-next-line object-shorthand
+      handler: function () {
+        console.log('watcheeeer!');
+        this.handleChartFiltersAvailability();
+      },
+      deep: true,
     },
-    deep: true,
+    // selectedFilters: function () {
+    // },
+    // deep: true,
   },
   created() {},
   mounted() {
@@ -105,18 +112,48 @@ window.$vue = new Vue({
       this.filterFormLoading = !this.toggleFilterFormLoading;
     },
     checkInequality() {
-      this.toggleFilterFormLoading();
-      this.checkInequalityRange = this.inequalityRange.some((item) => {
-        this.chartData.some((city) => {
-          const isTrue = city.range_inequality === item.id;
-          console.log(isTrue);
-        });
+      this.inequalityRange = this.inequalityRange.filter((item) => {
+        const itContains = this.chartData.some(city => city.range_inequality === item.id);
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+        return item;
+      });
+    },
+    checkQuality() {
+      this.qualityRange = this.qualityRange.filter((item) => {
+        console.log('quality?');
+        const itContains = this.chartData.some(city => city.range_quality === item.id);
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+        return item;
       });
     },
     handleChartFiltersAvailability() {
-      this.chartData = window.chartData.data;
-      console.log(window.chartData);
-      this.checkInequality()
+      this.toggleFilterFormLoading();
+      this.chartData = window.globalChartData;
+
+      // console.log(this.chartData, this.inequalityRange);
+
+      if (this.selectedFilters.selectedState) {
+        this.chartData = this.chartData.filter(item => item.state.id === this.selectedFilters.selectedState);
+      }
+      if (this.selectedFilters.selectedRegion) {
+        this.chartData = this.chartData.filter(item => item.region.id === this.selectedFilters.selectedRegion);
+      }
+
+      // console.log(this.chartData, this.inequalityRange);
+
+      this.checkInequality();
+
+      this.checkQuality();
+
+      this.toggleFilterFormLoading();
     },
   },
 });

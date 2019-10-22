@@ -164,6 +164,12 @@
   background: palette('purple');
 }
 
+.chart-form__buttons li input:disabled + label {
+  color: palette('white');
+  background: palette('purple');
+  opacity: 0.2;
+}
+
 .chart-form .noUi-connects {
   width: 80%;
 }
