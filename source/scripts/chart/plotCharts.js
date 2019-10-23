@@ -257,18 +257,15 @@ async function populateChartData(payload) {
       }
 
 
-      // const minInhabitants = window.range.noUiSlider.get()[0];
-      // const maxInhabitants = window.range.noUiSlider.get()[1];
-      //
-      // console.log('min:', minInhabitants);
-      // console.log('max:', maxInhabitants);
-      //
-      // ptItems = ptItems.filter(
-      //   item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
-      // );
-      // matItems = matItems.filter(
-      //   item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
-      // );
+      const minInhabitants = window.range.noUiSlider.get()[0];
+      const maxInhabitants = window.range.noUiSlider.get()[1];
+
+      ptItems = ptItems.filter(
+        item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
+      );
+      matItems = matItems.filter(
+        item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
+      );
 
 
       // setRangeValues(ptItems, matItems);

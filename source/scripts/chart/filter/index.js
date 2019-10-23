@@ -28,7 +28,7 @@ export default function handleChartFilters() {
   if (showAdvancedFiltersButton && advancedFieldsContainer) {
     showAdvancedFiltersButton.addEventListener('click', () => {
       advancedFieldsContainer.classList.toggle('chart-form__advanced-filters-container--active');
-      advancedFieldsContainer.scrollIntoView();
+      // advancedFieldsContainer.scrollIntoView();
     });
   }
 

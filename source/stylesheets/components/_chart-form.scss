@@ -5,8 +5,8 @@
 }
 
 .bg-yellow-simple {
-  padding-top: 3rem;
-  padding-bottom: 2rem;
+  // padding-top: 3rem;
+  // padding-bottom: 2rem;
   background: palette('yellow');
 }
 
@@ -50,6 +50,7 @@
   width: 100%;
   max-width: 100%;
   padding: 0;
+  margin-bottom: 0;
 
   @media screen and (min-width: breakpoint('desktop')) {
   }
@@ -87,10 +88,10 @@
 
 
 .chart-form__advanced-filters-container {
-  // max-height: 0;
+  max-height: 0;
   padding: 0;
   overflow: hidden;
-  transition: max-height 0.6s;
+  transition: max-height, padding 0.6s;
 }
 
 .chart-form__advanced-filters {
@@ -103,6 +104,7 @@
 
 .chart-form__advanced-filters-container--active {
   max-height: 80rem;
+  padding: 2.5rem 0;
 
   @media screen and (min-width: breakpoint('desktop')) {
     max-height: 50rem;
@@ -171,7 +173,8 @@
 }
 
 .chart-form .noUi-connects {
-  width: 80%;
+  width: 100%;
+  margin: 0 0.188rem;
 }
 
 .chart-form .noUi-horizontal {
@@ -191,11 +194,6 @@
 
 .chart-form .noUi-connect {
   background: palette('red');
-}
-
-.chart-form .noUi-connects {
-  width: 100%;
-  margin: 0 0.188rem;
 }
 
 .chart-form__tutorial-link:link,
@@ -313,6 +311,16 @@
 .chart-form__submit button[type='submit'] {
   margin-right: auto;
   margin-left: auto;
+}
+
+.chart-form__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.chart-form__footer .button {
+  margin-left: 0.5rem;
 }
 
 .chart-form__alert {

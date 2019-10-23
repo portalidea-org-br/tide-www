@@ -7053,8 +7053,7 @@ function handleChartFilters() {
 
   if (showAdvancedFiltersButton && advancedFieldsContainer) {
     showAdvancedFiltersButton.addEventListener('click', function () {
-      advancedFieldsContainer.classList.toggle('chart-form__advanced-filters-container--active');
-      advancedFieldsContainer.scrollIntoView();
+      advancedFieldsContainer.classList.toggle('chart-form__advanced-filters-container--active'); // advancedFieldsContainer.scrollIntoView();
     });
   }
 
@@ -7878,13 +7877,13 @@ function _populateChartData() {
   _populateChartData = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
   _regenerator.default.mark(function _callee(payload) {
-    var chartData, ptItems, matItems, formatedPtItems, formatedMatItems;
+    var chartData, ptItems, matItems, minInhabitants, maxInhabitants, formatedPtItems, formatedMatItems;
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 28;
+              _context.next = 32;
               break;
             }
 
@@ -7933,20 +7932,16 @@ function _populateChartData() {
               matItems = matItems.filter(function (item) {
                 return item.range_quality === payload.quality;
               });
-            } // const minInhabitants = window.range.noUiSlider.get()[0];
-            // const maxInhabitants = window.range.noUiSlider.get()[1];
-            //
-            // console.log('min:', minInhabitants);
-            // console.log('max:', maxInhabitants);
-            //
-            // ptItems = ptItems.filter(
-            //   item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
-            // );
-            // matItems = matItems.filter(
-            //   item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
-            // );
-            // setRangeValues(ptItems, matItems);
+            }
 
+            minInhabitants = window.range.noUiSlider.get()[0];
+            maxInhabitants = window.range.noUiSlider.get()[1];
+            ptItems = ptItems.filter(function (item) {
+              return item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants;
+            });
+            matItems = matItems.filter(function (item) {
+              return item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants;
+            }); // setRangeValues(ptItems, matItems);
 
             formatedPtItems = formatItemsToHighCharts(ptItems);
             formatedMatItems = formatItemsToHighCharts(matItems);
@@ -7965,21 +7960,21 @@ function _populateChartData() {
 
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 28;
+            _context.next = 32;
             break;
 
-          case 24:
-            _context.prev = 24;
+          case 28:
+            _context.prev = 28;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
             toggleLoading();
 
-          case 28:
+          case 32:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 24]]);
+    }, _callee, this, [[1, 28]]);
   }));
   return _populateChartData.apply(this, arguments);
 }
