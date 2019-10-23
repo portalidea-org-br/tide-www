@@ -91,7 +91,7 @@
   max-height: 0;
   padding: 0;
   overflow: hidden;
-  transition: max-height, padding 0.6s;
+  transition: max-height 0.7s, padding 0.8s;
 }
 
 .chart-form__advanced-filters {
@@ -107,7 +107,7 @@
   padding: 2.5rem 0;
 
   @media screen and (min-width: breakpoint('desktop')) {
-    max-height: 50rem;
+    max-height: 33rem;
   }
 }
 

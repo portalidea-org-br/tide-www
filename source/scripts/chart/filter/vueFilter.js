@@ -19,23 +19,23 @@ window.$vue = new Vue({
     regions: [
       {
         name: 'centro oeste',
-        id: 'centro-oeste',
+        id: 1,
       },
       {
         name: 'nordeste',
-        id: 'nordeste',
+        id: 2,
       },
       {
         name: 'norte',
-        id: 'norte',
+        id: 3,
       },
       {
         name: 'sudeste',
-        id: 'sudeste',
+        id: 4,
       },
       {
         name: 'sul',
-        id: 'sul',
+        id: 5,
       },
     ],
     states: [
@@ -90,7 +90,6 @@ window.$vue = new Vue({
     selectedFilters: {
       // eslint-disable-next-line object-shorthand
       handler: function () {
-        console.log('watcheeeer!');
         this.handleChartFiltersAvailability();
       },
       deep: true,
@@ -111,6 +110,17 @@ window.$vue = new Vue({
     toggleFilterFormLoading() {
       this.filterFormLoading = !this.toggleFilterFormLoading;
     },
+    checkRegion() {
+      this.regions = this.regions.filter((item) => {
+        const itContains = this.chartData.some(city => city.region.id === item.id);
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+        return item;
+      });
+    },
     checkInequality() {
       this.inequalityRange = this.inequalityRange.filter((item) => {
         const itContains = this.chartData.some(city => city.range_inequality === item.id);
@@ -124,7 +134,6 @@ window.$vue = new Vue({
     },
     checkQuality() {
       this.qualityRange = this.qualityRange.filter((item) => {
-        console.log('quality?');
         const itContains = this.chartData.some(city => city.range_quality === item.id);
         if (!itContains) {
           item.disabled = true;
@@ -146,12 +155,18 @@ window.$vue = new Vue({
       if (this.selectedFilters.selectedRegion) {
         this.chartData = this.chartData.filter(item => item.region.id === this.selectedFilters.selectedRegion);
       }
+      if (this.selectedFilters.selectedInequality) {
+        this.chartData = this.chartData.filter(item => item.range_inequality === this.selectedFilters.selectedInequality);
+      }
+      if (this.selectedFilters.selectedQuality) {
+        this.chartData = this.chartData.filter(item => item.range_quality === this.selectedFilters.selectedQuality);
+      }
 
       // console.log(this.chartData, this.inequalityRange);
 
-      this.checkInequality();
-
+      this.checkRegion();
       this.checkQuality();
+      this.checkInequality();
 
       this.toggleFilterFormLoading();
     },

@@ -7369,19 +7369,19 @@ window.$vue = new Vue({
     },
     regions: [{
       name: 'centro oeste',
-      id: 'centro-oeste'
+      id: 1
     }, {
       name: 'nordeste',
-      id: 'nordeste'
+      id: 2
     }, {
       name: 'norte',
-      id: 'norte'
+      id: 3
     }, {
       name: 'sudeste',
-      id: 'sudeste'
+      id: 4
     }, {
       name: 'sul',
-      id: 'sul'
+      id: 5
     }],
     states: ['Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará', 'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão', 'Minas Gerais', 'Mato Grosso do Sul', 'Mato Grosso', 'Pará', 'Paraíba', 'Paraná', 'Pernambuco', 'Piauí', 'Rio de Janeiro', 'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondônia', 'Roraima', 'Santa Catarina', 'São Paulo', 'Sergipe', 'Tocantins'],
     inequalityRange: [{
@@ -7423,7 +7423,6 @@ window.$vue = new Vue({
     selectedFilters: {
       // eslint-disable-next-line object-shorthand
       handler: function handler() {
-        console.log('watcheeeer!');
         this.handleChartFiltersAvailability();
       },
       deep: true
@@ -7443,11 +7442,28 @@ window.$vue = new Vue({
     toggleFilterFormLoading: function toggleFilterFormLoading() {
       this.filterFormLoading = !this.toggleFilterFormLoading;
     },
-    checkInequality: function checkInequality() {
+    checkRegion: function checkRegion() {
       var _this = this;
 
-      this.inequalityRange = this.inequalityRange.filter(function (item) {
+      this.regions = this.regions.filter(function (item) {
         var itContains = _this.chartData.some(function (city) {
+          return city.region.id === item.id;
+        });
+
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+
+        return item;
+      });
+    },
+    checkInequality: function checkInequality() {
+      var _this2 = this;
+
+      this.inequalityRange = this.inequalityRange.filter(function (item) {
+        var itContains = _this2.chartData.some(function (city) {
           return city.range_inequality === item.id;
         });
 
@@ -7461,12 +7477,10 @@ window.$vue = new Vue({
       });
     },
     checkQuality: function checkQuality() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.qualityRange = this.qualityRange.filter(function (item) {
-        console.log('quality?');
-
-        var itContains = _this2.chartData.some(function (city) {
+        var itContains = _this3.chartData.some(function (city) {
           return city.range_quality === item.id;
         });
 
@@ -7480,26 +7494,39 @@ window.$vue = new Vue({
       });
     },
     handleChartFiltersAvailability: function handleChartFiltersAvailability() {
-      var _this3 = this;
+      var _this4 = this;
 
       this.toggleFilterFormLoading();
       this.chartData = window.globalChartData; // console.log(this.chartData, this.inequalityRange);
 
       if (this.selectedFilters.selectedState) {
         this.chartData = this.chartData.filter(function (item) {
-          return item.state.id === _this3.selectedFilters.selectedState;
+          return item.state.id === _this4.selectedFilters.selectedState;
         });
       }
 
       if (this.selectedFilters.selectedRegion) {
         this.chartData = this.chartData.filter(function (item) {
-          return item.region.id === _this3.selectedFilters.selectedRegion;
+          return item.region.id === _this4.selectedFilters.selectedRegion;
+        });
+      }
+
+      if (this.selectedFilters.selectedInequality) {
+        this.chartData = this.chartData.filter(function (item) {
+          return item.range_inequality === _this4.selectedFilters.selectedInequality;
+        });
+      }
+
+      if (this.selectedFilters.selectedQuality) {
+        this.chartData = this.chartData.filter(function (item) {
+          return item.range_quality === _this4.selectedFilters.selectedQuality;
         });
       } // console.log(this.chartData, this.inequalityRange);
 
 
-      this.checkInequality();
+      this.checkRegion();
       this.checkQuality();
+      this.checkInequality();
       this.toggleFilterFormLoading();
     }
   }
