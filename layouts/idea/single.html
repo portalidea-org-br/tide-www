@@ -63,7 +63,7 @@
                       type="button"
                       class="js-show-advanced button--like-text"
                     >
-                      Configurações Avançadas
+                      Mais configurações
                     </button>
                     <button type="submit" class="button button--right button--red button--destak">Gerar gráfico</button>
                   </div>
@@ -91,27 +91,11 @@
                             type="radio"
                             name="region"
                             :value="index + 1"
-                            :id="region.id"
+                            :id="`region-${region.id}`"
                             :disabled="selectedFilters.selectedState"
                             >
-                            <label :for="region.id"> {{ "{{ region.name }}" }}</label>
+                            <label :for="`region-${region.id}`"> {{ "{{ region.name }}" }}</label>
                         </li>
-                        <!-- <li> -->
-                        <!--   <input type="radio" v&#45;model="region" name="region" value="2" id="nordeste"> -->
-                        <!--   <label for="nordeste">Nordeste</label> -->
-                        <!-- </li> -->
-                        <!-- <li> -->
-                        <!--   <input type="radio" v&#45;model="region" name="region" value="3" id="norte"> -->
-                        <!--   <label for="norte">Norte</label> -->
-                        <!-- </li> -->
-                        <!-- <li> -->
-                        <!--   <input type="radio" v&#45;model="region" name="region" value="4" id="sudeste"> -->
-                        <!--   <label for="sudeste">Sudeste</label> -->
-                        <!-- </li> -->
-                        <!-- <li> -->
-                        <!--   <input type="radio" v&#45;model="region" name="region" value="5" id="sul"> -->
-                        <!--   <label for="sul">Sul</label> -->
-                        <!-- </li> -->
                       </ul>
                       <button
                         class="chart-form__clear-section"
@@ -215,7 +199,7 @@
 
           <div class="charts__city-finder">
             <label for="city">
-              Município
+              Destaque um município
               <input id="js-city" type="text" placeholder="Ex. São Paulo" autocomplete="new-password" disabled>
             </label>
             <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>

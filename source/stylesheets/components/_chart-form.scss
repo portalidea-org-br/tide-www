@@ -19,12 +19,32 @@
   justify-content: center;
   width: 100%;
   margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.charts__city-finder label {
+  font-weight: bold;
+  font-size: ms(2);
+  text-align: center;
+  color: palette('purple');
+}
+
+.charts__city-finder input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  background-color: palette('white');
+  border: 1px solid palette('purple');
+  border-radius: 5px;
 }
 
 .charts .awesomplete {
   display: block;
-  width: 85%;
   margin-bottom: 0;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    min-width: 31rem;
+  }
 }
 
 .charts .awesomplete > ul > li {
@@ -321,6 +341,29 @@
 
 .chart-form__footer .button {
   margin-left: 0.5rem;
+}
+
+.chart-form__footer .button--like-text {
+  font-size: ms(1);
+  vertical-align: middle;
+
+  &::after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.3rem;
+    border-top: 7px solid palette('black');
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+    content: '';
+    transition: transform 0.3s;
+  }
+}
+
+.chart-form__footer .button--like-text.button--active {
+  &::after {
+    transform: rotate(180deg);
+  }
 }
 
 .chart-form__alert {

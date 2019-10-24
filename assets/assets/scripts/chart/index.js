@@ -7053,7 +7053,15 @@ function handleChartFilters() {
 
   if (showAdvancedFiltersButton && advancedFieldsContainer) {
     showAdvancedFiltersButton.addEventListener('click', function () {
-      advancedFieldsContainer.classList.toggle('chart-form__advanced-filters-container--active'); // advancedFieldsContainer.scrollIntoView();
+      advancedFieldsContainer.classList.toggle('chart-form__advanced-filters-container--active');
+      showAdvancedFiltersButton.classList.toggle('button--active');
+
+      if (showAdvancedFiltersButton.innerText === 'Mais configurações') {
+        showAdvancedFiltersButton.innerText = 'Fechar configurações';
+      } else {
+        showAdvancedFiltersButton.innerText = 'Mais configurações';
+      } // advancedFieldsContainer.scrollIntoView();
+
     });
   }
 
