@@ -92,7 +92,7 @@
                             name="region"
                             :value="index + 1"
                             :id="`region-${region.id}`"
-                            :disabled="selectedFilters.selectedState"
+                            :disabled="selectedFilters.selectedState || region.disabled"
                             >
                             <label :for="`region-${region.id}`"> {{ "{{ region.name }}" }}</label>
                         </li>
@@ -129,11 +129,20 @@
                           <option :value="null">Selecionar</option>
                           <option
                             v-for="(state, index) in states"
-                            :value="index + 1">
-                          {{ "{{ state }}" }}
+                            :value="state.id"
+                            :disabled="state.disabled"
+                          >
+                            {{ "{{ state.name }}" }}
                           </option>
                         </select>
                       </label>
+                      <button
+                        class="chart-form__clear-section"
+                        data-clear="region"
+                        @click.prevent="selectedFilters.selectedState = null"
+                        >
+                        Limpar seleção
+                      </button>
                     </div>
                   </div>
 
@@ -184,7 +193,13 @@
                     </div>
 
                     <div class="chart-form__group chart-form__submit">
-                      <input class="button button--like-text" type="reset" value="Limpar todos os filtros" />
+                      <input
+                        class="button button--like-text"
+                        type="reset"
+                        value="Limpar todos os filtros"
+                        @click.prevent="clearAllSelectedFilters"
+                      >
+
                       <button class="button button--destak button--purple" type="submit">Filtrar</button>
                     </div>
                   </div>

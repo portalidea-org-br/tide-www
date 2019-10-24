@@ -7391,7 +7391,88 @@ window.$vue = new Vue({
       name: 'sul',
       id: 5
     }],
-    states: ['Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará', 'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão', 'Minas Gerais', 'Mato Grosso do Sul', 'Mato Grosso', 'Pará', 'Paraíba', 'Paraná', 'Pernambuco', 'Piauí', 'Rio de Janeiro', 'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondônia', 'Roraima', 'Santa Catarina', 'São Paulo', 'Sergipe', 'Tocantins'],
+    states: [{
+      id: 1,
+      name: 'Acre'
+    }, {
+      id: 2,
+      name: 'Alagoas'
+    }, {
+      id: 3,
+      name: 'Amapá'
+    }, {
+      id: 4,
+      name: 'Amazonas'
+    }, {
+      id: 5,
+      name: 'Bahia'
+    }, {
+      id: 6,
+      name: 'Ceará'
+    }, {
+      id: 7,
+      name: 'Distrito Federal'
+    }, {
+      id: 8,
+      name: 'Espírito Santo'
+    }, {
+      id: 9,
+      name: 'Goiás'
+    }, {
+      id: 10,
+      name: 'Maranhão'
+    }, {
+      id: 11,
+      name: 'Minas Gerais'
+    }, {
+      id: 12,
+      name: 'Mato Grosso do Sul'
+    }, {
+      id: 13,
+      name: 'Mato Grosso'
+    }, {
+      id: 14,
+      name: 'Pará'
+    }, {
+      id: 15,
+      name: 'Paraíba'
+    }, {
+      id: 16,
+      name: 'Paraná'
+    }, {
+      id: 17,
+      name: 'Pernambuco'
+    }, {
+      id: 18,
+      name: 'Piauí'
+    }, {
+      id: 19,
+      name: 'Rio de Janeiro'
+    }, {
+      id: 20,
+      name: 'Rio Grande do Norte'
+    }, {
+      id: 21,
+      name: 'Rio Grande do Sul'
+    }, {
+      id: 22,
+      name: 'Rondônia'
+    }, {
+      id: 23,
+      name: 'Roraima'
+    }, {
+      id: 24,
+      name: 'Santa Catarina'
+    }, {
+      id: 25,
+      name: 'São Paulo'
+    }, {
+      id: 26,
+      name: 'Sergipe'
+    }, {
+      id: 27,
+      name: 'Tocantins'
+    }],
     inequalityRange: [{
       name: 'equidade',
       id: 'equidade'
@@ -7431,30 +7512,32 @@ window.$vue = new Vue({
     selectedFilters: {
       // eslint-disable-next-line object-shorthand
       handler: function handler() {
+        this.toggleFilterFormLoading();
         this.handleChartFiltersAvailability();
+        this.toggleFilterFormLoading();
       },
       deep: true
-    } // selectedFilters: function () {
-    // },
-    // deep: true,
-
+    }
   },
   created: function created() {},
   mounted: function mounted() {// this.chartData = window.chartData.data;
   },
   methods: {
-    // clearInput(toClear) {
-    //   console.log(this.toClear);
-    //   this.toClear;
-    // },
     toggleFilterFormLoading: function toggleFilterFormLoading() {
-      this.filterFormLoading = !this.toggleFilterFormLoading;
+      this.filterFormLoading = !this.filterFormLoading;
     },
-    checkRegion: function checkRegion() {
+    clearAllSelectedFilters: function clearAllSelectedFilters() {
       var _this = this;
 
+      Object.keys(this.selectedFilters).forEach(function (key) {
+        _this.selectedFilters[key] = null;
+      });
+    },
+    checkRegion: function checkRegion() {
+      var _this2 = this;
+
       this.regions = this.regions.filter(function (item) {
-        var itContains = _this.chartData.some(function (city) {
+        var itContains = _this2.chartData.some(function (city) {
           return city.region.id === item.id;
         });
 
@@ -7467,11 +7550,28 @@ window.$vue = new Vue({
         return item;
       });
     },
+    checkState: function checkState() {
+      var _this3 = this;
+
+      this.states = this.states.filter(function (item) {
+        var itContains = _this3.chartData.some(function (city) {
+          return city.state.id === item.id;
+        });
+
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+
+        return item;
+      });
+    },
     checkInequality: function checkInequality() {
-      var _this2 = this;
+      var _this4 = this;
 
       this.inequalityRange = this.inequalityRange.filter(function (item) {
-        var itContains = _this2.chartData.some(function (city) {
+        var itContains = _this4.chartData.some(function (city) {
           return city.range_inequality === item.id;
         });
 
@@ -7485,10 +7585,10 @@ window.$vue = new Vue({
       });
     },
     checkQuality: function checkQuality() {
-      var _this3 = this;
+      var _this5 = this;
 
       this.qualityRange = this.qualityRange.filter(function (item) {
-        var itContains = _this3.chartData.some(function (city) {
+        var itContains = _this5.chartData.some(function (city) {
           return city.range_quality === item.id;
         });
 
@@ -7502,40 +7602,38 @@ window.$vue = new Vue({
       });
     },
     handleChartFiltersAvailability: function handleChartFiltersAvailability() {
-      var _this4 = this;
+      var _this6 = this;
 
-      this.toggleFilterFormLoading();
-      this.chartData = window.globalChartData; // console.log(this.chartData, this.inequalityRange);
+      this.chartData = window.globalChartData;
 
       if (this.selectedFilters.selectedState) {
         this.chartData = this.chartData.filter(function (item) {
-          return item.state.id === _this4.selectedFilters.selectedState;
+          return item.state.id === _this6.selectedFilters.selectedState;
         });
       }
 
       if (this.selectedFilters.selectedRegion) {
         this.chartData = this.chartData.filter(function (item) {
-          return item.region.id === _this4.selectedFilters.selectedRegion;
+          return item.region.id === _this6.selectedFilters.selectedRegion;
         });
       }
 
       if (this.selectedFilters.selectedInequality) {
         this.chartData = this.chartData.filter(function (item) {
-          return item.range_inequality === _this4.selectedFilters.selectedInequality;
+          return item.range_inequality === _this6.selectedFilters.selectedInequality;
         });
       }
 
       if (this.selectedFilters.selectedQuality) {
         this.chartData = this.chartData.filter(function (item) {
-          return item.range_quality === _this4.selectedFilters.selectedQuality;
+          return item.range_quality === _this6.selectedFilters.selectedQuality;
         });
-      } // console.log(this.chartData, this.inequalityRange);
-
+      }
 
       this.checkRegion();
       this.checkQuality();
       this.checkInequality();
-      this.toggleFilterFormLoading();
+      this.checkState();
     }
   }
 });
