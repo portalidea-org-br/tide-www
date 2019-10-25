@@ -7044,6 +7044,7 @@ var _config = _interopRequireDefault(require("../../config"));
 function handleChartFilters() {
   var jsChartForm = document.getElementById('js-chart-form');
   var jsAxisForm = document.getElementById('js-axis-form');
+  var chartsContainer = document.querySelector('.charts');
   var cityInput = document.querySelector('#js-city');
   var highlightInput = document.getElementById('highlight'); // const stateInput = document.getElementById('state');
 
@@ -7151,9 +7152,7 @@ function handleChartFilters() {
 
   if (jsChartForm) {
     jsChartForm.addEventListener('submit', function (event) {
-      // debugger;
-      event.preventDefault(); // toggleLoading();
-
+      event.preventDefault();
       var formData = new FormData(event.target);
       var payload = {};
       payload.grade = formData.get('grade');
@@ -7176,12 +7175,14 @@ function handleChartFilters() {
       var formData = new FormData(event.target);
       var payload = {};
       payload.grade = formData.get('grade');
-      payload.xAxis = formData.get('xAxis'); // toggleLoading();
-
+      payload.xAxis = formData.get('xAxis');
+      (0, _plotCharts.toggleLoading)();
       (0, _plotCharts.populateChartData)(payload); // clearFilters();
 
       (0, _updateTableInfo.clearTableInfo)();
-      hideNoMatchesAlert(); // toggleLoading();
+      hideNoMatchesAlert();
+      chartsContainer.scrollIntoView();
+      (0, _plotCharts.toggleLoading)();
     });
   }
 
@@ -7277,14 +7278,7 @@ function handleChartFilters() {
       (0, _updateTableInfo.clearTableInfo)();
       highlightPoints(event.target.value);
     }, false);
-  } // if (stateInput) {
-  //   stateInput.addEventListener('change', (event) => {
-  //     clearFilters(event.target.id);
-  //     clearTableInfo();
-  //     highlightPoints('state', event.target.value);
-  //   }, false);
-  // }
-
+  }
 
   if (regionInput) {
     regionInput.addEventListener('change', function (event) {
@@ -7360,7 +7354,7 @@ function startRange() {
 "use strict";
 
 /* global Vue */
-// import './handleChartFilters';
+// import './index';
 var toPercentageFilter = function toPercentageFilter(value) {
   return "".concat(Math.round(parseFloat(value) * 100), "%");
 };
@@ -7742,12 +7736,14 @@ var _downloadCharts = _interopRequireDefault(require("./downloadCharts"));
 
 var _filter = _interopRequireDefault(require("./filter"));
 
+require("./filter/vueFilter");
+
 (0, _plotCharts.populateChartData)();
 (0, _downloadCharts.default)();
 (0, _sizeToggle.default)();
 (0, _filter.default)();
 
-},{"./downloadCharts":47,"./filter":50,"./plotCharts":55,"./sizeToggle":56,"@babel/runtime/helpers/interopRequireDefault":3}],55:[function(require,module,exports){
+},{"./downloadCharts":47,"./filter":50,"./filter/vueFilter":52,"./plotCharts":55,"./sizeToggle":56,"@babel/runtime/helpers/interopRequireDefault":3}],55:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");

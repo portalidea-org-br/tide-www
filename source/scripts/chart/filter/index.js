@@ -17,6 +17,7 @@ Exporting(Highcharts);
 export default function handleChartFilters() {
   const jsChartForm = document.getElementById('js-chart-form');
   const jsAxisForm = document.getElementById('js-axis-form');
+  const chartsContainer = document.querySelector('.charts');
   const cityInput = document.querySelector('#js-city');
   const highlightInput = document.getElementById('highlight');
   // const stateInput = document.getElementById('state');
@@ -92,10 +93,7 @@ export default function handleChartFilters() {
 
   if (jsChartForm) {
     jsChartForm.addEventListener('submit', (event) => {
-      // debugger;
       event.preventDefault();
-
-      // toggleLoading();
 
       const formData = new FormData(event.target);
       const payload = {};
@@ -124,12 +122,13 @@ export default function handleChartFilters() {
       payload.grade = formData.get('grade');
       payload.xAxis = formData.get('xAxis');
 
-      // toggleLoading();
+      toggleLoading();
       populateChartData(payload);
       // clearFilters();
       clearTableInfo();
       hideNoMatchesAlert();
-      // toggleLoading();
+      chartsContainer.scrollIntoView();
+      toggleLoading();
     });
   }
 
@@ -229,14 +228,6 @@ export default function handleChartFilters() {
       highlightPoints(event.target.value);
     }, false);
   }
-
-  // if (stateInput) {
-  //   stateInput.addEventListener('change', (event) => {
-  //     clearFilters(event.target.id);
-  //     clearTableInfo();
-  //     highlightPoints('state', event.target.value);
-  //   }, false);
-  // }
 
   if (regionInput) {
     regionInput.addEventListener('change', (event) => {

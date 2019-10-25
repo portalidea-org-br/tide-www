@@ -1,5 +1,5 @@
 /* global Vue */
-// import './handleChartFilters';
+// import './index';
 
 const toPercentageFilter = function toPercentageFilter(value) {
   return `${Math.round(parseFloat(value) * 100)}%`;

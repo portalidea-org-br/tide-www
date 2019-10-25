@@ -72,7 +72,13 @@
           </div>
         </form>
 
-        <form action="" method="post" id="js-chart-form" class="chart-form" :disabled="filterFormLoading">
+        <form
+          method="post"
+          id="js-chart-form"
+          class="chart-form"
+          :disabled="filterFormLoading"
+          ref="js-chart-form"
+        >
           <div class="chart-form__advanced-filters-container js-advanced-filters-container">
               <div class="container">
                 <div class="chart-form__advanced-filters js-advanced-filters">
@@ -197,7 +203,7 @@
                         class="button button--like-text"
                         type="reset"
                         value="Limpar todos os filtros"
-                        @click.prevent="clearAllSelectedFilters"
+                       @click.prevent="clearAllSelectedFilters"
                       >
 
                       <button class="button button--destak button--purple" type="submit">Filtrar</button>
