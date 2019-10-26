@@ -1,5 +1,5 @@
 /* global Vue */
-// import './index';
+import { submitAxisInfo } from './handleAxisForm';
 
 const toPercentageFilter = function toPercentageFilter(value) {
   return `${Math.round(parseFloat(value) * 100)}%`;
@@ -109,6 +109,7 @@ window.$vue = new Vue({
       Object.keys(this.selectedFilters).forEach((key) => {
         this.selectedFilters[key] = null;
       });
+      submitAxisInfo();
     },
     checkRegion() {
       this.regions = this.regions.filter((item) => {

@@ -194,14 +194,8 @@ function toggleLoading() {
     return;
   }
 
-  if (!isLoading) {
-    ptChart.showLoading();
-    matChart.showLoading();
-  } else {
-    ptChart.hideLoading();
-    matChart.hideLoading();
-  }
-  isLoading = !isLoading;
+  ptChart.showLoading();
+  matChart.showLoading();
 }
 
 function setRangeValues(ptItems, matItems) {
@@ -289,7 +283,6 @@ async function populateChartData(payload) {
       drawChart(formatedMatItems, 'mat');
     } catch (err) {
       window.console.log(err);
-      toggleLoading();
     }
   }
 }

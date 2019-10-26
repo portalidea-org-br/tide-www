@@ -6957,6 +6957,187 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.handleAxisForm = handleAxisForm;
+exports.submitAxisInfo = submitAxisInfo;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _highcharts = _interopRequireDefault(require("highcharts"));
+
+var _exporting = _interopRequireDefault(require("highcharts/modules/exporting"));
+
+var _hideNoMatchesAlert = _interopRequireDefault(require("./hideNoMatchesAlert"));
+
+var _handleChartForm = require("./handleChartForm");
+
+var _plotCharts = require("../plotCharts");
+
+var _updateTableInfo = require("../updateTableInfo");
+
+(0, _exporting.default)(_highcharts.default);
+var chartsContainer = document.querySelector('.charts');
+
+function handleSelectedFilters() {
+  // console.log(window.$vue.$data.selectedFilters);
+  var values = Object.values(window.$vue.$data.selectedFilters);
+  var hasFilters = values.some(function (el) {
+    return el;
+  });
+
+  if (hasFilters) {
+    console.log('hasFilters');
+    (0, _handleChartForm.submitChartFormInfo)();
+  }
+}
+
+function submitAxisInfo() {
+  return _submitAxisInfo.apply(this, arguments);
+}
+
+function _submitAxisInfo() {
+  _submitAxisInfo = (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee() {
+    var jsAxisForm, formData, payload;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            jsAxisForm = document.querySelector('#js-axis-form');
+            (0, _plotCharts.toggleLoading)();
+            chartsContainer.scrollIntoView();
+            formData = new FormData(jsAxisForm);
+            payload = {};
+            payload.grade = formData.get('grade');
+            payload.xAxis = formData.get('xAxis');
+            _context.next = 9;
+            return (0, _plotCharts.populateChartData)(payload);
+
+          case 9:
+            (0, _updateTableInfo.clearTableInfo)();
+            (0, _hideNoMatchesAlert.default)();
+            handleSelectedFilters();
+
+          case 12:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+  return _submitAxisInfo.apply(this, arguments);
+}
+
+function handleAxisForm() {
+  var jsAxisForm = document.querySelector('#js-axis-form');
+
+  if (jsAxisForm) {
+    jsAxisForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      submitAxisInfo(event);
+    });
+  }
+}
+
+},{"../plotCharts":58,"../updateTableInfo":61,"./handleChartForm":50,"./hideNoMatchesAlert":51,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],50:[function(require,module,exports){
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.handleChartForm = handleChartForm;
+exports.submitChartFormInfo = submitChartFormInfo;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _highcharts = _interopRequireDefault(require("highcharts"));
+
+var _exporting = _interopRequireDefault(require("highcharts/modules/exporting"));
+
+var _hideNoMatchesAlert = _interopRequireDefault(require("./hideNoMatchesAlert"));
+
+var _updateTableInfo = require("../updateTableInfo");
+
+var _plotCharts = require("../plotCharts");
+
+(0, _exporting.default)(_highcharts.default);
+
+function submitChartFormInfo() {
+  return _submitChartFormInfo.apply(this, arguments);
+}
+
+function _submitChartFormInfo() {
+  _submitChartFormInfo = (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee() {
+    var jsChartForm, chartsContainer, formData, payload;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            jsChartForm = document.querySelector('#js-chart-form');
+            chartsContainer = document.querySelector('.charts');
+            formData = new FormData(jsChartForm);
+            payload = {};
+            payload.grade = formData.get('grade');
+            payload.xAxis = formData.get('xAxis');
+            payload.region = formData.get('region');
+            payload.state = formData.get('state');
+            payload.inequality = formData.get('inequality');
+            payload.quality = formData.get('quality');
+            (0, _plotCharts.toggleLoading)();
+            (0, _plotCharts.populateChartData)(payload, true);
+            (0, _updateTableInfo.clearTableInfo)();
+            (0, _hideNoMatchesAlert.default)();
+            chartsContainer.scrollIntoView();
+
+          case 15:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+  return _submitChartFormInfo.apply(this, arguments);
+}
+
+function handleChartForm() {
+  var jsChartForm = document.querySelector('#js-chart-form');
+
+  if (jsChartForm) {
+    jsChartForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      submitChartFormInfo();
+    });
+  }
+}
+
+},{"../plotCharts":58,"../updateTableInfo":61,"./hideNoMatchesAlert":51,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],51:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = hideNoMatchesAlert;
+
+function hideNoMatchesAlert() {
+  document.querySelector('.js-no-matches').setAttribute('hidden', true);
+}
+
+},{}],52:[function(require,module,exports){
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.hideNoMatchesAlert = hideNoMatchesAlert;
 exports.highlightPoint = highlightPoint;
 
@@ -6970,10 +7151,20 @@ var _updateHelperText = _interopRequireDefault(require("../updateHelperText"));
 
 function hideNoMatchesAlert() {
   document.querySelector('.js-no-matches').setAttribute('hidden', true);
+  document.querySelector('.js-pt-no-matches').setAttribute('hidden', true);
+  document.querySelector('.js-mat-no-matches').setAttribute('hidden', true);
 }
 
-function showNoMatchesAlert() {
-  document.querySelector('.js-no-matches').removeAttribute('hidden');
+function showNoMatchesAlert(where) {
+  if (where === 'pt') {
+    return document.querySelector('.js-pt-no-matches').removeAttribute('hidden');
+  }
+
+  if (where === 'mat') {
+    return document.querySelector('.js-mat-no-matches').removeAttribute('hidden');
+  }
+
+  return document.querySelector('.js-no-matches').removeAttribute('hidden');
 } // Highlight city
 
 
@@ -6985,22 +7176,40 @@ function highlightPoint(id) {
 
   var matChart = _highcharts.default.charts[_highcharts.default.attr(matChartDom, 'data-highcharts-chart')];
 
-  var ptPoint = ptChart.get(id);
-  var matPoint = matChart.get(id);
+  var selectedPtPoints = ptChart.getSelectedPoints();
+  var selectedMatPoints = matChart.getSelectedPoints();
 
-  if (ptPoint === undefined || matPoint === undefined) {
-    return showNoMatchesAlert();
+  if (selectedPtPoints.length > 0) {
+    selectedPtPoints[0].select();
   }
 
-  ptPoint.graphic.toFront();
-  ptPoint.select();
-  matPoint.graphic.toFront();
-  matPoint.select();
+  if (selectedMatPoints.length > 0) {
+    selectedMatPoints[0].select();
+  }
+
+  var ptPoint = ptChart.get(id);
+  var matPoint = matChart.get(id);
+  hideNoMatchesAlert();
+
+  if (ptPoint === undefined) {
+    showNoMatchesAlert('pt');
+  } else {
+    ptPoint.graphic.toFront();
+    ptPoint.select();
+  }
+
+  if (matPoint === undefined) {
+    showNoMatchesAlert('mat');
+  } else {
+    matPoint.graphic.toFront();
+    matPoint.select();
+  }
+
   (0, _updateHelperText.default)(id);
   return true;
 }
 
-},{"../updateHelperText":57,"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],50:[function(require,module,exports){
+},{"../updateHelperText":60,"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],53:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7026,9 +7235,13 @@ var _fuzzysort = _interopRequireDefault(require("fuzzysort"));
 
 var _noUiSlider = _interopRequireDefault(require("./noUiSlider"));
 
+var _handleChartForm = require("./handleChartForm");
+
+var _hideNoMatchesAlert = _interopRequireDefault(require("./hideNoMatchesAlert"));
+
 var _updateTableInfo = require("../updateTableInfo");
 
-var _plotCharts = require("../plotCharts");
+var _handleAxisForm = require("./handleAxisForm");
 
 var _clearFilters = _interopRequireDefault(require("./clearFilters"));
 
@@ -7042,13 +7255,7 @@ var _config = _interopRequireDefault(require("../../config"));
 (0, _exporting.default)(_highcharts.default);
 
 function handleChartFilters() {
-  var jsChartForm = document.getElementById('js-chart-form');
-  var jsAxisForm = document.getElementById('js-axis-form');
-  var chartsContainer = document.querySelector('.charts');
   var cityInput = document.querySelector('#js-city');
-  var highlightInput = document.getElementById('highlight'); // const stateInput = document.getElementById('state');
-
-  var regionInput = document.getElementById('region');
   var showAdvancedFiltersButton = document.querySelector('.js-show-advanced');
   var advancedFieldsContainer = document.querySelector('.js-advanced-filters-container');
 
@@ -7129,141 +7336,9 @@ function handleChartFilters() {
     return _populateCitiesList.apply(this, arguments);
   }
 
-  function hideNoMatchesAlert() {
-    document.querySelector('.js-no-matches').setAttribute('hidden', true);
-  }
-
-  function clearHighlightedPoints() {
-    var ptChartDom = document.getElementById('pt-chart');
-    var matChartDom = document.getElementById('mat-chart');
-
-    var ptChart = _highcharts.default.charts[_highcharts.default.attr(ptChartDom, 'data-highcharts-chart')];
-
-    var matChart = _highcharts.default.charts[_highcharts.default.attr(matChartDom, 'data-highcharts-chart')];
-
-    var selectedPtPoints = ptChart.getSelectedPoints();
-    var selectedMatPoints = matChart.getSelectedPoints();
-
-    if (selectedPtPoints[0]) {
-      selectedPtPoints[0].select();
-      selectedMatPoints[0].select();
-    }
-  }
-
-  if (jsChartForm) {
-    jsChartForm.addEventListener('submit', function (event) {
-      event.preventDefault();
-      var formData = new FormData(event.target);
-      var payload = {};
-      payload.grade = formData.get('grade');
-      payload.xAxis = formData.get('xAxis');
-      payload.region = formData.get('region');
-      payload.state = formData.get('state');
-      payload.inequality = formData.get('inequality');
-      payload.quality = formData.get('quality');
-      (0, _plotCharts.toggleLoading)();
-      (0, _plotCharts.populateChartData)(payload, true); // clearFilters();
-
-      (0, _updateTableInfo.clearTableInfo)();
-      hideNoMatchesAlert();
-    });
-  }
-
-  if (jsAxisForm) {
-    jsAxisForm.addEventListener('submit', function (event) {
-      event.preventDefault();
-      var formData = new FormData(event.target);
-      var payload = {};
-      payload.grade = formData.get('grade');
-      payload.xAxis = formData.get('xAxis');
-      (0, _plotCharts.toggleLoading)();
-      (0, _plotCharts.populateChartData)(payload); // clearFilters();
-
-      (0, _updateTableInfo.clearTableInfo)();
-      hideNoMatchesAlert();
-      chartsContainer.scrollIntoView();
-      (0, _plotCharts.toggleLoading)();
-    });
-  }
-
-  function highlightPoints(parameter, value) {
-    var ptChartDom = document.getElementById('pt-chart');
-    var matChartDom = document.getElementById('mat-chart');
-
-    var ptChart = _highcharts.default.charts[_highcharts.default.attr(ptChartDom, 'data-highcharts-chart')];
-
-    var matChart = _highcharts.default.charts[_highcharts.default.attr(matChartDom, 'data-highcharts-chart')];
-
-    clearHighlightedPoints();
-
-    if (parameter === 'big-cities') {
-      ptChart.series[0].points.forEach(function (point) {
-        if (point.options.is_big_town === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-      matChart.series[0].points.forEach(function (point) {
-        if (point.options.is_big_town === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'capital') {
-      ptChart.series[0].points.forEach(function (point) {
-        if (point.options.is_capital === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-      matChart.series[0].points.forEach(function (point) {
-        if (point.options.is_capital === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'state') {
-      ptChart.series[0].points.forEach(function (point) {
-        if (point.options.state === value) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-      matChart.series[0].points.forEach(function (point) {
-        if (point.options.state === value) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'region') {
-      ptChart.series[0].points.forEach(function (point) {
-        if (point.options.region === Number(value)) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-      matChart.series[0].points.forEach(function (point) {
-        if (point.options.region === Number(value)) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'none') {
-      clearHighlightedPoints();
-    }
-  }
-
   if (cityInput) {
     cityInput.addEventListener('input', function () {
-      hideNoMatchesAlert();
+      (0, _hideNoMatchesAlert.default)();
     }, false);
     cityInput.addEventListener('awesomplete-selectcomplete', function (event) {
       (0, _clearFilters.default)(event.target.id);
@@ -7272,27 +7347,13 @@ function handleChartFilters() {
     }, false);
   }
 
-  if (highlightInput) {
-    highlightInput.addEventListener('change', function (event) {
-      (0, _clearFilters.default)(event.target.id);
-      (0, _updateTableInfo.clearTableInfo)();
-      highlightPoints(event.target.value);
-    }, false);
-  }
-
-  if (regionInput) {
-    regionInput.addEventListener('change', function (event) {
-      (0, _clearFilters.default)(event.target.id);
-      (0, _updateTableInfo.clearTableInfo)();
-      highlightPoints('region', event.target.value);
-    }, false);
-  }
-
   populateCitiesList();
   (0, _noUiSlider.default)();
+  (0, _handleChartForm.handleChartForm)();
+  (0, _handleAxisForm.handleAxisForm)();
 }
 
-},{"../../config":59,"../plotCharts":55,"../updateTableInfo":58,"./clearFilters":48,"./highlightPoint":49,"./noUiSlider":51,"./vueFilter":52,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"awesomplete":11,"axios":12,"fuzzysort":38,"highcharts":39,"highcharts/modules/exporting":40}],51:[function(require,module,exports){
+},{"../../config":62,"../updateTableInfo":61,"./clearFilters":48,"./handleAxisForm":49,"./handleChartForm":50,"./hideNoMatchesAlert":51,"./highlightPoint":52,"./noUiSlider":54,"./vueFilter":55,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"awesomplete":11,"axios":12,"fuzzysort":38,"highcharts":39,"highcharts/modules/exporting":40}],54:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7350,11 +7411,12 @@ function startRange() {
   window.range = range;
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/interopRequireWildcard":4,"nouislider/distribute/nouislider":41,"numbro":42,"numbro/languages/pt-BR":43}],52:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/interopRequireWildcard":4,"nouislider/distribute/nouislider":41,"numbro":42,"numbro/languages/pt-BR":43}],55:[function(require,module,exports){
 "use strict";
 
+var _handleAxisForm = require("./handleAxisForm");
+
 /* global Vue */
-// import './index';
 var toPercentageFilter = function toPercentageFilter(value) {
   return "".concat(Math.round(parseFloat(value) * 100), "%");
 };
@@ -7526,6 +7588,7 @@ window.$vue = new Vue({
       Object.keys(this.selectedFilters).forEach(function (key) {
         _this.selectedFilters[key] = null;
       });
+      (0, _handleAxisForm.submitAxisInfo)();
     },
     checkRegion: function checkRegion() {
       var _this2 = this;
@@ -7632,7 +7695,7 @@ window.$vue = new Vue({
   }
 });
 
-},{}],53:[function(require,module,exports){
+},{"./handleAxisForm":49}],56:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7723,7 +7786,7 @@ function getChartData(receivedPayload) {
   return populateGlobalChartData();
 }
 
-},{"../config":59,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"axios":12}],54:[function(require,module,exports){
+},{"../config":62,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"axios":12}],57:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7743,7 +7806,7 @@ require("./filter/vueFilter");
 (0, _sizeToggle.default)();
 (0, _filter.default)();
 
-},{"./downloadCharts":47,"./filter":50,"./filter/vueFilter":52,"./plotCharts":55,"./sizeToggle":56,"@babel/runtime/helpers/interopRequireDefault":3}],55:[function(require,module,exports){
+},{"./downloadCharts":47,"./filter":53,"./filter/vueFilter":55,"./plotCharts":58,"./sizeToggle":59,"@babel/runtime/helpers/interopRequireDefault":3}],58:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7965,15 +8028,8 @@ function toggleLoading() {
     return;
   }
 
-  if (!isLoading) {
-    ptChart.showLoading();
-    matChart.showLoading();
-  } else {
-    ptChart.hideLoading();
-    matChart.hideLoading();
-  }
-
-  isLoading = !isLoading;
+  ptChart.showLoading();
+  matChart.showLoading();
 }
 
 function setRangeValues(ptItems, matItems) {
@@ -8012,7 +8068,7 @@ function _populateChartData() {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 32;
+              _context.next = 31;
               break;
             }
 
@@ -8089,16 +8145,15 @@ function _populateChartData() {
 
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 32;
+            _context.next = 31;
             break;
 
           case 28:
             _context.prev = 28;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
-            toggleLoading();
 
-          case 32:
+          case 31:
           case "end":
             return _context.stop();
         }
@@ -8108,7 +8163,7 @@ function _populateChartData() {
   return _populateChartData.apply(this, arguments);
 }
 
-},{"./addTableDestak":46,"./filter/clearFilters":48,"./filter/highlightPoint":49,"./getChartData":53,"./updateHelperText":57,"./updateTableInfo":58,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/toConsumableArray":7,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],56:[function(require,module,exports){
+},{"./addTableDestak":46,"./filter/clearFilters":48,"./filter/highlightPoint":52,"./getChartData":56,"./updateHelperText":60,"./updateTableInfo":61,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/toConsumableArray":7,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],59:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -8186,7 +8241,7 @@ function sizeToggle() {
   }
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],57:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],60:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8247,7 +8302,7 @@ function updateHelperText(cityId) {
   helperText.querySelector('.js-mat-inequality').textContent = helperTextDictionary[matInfo.range_inequality];
 }
 
-},{}],58:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -8386,7 +8441,7 @@ function clearTableInfo() {
   matTable.querySelector('.js-quality').textContent = '';
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],59:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],62:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8400,4 +8455,4 @@ var _default = {
 };
 exports.default = _default;
 
-},{}]},{},[54]);
+},{}]},{},[57]);
