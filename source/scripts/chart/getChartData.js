@@ -3,10 +3,8 @@ import config from '../config';
 
 export default function getChartData(receivedPayload) {
   let chartData = {};
-  let firstLoad;
 
   if (receivedPayload === undefined) {
-    firstLoad = true;
     chartData = {
       grade: 5,
       xAxis: 'racial',
@@ -31,9 +29,7 @@ export default function getChartData(receivedPayload) {
       const response = await axios.get(url);
       chartData.data = response.data.data;
       window.chartData = chartData;
-      if (firstLoad) {
-        window.globalChartData = chartData.data;
-      }
+      window.$vue.$data.chartData = chartData.data;
     } catch (error) {
       window.console.error(error);
     }

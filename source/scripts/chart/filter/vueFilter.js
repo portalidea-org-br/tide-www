@@ -160,8 +160,6 @@ window.$vue = new Vue({
       });
     },
     handleChartFiltersAvailability() {
-      this.chartData = window.globalChartData;
-
       if (this.selectedFilters.selectedState) {
         this.chartData = this.chartData.filter(
           item => item.state.id === this.selectedFilters.selectedState,

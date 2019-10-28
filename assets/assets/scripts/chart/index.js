@@ -7649,8 +7649,6 @@ window.$vue = new Vue({
     handleChartFiltersAvailability: function handleChartFiltersAvailability() {
       var _this6 = this;
 
-      this.chartData = window.globalChartData;
-
       if (this.selectedFilters.selectedState) {
         this.chartData = this.chartData.filter(function (item) {
           return item.state.id === _this6.selectedFilters.selectedState;
@@ -7703,10 +7701,8 @@ var _config = _interopRequireDefault(require("../config"));
 
 function getChartData(receivedPayload) {
   var chartData = {};
-  var firstLoad;
 
   if (receivedPayload === undefined) {
-    firstLoad = true;
     chartData = {
       grade: 5,
       xAxis: 'racial'
@@ -7748,11 +7744,7 @@ function getChartData(receivedPayload) {
               response = _context.sent;
               chartData.data = response.data.data;
               window.chartData = chartData;
-
-              if (firstLoad) {
-                window.globalChartData = chartData.data;
-              }
-
+              window.$vue.$data.chartData = chartData.data;
               _context.next = 12;
               break;
 
