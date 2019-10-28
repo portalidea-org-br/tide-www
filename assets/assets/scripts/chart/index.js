@@ -7256,22 +7256,6 @@ var _config = _interopRequireDefault(require("../../config"));
 
 function handleChartFilters() {
   var cityInput = document.querySelector('#js-city');
-  var showAdvancedFiltersButton = document.querySelector('.js-show-advanced');
-  var advancedFieldsContainer = document.querySelector('.js-advanced-filters-container');
-
-  if (showAdvancedFiltersButton && advancedFieldsContainer) {
-    showAdvancedFiltersButton.addEventListener('click', function () {
-      advancedFieldsContainer.classList.toggle('chart-form__advanced-filters-container--active');
-      showAdvancedFiltersButton.classList.toggle('button--active');
-
-      if (showAdvancedFiltersButton.innerText === 'Mais configurações') {
-        showAdvancedFiltersButton.innerText = 'Fechar configurações';
-      } else {
-        showAdvancedFiltersButton.innerText = 'Mais configurações';
-      } // advancedFieldsContainer.scrollIntoView();
-
-    });
-  }
 
   function getCities() {
     var url = "".concat(_config.default.api.domain, "cities");
@@ -7561,7 +7545,8 @@ window.$vue = new Vue({
       name: 'alta',
       id: 'alta'
     }],
-    filterFormLoading: false
+    filterFormLoading: false,
+    showAdvancedFilters: false
   },
   watch: {
     // whenever question changes, this function will run
@@ -7581,6 +7566,9 @@ window.$vue = new Vue({
   methods: {
     toggleFilterFormLoading: function toggleFilterFormLoading() {
       this.filterFormLoading = !this.filterFormLoading;
+    },
+    toggleAdvancedFilters: function toggleAdvancedFilters() {
+      this.showAdvancedFilters = !this.showAdvancedFilters;
     },
     clearAllSelectedFilters: function clearAllSelectedFilters() {
       var _this = this;

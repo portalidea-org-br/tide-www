@@ -18,21 +18,6 @@ Exporting(Highcharts);
 
 export default function handleChartFilters() {
   const cityInput = document.querySelector('#js-city');
-  const showAdvancedFiltersButton = document.querySelector('.js-show-advanced');
-  const advancedFieldsContainer = document.querySelector('.js-advanced-filters-container');
-
-  if (showAdvancedFiltersButton && advancedFieldsContainer) {
-    showAdvancedFiltersButton.addEventListener('click', () => {
-      advancedFieldsContainer.classList.toggle('chart-form__advanced-filters-container--active');
-      showAdvancedFiltersButton.classList.toggle('button--active');
-      if (showAdvancedFiltersButton.innerText === 'Mais configurações') {
-        showAdvancedFiltersButton.innerText = 'Fechar configurações';
-      } else {
-        showAdvancedFiltersButton.innerText = 'Mais configurações';
-      }
-      // advancedFieldsContainer.scrollIntoView();
-    });
-  }
 
   function getCities() {
     const url = `${config.api.domain}cities`;

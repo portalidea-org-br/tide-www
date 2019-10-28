@@ -62,8 +62,10 @@
                     <button
                       type="button"
                       class="js-show-advanced button--like-text"
+                      :class="{ active: showAdvancedFilters }"
+                      @click.prevent="toggleAdvancedFilters"
                     >
-                      Mais configurações
+                    {{ "{{ showAdvancedFilters ? 'Fechar configurações' : 'Mais configurações' }}" }}
                     </button>
                     <button type="submit" class="button button--right button--red button--destak">Gerar gráfico</button>
                   </div>
@@ -79,7 +81,10 @@
           :disabled="filterFormLoading"
           ref="js-chart-form"
         >
-          <div class="chart-form__advanced-filters-container js-advanced-filters-container">
+          <div
+            class="chart-form__advanced-filters-container js-advanced-filters-container"
+            :class="{ 'chart-form__advanced-filters-container--active': showAdvancedFilters }"
+          >
               <div class="container">
                 <div class="chart-form__advanced-filters js-advanced-filters">
                   <p class="big-text">

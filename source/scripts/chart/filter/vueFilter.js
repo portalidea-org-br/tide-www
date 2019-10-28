@@ -84,6 +84,7 @@ window.$vue = new Vue({
 
     ],
     filterFormLoading: false,
+    showAdvancedFilters: false,
   },
   watch: {
     // whenever question changes, this function will run
@@ -104,6 +105,9 @@ window.$vue = new Vue({
   methods: {
     toggleFilterFormLoading() {
       this.filterFormLoading = !this.filterFormLoading;
+    },
+    toggleAdvancedFilters() {
+      this.showAdvancedFilters = !this.showAdvancedFilters;
     },
     clearAllSelectedFilters() {
       Object.keys(this.selectedFilters).forEach((key) => {
