@@ -11930,7 +11930,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _default = {
   api: {
-    domain: window.location.hostname.indexOf('portalidea.org.br') !== -1 ? 'https://api.portalidea.org.br/api/' : 'https://api.portalidea.org.br/api/'
+    domain: window.location.hostname.indexOf('portalidea.org.br') !== -1 ? 'https://api.portalidea.org.br/api/' : 'https://dapitide.eokoe.com/api/'
   }
 };
 exports.default = _default;

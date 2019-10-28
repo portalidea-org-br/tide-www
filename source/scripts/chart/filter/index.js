@@ -9,6 +9,7 @@ import { handleChartForm } from './handleChartForm';
 import hideNoMatchesAlert from './hideNoMatchesAlert';
 import { updateTableInfo } from '../updateTableInfo';
 import { handleAxisForm } from './handleAxisForm';
+import { showCity } from './showCity';
 import clearFilters from './clearFilters';
 import './vueFilter';
 import { highlightPoint } from './highlightPoint';
@@ -58,7 +59,8 @@ export default function handleChartFilters() {
 
     cityInput.addEventListener('awesomplete-selectcomplete', (event) => {
       clearFilters(event.target.id);
-      highlightPoint(event.text.value);
+      // highlightPoint(event.text.value);
+      showCity(event.text.value);
       updateTableInfo(event.text.value, window.chartData.xAxis, window.chartData.data);
     }, false);
   }

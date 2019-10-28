@@ -7041,7 +7041,7 @@ function handleAxisForm() {
   }
 }
 
-},{"../plotCharts":58,"../updateTableInfo":61,"./handleChartForm":50,"./hideNoMatchesAlert":51,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],50:[function(require,module,exports){
+},{"../plotCharts":59,"../updateTableInfo":62,"./handleChartForm":50,"./hideNoMatchesAlert":51,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],50:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7118,7 +7118,7 @@ function handleChartForm() {
   }
 }
 
-},{"../plotCharts":58,"../updateTableInfo":61,"./hideNoMatchesAlert":51,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],51:[function(require,module,exports){
+},{"../plotCharts":59,"../updateTableInfo":62,"./hideNoMatchesAlert":51,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],51:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7209,7 +7209,7 @@ function highlightPoint(id) {
   return true;
 }
 
-},{"../updateHelperText":60,"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],53:[function(require,module,exports){
+},{"../updateHelperText":61,"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],53:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7242,6 +7242,8 @@ var _hideNoMatchesAlert = _interopRequireDefault(require("./hideNoMatchesAlert")
 var _updateTableInfo = require("../updateTableInfo");
 
 var _handleAxisForm = require("./handleAxisForm");
+
+var _showCity = require("./showCity");
 
 var _clearFilters = _interopRequireDefault(require("./clearFilters"));
 
@@ -7325,8 +7327,9 @@ function handleChartFilters() {
       (0, _hideNoMatchesAlert.default)();
     }, false);
     cityInput.addEventListener('awesomplete-selectcomplete', function (event) {
-      (0, _clearFilters.default)(event.target.id);
-      (0, _highlightPoint.highlightPoint)(event.text.value);
+      (0, _clearFilters.default)(event.target.id); // highlightPoint(event.text.value);
+
+      (0, _showCity.showCity)(event.text.value);
       (0, _updateTableInfo.updateTableInfo)(event.text.value, window.chartData.xAxis, window.chartData.data);
     }, false);
   }
@@ -7337,7 +7340,7 @@ function handleChartFilters() {
   (0, _handleAxisForm.handleAxisForm)();
 }
 
-},{"../../config":62,"../updateTableInfo":61,"./clearFilters":48,"./handleAxisForm":49,"./handleChartForm":50,"./hideNoMatchesAlert":51,"./highlightPoint":52,"./noUiSlider":54,"./vueFilter":55,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"awesomplete":11,"axios":12,"fuzzysort":38,"highcharts":39,"highcharts/modules/exporting":40}],54:[function(require,module,exports){
+},{"../../config":63,"../updateTableInfo":62,"./clearFilters":48,"./handleAxisForm":49,"./handleChartForm":50,"./hideNoMatchesAlert":51,"./highlightPoint":52,"./noUiSlider":54,"./showCity":55,"./vueFilter":56,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"awesomplete":11,"axios":12,"fuzzysort":38,"highcharts":39,"highcharts/modules/exporting":40}],54:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7396,6 +7399,146 @@ function startRange() {
 }
 
 },{"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/interopRequireWildcard":4,"nouislider/distribute/nouislider":41,"numbro":42,"numbro/languages/pt-BR":43}],55:[function(require,module,exports){
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.showCity = showCity;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _highcharts = _interopRequireDefault(require("highcharts"));
+
+var _exporting = _interopRequireDefault(require("highcharts/modules/exporting"));
+
+var _axios = _interopRequireDefault(require("axios"));
+
+var _updateHelperText = _interopRequireDefault(require("../updateHelperText"));
+
+var _config = _interopRequireDefault(require("../../config"));
+
+(0, _exporting.default)(_highcharts.default);
+
+function hideNoMatchesAlert() {
+  document.querySelector('.js-no-matches').setAttribute('hidden', true);
+  document.querySelector('.js-pt-no-matches').setAttribute('hidden', true);
+  document.querySelector('.js-mat-no-matches').setAttribute('hidden', true);
+}
+
+function showNoMatchesAlert(where) {
+  if (where === 'pt') {
+    return document.querySelector('.js-pt-no-matches').removeAttribute('hidden');
+  }
+
+  if (where === 'mat') {
+    return document.querySelector('.js-mat-no-matches').removeAttribute('hidden');
+  }
+
+  return document.querySelector('.js-no-matches').removeAttribute('hidden');
+}
+
+function getCity(_x) {
+  return _getCity.apply(this, arguments);
+} // Highlight city
+
+
+function _getCity() {
+  _getCity = (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee(cityId) {
+    var city;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _axios.default.get("".concat(_config.default.api.domain, "data?school_grade=").concat(window.chartData.grade, "&x=").concat(window.chartData.xAxis, "&city_id=").concat(cityId));
+
+          case 2:
+            city = _context.sent;
+            return _context.abrupt("return", city.data.data);
+
+          case 4:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+  return _getCity.apply(this, arguments);
+}
+
+function showCity(_x2) {
+  return _showCity.apply(this, arguments);
+}
+
+function _showCity() {
+  _showCity = (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee2(id) {
+    var ptChartDom, matChartDom, ptChart, matChart, selectedPtPoints, selectedMatPoints, city, ptPoint, matPoint;
+    return _regenerator.default.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            ptChartDom = document.getElementById('pt-chart');
+            matChartDom = document.getElementById('mat-chart');
+            ptChart = _highcharts.default.charts[_highcharts.default.attr(ptChartDom, 'data-highcharts-chart')];
+            matChart = _highcharts.default.charts[_highcharts.default.attr(matChartDom, 'data-highcharts-chart')];
+            selectedPtPoints = ptChart.getSelectedPoints();
+            selectedMatPoints = matChart.getSelectedPoints();
+
+            if (selectedPtPoints.length > 0) {
+              selectedPtPoints[0].select();
+            }
+
+            if (selectedMatPoints.length > 0) {
+              selectedMatPoints[0].select();
+            }
+
+            _context2.next = 10;
+            return getCity(id);
+
+          case 10:
+            city = _context2.sent;
+            debugger;
+            ptPoint = ptChart.get(id);
+            matPoint = matChart.get(id);
+            hideNoMatchesAlert();
+
+            if (ptPoint === undefined) {
+              showNoMatchesAlert('pt');
+            } else {
+              ptPoint.graphic.toFront();
+              ptPoint.select();
+            }
+
+            if (matPoint === undefined) {
+              showNoMatchesAlert('mat');
+            } else {
+              matPoint.graphic.toFront();
+              matPoint.select();
+            }
+
+            (0, _updateHelperText.default)(id);
+            return _context2.abrupt("return", true);
+
+          case 19:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, this);
+  }));
+  return _showCity.apply(this, arguments);
+}
+
+},{"../../config":63,"../updateHelperText":61,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"axios":12,"highcharts":39,"highcharts/modules/exporting":40}],56:[function(require,module,exports){
 "use strict";
 
 var _handleAxisForm = require("./handleAxisForm");
@@ -7681,7 +7824,7 @@ window.$vue = new Vue({
   }
 });
 
-},{"./handleAxisForm":49}],56:[function(require,module,exports){
+},{"./handleAxisForm":49}],57:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7766,7 +7909,7 @@ function getChartData(receivedPayload) {
   return populateGlobalChartData();
 }
 
-},{"../config":62,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"axios":12}],57:[function(require,module,exports){
+},{"../config":63,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"axios":12}],58:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7786,7 +7929,7 @@ require("./filter/vueFilter");
 (0, _sizeToggle.default)();
 (0, _filter.default)();
 
-},{"./downloadCharts":47,"./filter":53,"./filter/vueFilter":55,"./plotCharts":58,"./sizeToggle":59,"@babel/runtime/helpers/interopRequireDefault":3}],58:[function(require,module,exports){
+},{"./downloadCharts":47,"./filter":53,"./filter/vueFilter":56,"./plotCharts":59,"./sizeToggle":60,"@babel/runtime/helpers/interopRequireDefault":3}],59:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -8143,7 +8286,7 @@ function _populateChartData() {
   return _populateChartData.apply(this, arguments);
 }
 
-},{"./addTableDestak":46,"./filter/clearFilters":48,"./filter/highlightPoint":52,"./getChartData":56,"./updateHelperText":60,"./updateTableInfo":61,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/toConsumableArray":7,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],59:[function(require,module,exports){
+},{"./addTableDestak":46,"./filter/clearFilters":48,"./filter/highlightPoint":52,"./getChartData":57,"./updateHelperText":61,"./updateTableInfo":62,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/toConsumableArray":7,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],60:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -8221,7 +8364,7 @@ function sizeToggle() {
   }
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],60:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],61:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8282,7 +8425,7 @@ function updateHelperText(cityId) {
   helperText.querySelector('.js-mat-inequality').textContent = helperTextDictionary[matInfo.range_inequality];
 }
 
-},{}],61:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -8421,7 +8564,7 @@ function clearTableInfo() {
   matTable.querySelector('.js-quality').textContent = '';
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],62:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],63:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8430,9 +8573,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _default = {
   api: {
-    domain: window.location.hostname.indexOf('portalidea.org.br') !== -1 ? 'https://api.portalidea.org.br/api/' : 'https://api.portalidea.org.br/api/'
+    domain: window.location.hostname.indexOf('portalidea.org.br') !== -1 ? 'https://api.portalidea.org.br/api/' : 'https://dapitide.eokoe.com/api/'
   }
 };
 exports.default = _default;
 
-},{}]},{},[57]);
+},{}]},{},[58]);
