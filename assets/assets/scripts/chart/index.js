@@ -7041,7 +7041,7 @@ function handleAxisForm() {
   }
 }
 
-},{"../plotCharts":59,"../updateTableInfo":62,"./handleChartForm":50,"./hideNoMatchesAlert":51,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],50:[function(require,module,exports){
+},{"../plotCharts":60,"../updateTableInfo":63,"./handleChartForm":50,"./hideNoMatchesAlert":51,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],50:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7118,7 +7118,7 @@ function handleChartForm() {
   }
 }
 
-},{"../plotCharts":59,"../updateTableInfo":62,"./hideNoMatchesAlert":51,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],51:[function(require,module,exports){
+},{"../plotCharts":60,"../updateTableInfo":63,"./hideNoMatchesAlert":51,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],51:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7209,7 +7209,7 @@ function highlightPoint(id) {
   return true;
 }
 
-},{"../updateHelperText":61,"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],53:[function(require,module,exports){
+},{"../updateHelperText":62,"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],53:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7340,7 +7340,7 @@ function handleChartFilters() {
   (0, _handleAxisForm.handleAxisForm)();
 }
 
-},{"../../config":63,"../updateTableInfo":62,"./clearFilters":48,"./handleAxisForm":49,"./handleChartForm":50,"./hideNoMatchesAlert":51,"./highlightPoint":52,"./noUiSlider":54,"./showCity":55,"./vueFilter":56,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"awesomplete":11,"axios":12,"fuzzysort":38,"highcharts":39,"highcharts/modules/exporting":40}],54:[function(require,module,exports){
+},{"../../config":64,"../updateTableInfo":63,"./clearFilters":48,"./handleAxisForm":49,"./handleChartForm":50,"./hideNoMatchesAlert":51,"./highlightPoint":52,"./noUiSlider":54,"./showCity":55,"./vueFilter":56,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"awesomplete":11,"axios":12,"fuzzysort":38,"highcharts":39,"highcharts/modules/exporting":40}],54:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7420,6 +7420,12 @@ var _axios = _interopRequireDefault(require("axios"));
 
 var _updateHelperText = _interopRequireDefault(require("../updateHelperText"));
 
+var _updateTableInfo = require("../updateTableInfo");
+
+var _addTableDestak = _interopRequireDefault(require("../addTableDestak"));
+
+var _formatItemsToHighCharts = _interopRequireDefault(require("../formatItemsToHighCharts"));
+
 var _config = _interopRequireDefault(require("../../config"));
 
 (0, _exporting.default)(_highcharts.default);
@@ -7481,7 +7487,7 @@ function _showCity() {
   _showCity = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
   _regenerator.default.mark(function _callee2(id) {
-    var ptChartDom, matChartDom, ptChart, matChart, selectedPtPoints, selectedMatPoints, city, ptPoint, matPoint;
+    var ptChartDom, matChartDom, ptChart, matChart, selectedPtPoints, selectedMatPoints, city, formatedItems, ptCity, matCity, ptPoint, matPoint;
     return _regenerator.default.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
@@ -7506,9 +7512,14 @@ function _showCity() {
 
           case 10:
             city = _context2.sent;
-            debugger;
+            formatedItems = (0, _formatItemsToHighCharts.default)(city);
+            ptCity = formatedItems[0];
+            matCity = formatedItems[1];
+            ptChart.series[0].addPoint(ptCity);
+            matChart.series[0].addPoint(matCity);
             ptPoint = ptChart.get(id);
-            matPoint = matChart.get(id);
+            matPoint = matChart.get(id); // debugger;
+
             hideNoMatchesAlert();
 
             if (ptPoint === undefined) {
@@ -7526,9 +7537,12 @@ function _showCity() {
             }
 
             (0, _updateHelperText.default)(id);
+            (0, _updateTableInfo.updateTableInfo)(id);
+            (0, _updateHelperText.default)(id);
+            (0, _addTableDestak.default)(id);
             return _context2.abrupt("return", true);
 
-          case 19:
+          case 26:
           case "end":
             return _context2.stop();
         }
@@ -7538,7 +7552,7 @@ function _showCity() {
   return _showCity.apply(this, arguments);
 }
 
-},{"../../config":63,"../updateHelperText":61,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"axios":12,"highcharts":39,"highcharts/modules/exporting":40}],56:[function(require,module,exports){
+},{"../../config":64,"../addTableDestak":46,"../formatItemsToHighCharts":57,"../updateHelperText":62,"../updateTableInfo":63,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"axios":12,"highcharts":39,"highcharts/modules/exporting":40}],56:[function(require,module,exports){
 "use strict";
 
 var _handleAxisForm = require("./handleAxisForm");
@@ -7827,6 +7841,32 @@ window.$vue = new Vue({
 },{"./handleAxisForm":49}],57:[function(require,module,exports){
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = formatItemsToHighCharts;
+
+function formatItemsToHighCharts(items) {
+  return Object.keys(items).map(function (item) {
+    return {
+      // log: console.log(items[item]),
+      x: Number(items[item].x),
+      y: Number(items[item].y),
+      className: items[item].range_inequality,
+      id: Number(items[item].city.id),
+      city: items[item].city.name,
+      state: items[item].state.uf,
+      state_id: items[item].state.id,
+      region: items[item].region.id,
+      is_big_town: items[item].city.is_big_town,
+      is_capital: items[item].city.is_capital
+    };
+  });
+}
+
+},{}],58:[function(require,module,exports){
+"use strict";
+
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
@@ -7909,7 +7949,7 @@ function getChartData(receivedPayload) {
   return populateGlobalChartData();
 }
 
-},{"../config":63,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"axios":12}],58:[function(require,module,exports){
+},{"../config":64,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/regenerator":10,"axios":12}],59:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7929,7 +7969,7 @@ require("./filter/vueFilter");
 (0, _sizeToggle.default)();
 (0, _filter.default)();
 
-},{"./downloadCharts":47,"./filter":53,"./filter/vueFilter":56,"./plotCharts":59,"./sizeToggle":60,"@babel/runtime/helpers/interopRequireDefault":3}],59:[function(require,module,exports){
+},{"./downloadCharts":47,"./filter":53,"./filter/vueFilter":56,"./plotCharts":60,"./sizeToggle":61,"@babel/runtime/helpers/interopRequireDefault":3}],60:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -7957,6 +7997,8 @@ var _updateHelperText = _interopRequireDefault(require("./updateHelperText"));
 var _addTableDestak = _interopRequireDefault(require("./addTableDestak"));
 
 var _getChartData = _interopRequireDefault(require("./getChartData"));
+
+var _formatItemsToHighCharts = _interopRequireDefault(require("./formatItemsToHighCharts"));
 
 var _clearFilters = _interopRequireDefault(require("./filter/clearFilters"));
 
@@ -8122,23 +8164,6 @@ function drawChart(chartData, subject) {
   });
 }
 
-function formatItemsToHighCharts(items) {
-  return Object.keys(items).map(function (item) {
-    return {
-      x: Number(items[item].x),
-      y: Number(items[item].y),
-      className: items[item].range_inequality,
-      id: Number(items[item].city.id),
-      city: items[item].city.name,
-      state: items[item].state.uf,
-      state_id: items[item].state.id,
-      region: items[item].region.id,
-      is_big_town: items[item].city.is_big_town,
-      is_capital: items[item].city.is_capital
-    };
-  });
-}
-
 function toggleLoading() {
   var ptChartDom = document.getElementById('pt-chart');
   var matChartDom = document.getElementById('mat-chart');
@@ -8249,10 +8274,9 @@ function _populateChartData() {
             });
             matItems = matItems.filter(function (item) {
               return item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants;
-            }); // setRangeValues(ptItems, matItems);
-
-            formatedPtItems = formatItemsToHighCharts(ptItems);
-            formatedMatItems = formatItemsToHighCharts(matItems);
+            });
+            formatedPtItems = (0, _formatItemsToHighCharts.default)(ptItems);
+            formatedMatItems = (0, _formatItemsToHighCharts.default)(matItems);
 
             if (window.chartData.xAxis === 'racial') {
               xAxisText = 'Raça';
@@ -8286,7 +8310,7 @@ function _populateChartData() {
   return _populateChartData.apply(this, arguments);
 }
 
-},{"./addTableDestak":46,"./filter/clearFilters":48,"./filter/highlightPoint":52,"./getChartData":57,"./updateHelperText":61,"./updateTableInfo":62,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/toConsumableArray":7,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],60:[function(require,module,exports){
+},{"./addTableDestak":46,"./filter/clearFilters":48,"./filter/highlightPoint":52,"./formatItemsToHighCharts":57,"./getChartData":58,"./updateHelperText":62,"./updateTableInfo":63,"@babel/runtime/helpers/asyncToGenerator":2,"@babel/runtime/helpers/interopRequireDefault":3,"@babel/runtime/helpers/toConsumableArray":7,"@babel/runtime/regenerator":10,"highcharts":39,"highcharts/modules/exporting":40}],61:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -8364,7 +8388,7 @@ function sizeToggle() {
   }
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],61:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],62:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8425,7 +8449,7 @@ function updateHelperText(cityId) {
   helperText.querySelector('.js-mat-inequality').textContent = helperTextDictionary[matInfo.range_inequality];
 }
 
-},{}],62:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -8564,7 +8588,7 @@ function clearTableInfo() {
   matTable.querySelector('.js-quality').textContent = '';
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],63:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":3,"highcharts":39,"highcharts/modules/exporting":40}],64:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8578,4 +8602,4 @@ var _default = {
 };
 exports.default = _default;
 
-},{}]},{},[58]);
+},{}]},{},[59]);

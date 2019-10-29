@@ -4,6 +4,7 @@ import { updateTableInfo } from './updateTableInfo';
 import updateHelperText from './updateHelperText';
 import addTableDestak from './addTableDestak';
 import getChartData from './getChartData';
+import formatItemsToHighCharts from './formatItemsToHighCharts';
 import clearFilters from './filter/clearFilters';
 import { highlightPoint } from './filter/highlightPoint';
 
@@ -169,21 +170,6 @@ function drawChart(chartData, subject) {
   });
 }
 
-function formatItemsToHighCharts(items) {
-  return Object.keys(items).map(item => ({
-    x: Number(items[item].x),
-    y: Number(items[item].y),
-    className: items[item].range_inequality,
-    id: Number(items[item].city.id),
-    city: items[item].city.name,
-    state: items[item].state.uf,
-    state_id: items[item].state.id,
-    region: items[item].region.id,
-    is_big_town: items[item].city.is_big_town,
-    is_capital: items[item].city.is_capital,
-  }));
-}
-
 function toggleLoading() {
   const ptChartDom = document.getElementById('pt-chart');
   const matChartDom = document.getElementById('mat-chart');
@@ -260,9 +246,6 @@ async function populateChartData(payload) {
       matItems = matItems.filter(
         item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
       );
-
-
-      // setRangeValues(ptItems, matItems);
 
       const formatedPtItems = formatItemsToHighCharts(ptItems);
       const formatedMatItems = formatItemsToHighCharts(matItems);

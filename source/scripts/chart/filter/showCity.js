@@ -2,6 +2,9 @@ import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
 import axios from 'axios';
 import updateHelperText from '../updateHelperText';
+import { updateTableInfo } from '../updateTableInfo';
+import addTableDestak from '../addTableDestak';
+import formatItemsToHighCharts from '../formatItemsToHighCharts';
 import config from '../../config';
 
 Exporting(Highcharts);
@@ -46,10 +49,15 @@ async function showCity(id) {
   }
 
   const city = await getCity(id);
-  debugger;
+  const formatedItems = formatItemsToHighCharts(city);
+  const ptCity = formatedItems[0];
+  const matCity = formatedItems[1];
+  ptChart.series[0].addPoint(ptCity);
+  matChart.series[0].addPoint(matCity);
 
   const ptPoint = ptChart.get(id);
   const matPoint = matChart.get(id);
+  // debugger;
 
   hideNoMatchesAlert();
 
@@ -68,6 +76,9 @@ async function showCity(id) {
   }
 
   updateHelperText(id);
+  updateTableInfo(id);
+  updateHelperText(id);
+  addTableDestak(id);
 
   return true;
 }
