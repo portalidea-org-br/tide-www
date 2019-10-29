@@ -184,25 +184,6 @@ function toggleLoading() {
   matChart.showLoading();
 }
 
-function setRangeValues(ptItems, matItems) {
-  // console.log(ptItems, matItems);
-  const allItems = ptItems.concat(matItems);
-  const maxValue = Math.max(...allItems.map(o => o.city.inhabitants), 0);
-  const minValue = Math.min(...allItems.map(o => o.city.inhabitants));
-  // console.log(maxValue, minValue);
-
-  window.range.noUiSlider.updateOptions({
-    start: [minValue, maxValue],
-    // connect: true,
-    // tooltips: true,
-    step: 1000,
-    range: {
-      min: Math.round(minValue),
-      max: Math.round(maxValue),
-    },
-  });
-}
-
 async function populateChartData(payload) {
   if (ptChartElement && matChartElement) {
     try {
@@ -235,17 +216,6 @@ async function populateChartData(payload) {
         ptItems = ptItems.filter(item => item.range_quality === payload.quality);
         matItems = matItems.filter(item => item.range_quality === payload.quality);
       }
-
-
-      const minInhabitants = window.range.noUiSlider.get()[0];
-      const maxInhabitants = window.range.noUiSlider.get()[1];
-
-      ptItems = ptItems.filter(
-        item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
-      );
-      matItems = matItems.filter(
-        item => item.city.inhabitants >= minInhabitants && item.city.inhabitants <= maxInhabitants
-      );
 
       const formatedPtItems = formatItemsToHighCharts(ptItems);
       const formatedMatItems = formatItemsToHighCharts(matItems);

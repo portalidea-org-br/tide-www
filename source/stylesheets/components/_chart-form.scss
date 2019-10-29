@@ -116,12 +116,14 @@
 
 .chart-form__range-values {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   color: palette('black');
 }
 
 .chart-form__range-values input {
   width: auto;
+  max-width: 50%;
   font-size: ms(0);
   text-align: left;
   border: 0;
@@ -222,7 +224,7 @@
 
 .chart-form .noUi-connects {
   width: 100%;
-  margin: 0 0.188rem;
+  // margin: 0 0.188rem;
 }
 
 .chart-form .noUi-horizontal {

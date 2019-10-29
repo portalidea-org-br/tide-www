@@ -11,10 +11,12 @@ window.$vue = new Vue({
   el: '#app',
   data: {
     chartData: null,
+    filteredChartData: null,
     selectedFilters: {
       selectedInequality: null,
       selectedRegion: null,
       selectedQuality: null,
+      selectedInhabitants: [0, Infinity],
     },
     regions: [
       {
@@ -83,6 +85,12 @@ window.$vue = new Vue({
       { name: 'alta', id: 'alta' },
 
     ],
+    inhabitantsRange: [
+      { label: 'Até 50 mil', id: '1', value: [0, 5000] },
+      { label: '50 ~ 100 mil', id: '2', value: [50000, 100000] },
+      { label: '100 ~ 500 mil', id: '3', value: [100000, 500000] },
+      { label: '< 500 mil', id: '4', value: [500000, Infinity] },
+    ],
     filterFormLoading: false,
     showAdvancedFilters: false,
   },
@@ -117,7 +125,7 @@ window.$vue = new Vue({
     },
     checkRegion() {
       this.regions = this.regions.filter((item) => {
-        const itContains = this.chartData.some(city => city.region.id === item.id);
+        const itContains = this.filteredChartData.some(city => city.region.id === item.id);
         if (!itContains) {
           item.disabled = true;
         } else {
@@ -128,7 +136,7 @@ window.$vue = new Vue({
     },
     checkState() {
       this.states = this.states.filter((item) => {
-        const itContains = this.chartData.some(city => city.state.id === item.id);
+        const itContains = this.filteredChartData.some(city => city.state.id === item.id);
         if (!itContains) {
           item.disabled = true;
         } else {
@@ -139,7 +147,7 @@ window.$vue = new Vue({
     },
     checkInequality() {
       this.inequalityRange = this.inequalityRange.filter((item) => {
-        const itContains = this.chartData.some(city => city.range_inequality === item.id);
+        const itContains = this.filteredChartData.some(city => city.range_inequality === item.id);
         if (!itContains) {
           item.disabled = true;
         } else {
@@ -150,7 +158,23 @@ window.$vue = new Vue({
     },
     checkQuality() {
       this.qualityRange = this.qualityRange.filter((item) => {
-        const itContains = this.chartData.some(city => city.range_quality === item.id);
+        const itContains = this.filteredChartData.some(city => city.range_quality === item.id);
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+        return item;
+      });
+    },
+    checkInhabitants() {
+      const minHabitants = this.selectedFilters.selectedInhabitants[0];
+      const maxHabitants = this.selectedFilters.selectedInhabitants[1];
+
+      this.inhabitantsRange = this.inhabitantsRange.filter((item) => {
+        const itContains = this.filteredChartData.some(
+          city => city.city.inhabitants >= minHabitants && city.city.inhabitants <= maxHabitants,
+        );
         if (!itContains) {
           item.disabled = true;
         } else {
@@ -160,23 +184,33 @@ window.$vue = new Vue({
       });
     },
     handleChartFiltersAvailability() {
+      this.filteredChartData = this.chartData;
+
+      if (this.selectedFilters.selectedInhabitants) {
+        const minHabitants = this.selectedFilters.selectedInhabitants[0];
+        const maxHabitants = this.selectedFilters.selectedInhabitants[1];
+
+        this.filteredChartData = this.filteredChartData.filter(
+          item => item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants,
+        );
+      }
       if (this.selectedFilters.selectedState) {
-        this.chartData = this.chartData.filter(
+        this.filteredChartData = this.filteredChartData.filter(
           item => item.state.id === this.selectedFilters.selectedState,
         );
       }
       if (this.selectedFilters.selectedRegion) {
-        this.chartData = this.chartData.filter(
+        this.filteredChartData = this.filteredChartData.filter(
           item => item.region.id === this.selectedFilters.selectedRegion,
         );
       }
       if (this.selectedFilters.selectedInequality) {
-        this.chartData = this.chartData.filter(
+        this.filteredChartData = this.filteredChartData.filter(
           item => item.range_inequality === this.selectedFilters.selectedInequality,
         );
       }
       if (this.selectedFilters.selectedQuality) {
-        this.chartData = this.chartData.filter(
+        this.filteredChartData = this.filteredChartData.filter(
           item => item.range_quality === this.selectedFilters.selectedQuality,
         );
       }
@@ -185,6 +219,7 @@ window.$vue = new Vue({
       this.checkQuality();
       this.checkInequality();
       this.checkState();
+      this.checkInhabitants();
     },
   },
 });

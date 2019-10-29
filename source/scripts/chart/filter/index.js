@@ -4,7 +4,6 @@ import axios from 'axios';
 import Awesomplete from 'awesomplete';
 import fuzzysort from 'fuzzysort';
 // import Vue from 'vue';
-import startRange from './noUiSlider';
 import { handleChartForm } from './handleChartForm';
 import hideNoMatchesAlert from './hideNoMatchesAlert';
 import { updateTableInfo } from '../updateTableInfo';
@@ -66,7 +65,6 @@ export default function handleChartFilters() {
   }
 
   populateCitiesList();
-  startRange();
   handleChartForm();
   handleAxisForm();
 }

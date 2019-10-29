@@ -119,13 +119,26 @@
 
                     <div class="chart-form__group">
                       <strong>Número de habitantes</strong>
-                      <div class="chart-form__range">
-                        <div id="js-range"></div>
-                        <div class="chart-form__range-values">
-                          <input name="inhabitants-min" id="js-range-min-value" readonly></input>
-                          <input name="inhabitants-max" id="js-rang-max-value" readonly></input>
-                        </div>
-                      </div>
+                      <ul class="chart-form__buttons">
+                        <li v-for="(inhabitant, index) in inhabitantsRange">
+                          <input
+                            v-model="selectedFilters.selectedInhabitants"
+                            type="radio"
+                            name="inhabitants"
+                            :value="inhabitant.value"
+                            :id="`inhabitant-${inhabitant.id}`"
+                            :disabled="inhabitant.disabled"
+                            >
+                            <label :for="`inhabitant-${inhabitant.id}`"> {{ "{{ inhabitant.label }}" }}</label>
+                        </li>
+                      </ul>
+                      <button
+                        class="chart-form__clear-section"
+                        data-clear="inhabitant"
+                        @click.prevent="selectedFilters.selectedInhabitants = null"
+                        >
+                        Limpar seleção
+                      </button>
                     </div>
 
                     <div class="chart-form__group">
