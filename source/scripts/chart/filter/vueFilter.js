@@ -16,7 +16,7 @@ window.$vue = new Vue({
       selectedInequality: null,
       selectedRegion: null,
       selectedQuality: null,
-      selectedInhabitants: [0, Infinity],
+      selectedInhabitants: null,
     },
     regions: [
       {
@@ -89,7 +89,7 @@ window.$vue = new Vue({
       { label: 'Até 50 mil', id: '1', value: [0, 5000] },
       { label: '50 ~ 100 mil', id: '2', value: [50000, 100000] },
       { label: '100 ~ 500 mil', id: '3', value: [100000, 500000] },
-      { label: '< 500 mil', id: '4', value: [500000, Infinity] },
+      { label: '< 500 mil', id: '4', value: [7000000, Infinity] },
     ],
     filterFormLoading: false,
     showAdvancedFilters: false,
@@ -168,20 +168,22 @@ window.$vue = new Vue({
       });
     },
     checkInhabitants() {
-      const minHabitants = this.selectedFilters.selectedInhabitants[0];
-      const maxHabitants = this.selectedFilters.selectedInhabitants[1];
+      if (this.selectedFilters.selectedInhabitants) {
+        const minHabitants = this.selectedFilters.selectedInhabitants[0];
+        const maxHabitants = this.selectedFilters.selectedInhabitants[1];
 
-      this.inhabitantsRange = this.inhabitantsRange.filter((item) => {
-        const itContains = this.filteredChartData.some(
-          city => city.city.inhabitants >= minHabitants && city.city.inhabitants <= maxHabitants,
-        );
-        if (!itContains) {
-          item.disabled = true;
-        } else {
-          item.disabled = false;
-        }
-        return item;
-      });
+        this.inhabitantsRange = this.inhabitantsRange.filter((item) => {
+          const itContains = this.filteredChartData.some(
+            city => city.city.inhabitants >= minHabitants && city.city.inhabitants <= maxHabitants,
+          );
+          if (!itContains) {
+            item.disabled = true;
+          } else {
+            item.disabled = false;
+          }
+          return item;
+        });
+      }
     },
     handleChartFiltersAvailability() {
       this.filteredChartData = this.chartData;

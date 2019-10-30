@@ -4907,7 +4907,7 @@ window.$vue = new Vue({
       selectedInequality: null,
       selectedRegion: null,
       selectedQuality: null,
-      selectedInhabitants: [0, Infinity]
+      selectedInhabitants: null
     },
     regions: [{
       name: 'centro oeste',
@@ -5054,7 +5054,7 @@ window.$vue = new Vue({
     }, {
       label: '< 500 mil',
       id: '4',
-      value: [500000, Infinity]
+      value: [7000000, Infinity]
     }],
     filterFormLoading: false,
     showAdvancedFilters: false
@@ -5160,21 +5160,23 @@ window.$vue = new Vue({
     checkInhabitants: function checkInhabitants() {
       var _this6 = this;
 
-      var minHabitants = this.selectedFilters.selectedInhabitants[0];
-      var maxHabitants = this.selectedFilters.selectedInhabitants[1];
-      this.inhabitantsRange = this.inhabitantsRange.filter(function (item) {
-        var itContains = _this6.filteredChartData.some(function (city) {
-          return city.city.inhabitants >= minHabitants && city.city.inhabitants <= maxHabitants;
+      if (this.selectedFilters.selectedInhabitants) {
+        var minHabitants = this.selectedFilters.selectedInhabitants[0];
+        var maxHabitants = this.selectedFilters.selectedInhabitants[1];
+        this.inhabitantsRange = this.inhabitantsRange.filter(function (item) {
+          var itContains = _this6.filteredChartData.some(function (city) {
+            return city.city.inhabitants >= minHabitants && city.city.inhabitants <= maxHabitants;
+          });
+
+          if (!itContains) {
+            item.disabled = true;
+          } else {
+            item.disabled = false;
+          }
+
+          return item;
         });
-
-        if (!itContains) {
-          item.disabled = true;
-        } else {
-          item.disabled = false;
-        }
-
-        return item;
-      });
+      }
     },
     handleChartFiltersAvailability: function handleChartFiltersAvailability() {
       var _this7 = this;
