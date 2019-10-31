@@ -202,8 +202,10 @@ async function populateChartData(payload) {
       addTableDestak();
       updateTableInfo();
 
+      // let chartData = window.$vue.filteredChartData || window.chartData.data;
       let chartData = window.chartData.data;
       chartData = chartData.filter(item => item.x !== null);
+
       let ptItems = chartData.filter(item => item.subject === 'Português');
       let matItems = chartData.filter(item => item.subject === 'Matemática');
 
@@ -215,6 +217,22 @@ async function populateChartData(payload) {
       if (payload && payload.quality) {
         ptItems = ptItems.filter(item => item.range_quality === payload.quality);
         matItems = matItems.filter(item => item.range_quality === payload.quality);
+      }
+
+      if (payload && payload.inhabitants) {
+        const minHabitants = payload.inhabitants.split(',')[0];
+        const maxHabitants = payload.inhabitants.split(',')[1];
+
+        ptItems = ptItems.filter(
+          item => item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants,
+        );
+        matItems = matItems.filter(
+          item => item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants,
+        );
+
+        // this.filteredChartData = this.filteredChartData.filter(
+        //   item => item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants,
+        // );
       }
 
       const formatedPtItems = formatItemsToHighCharts(ptItems);

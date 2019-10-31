@@ -122,6 +122,7 @@ window.$vue = new Vue({
         this.selectedFilters[key] = null;
       });
       submitAxisInfo();
+      this.handleChartFiltersAvailability();
     },
     checkRegion() {
       this.regions = this.regions.filter((item) => {
@@ -168,22 +169,17 @@ window.$vue = new Vue({
       });
     },
     checkInhabitants() {
-      if (this.selectedFilters.selectedInhabitants) {
-        const minHabitants = this.selectedFilters.selectedInhabitants[0];
-        const maxHabitants = this.selectedFilters.selectedInhabitants[1];
-
-        this.inhabitantsRange = this.inhabitantsRange.filter((item) => {
-          const itContains = this.filteredChartData.some(
-            city => city.city.inhabitants >= minHabitants && city.city.inhabitants <= maxHabitants,
-          );
-          if (!itContains) {
-            item.disabled = true;
-          } else {
-            item.disabled = false;
-          }
-          return item;
-        });
-      }
+      this.inhabitantsRange = this.inhabitantsRange.filter((item) => {
+        const itContains = this.filteredChartData.some(
+          city => city.city.inhabitants >= item.value[0] && city.city.inhabitants <= item.value[1],
+        );
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+        return item;
+      });
     },
     handleChartFiltersAvailability() {
       this.filteredChartData = this.chartData;

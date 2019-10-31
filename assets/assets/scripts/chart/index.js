@@ -4484,6 +4484,7 @@ function _submitChartFormInfo() {
             payload.grade = formData.get('grade');
             payload.xAxis = formData.get('xAxis');
             payload.region = formData.get('region');
+            payload.inhabitants = formData.get('inhabitants');
             payload.state = formData.get('state');
             payload.inequality = formData.get('inequality');
             payload.quality = formData.get('quality');
@@ -4493,7 +4494,7 @@ function _submitChartFormInfo() {
             (0, _hideNoMatchesAlert.default)();
             chartsContainer.scrollIntoView();
 
-          case 15:
+          case 16:
           case "end":
             return _context.stop();
         }
@@ -5088,6 +5089,7 @@ window.$vue = new Vue({
         _this.selectedFilters[key] = null;
       });
       (0, _handleAxisForm.submitAxisInfo)();
+      this.handleChartFiltersAvailability();
     },
     checkRegion: function checkRegion() {
       var _this2 = this;
@@ -5160,23 +5162,19 @@ window.$vue = new Vue({
     checkInhabitants: function checkInhabitants() {
       var _this6 = this;
 
-      if (this.selectedFilters.selectedInhabitants) {
-        var minHabitants = this.selectedFilters.selectedInhabitants[0];
-        var maxHabitants = this.selectedFilters.selectedInhabitants[1];
-        this.inhabitantsRange = this.inhabitantsRange.filter(function (item) {
-          var itContains = _this6.filteredChartData.some(function (city) {
-            return city.city.inhabitants >= minHabitants && city.city.inhabitants <= maxHabitants;
-          });
-
-          if (!itContains) {
-            item.disabled = true;
-          } else {
-            item.disabled = false;
-          }
-
-          return item;
+      this.inhabitantsRange = this.inhabitantsRange.filter(function (item) {
+        var itContains = _this6.filteredChartData.some(function (city) {
+          return city.city.inhabitants >= item.value[0] && city.city.inhabitants <= item.value[1];
         });
-      }
+
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+
+        return item;
+      });
     },
     handleChartFiltersAvailability: function handleChartFiltersAvailability() {
       var _this7 = this;
@@ -5572,13 +5570,13 @@ function _populateChartData() {
   _populateChartData = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
   _regenerator.default.mark(function _callee(payload) {
-    var chartData, ptItems, matItems, formatedPtItems, formatedMatItems;
+    var chartData, ptItems, matItems, minHabitants, maxHabitants, formatedPtItems, formatedMatItems;
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 27;
+              _context.next = 28;
               break;
             }
 
@@ -5599,7 +5597,8 @@ function _populateChartData() {
           case 6:
             (0, _updateHelperText.default)();
             (0, _addTableDestak.default)();
-            (0, _updateTableInfo.updateTableInfo)();
+            (0, _updateTableInfo.updateTableInfo)(); // let chartData = window.$vue.filteredChartData || window.chartData.data;
+
             chartData = window.chartData.data;
             chartData = chartData.filter(function (item) {
               return item.x !== null;
@@ -5629,6 +5628,19 @@ function _populateChartData() {
               });
             }
 
+            if (payload && payload.inhabitants) {
+              minHabitants = payload.inhabitants.split(',')[0];
+              maxHabitants = payload.inhabitants.split(',')[1];
+              ptItems = ptItems.filter(function (item) {
+                return item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants;
+              });
+              matItems = matItems.filter(function (item) {
+                return item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants;
+              }); // this.filteredChartData = this.filteredChartData.filter(
+              //   item => item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants,
+              // );
+            }
+
             formatedPtItems = (0, _formatItemsToHighCharts.default)(ptItems);
             formatedMatItems = (0, _formatItemsToHighCharts.default)(matItems);
 
@@ -5646,20 +5658,20 @@ function _populateChartData() {
 
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 27;
+            _context.next = 28;
             break;
 
-          case 24:
-            _context.prev = 24;
+          case 25:
+            _context.prev = 25;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
 
-          case 27:
+          case 28:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 24]]);
+    }, _callee, this, [[1, 25]]);
   }));
   return _populateChartData.apply(this, arguments);
 }

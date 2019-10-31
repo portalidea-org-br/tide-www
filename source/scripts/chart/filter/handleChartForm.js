@@ -15,6 +15,7 @@ async function submitChartFormInfo() {
   payload.grade = formData.get('grade');
   payload.xAxis = formData.get('xAxis');
   payload.region = formData.get('region');
+  payload.inhabitants = formData.get('inhabitants');
   payload.state = formData.get('state');
   payload.inequality = formData.get('inequality');
   payload.quality = formData.get('quality');
