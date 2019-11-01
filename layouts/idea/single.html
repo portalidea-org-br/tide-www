@@ -63,6 +63,7 @@
                       type="button"
                       class="js-show-advanced button--like-text"
                       :class="{ active: showAdvancedFilters }"
+                      :disabled="!globalChartData"
                       @click.prevent="toggleAdvancedFilters"
                     >
                     {{ "{{ showAdvancedFilters ? 'Fechar configurações' : 'Mais configurações' }}" }}

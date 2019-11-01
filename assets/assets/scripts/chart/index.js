@@ -4403,20 +4403,22 @@ function _submitAxisInfo() {
           case 0:
             jsAxisForm = document.querySelector('#js-axis-form');
             (0, _plotCharts.toggleLoading)();
+            window.$vue.toggleFilterFormLoading();
             chartsContainer.scrollIntoView();
             formData = new FormData(jsAxisForm);
             payload = {};
             payload.grade = formData.get('grade');
             payload.xAxis = formData.get('xAxis');
-            _context.next = 9;
+            _context.next = 10;
             return (0, _plotCharts.populateChartData)(payload);
 
-          case 9:
+          case 10:
+            window.$vue.toggleFilterFormLoading();
             (0, _updateTableInfo.clearTableInfo)();
             (0, _hideNoMatchesAlert.default)();
             handleSelectedFilters();
 
-          case 12:
+          case 14:
           case "end":
             return _context.stop();
         }
@@ -4891,6 +4893,12 @@ function _showCity() {
 },{"../../config":55,"../addTableDestak":38,"../formatItemsToHighCharts":48,"../updateHelperText":53,"../updateTableInfo":54,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"axios":7,"highcharts":34,"highcharts/modules/exporting":35}],47:[function(require,module,exports){
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
 var _handleAxisForm = require("./handleAxisForm");
 
 /* global Vue */
@@ -4904,6 +4912,7 @@ window.$vue = new Vue({
   data: {
     chartData: null,
     filteredChartData: null,
+    globalChartData: null,
     selectedFilters: {
       selectedInequality: null,
       selectedRegion: null,
@@ -5055,7 +5064,7 @@ window.$vue = new Vue({
     }, {
       label: '< 500 mil',
       id: '4',
-      value: [7000000, Infinity]
+      value: [500000, Infinity]
     }],
     filterFormLoading: false,
     showAdvancedFilters: false
@@ -5065,9 +5074,14 @@ window.$vue = new Vue({
     selectedFilters: {
       // eslint-disable-next-line object-shorthand
       handler: function handler() {
-        this.toggleFilterFormLoading();
         this.handleChartFiltersAvailability();
-        this.toggleFilterFormLoading();
+      },
+      deep: true
+    },
+    globalChartData: {
+      // eslint-disable-next-line object-shorthand
+      handler: function handler() {
+        this.handleChartFiltersAvailability();
       },
       deep: true
     }
@@ -5082,15 +5096,37 @@ window.$vue = new Vue({
     toggleAdvancedFilters: function toggleAdvancedFilters() {
       this.showAdvancedFilters = !this.showAdvancedFilters;
     },
-    clearAllSelectedFilters: function clearAllSelectedFilters() {
-      var _this = this;
+    clearAllSelectedFilters: function () {
+      var _clearAllSelectedFilters = (0, _asyncToGenerator2.default)(
+      /*#__PURE__*/
+      _regenerator.default.mark(function _callee() {
+        var _this = this;
 
-      Object.keys(this.selectedFilters).forEach(function (key) {
-        _this.selectedFilters[key] = null;
-      });
-      (0, _handleAxisForm.submitAxisInfo)();
-      this.handleChartFiltersAvailability();
-    },
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                Object.keys(this.selectedFilters).forEach(function (key) {
+                  _this.selectedFilters[key] = null;
+                });
+                _context.next = 3;
+                return (0, _handleAxisForm.submitAxisInfo)();
+
+              case 3:
+                this.handleChartFiltersAvailability();
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      return function clearAllSelectedFilters() {
+        return _clearAllSelectedFilters.apply(this, arguments);
+      };
+    }(),
     checkRegion: function checkRegion() {
       var _this2 = this;
 
@@ -5179,7 +5215,7 @@ window.$vue = new Vue({
     handleChartFiltersAvailability: function handleChartFiltersAvailability() {
       var _this7 = this;
 
-      this.filteredChartData = this.chartData;
+      this.filteredChartData = this.globalChartData;
 
       if (this.selectedFilters.selectedInhabitants) {
         var minHabitants = this.selectedFilters.selectedInhabitants[0];
@@ -5222,7 +5258,7 @@ window.$vue = new Vue({
   }
 });
 
-},{"./handleAxisForm":41}],48:[function(require,module,exports){
+},{"./handleAxisForm":41,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5}],48:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5311,7 +5347,7 @@ function getChartData(receivedPayload) {
               response = _context.sent;
               chartData.data = response.data.data;
               window.chartData = chartData;
-              window.$vue.$data.chartData = chartData.data;
+              window.$vue.globalChartData = chartData.data;
               _context.next = 12;
               break;
 

@@ -12,6 +12,7 @@ window.$vue = new Vue({
   data: {
     chartData: null,
     filteredChartData: null,
+    globalChartData: null,
     selectedFilters: {
       selectedInequality: null,
       selectedRegion: null,
@@ -99,9 +100,14 @@ window.$vue = new Vue({
     selectedFilters: {
       // eslint-disable-next-line object-shorthand
       handler: function () {
-        this.toggleFilterFormLoading();
         this.handleChartFiltersAvailability();
-        this.toggleFilterFormLoading();
+      },
+      deep: true,
+    },
+    globalChartData: {
+      // eslint-disable-next-line object-shorthand
+      handler: function () {
+        this.handleChartFiltersAvailability();
       },
       deep: true,
     },
@@ -117,11 +123,11 @@ window.$vue = new Vue({
     toggleAdvancedFilters() {
       this.showAdvancedFilters = !this.showAdvancedFilters;
     },
-    clearAllSelectedFilters() {
+    async clearAllSelectedFilters() {
       Object.keys(this.selectedFilters).forEach((key) => {
         this.selectedFilters[key] = null;
       });
-      submitAxisInfo();
+      await submitAxisInfo();
       this.handleChartFiltersAvailability();
     },
     checkRegion() {
@@ -182,7 +188,7 @@ window.$vue = new Vue({
       });
     },
     handleChartFiltersAvailability() {
-      this.filteredChartData = this.chartData;
+      this.filteredChartData = this.globalChartData;
 
       if (this.selectedFilters.selectedInhabitants) {
         const minHabitants = this.selectedFilters.selectedInhabitants[0];

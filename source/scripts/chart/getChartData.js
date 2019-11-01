@@ -29,7 +29,7 @@ export default function getChartData(receivedPayload) {
       const response = await axios.get(url);
       chartData.data = response.data.data;
       window.chartData = chartData;
-      window.$vue.$data.chartData = chartData.data;
+      window.$vue.globalChartData = chartData.data;
     } catch (error) {
       window.console.error(error);
     }

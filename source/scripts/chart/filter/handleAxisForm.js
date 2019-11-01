@@ -25,6 +25,7 @@ async function submitAxisInfo() {
   const jsAxisForm = document.querySelector('#js-axis-form');
 
   toggleLoading();
+  window.$vue.toggleFilterFormLoading();
   chartsContainer.scrollIntoView();
 
   const formData = new FormData(jsAxisForm);
@@ -34,6 +35,7 @@ async function submitAxisInfo() {
   payload.xAxis = formData.get('xAxis');
 
   await populateChartData(payload);
+  window.$vue.toggleFilterFormLoading();
   clearTableInfo();
   hideNoMatchesAlert();
   handleSelectedFilters();
