@@ -6,5 +6,4 @@ layout: "single"
 type: "idea"
 ---
 
-Descubra os níveis de desigualdade e aprendizagem das matérias de português e matemática do quinto e nono ano letivo no Brasil.
-Para compreender melhor o estudo, veja o tutorial abaixo.
+Veja a situação da aprendizagem e da desigualdade nos municípios brasileiros

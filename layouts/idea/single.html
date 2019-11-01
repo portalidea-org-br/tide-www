@@ -28,7 +28,7 @@
                 Ver tutorial
               </a>
                 <div class="chart-form__group">
-                  <strong>Série:</strong>
+                  <strong>Série dos alunos:</strong>
                   <ul class="chart-form__buttons">
                     <li>
                       <input type="radio" value="5" name="grade" id="5" checked="checked">
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="chart-form__group">
-                  <strong>Tipo de desigualdade:</strong>
+                  <strong>Desigualdade de:</strong>
                   <ul class="chart-form__buttons">
                     <li>
                       <input type="radio" value="racial" name="xAxis" id="racial" checked="checked">
@@ -66,7 +66,7 @@
                       :disabled="!globalChartData"
                       @click.prevent="toggleAdvancedFilters"
                     >
-                    {{ "{{ showAdvancedFilters ? 'Fechar configurações' : 'Mais configurações' }}" }}
+                    {{ "{{ showAdvancedFilters ? 'Fechar menu avançado' : 'Menu avançado' }}" }}
                     </button>
                     <button type="submit" class="button button--right button--red button--destak">Gerar gráfico</button>
                   </div>
@@ -87,12 +87,10 @@
             :class="{ 'chart-form__advanced-filters-container--active': showAdvancedFilters }"
           >
               <div class="container">
+                <p class="big-text">
+                  Selecione os municípios que deseja ver no gráfico
+                </p>
                 <div class="chart-form__advanced-filters js-advanced-filters">
-                  <p class="big-text">
-                    Os filtros são equivalentes os dados que temos ou sejam excluem alguns opções.
-                    Essas configurações avançada permite que sua análise seja mais precisa.
-                    Para compreender melhor o estudo,
-                  </p>
                   <div class="chart-form__half">
                     <div class="chart-form__group">
                       <strong>Regiões:</strong>
