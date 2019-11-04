@@ -380,11 +380,20 @@
 }
 
 .chart-form__footer .button--like-text {
+  position: relative;
+  width: 14rem;
+  min-height: 2.9rem;
+  margin: 1rem 0;
   font-size: ms(1);
   vertical-align: middle;
 
+  @media screen and (min-width: breakpoint('phablet')) {
+    margin: 0;
+  }
+
   &::after {
-    display: inline-block;
+    position: absolute;
+    right: 0;
     width: 0;
     height: 0;
     margin-left: 0.3rem;
@@ -396,11 +405,28 @@
   }
 }
 
-.chart-form__footer .button--like-text.button--active {
+.chart-form__footer .button--like-text span {
+  position: absolute;
+  top: 0.7rem;
+  right: 1.4rem;
+}
+
+.chart-form__footer .button--like-text.active {
   &::after {
     transform: rotate(180deg);
   }
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
 
 .chart-form__alert {
   width: 100%;

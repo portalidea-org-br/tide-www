@@ -57,17 +57,25 @@
                       <label for="nse">Nível Sócio Econômico</label>
                     </li>
                   </ul>
-
                   <div class="chart-form__footer">
-                    <button
-                      type="button"
-                      class="js-show-advanced button--like-text"
-                      :class="{ active: showAdvancedFilters }"
-                      :disabled="!globalChartData"
-                      @click.prevent="toggleAdvancedFilters"
-                    >
-                    {{ "{{ showAdvancedFilters ? 'Fechar menu avançado' : 'Menu avançado' }}" }}
-                    </button>
+                      <button
+                        type="button"
+                        class="js-show-advanced button--like-text"
+                        :class="{ active: showAdvancedFilters }"
+                        :disabled="!globalChartData"
+                        @click.prevent="toggleAdvancedFilters"
+                      >
+                      <transition name="fade">
+                        <span v-if="showAdvancedFilters ">
+                          {{ "{{ 'Fechar menu avançado' }}" }}
+                        </span>
+                      </transition>
+                      <transition name="fade">
+                        <span v-if="!showAdvancedFilters">
+                          {{ "{{ 'Menu avançado' }}" }}
+                        </span>
+                      </transition>
+                      </button>
                     <button type="submit" class="button button--right button--red button--destak">Gerar gráfico</button>
                   </div>
                 </div>
