@@ -88,9 +88,9 @@ window.$vue = new Vue({
     ],
     inhabitantsRange: [
       { label: 'Até 50 mil', id: '1', value: [0, 5000] },
-      { label: '50 ~ 100 mil', id: '2', value: [50000, 100000] },
-      { label: '100 ~ 500 mil', id: '3', value: [100000, 500000] },
-      { label: '< 500 mil', id: '4', value: [500000, Infinity] },
+      { label: '50 a 100 mil', id: '2', value: [50000, 100000] },
+      { label: '100 a 500 mil', id: '3', value: [100000, 500000] },
+      { label: 'mais de 500 mil', id: '4', value: [500000, Infinity] },
     ],
     filterFormLoading: false,
     showAdvancedFilters: false,
