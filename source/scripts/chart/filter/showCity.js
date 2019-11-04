@@ -2,28 +2,13 @@ import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
 import axios from 'axios';
 import updateHelperText from '../updateHelperText';
+import { showNoMatchesAlert, hideNoMatchesAlert } from './handleNoMatchesAlert';
 import { updateTableInfo } from '../updateTableInfo';
 import addTableDestak from '../addTableDestak';
 import formatItemsToHighCharts from '../formatItemsToHighCharts';
 import config from '../../config';
 
 Exporting(Highcharts);
-
-function hideNoMatchesAlert() {
-  document.querySelector('.js-no-matches').setAttribute('hidden', true);
-  document.querySelector('.js-pt-no-matches').setAttribute('hidden', true);
-  document.querySelector('.js-mat-no-matches').setAttribute('hidden', true);
-}
-
-function showNoMatchesAlert(where) {
-  if (where === 'pt') {
-    return document.querySelector('.js-pt-no-matches').removeAttribute('hidden');
-  }
-  if (where === 'mat') {
-    return document.querySelector('.js-mat-no-matches').removeAttribute('hidden');
-  }
-  return document.querySelector('.js-no-matches').removeAttribute('hidden');
-}
 
 async function getCity(cityId) {
   const city = await axios.get(`${config.api.domain}data?school_grade=${

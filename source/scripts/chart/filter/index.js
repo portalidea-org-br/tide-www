@@ -5,13 +5,12 @@ import Awesomplete from 'awesomplete';
 import fuzzysort from 'fuzzysort';
 // import Vue from 'vue';
 import { handleChartForm } from './handleChartForm';
-import hideNoMatchesAlert from './hideNoMatchesAlert';
+import { hideNoMatchesAlert } from './handleNoMatchesAlert';
 import { updateTableInfo } from '../updateTableInfo';
 import { handleAxisForm } from './handleAxisForm';
 import { showCity } from './showCity';
 import clearFilters from './clearFilters';
 import './vueFilter';
-import { highlightPoint } from './highlightPoint';
 import config from '../../config';
 
 Exporting(Highcharts);

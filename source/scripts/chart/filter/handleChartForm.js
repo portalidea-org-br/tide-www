@@ -1,6 +1,6 @@
 import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
-import hideNoMatchesAlert from './hideNoMatchesAlert';
+import { hideNoMatchesAlert } from './handleNoMatchesAlert';
 import { clearTableInfo } from '../updateTableInfo';
 import { populateChartData, toggleLoading } from '../plotCharts';
 
