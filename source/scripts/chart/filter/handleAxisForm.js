@@ -15,7 +15,6 @@ function handleSelectedFilters() {
   const hasFilters = values.some(el => el);
 
   if (hasFilters) {
-    console.log('hasFilters');
     submitChartFormInfo();
   }
 }

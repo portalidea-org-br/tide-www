@@ -5,6 +5,7 @@ import updateHelperText from './updateHelperText';
 import addTableDestak from './addTableDestak';
 import getChartData from './getChartData';
 import formatItemsToHighCharts from './formatItemsToHighCharts';
+import { showNoMatchesAlert } from './filter/handleNoMatchesAlert';
 import clearFilters from './filter/clearFilters';
 import { highlightPoint } from './filter/highlightPoint';
 
@@ -187,7 +188,6 @@ function toggleLoading() {
 async function populateChartData(payload) {
   if (ptChartElement && matChartElement) {
     try {
-      // console.log('payload:', payload);
       if (payload && payload.grade === null) {
         payload.grade = window.chartData.grade;
       }
@@ -229,10 +229,14 @@ async function populateChartData(payload) {
         matItems = matItems.filter(
           item => item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants,
         );
+      }
 
-        // this.filteredChartData = this.filteredChartData.filter(
-        //   item => item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants,
-        // );
+      if (ptItems.length === 0) {
+        showNoMatchesAlert('pt');
+      }
+
+      if (matItems.length === 0) {
+        showNoMatchesAlert('mat');
       }
 
       const formatedPtItems = formatItemsToHighCharts(ptItems);
