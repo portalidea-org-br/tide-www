@@ -68,4 +68,8 @@ async function showCity(id) {
   return true;
 }
 
-export { showCity };
+function clearCity() {
+  document.querySelector('#js-city').value = '';
+}
+
+export { showCity, clearCity };

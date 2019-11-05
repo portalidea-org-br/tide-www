@@ -6,7 +6,7 @@ import addTableDestak from './addTableDestak';
 import getChartData from './getChartData';
 import formatItemsToHighCharts from './formatItemsToHighCharts';
 import { showNoMatchesAlert } from './filter/handleNoMatchesAlert';
-import clearFilters from './filter/clearFilters';
+import { clearCity } from './filter/showCity';
 import { highlightPoint } from './filter/highlightPoint';
 
 Exporting(Highcharts);
@@ -196,8 +196,8 @@ async function populateChartData(payload) {
         payload.xAxis = window.chartData.xAxis;
       }
 
+      clearCity();
       await getChartData(payload);
-
       updateHelperText();
       addTableDestak();
       updateTableInfo();

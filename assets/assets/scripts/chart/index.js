@@ -4750,6 +4750,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.showCity = showCity;
+exports.clearCity = clearCity;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -4877,6 +4878,10 @@ function _showCity() {
     }, _callee2, this);
   }));
   return _showCity.apply(this, arguments);
+}
+
+function clearCity() {
+  document.querySelector('#js-city').value = '';
 }
 
 },{"../../config":55,"../addTableDestak":38,"../formatItemsToHighCharts":48,"../updateHelperText":53,"../updateTableInfo":54,"./handleNoMatchesAlert":43,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"axios":7,"highcharts":34,"highcharts/modules/exporting":35}],47:[function(require,module,exports){
@@ -5409,7 +5414,7 @@ var _formatItemsToHighCharts = _interopRequireDefault(require("./formatItemsToHi
 
 var _handleNoMatchesAlert = require("./filter/handleNoMatchesAlert");
 
-var _clearFilters = _interopRequireDefault(require("./filter/clearFilters"));
+var _showCity = require("./filter/showCity");
 
 var _highlightPoint = require("./filter/highlightPoint");
 
@@ -5603,7 +5608,7 @@ function _populateChartData() {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 30;
+              _context.next = 31;
               break;
             }
 
@@ -5617,10 +5622,11 @@ function _populateChartData() {
               payload.xAxis = window.chartData.xAxis;
             }
 
-            _context.next = 6;
+            (0, _showCity.clearCity)();
+            _context.next = 7;
             return (0, _getChartData.default)(payload);
 
-          case 6:
+          case 7:
             (0, _updateHelperText.default)();
             (0, _addTableDestak.default)();
             (0, _updateTableInfo.updateTableInfo)(); // let chartData = window.$vue.filteredChartData || window.chartData.data;
@@ -5690,25 +5696,25 @@ function _populateChartData() {
 
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 30;
+            _context.next = 31;
             break;
 
-          case 27:
-            _context.prev = 27;
+          case 28:
+            _context.prev = 28;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
 
-          case 30:
+          case 31:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 27]]);
+    }, _callee, this, [[1, 28]]);
   }));
   return _populateChartData.apply(this, arguments);
 }
 
-},{"./addTableDestak":38,"./filter/clearFilters":40,"./filter/handleNoMatchesAlert":43,"./filter/highlightPoint":44,"./formatItemsToHighCharts":48,"./getChartData":49,"./updateHelperText":53,"./updateTableInfo":54,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":34,"highcharts/modules/exporting":35}],52:[function(require,module,exports){
+},{"./addTableDestak":38,"./filter/handleNoMatchesAlert":43,"./filter/highlightPoint":44,"./filter/showCity":46,"./formatItemsToHighCharts":48,"./getChartData":49,"./updateHelperText":53,"./updateTableInfo":54,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":34,"highcharts/modules/exporting":35}],52:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
