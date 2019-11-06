@@ -220,8 +220,8 @@ async function populateChartData(payload) {
       }
 
       if (payload && payload.inhabitants) {
-        const minHabitants = payload.inhabitants.split(',')[0];
-        const maxHabitants = payload.inhabitants.split(',')[1];
+        const minHabitants = payload.inhabitants[0];
+        const maxHabitants = payload.inhabitants[1];
 
         ptItems = ptItems.filter(
           item => item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants,

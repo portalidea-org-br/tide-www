@@ -17,7 +17,7 @@ async function submitChartFormInfo() {
   payload.region = formData.get('region');
   payload.state = formData.get('state');
   payload.region = window.$vue.selectedFilters.selectedRegion;
-  payload.inhabitants = window.$vue.seletedInhabitants;
+  payload.inhabitants = window.$vue.selectedFilters.selectedInhabitants;
   payload.inequality = window.$vue.selectedFilters.selectedInequality;
   payload.quality = window.$vue.selectedFilters.selectedQuality;
 

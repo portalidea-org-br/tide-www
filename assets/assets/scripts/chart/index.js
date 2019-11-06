@@ -4487,7 +4487,7 @@ function _submitChartFormInfo() {
             payload.region = formData.get('region');
             payload.state = formData.get('state');
             payload.region = window.$vue.selectedFilters.selectedRegion;
-            payload.inhabitants = window.$vue.seletedInhabitants;
+            payload.inhabitants = window.$vue.selectedFilters.selectedInhabitants;
             payload.inequality = window.$vue.selectedFilters.selectedInequality;
             payload.quality = window.$vue.selectedFilters.selectedQuality;
             (0, _plotCharts.toggleLoading)();
@@ -5661,8 +5661,8 @@ function _populateChartData() {
             }
 
             if (payload && payload.inhabitants) {
-              minHabitants = payload.inhabitants.split(',')[0];
-              maxHabitants = payload.inhabitants.split(',')[1];
+              minHabitants = payload.inhabitants[0];
+              maxHabitants = payload.inhabitants[1];
               ptItems = ptItems.filter(function (item) {
                 return item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants;
               });
