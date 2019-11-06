@@ -4494,7 +4494,7 @@ function _submitChartFormInfo() {
             (0, _plotCharts.populateChartData)(payload);
             (0, _updateTableInfo.clearTableInfo)();
             (0, _handleNoMatchesAlert.hideNoMatchesAlert)();
-            chartsContainer.scrollIntoView();
+            window.$vue.showAdvancedFilters = false;
 
           case 17:
           case "end":
