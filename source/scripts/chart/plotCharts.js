@@ -196,7 +196,6 @@ async function populateChartData(payload) {
         payload.xAxis = window.chartData.xAxis;
       }
 
-      clearCity();
       await getChartData(payload);
       updateHelperText();
       addTableDestak();

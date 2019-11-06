@@ -2,13 +2,14 @@ import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
 import { hideNoMatchesAlert } from './handleNoMatchesAlert';
 import { clearTableInfo } from '../updateTableInfo';
+import { showCity } from './showCity';
 import { populateChartData, toggleLoading } from '../plotCharts';
 
 Exporting(Highcharts);
 
 async function submitChartFormInfo() {
   const jsChartForm = document.querySelector('#js-chart-form');
-  const chartsContainer = document.querySelector('.charts');
+  // const chartsContainer = document.querySelector('.charts');
   const formData = new FormData(jsChartForm);
   const payload = {};
 
@@ -22,10 +23,13 @@ async function submitChartFormInfo() {
   payload.quality = window.$vue.selectedFilters.selectedQuality;
 
   toggleLoading();
-  populateChartData(payload);
+  window.$vue.showAdvancedFilters = false;
+  await populateChartData(payload);
   clearTableInfo();
   hideNoMatchesAlert();
-  window.$vue.showAdvancedFilters = false;
+  if (window.$vue.selectedCity) {
+    showCity(window.$vue.selectedCity);
+  }
 }
 
 function handleChartForm() {

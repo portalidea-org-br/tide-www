@@ -19,6 +19,7 @@ window.$vue = new Vue({
       selectedQuality: null,
       selectedInhabitants: null,
     },
+    selectedCity: null,
     regions: [
       {
         name: 'centro oeste',

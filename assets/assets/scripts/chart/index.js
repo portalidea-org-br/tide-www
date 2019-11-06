@@ -4461,6 +4461,8 @@ var _handleNoMatchesAlert = require("./handleNoMatchesAlert");
 
 var _updateTableInfo = require("../updateTableInfo");
 
+var _showCity = require("./showCity");
+
 var _plotCharts = require("../plotCharts");
 
 (0, _exporting.default)(_highcharts.default);
@@ -4473,13 +4475,13 @@ function _submitChartFormInfo() {
   _submitChartFormInfo = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
   _regenerator.default.mark(function _callee() {
-    var jsChartForm, chartsContainer, formData, payload;
+    var jsChartForm, formData, payload;
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            jsChartForm = document.querySelector('#js-chart-form');
-            chartsContainer = document.querySelector('.charts');
+            jsChartForm = document.querySelector('#js-chart-form'); // const chartsContainer = document.querySelector('.charts');
+
             formData = new FormData(jsChartForm);
             payload = {};
             payload.grade = formData.get('grade');
@@ -4491,12 +4493,19 @@ function _submitChartFormInfo() {
             payload.inequality = window.$vue.selectedFilters.selectedInequality;
             payload.quality = window.$vue.selectedFilters.selectedQuality;
             (0, _plotCharts.toggleLoading)();
-            (0, _plotCharts.populateChartData)(payload);
+            window.$vue.showAdvancedFilters = false;
+            _context.next = 15;
+            return (0, _plotCharts.populateChartData)(payload);
+
+          case 15:
             (0, _updateTableInfo.clearTableInfo)();
             (0, _handleNoMatchesAlert.hideNoMatchesAlert)();
-            window.$vue.showAdvancedFilters = false;
 
-          case 17:
+            if (window.$vue.selectedCity) {
+              (0, _showCity.showCity)(window.$vue.selectedCity);
+            }
+
+          case 18:
           case "end":
             return _context.stop();
         }
@@ -4517,7 +4526,7 @@ function handleChartForm() {
   }
 }
 
-},{"../plotCharts":51,"../updateTableInfo":54,"./handleNoMatchesAlert":43,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":34,"highcharts/modules/exporting":35}],43:[function(require,module,exports){
+},{"../plotCharts":51,"../updateTableInfo":54,"./handleNoMatchesAlert":43,"./showCity":46,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":34,"highcharts/modules/exporting":35}],43:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4570,6 +4579,8 @@ var _exporting = _interopRequireDefault(require("highcharts/modules/exporting"))
 
 var _updateHelperText = _interopRequireDefault(require("../updateHelperText"));
 
+var _showCity = require("./showCity");
+
 var _handleNoMatchesAlert = require("./handleNoMatchesAlert");
 
 (0, _exporting.default)(_highcharts.default); // Highlight city
@@ -4593,6 +4604,7 @@ function highlightPoint(id) {
     selectedMatPoints[0].select();
   }
 
+  (0, _showCity.clearCity)();
   var ptPoint = ptChart.get(id);
   var matPoint = matChart.get(id);
   (0, _handleNoMatchesAlert.hideNoMatchesAlert)();
@@ -4615,7 +4627,7 @@ function highlightPoint(id) {
   return true;
 }
 
-},{"../updateHelperText":53,"./handleNoMatchesAlert":43,"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":34,"highcharts/modules/exporting":35}],45:[function(require,module,exports){
+},{"../updateHelperText":53,"./handleNoMatchesAlert":43,"./showCity":46,"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":34,"highcharts/modules/exporting":35}],45:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4731,6 +4743,7 @@ function handleChartFilters() {
     cityInput.addEventListener('awesomplete-selectcomplete', function (event) {
       (0, _clearFilters.default)(event.target.id); // highlightPoint(event.text.value);
 
+      window.$vue.selectedCity = event.text.value;
       (0, _showCity.showCity)(event.text.value);
       (0, _updateTableInfo.updateTableInfo)(event.text.value, window.chartData.xAxis, window.chartData.data);
     }, false);
@@ -4913,6 +4926,7 @@ window.$vue = new Vue({
       selectedQuality: null,
       selectedInhabitants: null
     },
+    selectedCity: null,
     regions: [{
       name: 'centro oeste',
       id: 1
@@ -5608,7 +5622,7 @@ function _populateChartData() {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 31;
+              _context.next = 30;
               break;
             }
 
@@ -5622,11 +5636,10 @@ function _populateChartData() {
               payload.xAxis = window.chartData.xAxis;
             }
 
-            (0, _showCity.clearCity)();
-            _context.next = 7;
+            _context.next = 6;
             return (0, _getChartData.default)(payload);
 
-          case 7:
+          case 6:
             (0, _updateHelperText.default)();
             (0, _addTableDestak.default)();
             (0, _updateTableInfo.updateTableInfo)(); // let chartData = window.$vue.filteredChartData || window.chartData.data;
@@ -5696,20 +5709,20 @@ function _populateChartData() {
 
             drawChart(formatedPtItems, 'pt');
             drawChart(formatedMatItems, 'mat');
-            _context.next = 31;
+            _context.next = 30;
             break;
 
-          case 28:
-            _context.prev = 28;
+          case 27:
+            _context.prev = 27;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
 
-          case 31:
+          case 30:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 28]]);
+    }, _callee, this, [[1, 27]]);
   }));
   return _populateChartData.apply(this, arguments);
 }

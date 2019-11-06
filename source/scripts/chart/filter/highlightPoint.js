@@ -1,6 +1,7 @@
 import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
 import updateHelperText from '../updateHelperText';
+import { clearCity } from './showCity';
 import { showNoMatchesAlert, hideNoMatchesAlert } from './handleNoMatchesAlert';
 
 Exporting(Highcharts);
@@ -21,6 +22,8 @@ function highlightPoint(id) {
   if (selectedMatPoints.length > 0) {
     selectedMatPoints[0].select();
   }
+
+  clearCity();
 
   const ptPoint = ptChart.get(id);
   const matPoint = matChart.get(id);

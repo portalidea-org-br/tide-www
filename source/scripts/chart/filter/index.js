@@ -58,6 +58,7 @@ export default function handleChartFilters() {
     cityInput.addEventListener('awesomplete-selectcomplete', (event) => {
       clearFilters(event.target.id);
       // highlightPoint(event.text.value);
+      window.$vue.selectedCity = event.text.value;
       showCity(event.text.value);
       updateTableInfo(event.text.value, window.chartData.xAxis, window.chartData.data);
     }, false);
