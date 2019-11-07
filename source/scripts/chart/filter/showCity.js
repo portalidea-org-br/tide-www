@@ -68,8 +68,14 @@ async function showCity(id) {
   return true;
 }
 
-function clearCity() {
+function clearCity(city) {
+  if (document.querySelector('#js-city').value !== '') {
+    city.remove();
+  }
+}
+
+function clearCityInput() {
   document.querySelector('#js-city').value = '';
 }
 
-export { showCity, clearCity };
+export { showCity, clearCity, clearCityInput };

@@ -1,7 +1,7 @@
 import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
 import updateHelperText from '../updateHelperText';
-import { clearCity } from './showCity';
+import { clearCity, clearCityInput } from './showCity';
 import { showNoMatchesAlert, hideNoMatchesAlert } from './handleNoMatchesAlert';
 
 Exporting(Highcharts);
@@ -16,14 +16,17 @@ function highlightPoint(id) {
   const selectedMatPoints = matChart.getSelectedPoints();
 
   if (selectedPtPoints.length > 0) {
-    selectedPtPoints[0].select();
+    clearCity(selectedPtPoints[0]);
+    // selectedPtPoints[0].select();
   }
 
   if (selectedMatPoints.length > 0) {
-    selectedMatPoints[0].select();
+    clearCity(selectedMatPoints[0]);
+    // selectedMatPoints[0].select();
   }
 
-  clearCity();
+  clearCityInput();
+
 
   const ptPoint = ptChart.get(id);
   const matPoint = matChart.get(id);

@@ -4597,14 +4597,14 @@ function highlightPoint(id) {
   var selectedMatPoints = matChart.getSelectedPoints();
 
   if (selectedPtPoints.length > 0) {
-    selectedPtPoints[0].select();
+    (0, _showCity.clearCity)(selectedPtPoints[0]); // selectedPtPoints[0].select();
   }
 
   if (selectedMatPoints.length > 0) {
-    selectedMatPoints[0].select();
+    (0, _showCity.clearCity)(selectedMatPoints[0]); // selectedMatPoints[0].select();
   }
 
-  (0, _showCity.clearCity)();
+  (0, _showCity.clearCityInput)();
   var ptPoint = ptChart.get(id);
   var matPoint = matChart.get(id);
   (0, _handleNoMatchesAlert.hideNoMatchesAlert)();
@@ -4764,6 +4764,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.showCity = showCity;
 exports.clearCity = clearCity;
+exports.clearCityInput = clearCityInput;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -4893,7 +4894,13 @@ function _showCity() {
   return _showCity.apply(this, arguments);
 }
 
-function clearCity() {
+function clearCity(city) {
+  if (document.querySelector('#js-city').value !== '') {
+    city.remove();
+  }
+}
+
+function clearCityInput() {
   document.querySelector('#js-city').value = '';
 }
 
