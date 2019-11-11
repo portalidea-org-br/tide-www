@@ -4501,11 +4501,7 @@ function _submitChartFormInfo() {
             (0, _updateTableInfo.clearTableInfo)();
             (0, _handleNoMatchesAlert.hideNoMatchesAlert)();
 
-            if (window.$vue.selectedCity) {
-              (0, _showCity.showCity)(window.$vue.selectedCity);
-            }
-
-          case 18:
+          case 17:
           case "end":
             return _context.stop();
         }
@@ -5629,7 +5625,7 @@ function _populateChartData() {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 30;
+              _context.next = 33;
               break;
             }
 
@@ -5714,22 +5710,32 @@ function _populateChartData() {
               xAxisText = 'NSE';
             }
 
-            drawChart(formatedPtItems, 'pt');
-            drawChart(formatedMatItems, 'mat');
-            _context.next = 30;
-            break;
+            _context.next = 25;
+            return drawChart(formatedPtItems, 'pt');
+
+          case 25:
+            _context.next = 27;
+            return drawChart(formatedMatItems, 'mat');
 
           case 27:
-            _context.prev = 27;
+            if (window.$vue.selectedCity) {
+              (0, _showCity.showCity)(window.$vue.selectedCity);
+            }
+
+            _context.next = 33;
+            break;
+
+          case 30:
+            _context.prev = 30;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
 
-          case 30:
+          case 33:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 27]]);
+    }, _callee, this, [[1, 30]]);
   }));
   return _populateChartData.apply(this, arguments);
 }

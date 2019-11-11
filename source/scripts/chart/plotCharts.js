@@ -6,7 +6,7 @@ import addTableDestak from './addTableDestak';
 import getChartData from './getChartData';
 import formatItemsToHighCharts from './formatItemsToHighCharts';
 import { showNoMatchesAlert } from './filter/handleNoMatchesAlert';
-import { clearCity } from './filter/showCity';
+import { clearCity, showCity } from './filter/showCity';
 import { highlightPoint } from './filter/highlightPoint';
 
 Exporting(Highcharts);
@@ -253,8 +253,11 @@ async function populateChartData(payload) {
         xAxisText = 'NSE';
       }
 
-      drawChart(formatedPtItems, 'pt');
-      drawChart(formatedMatItems, 'mat');
+      await drawChart(formatedPtItems, 'pt');
+      await drawChart(formatedMatItems, 'mat');
+      if (window.$vue.selectedCity) {
+        showCity(window.$vue.selectedCity);
+      }
     } catch (err) {
       window.console.log(err);
     }

@@ -27,9 +27,6 @@ async function submitChartFormInfo() {
   await populateChartData(payload);
   clearTableInfo();
   hideNoMatchesAlert();
-  if (window.$vue.selectedCity) {
-    showCity(window.$vue.selectedCity);
-  }
 }
 
 function handleChartForm() {
