@@ -8,7 +8,7 @@ import { handleChartForm } from './handleChartForm';
 import { hideNoMatchesAlert } from './handleNoMatchesAlert';
 import { updateTableInfo } from '../updateTableInfo';
 import { handleAxisForm } from './handleAxisForm';
-import { showCity } from './showCity';
+import { showCity, clearCity } from './showCity';
 import clearFilters from './clearFilters';
 import './vueFilter';
 import config from '../../config';
@@ -56,10 +56,25 @@ export default function handleChartFilters() {
     }, false);
 
     cityInput.addEventListener('awesomplete-selectcomplete', (event) => {
-      clearFilters(event.target.id);
-      // highlightPoint(event.text.value);
+      const ptChartDom = document.getElementById('pt-chart');
+      const matChartDom = document.getElementById('mat-chart');
+      const ptChart = Highcharts.charts[Highcharts.attr(ptChartDom, 'data-highcharts-chart')];
+      const matChart = Highcharts.charts[Highcharts.attr(matChartDom, 'data-highcharts-chart')];
+      const selectedPtPoints = ptChart.getSelectedPoints();
+      const selectedMatPoints = matChart.getSelectedPoints();
       window.$vue.selectedCity = event.text.value;
+
+      clearFilters(event.target.id);
       showCity(event.text.value);
+
+      if (selectedPtPoints.length > 0) {
+        clearCity(selectedPtPoints[0]);
+      }
+
+      if (selectedMatPoints.length > 0) {
+        clearCity(selectedMatPoints[0]);
+      }
+
       updateTableInfo(event.text.value, window.chartData.xAxis, window.chartData.data);
     }, false);
   }

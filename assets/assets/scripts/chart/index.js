@@ -4737,10 +4737,27 @@ function handleChartFilters() {
       (0, _handleNoMatchesAlert.hideNoMatchesAlert)();
     }, false);
     cityInput.addEventListener('awesomplete-selectcomplete', function (event) {
-      (0, _clearFilters.default)(event.target.id); // highlightPoint(event.text.value);
+      var ptChartDom = document.getElementById('pt-chart');
+      var matChartDom = document.getElementById('mat-chart');
 
+      var ptChart = _highcharts.default.charts[_highcharts.default.attr(ptChartDom, 'data-highcharts-chart')];
+
+      var matChart = _highcharts.default.charts[_highcharts.default.attr(matChartDom, 'data-highcharts-chart')];
+
+      var selectedPtPoints = ptChart.getSelectedPoints();
+      var selectedMatPoints = matChart.getSelectedPoints();
       window.$vue.selectedCity = event.text.value;
+      (0, _clearFilters.default)(event.target.id);
       (0, _showCity.showCity)(event.text.value);
+
+      if (selectedPtPoints.length > 0) {
+        (0, _showCity.clearCity)(selectedPtPoints[0]);
+      }
+
+      if (selectedMatPoints.length > 0) {
+        (0, _showCity.clearCity)(selectedMatPoints[0]);
+      }
+
       (0, _updateTableInfo.updateTableInfo)(event.text.value, window.chartData.xAxis, window.chartData.data);
     }, false);
   }
