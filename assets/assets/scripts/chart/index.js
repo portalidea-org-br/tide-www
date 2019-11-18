@@ -4562,12 +4562,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.highlightPoint = highlightPoint;
-Object.defineProperty(exports, "hideNoMatchesAlert", {
-  enumerable: true,
-  get: function get() {
-    return _handleNoMatchesAlert.hideNoMatchesAlert;
-  }
-});
 
 var _highcharts = _interopRequireDefault(require("highcharts"));
 
@@ -4601,6 +4595,7 @@ function highlightPoint(id) {
   }
 
   (0, _showCity.clearCityInput)();
+  window.$vue.selectedCity = id;
   var ptPoint = ptChart.get(id);
   var matPoint = matChart.get(id);
   (0, _handleNoMatchesAlert.hideNoMatchesAlert)();
@@ -4915,6 +4910,7 @@ function clearCity(city) {
 
 function clearCityInput() {
   document.querySelector('#js-city').value = '';
+  window.$vue.selectedCity = null;
 }
 
 },{"../../config":55,"../addTableDestak":38,"../formatItemsToHighCharts":48,"../updateHelperText":53,"../updateTableInfo":54,"./handleNoMatchesAlert":43,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"axios":7,"highcharts":34,"highcharts/modules/exporting":35}],47:[function(require,module,exports){

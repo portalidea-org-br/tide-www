@@ -26,7 +26,7 @@ function highlightPoint(id) {
   }
 
   clearCityInput();
-
+  window.$vue.selectedCity = id;
 
   const ptPoint = ptChart.get(id);
   const matPoint = matChart.get(id);
@@ -52,4 +52,4 @@ function highlightPoint(id) {
   return true;
 }
 
-export { hideNoMatchesAlert, highlightPoint };
+export { highlightPoint };

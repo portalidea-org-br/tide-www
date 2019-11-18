@@ -76,6 +76,7 @@ function clearCity(city) {
 
 function clearCityInput() {
   document.querySelector('#js-city').value = '';
+  window.$vue.selectedCity = null;
 }
 
 export { showCity, clearCity, clearCityInput };
