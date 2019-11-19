@@ -4226,8 +4226,7 @@ exports.default = addTableDestak;
 
 function addTableDestak(cityId) {
   var ptCrossedTable = document.querySelector('.js-pt-crossed-table');
-  var matCrossedTable = document.querySelector('.js-mat-crossed-table');
-  var data = window.chartData.data; // get table rows
+  var matCrossedTable = document.querySelector('.js-mat-crossed-table'); // get table rows
 
   var ptRows = ptCrossedTable.querySelectorAll('tr');
   var matRows = matCrossedTable.querySelectorAll('tr');
@@ -4247,7 +4246,7 @@ function addTableDestak(cityId) {
   }
 
   function getCityInfo() {
-    return data.filter(function (item) {
+    return window.$vue.globalChartData.filter(function (item) {
       return item.city.id === cityId;
     });
   }
@@ -4498,10 +4497,10 @@ function _submitChartFormInfo() {
             return (0, _plotCharts.populateChartData)(payload);
 
           case 15:
-            (0, _updateTableInfo.clearTableInfo)();
+            // clearTableInfo();
             (0, _handleNoMatchesAlert.hideNoMatchesAlert)();
 
-          case 17:
+          case 16:
           case "end":
             return _context.stop();
         }
@@ -4614,7 +4613,7 @@ function highlightPoint(id) {
     matPoint.select();
   }
 
-  (0, _updateHelperText.default)(id);
+  (0, _updateHelperText.default)(window.$vue.selectedCity);
   return true;
 }
 
@@ -4888,11 +4887,10 @@ function _showCity() {
 
             (0, _updateHelperText.default)(id);
             (0, _updateTableInfo.updateTableInfo)(id);
-            (0, _updateHelperText.default)(id);
             (0, _addTableDestak.default)(id);
             return _context2.abrupt("return", true);
 
-          case 26:
+          case 25:
           case "end":
             return _context2.stop();
         }
@@ -4935,6 +4933,7 @@ window.$vue = new Vue({
   data: {
     chartData: null,
     filteredChartData: null,
+    updateGlobalChartData: true,
     globalChartData: null,
     selectedFilters: {
       selectedInequality: null,
@@ -5371,7 +5370,12 @@ function getChartData(receivedPayload) {
               response = _context.sent;
               chartData.data = response.data.data;
               window.chartData = chartData;
-              window.$vue.globalChartData = chartData.data;
+
+              if (window.$vue.updateGlobalChartData) {
+                window.$vue.globalChartData = chartData.data;
+                window.$vue.updateGlobalChartData = false;
+              }
+
               _context.next = 12;
               break;
 
@@ -5638,7 +5642,7 @@ function _populateChartData() {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 33;
+              _context.next = 32;
               break;
             }
 
@@ -5656,10 +5660,7 @@ function _populateChartData() {
             return (0, _getChartData.default)(payload);
 
           case 6:
-            (0, _updateHelperText.default)();
-            (0, _addTableDestak.default)();
-            (0, _updateTableInfo.updateTableInfo)(); // let chartData = window.$vue.filteredChartData || window.chartData.data;
-
+            // let chartData = window.$vue.filteredChartData || window.chartData.data;
             chartData = window.chartData.data;
             chartData = chartData.filter(function (item) {
               return item.x !== null;
@@ -5723,32 +5724,37 @@ function _populateChartData() {
               xAxisText = 'NSE';
             }
 
-            _context.next = 25;
+            _context.next = 22;
             return drawChart(formatedPtItems, 'pt');
 
-          case 25:
-            _context.next = 27;
+          case 22:
+            _context.next = 24;
             return drawChart(formatedMatItems, 'mat');
 
-          case 27:
-            if (window.$vue.selectedCity) {
-              (0, _showCity.showCity)(window.$vue.selectedCity);
+          case 24:
+            if (!window.$vue.selectedCity) {
+              _context.next = 27;
+              break;
             }
 
-            _context.next = 33;
+            _context.next = 27;
+            return (0, _showCity.showCity)(window.$vue.selectedCity);
+
+          case 27:
+            _context.next = 32;
             break;
 
-          case 30:
-            _context.prev = 30;
+          case 29:
+            _context.prev = 29;
             _context.t0 = _context["catch"](1);
             window.console.log(_context.t0);
 
-          case 33:
+          case 32:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 30]]);
+    }, _callee, this, [[1, 29]]);
   }));
   return _populateChartData.apply(this, arguments);
 }
@@ -5834,65 +5840,98 @@ function sizeToggle() {
 },{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":34,"highcharts/modules/exporting":35}],53:[function(require,module,exports){
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = updateHelperText;
 
-function updateHelperText(cityId) {
-  var helperText = document.querySelector('.js-helper-text');
-  var _window$chartData = window.chartData,
-      data = _window$chartData.data,
-      xAxis = _window$chartData.xAxis;
-  var helperTextDictionary = {
-    racial: 'raça',
-    sex: 'gênero',
-    nse: 'nível sócio econômico',
-    baixa: 'baixa',
-    'medio-baixa': 'médio baixa',
-    media: 'média',
-    'medio-alta': 'médio alta',
-    alta: 'alta',
-    'desigualdade-extrema': 'desigualdade extrema',
-    'desigualdade-alta': 'desigualdade alta',
-    desigualdade: 'desigualdade',
-    equidade: 'equidade',
-    'situacoes-atipicas': 'situações atípicas'
-  };
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
-  if (!cityId) {
-    helperText.setAttribute('hidden', '');
-    return;
-  }
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
-  function getCityInfo() {
-    return data.filter(function (item) {
-      return item.city.id === cityId;
-    });
-  }
-
-  var cityInfo = getCityInfo(cityId);
-  var ptInfo = cityInfo.find(function (item) {
-    return item.subject === 'Português';
-  });
-  var matInfo = cityInfo.find(function (item) {
-    return item.subject === 'Matemática';
-  });
-  helperText.removeAttribute('hidden'); // city info
-
-  helperText.querySelector('.js-city').textContent = ptInfo.city.name;
-  helperText.querySelector('.js-uf').textContent = ptInfo.state.name;
-  helperText.querySelector('.js-inhabitants').textContent = ptInfo.city.inhabitants;
-  helperText.querySelector('.js-xAxis').textContent = helperTextDictionary[xAxis]; // pt info
-
-  helperText.querySelector('.js-pt-quality').textContent = helperTextDictionary[ptInfo.range_quality];
-  helperText.querySelector('.js-pt-inequality').textContent = helperTextDictionary[ptInfo.range_inequality]; // mat info
-
-  helperText.querySelector('.js-mat-quality').textContent = helperTextDictionary[matInfo.range_quality];
-  helperText.querySelector('.js-mat-inequality').textContent = helperTextDictionary[matInfo.range_inequality];
+function updateHelperText(_x) {
+  return _updateHelperText.apply(this, arguments);
 }
 
-},{}],54:[function(require,module,exports){
+function _updateHelperText() {
+  _updateHelperText = (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee(cityId) {
+    var helperText, xAxis, helperTextDictionary, getCityInfo, cityInfo, ptInfo, matInfo;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            getCityInfo = function _ref() {
+              return window.$vue.globalChartData.filter(function (item) {
+                return item.city.id === cityId;
+              });
+            };
+
+            helperText = document.querySelector('.js-helper-text');
+            xAxis = window.chartData.xAxis;
+            helperTextDictionary = {
+              racial: 'raça',
+              sex: 'gênero',
+              nse: 'nível sócio econômico',
+              baixa: 'baixa',
+              'medio-baixa': 'médio baixa',
+              media: 'média',
+              'medio-alta': 'médio alta',
+              alta: 'alta',
+              'desigualdade-extrema': 'desigualdade extrema',
+              'desigualdade-alta': 'desigualdade alta',
+              desigualdade: 'desigualdade',
+              equidade: 'equidade',
+              'situacoes-atipicas': 'situações atípicas'
+            };
+
+            if (cityId) {
+              _context.next = 7;
+              break;
+            }
+
+            helperText.setAttribute('hidden', '');
+            return _context.abrupt("return");
+
+          case 7:
+            _context.next = 9;
+            return getCityInfo(cityId);
+
+          case 9:
+            cityInfo = _context.sent;
+            ptInfo = cityInfo.find(function (item) {
+              return item.subject === 'Português';
+            });
+            matInfo = cityInfo.find(function (item) {
+              return item.subject === 'Matemática';
+            });
+            helperText.removeAttribute('hidden'); // city info
+
+            helperText.querySelector('.js-city').textContent = ptInfo.city.name;
+            helperText.querySelector('.js-uf').textContent = ptInfo.state.name;
+            helperText.querySelector('.js-inhabitants').textContent = ptInfo.city.inhabitants;
+            helperText.querySelector('.js-xAxis').textContent = helperTextDictionary[xAxis]; // pt info
+
+            helperText.querySelector('.js-pt-quality').textContent = helperTextDictionary[ptInfo.range_quality];
+            helperText.querySelector('.js-pt-inequality').textContent = helperTextDictionary[ptInfo.range_inequality]; // mat info
+
+            helperText.querySelector('.js-mat-quality').textContent = helperTextDictionary[matInfo.range_quality];
+            helperText.querySelector('.js-mat-inequality').textContent = helperTextDictionary[matInfo.range_inequality];
+
+          case 21:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+  return _updateHelperText.apply(this, arguments);
+}
+
+},{"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5}],54:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -5967,6 +6006,7 @@ function updateTableInfo(id) {
     ptTable.querySelector('.js-xAxis').textContent = Number(ptInfo.x).toFixed(2);
     ptTable.querySelector('.js-quality').textContent = ptInfo.range_quality;
     ptTable.querySelector('.js-yAxis').textContent = Number(ptInfo.y).toFixed(2);
+    console.log("Im puttin ".concat(ptInfo.y, " on n\xEDvel de aprendizado"));
     ptTable.querySelector('.js-inequality').textContent = ptInfo.range_inequality;
 
     if (xAxis === 'racial') {
@@ -6003,7 +6043,7 @@ function updateTableInfo(id) {
       matTable.setAttribute('hidden', '');
     }
 
-    return data.filter(function (item) {
+    return window.$vue.globalChartData.filter(function (item) {
       return item.city.id === cityId;
     });
   }

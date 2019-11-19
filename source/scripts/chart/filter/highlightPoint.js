@@ -47,7 +47,7 @@ function highlightPoint(id) {
     matPoint.select();
   }
 
-  updateHelperText(id);
+  updateHelperText(window.$vue.selectedCity);
 
   return true;
 }

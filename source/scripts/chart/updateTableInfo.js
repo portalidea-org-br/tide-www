@@ -114,7 +114,7 @@ function updateTableInfo(id) {
       ptTable.setAttribute('hidden', '');
       matTable.setAttribute('hidden', '');
     }
-    return data.filter(item => item.city.id === cityId);
+    return window.$vue.globalChartData.filter(item => item.city.id === cityId);
   }
 
   const newInfo = getCityInfo(id);

@@ -197,9 +197,6 @@ async function populateChartData(payload) {
       }
 
       await getChartData(payload);
-      updateHelperText();
-      addTableDestak();
-      updateTableInfo();
 
       // let chartData = window.$vue.filteredChartData || window.chartData.data;
       let chartData = window.chartData.data;
@@ -256,7 +253,7 @@ async function populateChartData(payload) {
       await drawChart(formatedPtItems, 'pt');
       await drawChart(formatedMatItems, 'mat');
       if (window.$vue.selectedCity) {
-        showCity(window.$vue.selectedCity);
+        await showCity(window.$vue.selectedCity);
       }
     } catch (err) {
       window.console.log(err);

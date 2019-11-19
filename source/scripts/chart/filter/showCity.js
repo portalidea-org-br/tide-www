@@ -62,7 +62,6 @@ async function showCity(id) {
 
   updateHelperText(id);
   updateTableInfo(id);
-  updateHelperText(id);
   addTableDestak(id);
 
   return true;

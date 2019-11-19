@@ -1,6 +1,6 @@
-export default function updateHelperText(cityId) {
+export default async function updateHelperText(cityId) {
   const helperText = document.querySelector('.js-helper-text');
-  const { data, xAxis } = window.chartData;
+  const { xAxis } = window.chartData;
   const helperTextDictionary = {
     racial: 'raça',
     sex: 'gênero',
@@ -23,16 +23,15 @@ export default function updateHelperText(cityId) {
   }
 
   function getCityInfo() {
-    return data.filter(item => item.city.id === cityId);
+    return window.$vue.globalChartData.filter(item => item.city.id === cityId);
   }
 
-  const cityInfo = getCityInfo(cityId);
+  const cityInfo = await getCityInfo(cityId);
 
   const ptInfo = cityInfo.find(item => item.subject === 'Português');
   const matInfo = cityInfo.find(item => item.subject === 'Matemática');
 
   helperText.removeAttribute('hidden');
-
 
   // city info
   helperText.querySelector('.js-city').textContent = ptInfo.city.name;

@@ -1,7 +1,6 @@
 export default function addTableDestak(cityId) {
   const ptCrossedTable = document.querySelector('.js-pt-crossed-table');
   const matCrossedTable = document.querySelector('.js-mat-crossed-table');
-  const { data } = window.chartData;
 
   // get table rows
   const ptRows = ptCrossedTable.querySelectorAll('tr');
@@ -23,7 +22,7 @@ export default function addTableDestak(cityId) {
   }
 
   function getCityInfo() {
-    return data.filter(item => item.city.id === cityId);
+    return window.$vue.globalChartData.filter(item => item.city.id === cityId);
   }
 
   const cityInfo = getCityInfo(cityId);

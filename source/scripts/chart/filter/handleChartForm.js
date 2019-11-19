@@ -25,7 +25,7 @@ async function submitChartFormInfo() {
   toggleLoading();
   window.$vue.showAdvancedFilters = false;
   await populateChartData(payload);
-  clearTableInfo();
+  // clearTableInfo();
   hideNoMatchesAlert();
 }
 

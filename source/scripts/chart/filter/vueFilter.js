@@ -12,6 +12,7 @@ window.$vue = new Vue({
   data: {
     chartData: null,
     filteredChartData: null,
+    updateGlobalChartData: true,
     globalChartData: null,
     selectedFilters: {
       selectedInequality: null,
