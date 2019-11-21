@@ -35,7 +35,7 @@ async function submitAxisInfo() {
 
   await populateChartData(payload);
   window.$vue.toggleFilterFormLoading();
-  clearTableInfo();
+  // clearTableInfo();
   hideNoMatchesAlert();
   handleSelectedFilters();
 }

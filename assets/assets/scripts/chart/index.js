@@ -4411,12 +4411,12 @@ function _submitAxisInfo() {
             return (0, _plotCharts.populateChartData)(payload);
 
           case 10:
-            window.$vue.toggleFilterFormLoading();
-            (0, _updateTableInfo.clearTableInfo)();
+            window.$vue.toggleFilterFormLoading(); // clearTableInfo();
+
             (0, _handleNoMatchesAlert.hideNoMatchesAlert)();
             handleSelectedFilters();
 
-          case 14:
+          case 13:
           case "end":
             return _context.stop();
         }
@@ -6006,7 +6006,6 @@ function updateTableInfo(id) {
     ptTable.querySelector('.js-xAxis').textContent = Number(ptInfo.x).toFixed(2);
     ptTable.querySelector('.js-quality').textContent = ptInfo.range_quality;
     ptTable.querySelector('.js-yAxis').textContent = Number(ptInfo.y).toFixed(2);
-    console.log("Im puttin ".concat(ptInfo.y, " on n\xEDvel de aprendizado"));
     ptTable.querySelector('.js-inequality').textContent = ptInfo.range_inequality;
 
     if (xAxis === 'racial') {
