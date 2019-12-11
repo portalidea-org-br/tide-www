@@ -1,7 +1,8 @@
 ---
 title: Quem somos
 ---
-O portal IDeA é uma iniciativa da Fundação Tide Setubal e de pesquisadores reunidos em uma rede de grupos de pesquisa em educação e desigualdades. 
+## O portal IDeA é uma iniciativa da Fundação Tide Setubal e de pesquisadores reunidos em uma rede de grupos de pesquisa em educação e desigualdades.
+
 
 
 
@@ -14,8 +15,6 @@ Erica Castilho Rodrigues, professora do Departamento de Estatística da UFOP, in
 Mauricio Ernica, professor da Faculdade de Educação da Unicamp, coordenou e integrou a equipe que desenvolveu o IDeA. 
 
 Victor Maia Senna Delgado, professor do Departamento de Economia da UFOP, integrou a equipe de pesquisadores.
-
-
 
 **Rede de Grupos de Pesquisa em Educação e Desigualdades**
 
