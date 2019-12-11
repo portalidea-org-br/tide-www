@@ -2,7 +2,7 @@
 title: Um olhar para o 5º ano
 date: '2019-06-24T09:29:38Z'
 tags:
-  - news
+  - notícias
 short_description: >-
   Só 0,2% de municípios têm alto nível de aprendizado com equidade entre grupos
   de nível socioeconômico alto e baixo para Matemática e só 0,4% para Língua
