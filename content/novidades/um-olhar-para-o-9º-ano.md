@@ -2,7 +2,7 @@
 title: Um olhar para o 9º ano
 date: '2019-06-24T11:36:53Z'
 tags:
-  - news
+  - notícias
 short_description: >-
   Só 0,1% de municípios estão nas situações de alto aprendizado e equidade em
   nível socioeconômico para Matemática e só 0,1% para Língua Portuguesa. Entre
