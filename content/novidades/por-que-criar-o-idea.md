@@ -2,7 +2,7 @@
 title: Por que criar o IDeA
 date: '2019-06-24T11:32:03Z'
 tags:
-  - news
+  - notícias
 short_description: >-
   A educação básica é direito de todos. Para garanti-lo, são necessárias
   ferramentas que verifiquem a realização efetiva desse direito. Uma delas é o
