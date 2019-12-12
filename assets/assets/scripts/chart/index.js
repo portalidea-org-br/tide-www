@@ -5954,7 +5954,8 @@ var matTable = document.querySelector('.js-mat-table');
 function updateTableInfo(id) {
   var _window$chartData = window.chartData,
       xAxis = _window$chartData.xAxis,
-      data = _window$chartData.data;
+      data = _window$chartData.data,
+      grade = _window$chartData.grade;
 
   function setCityInfo(info) {
     var ptInfo = info.find(function (item) {
@@ -5970,8 +5971,8 @@ function updateTableInfo(id) {
 
     ptTable.removeAttribute('hidden');
     matTable.removeAttribute('hidden');
-    ptTable.getElementsByTagName('h2')[0].textContent = "".concat(ptInfo.city.name, " - ").concat(ptInfo.state.uf);
-    matTable.getElementsByTagName('h2')[0].textContent = "".concat(matInfo.city.name, " - ").concat(matInfo.state.uf);
+    ptTable.getElementsByTagName('h2')[0].textContent = "".concat(ptInfo.city.name, " - ").concat(ptInfo.state.uf, " | ").concat(grade, "\xBA ano");
+    matTable.getElementsByTagName('h2')[0].textContent = "".concat(matInfo.city.name, " - ").concat(matInfo.state.uf, " | ").concat(grade, "\xBA ano");
 
     if (xAxis === 'racial') {
       ptTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos pretos';

@@ -264,16 +264,39 @@
           </div>
 
           <section class="chart">
-            <div class="chart__header">
-              <h1>Português</h1>
-              <div class="chart__buttons">
-                <button class="js-download-pt-chart chart__button chart__button--download">Download do gráfico</button>
-                <button class="js-expand-pt-chart chart__button chart__button--expand">Expandir gráfico</button>
-                <button class="js-shrink-pt-chart chart__button chart__button--shrink">Reduzir gráfico</button>
+            <div class="chart__half chart__half--pt-chart">
+              <div class="chart__header">
+                <h1>Português</h1>
+                <div class="chart__buttons">
+                  <button class="js-download-pt-chart chart__button chart__button--download">Download do gráfico</button>
+                  <button class="js-expand-pt-chart chart__button chart__button--expand">Expandir gráfico</button>
+                  <button class="js-shrink-pt-chart chart__button chart__button--shrink">Reduzir gráfico</button>
+                </div>
+              </div>
+              <div class="js-pt-no-matches chart-form__alert" hidden>Não há informações da cidade com os filtros selecionados</div>
+              <div class="chart__main chart__main--pt" id="pt-chart"></div>
+            </div>
+
+            <div class="chart__half chart__half--mat-chart">
+              <div class="chart__header">
+                <h1>Matemática</h1>
+                <div class="chart__buttons">
+                  <button class="js-download-mat-chart chart__button chart__button--download">Download do gráfico</button>
+                  <button class="js-expand-mat-chart chart__button chart__button--expand">Expandir gráfico</button>
+                  <button class="js-shrink-mat-chart chart__button chart__button--shrink">Reduzir gráfico</button>
+                </div>
+              </div>
+              <div class="js-mat-no-matches chart-form__alert" hidden>Não há informações da cidade com os filtros selecionados</div>
+              <div class="chart__main chart__main--mat" id="mat-chart"></div>
+              <div class="chart__legend chart__legend--mat-legend">
+                <strong>Legenda:</strong>
+                <span class="chart__label chart__label-desigualdade-extrema">Desigualdade extrema</span>
+                <span class="chart__label chart__label-desigualdade-alta">Desigualdade alta</span>
+                <span class="chart__label chart__label-desigualdade">Desigualdade</span>
+                <span class="chart__label chart__label-equidade">Equidade</span>
+                <span class="chart__label chart__label-situacoes-atipicas">Situações atípicas</span>
               </div>
             </div>
-            <div class="js-pt-no-matches chart-form__alert" hidden>Não há informações da cidade com os filtros selecionados</div>
-            <div class="chart__main chart__main--pt" id="pt-chart"></div>
             <div class="chart__legend">
               <strong>Legenda:</strong>
               <span class="chart__label chart__label-desigualdade-extrema">Desigualdade extrema</span>
@@ -282,175 +305,161 @@
               <span class="chart__label chart__label-equidade">Equidade</span>
               <span class="chart__label chart__label-situacoes-atipicas">Situações atípicas</span>
             </div>
-            <div class="js-pt-table chart__table" hidden>
-              <h2></h2>
-              <h3>Português (2007 a 2015)</h3>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>Nível de aprendizado:</td>
-                    <td class="js-yAxis"></td>
-                  </tr>
-                  <tr>
-                    <td>Faixa do nível de aprendizado:</td>
-                    <td class="js-quality"></td>
-                  </tr>
-                  <tr>
-                    <td>Nível de desigualdade:</td>
-                    <td class="js-xAxis"></td>
-                  </tr>
-                  <tr>
-                    <td>Faixa de nível de desigualdade:</td>
-                    <td class="js-inequality"></td>
-                  </tr>
-                  <tr>
-                    <td>Número de alunos total</td>
-                    <td class="js-total-students"></td>
-                  </tr>
-                  <tr>
-                    <td class="js-unprivileged-title"></td>
-                    <td class="js-unprivileged-value"></td>
-                  </tr>
-                  <tr>
-                    <td class="js-privileged-title"></td>
-                    <td class="js-privileged-value"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="pt-crossed-table" hidden>
-              <h4>Faixas de nível de desigualdade</h4>
-              <table class="js-pt-crossed-table">
-                <thead>
-                  <tr>
-                    <th>Nível KL</th>
-                    <th>Limite Inferior</th>
-                    <th>Limite superior</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="js-baixa">
-                    <td>Baixa</td>
-                    <td>0</td>
-                    <td>2</td>
-                  </tr>
-                  <tr class="js-medio-baixa">
-                    <td>Médio-baixa</td>
-                    <td>2</td>
-                    <td>2,9</td>
-                  </tr>
-                  <tr class="js-media">
-                    <td>Média</td>
-                    <td>2,9</td>
-                    <td>3,8</td>
-                  </tr>
-                  <tr class="js-medio-alta">
-                    <td>Médio-alta</td>
-                    <td>3,8</td>
-                    <td>4,8</td>
-                  </tr>
-                  <tr class="js-alta">
-                    <td>Alta</td>
-                    <td>4,8</td>
-                    <td>10</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-          <section class="chart">
-            <div class="chart__header">
-              <h1>Matemática</h1>
-              <div class="chart__buttons">
-                <button class="js-download-mat-chart chart__button chart__button--download">Download do gráfico</button>
-                <button class="js-expand-mat-chart chart__button chart__button--expand">Expandir gráfico</button>
-                <button class="js-shrink-mat-chart chart__button chart__button--shrink">Reduzir gráfico</button>
+
+
+            <div class="chart__half chart__half--pt-table">
+              <div class="js-pt-table chart__table" hidden>
+                <h2></h2>
+                <h3>Português (2007 a 2015)</h3>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Nível de aprendizado:</td>
+                      <td class="js-yAxis"></td>
+                    </tr>
+                    <tr>
+                      <td>Faixa do nível de aprendizado:</td>
+                      <td class="js-quality"></td>
+                    </tr>
+                    <tr>
+                      <td>Nível de desigualdade:</td>
+                      <td class="js-xAxis"></td>
+                    </tr>
+                    <tr>
+                      <td>Faixa de nível de desigualdade:</td>
+                      <td class="js-inequality"></td>
+                    </tr>
+                    <tr>
+                      <td>Número de alunos total</td>
+                      <td class="js-total-students"></td>
+                    </tr>
+                    <tr>
+                      <td class="js-unprivileged-title"></td>
+                      <td class="js-unprivileged-value"></td>
+                    </tr>
+                    <tr>
+                      <td class="js-privileged-title"></td>
+                      <td class="js-privileged-value"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pt-crossed-table" hidden>
+                <h4>Faixas de nível de desigualdade</h4>
+                <table class="js-pt-crossed-table">
+                  <thead>
+                    <tr>
+                      <th>Nível KL</th>
+                      <th>Limite Inferior</th>
+                      <th>Limite superior</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="js-baixa">
+                      <td>Baixa</td>
+                      <td>0</td>
+                      <td>2</td>
+                    </tr>
+                    <tr class="js-medio-baixa">
+                      <td>Médio-baixa</td>
+                      <td>2</td>
+                      <td>2,9</td>
+                    </tr>
+                    <tr class="js-media">
+                      <td>Média</td>
+                      <td>2,9</td>
+                      <td>3,8</td>
+                    </tr>
+                    <tr class="js-medio-alta">
+                      <td>Médio-alta</td>
+                      <td>3,8</td>
+                      <td>4,8</td>
+                    </tr>
+                    <tr class="js-alta">
+                      <td>Alta</td>
+                      <td>4,8</td>
+                      <td>10</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
-            <div class="js-mat-no-matches chart-form__alert" hidden>Não há informações da cidade com os filtros selecionados</div>
-            <div class="chart__main chart__main--mat" id="mat-chart"></div>
-            <div class="chart__legend chart__legend--mat-legend">
-              <strong>Legenda:</strong>
-              <span class="chart__label chart__label-desigualdade-extrema">Desigualdade extrema</span>
-              <span class="chart__label chart__label-desigualdade-alta">Desigualdade alta</span>
-              <span class="chart__label chart__label-desigualdade">Desigualdade</span>
-              <span class="chart__label chart__label-equidade">Equidade</span>
-              <span class="chart__label chart__label-situacoes-atipicas">Situações atípicas</span>
-            </div>
-            <div class="js-mat-table chart__table" hidden>
-              <h2></h2>
-              <h3>Matemática (2007 a 2015)</h3>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>Nível de aprendizado:</td>
-                    <td class="js-yAxis"></td>
-                  </tr>
-                  <tr>
-                    <td>Faixa do nível de aprendizado:</td>
-                    <td class="js-quality"></td>
-                  </tr>
-                  <tr>
-                    <td>Nível de desigualdade:</td>
-                    <td class="js-xAxis"></td>
-                  </tr>
-                  <tr>
-                    <td>Faixa de nível de desigualdade:</td>
-                    <td class="js-inequality"></td>
-                  </tr>
-                  <tr>
-                    <td>Número de alunos total</td>
-                    <td class="js-total-students"></td>
-                  </tr>
-                  <tr>
-                    <td class="js-unprivileged-title"></td>
-                    <td class="js-unprivileged-value"></td>
-                  </tr>
-                  <tr>
-                    <td class="js-privileged-title"></td>
-                    <td class="js-privileged-value"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="mat-crossed-table" hidden>
-              <h4>Faixas de nível de desigualdade</h4>
-              <table class="js-mat-crossed-table">
-                <thead>
-                  <tr>
-                    <th>Nível KL</th>
-                    <th>Limite Inferior</th>
-                    <th>Limite superior</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="js-baixa">
-                    <td>Baixa</td>
-                    <td>0</td>
-                    <td>2</td>
-                  </tr>
-                  <tr class="js-medio-baixa">
-                    <td>Médio-baixa</td>
-                    <td>2</td>
-                    <td>2,9</td>
-                  </tr>
-                  <tr class="js-media">
-                    <td>Média</td>
-                    <td>2,9</td>
-                    <td>3,8</td>
-                  </tr>
-                  <tr class="js-medio-alta">
-                    <td>Médio-alta</td>
-                    <td>3,8</td>
-                    <td>4,8</td>
-                  </tr>
-                  <tr class="js-alta">
-                    <td>Alta</td>
-                    <td>4,8</td>
-                    <td>10</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="chart__half chart__half--mat-table">
+              <div class="js-mat-table chart__table" hidden>
+                <h2></h2>
+                <h3>Matemática (2007 a 2015)</h3>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Nível de aprendizado:</td>
+                      <td class="js-yAxis"></td>
+                    </tr>
+                    <tr>
+                      <td>Faixa do nível de aprendizado:</td>
+                      <td class="js-quality"></td>
+                    </tr>
+                    <tr>
+                      <td>Nível de desigualdade:</td>
+                      <td class="js-xAxis"></td>
+                    </tr>
+                    <tr>
+                      <td>Faixa de nível de desigualdade:</td>
+                      <td class="js-inequality"></td>
+                    </tr>
+                    <tr>
+                      <td>Número de alunos total</td>
+                      <td class="js-total-students"></td>
+                    </tr>
+                    <tr>
+                      <td class="js-unprivileged-title"></td>
+                      <td class="js-unprivileged-value"></td>
+                    </tr>
+                    <tr>
+                      <td class="js-privileged-title"></td>
+                      <td class="js-privileged-value"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="mat-crossed-table" hidden>
+                <h4>Faixas de nível de desigualdade</h4>
+                <table class="js-mat-crossed-table">
+                  <thead>
+                    <tr>
+                      <th>Nível KL</th>
+                      <th>Limite Inferior</th>
+                      <th>Limite superior</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="js-baixa">
+                      <td>Baixa</td>
+                      <td>0</td>
+                      <td>2</td>
+                    </tr>
+                    <tr class="js-medio-baixa">
+                      <td>Médio-baixa</td>
+                      <td>2</td>
+                      <td>2,9</td>
+                    </tr>
+                    <tr class="js-media">
+                      <td>Média</td>
+                      <td>2,9</td>
+                      <td>3,8</td>
+                    </tr>
+                    <tr class="js-medio-alta">
+                      <td>Médio-alta</td>
+                      <td>3,8</td>
+                      <td>4,8</td>
+                    </tr>
+                    <tr class="js-alta">
+                      <td>Alta</td>
+                      <td>4,8</td>
+                      <td>10</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </section>
 

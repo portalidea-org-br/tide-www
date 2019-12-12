@@ -6,7 +6,7 @@ Exporting(Highcharts);
 const ptTable = document.querySelector('.js-pt-table');
 const matTable = document.querySelector('.js-mat-table');
 function updateTableInfo(id) {
-  const { xAxis, data } = window.chartData;
+  const { xAxis, data, grade } = window.chartData;
 
   function setCityInfo(info) {
     const ptInfo = info.find(item => item.subject === 'Português');
@@ -19,8 +19,8 @@ function updateTableInfo(id) {
     ptTable.removeAttribute('hidden');
     matTable.removeAttribute('hidden');
 
-    ptTable.getElementsByTagName('h2')[0].textContent = `${ptInfo.city.name} - ${ptInfo.state.uf}`;
-    matTable.getElementsByTagName('h2')[0].textContent = `${matInfo.city.name} - ${matInfo.state.uf}`;
+    ptTable.getElementsByTagName('h2')[0].textContent = `${ptInfo.city.name} - ${ptInfo.state.uf} | ${grade}º ano`;
+    matTable.getElementsByTagName('h2')[0].textContent = `${matInfo.city.name} - ${matInfo.state.uf} | ${grade}º ano`;
 
 
     if (xAxis === 'racial') {
