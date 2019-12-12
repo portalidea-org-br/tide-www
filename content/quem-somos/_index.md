@@ -1,5 +1,5 @@
 ---
-title: Parceiros
+title: Quem Somos
 ---
 ## Rede de Grupos de Pesquisa em Educação e Desigualdades
 
