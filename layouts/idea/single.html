@@ -15,7 +15,12 @@
       </section>
 
       <div id="app" class="bg-yellow-simple">
-        <form @change="updateGlobalChartData = true" action="" method="post" id="js-axis-form" class="chart-form">
+        <form
+          @change="updateGlobalChartData = true; needRegenerateChart = true"
+          @submit="needRegenerateChart = false"
+          method="post"
+          id="js-axis-form"
+          class="chart-form">
           <div class="bg-light-gray">
             <div class="container">
               <p class="big-text">
@@ -58,6 +63,14 @@
                     </li>
                   </ul>
                   <div class="chart-form__footer">
+                      <transition name="fade">
+                        <span
+                          v-if="needRegenerateChart"
+                          class="chart-form__regenerate-alert"
+                        >
+                          Clique em gerar gráfico para ter um novo gráfico com as suas modificações.
+                        </span>
+                      </transition>
                       <button
                         type="button"
                         class="js-show-advanced button--like-text"

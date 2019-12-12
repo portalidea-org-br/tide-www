@@ -21,6 +21,7 @@ window.$vue = new Vue({
       selectedInhabitants: null,
     },
     selectedCity: null,
+    needRegenerateChart: false,
     regions: [
       {
         name: 'centro oeste',
