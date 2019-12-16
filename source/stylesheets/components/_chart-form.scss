@@ -382,6 +382,9 @@
 .chart-form__regenerate-alert {
   align-self: center;
   margin-right: auto;
+  font-size: 1em;
+  font-family: $roboto-font-stack;
+  color: palette('red');
 }
 
 .chart-form__footer .button {

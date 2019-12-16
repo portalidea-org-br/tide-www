@@ -8,6 +8,12 @@ const matTable = document.querySelector('.js-mat-table');
 function updateTableInfo(id) {
   const { xAxis, data, grade } = window.chartData;
 
+  const tableHelperDictionary = {
+    racial: 'raça',
+    sex: 'gênero',
+    nse: 'nível sócio econômico',
+  };
+
   function setCityInfo(info) {
     const ptInfo = info.find(item => item.subject === 'Português');
     const matInfo = info.find(item => item.subject === 'Matemática');
@@ -16,11 +22,15 @@ function updateTableInfo(id) {
       return;
     }
 
+    document.querySelector('.js-table-helper').textContent = `
+      ${grade}º ano | desigualdade: ${tableHelperDictionary[xAxis]}
+    `;
+
     ptTable.removeAttribute('hidden');
     matTable.removeAttribute('hidden');
 
-    ptTable.getElementsByTagName('h2')[0].textContent = `${ptInfo.city.name} - ${ptInfo.state.uf} | ${grade}º ano`;
-    matTable.getElementsByTagName('h2')[0].textContent = `${matInfo.city.name} - ${matInfo.state.uf} | ${grade}º ano`;
+    ptTable.getElementsByTagName('h2')[0].textContent = `${ptInfo.city.name} - ${ptInfo.state.uf}`;
+    matTable.getElementsByTagName('h2')[0].textContent = `${matInfo.city.name} - ${matInfo.state.uf}`;
 
 
     if (xAxis === 'racial') {

@@ -88,6 +88,12 @@
   border: 0;
 }
 
+.button--outline {
+  outline: 1px solid palette('red');
+  outline-offset: 1px;
+  outline-width: 2px;
+}
+
 .button--purple {
   background: palette('purple');
 }

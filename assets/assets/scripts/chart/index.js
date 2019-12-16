@@ -5956,6 +5956,11 @@ function updateTableInfo(id) {
       xAxis = _window$chartData.xAxis,
       data = _window$chartData.data,
       grade = _window$chartData.grade;
+  var tableHelperDictionary = {
+    racial: 'raça',
+    sex: 'gênero',
+    nse: 'nível sócio econômico'
+  };
 
   function setCityInfo(info) {
     var ptInfo = info.find(function (item) {
@@ -5969,10 +5974,11 @@ function updateTableInfo(id) {
       return;
     }
 
+    document.querySelector('.js-table-helper').textContent = "\n      ".concat(grade, "\xBA ano | desigualdade: ").concat(tableHelperDictionary[xAxis], "\n    ");
     ptTable.removeAttribute('hidden');
     matTable.removeAttribute('hidden');
-    ptTable.getElementsByTagName('h2')[0].textContent = "".concat(ptInfo.city.name, " - ").concat(ptInfo.state.uf, " | ").concat(grade, "\xBA ano");
-    matTable.getElementsByTagName('h2')[0].textContent = "".concat(matInfo.city.name, " - ").concat(matInfo.state.uf, " | ").concat(grade, "\xBA ano");
+    ptTable.getElementsByTagName('h2')[0].textContent = "".concat(ptInfo.city.name, " - ").concat(ptInfo.state.uf);
+    matTable.getElementsByTagName('h2')[0].textContent = "".concat(matInfo.city.name, " - ").concat(matInfo.state.uf);
 
     if (xAxis === 'racial') {
       ptTable.querySelector('.js-unprivileged-title').textContent = 'Número de alunos pretos';

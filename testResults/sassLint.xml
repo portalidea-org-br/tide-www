@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+<testsuite package="org.eslint" time="0" tests="3" errors="3" name="./source/stylesheets/base/_helpers.scss">
+<testcase time="0" name="org.eslint.property-sort-order"><failure message="Expected `bottom`, found `display`"><![CDATA[line 126, col 5, Warning - Expected `bottom`, found `display` (property-sort-order)]]></failure></testcase>
+<testcase time="0" name="org.eslint.property-sort-order"><failure message="Expected `left`, found `bottom`"><![CDATA[line 127, col 5, Warning - Expected `left`, found `bottom` (property-sort-order)]]></failure></testcase>
+<testcase time="0" name="org.eslint.property-sort-order"><failure message="Expected `display`, found `left`"><![CDATA[line 128, col 5, Warning - Expected `display`, found `left` (property-sort-order)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="6" errors="6" name="./source/stylesheets/components/_chart-form.scss">
+<testcase time="0" name="org.eslint.no-color-literals"><failure message="Color functions such as &#39;rgba&#39; should only be used in variable declarations"><![CDATA[line 93, col 17, Error - Color functions such as &#39;rgba&#39; should only be used in variable declarations (no-color-literals)]]></failure></testcase>
+<testcase time="0" name="org.eslint.class-name-format"><failure message="Class &#39;.noUi-connects&#39; should be written in hyphenated BEM (Block Element Modifier) format"><![CDATA[line 229, col 14, Warning - Class &#39;.noUi-connects&#39; should be written in hyphenated BEM (Block Element Modifier) format (class-name-format)]]></failure></testcase>
+<testcase time="0" name="org.eslint.class-name-format"><failure message="Class &#39;.noUi-horizontal&#39; should be written in hyphenated BEM (Block Element Modifier) format"><![CDATA[line 234, col 14, Warning - Class &#39;.noUi-horizontal&#39; should be written in hyphenated BEM (Block Element Modifier) format (class-name-format)]]></failure></testcase>
+<testcase time="0" name="org.eslint.class-name-format"><failure message="Class &#39;.noUi-horizontal&#39; should be written in hyphenated BEM (Block Element Modifier) format"><![CDATA[line 238, col 14, Warning - Class &#39;.noUi-horizontal&#39; should be written in hyphenated BEM (Block Element Modifier) format (class-name-format)]]></failure></testcase>
+<testcase time="0" name="org.eslint.class-name-format"><failure message="Class &#39;.noUi-handle&#39; should be written in hyphenated BEM (Block Element Modifier) format"><![CDATA[line 238, col 31, Warning - Class &#39;.noUi-handle&#39; should be written in hyphenated BEM (Block Element Modifier) format (class-name-format)]]></failure></testcase>
+<testcase time="0" name="org.eslint.class-name-format"><failure message="Class &#39;.noUi-connect&#39; should be written in hyphenated BEM (Block Element Modifier) format"><![CDATA[line 249, col 14, Warning - Class &#39;.noUi-connect&#39; should be written in hyphenated BEM (Block Element Modifier) format (class-name-format)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="1" name="./source/stylesheets/components/_chart.scss">
+<testcase time="0" name="org.eslint.no-mergeable-selectors"><failure message="Rule `.chart__table-helper` should be merged with the rule on line 52"><![CDATA[line 235, col 1, Error - Rule `.chart__table-helper` should be merged with the rule on line 52 (no-mergeable-selectors)]]></failure></testcase>
+</testsuite>
+</testsuites>

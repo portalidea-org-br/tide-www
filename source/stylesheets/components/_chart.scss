@@ -49,15 +49,19 @@
   }
 }
 
-.chart__half--pt-table {
+.chart__table-helper {
   order: 3;
+  width: 100%;
+  font-size: ms(2);
+  font-family: $roboto-font-stack;
+  text-align: center;
 
   @media screen and (min-width: breakpoint('desktop')) {
     order: initial;
   }
 }
 
-.chart__half--mat-chart {
+.chart__half--pt-table {
   order: 4;
 
   @media screen and (min-width: breakpoint('desktop')) {
@@ -65,8 +69,16 @@
   }
 }
 
-.chart__legend--mat-legend {
+.chart__half--mat-chart {
   order: 5;
+
+  @media screen and (min-width: breakpoint('desktop')) {
+    order: initial;
+  }
+}
+
+.chart__legend--mat-legend {
+  order: 6;
 
   @media screen and (min-width: breakpoint('desktop')) {
     display: none;
@@ -75,7 +87,7 @@
 }
 
 .chart__half--mat-table {
-  order: 6;
+  order: 7;
 
   @media screen and (min-width: breakpoint('desktop')) {
     order: initial;

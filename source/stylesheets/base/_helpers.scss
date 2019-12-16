@@ -123,6 +123,7 @@ textarea {
   }
 
   &::after {
+    display: none;
     bottom: 0;
     left: 0;
 

@@ -68,7 +68,7 @@
                           v-if="needRegenerateChart"
                           class="chart-form__regenerate-alert"
                         >
-                          Clique em gerar gráfico para ter um novo gráfico com as suas modificações.
+                        Clique em gerar gráfico
                         </span>
                       </transition>
                       <button
@@ -89,7 +89,13 @@
                         </span>
                       </transition>
                       </button>
-                    <button type="submit" class="button button--right button--red button--destak">Gerar gráfico</button>
+                    <button
+                      type="submit"
+                      class="button button--right button--red button--destak"
+                      :class="needRegenerateChart ? 'button--outline' : ''"
+                    >
+                      Gerar gráfico
+                    </button>
                   </div>
                 </div>
             </div>
@@ -306,6 +312,7 @@
               <span class="chart__label chart__label-situacoes-atipicas">Situações atípicas</span>
             </div>
 
+            <strong class="js-table-helper chart__table-helper"></strong>
 
             <div class="chart__half chart__half--pt-table">
               <div class="js-pt-table chart__table" hidden>
