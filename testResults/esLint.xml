@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/addTableDestak.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/addTableDestak.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/downloadCharts.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/downloadCharts.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/filter/clearFilters.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/filter/clearFilters.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/filter/handleAxisForm.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/filter/handleAxisForm.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/filter/handleChartForm.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/filter/handleChartForm.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/filter/handleNoMatchesAlert.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/filter/handleNoMatchesAlert.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="1" name="/home/eduruiz/code/tide-www/source/scripts/chart/filter/highlightPoint.js">
+<testcase time="0" name="org.eslint.import/prefer-default-export"><failure message="Prefer default export."><![CDATA[line 55, col 10, Error - Prefer default export. (import/prefer-default-export)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/filter/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/filter/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/filter/showCity.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/filter/showCity.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="12" errors="12" name="/home/eduruiz/code/tide-www/source/scripts/chart/filter/vueFilter.js">
+<testcase time="0" name="org.eslint.func-names"><failure message="Unexpected unnamed method &apos;handler&apos;."><![CDATA[line 105, col 16, Warning - Unexpected unnamed method &apos;handler&apos;. (func-names)]]></failure></testcase>
+<testcase time="0" name="org.eslint.func-names"><failure message="Unexpected unnamed method &apos;handler&apos;."><![CDATA[line 112, col 16, Warning - Unexpected unnamed method &apos;handler&apos;. (func-names)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-param-reassign"><failure message="Assignment to property of function parameter &apos;item&apos;."><![CDATA[line 140, col 11, Error - Assignment to property of function parameter &apos;item&apos;. (no-param-reassign)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-param-reassign"><failure message="Assignment to property of function parameter &apos;item&apos;."><![CDATA[line 142, col 11, Error - Assignment to property of function parameter &apos;item&apos;. (no-param-reassign)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-param-reassign"><failure message="Assignment to property of function parameter &apos;item&apos;."><![CDATA[line 151, col 11, Error - Assignment to property of function parameter &apos;item&apos;. (no-param-reassign)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-param-reassign"><failure message="Assignment to property of function parameter &apos;item&apos;."><![CDATA[line 153, col 11, Error - Assignment to property of function parameter &apos;item&apos;. (no-param-reassign)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-param-reassign"><failure message="Assignment to property of function parameter &apos;item&apos;."><![CDATA[line 162, col 11, Error - Assignment to property of function parameter &apos;item&apos;. (no-param-reassign)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-param-reassign"><failure message="Assignment to property of function parameter &apos;item&apos;."><![CDATA[line 164, col 11, Error - Assignment to property of function parameter &apos;item&apos;. (no-param-reassign)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-param-reassign"><failure message="Assignment to property of function parameter &apos;item&apos;."><![CDATA[line 173, col 11, Error - Assignment to property of function parameter &apos;item&apos;. (no-param-reassign)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-param-reassign"><failure message="Assignment to property of function parameter &apos;item&apos;."><![CDATA[line 175, col 11, Error - Assignment to property of function parameter &apos;item&apos;. (no-param-reassign)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-param-reassign"><failure message="Assignment to property of function parameter &apos;item&apos;."><![CDATA[line 186, col 11, Error - Assignment to property of function parameter &apos;item&apos;. (no-param-reassign)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-param-reassign"><failure message="Assignment to property of function parameter &apos;item&apos;."><![CDATA[line 188, col 11, Error - Assignment to property of function parameter &apos;item&apos;. (no-param-reassign)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/formatItemsToHighCharts.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/formatItemsToHighCharts.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/getChartData.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/getChartData.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="5" errors="5" name="/home/eduruiz/code/tide-www/source/scripts/chart/plotCharts.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;clearCity&apos; is defined but never used."><![CDATA[line 9, col 10, Error - &apos;clearCity&apos; is defined but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;isLoading&apos; is assigned a value but never used."><![CDATA[line 15, col 5, Error - &apos;isLoading&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+<testcase time="0" name="org.eslint.prefer-const"><failure message="&apos;isLoading&apos; is never reassigned. Use &apos;const&apos; instead."><![CDATA[line 15, col 5, Error - &apos;isLoading&apos; is never reassigned. Use &apos;const&apos; instead. (prefer-const)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-param-reassign"><failure message="Assignment to property of function parameter &apos;payload&apos;."><![CDATA[line 192, col 9, Error - Assignment to property of function parameter &apos;payload&apos;. (no-param-reassign)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-param-reassign"><failure message="Assignment to property of function parameter &apos;payload&apos;."><![CDATA[line 196, col 9, Error - Assignment to property of function parameter &apos;payload&apos;. (no-param-reassign)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/sizeToggle.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/sizeToggle.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/updateHelperText.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/updateHelperText.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="1" name="/home/eduruiz/code/tide-www/source/scripts/chart/updateTableInfo.js">
+<testcase time="0" name="org.eslint.no-unused-vars"><failure message="&apos;data&apos; is assigned a value but never used."><![CDATA[line 9, col 18, Error - &apos;data&apos; is assigned a value but never used. (no-unused-vars)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/vendor.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/chart/vendor.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/config.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/config.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/contactForm/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/contactForm/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/goBack/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/goBack/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/menuToggle/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/menuToggle/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/modal/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/modal/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/newsletterForm/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/newsletterForm/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/randomize/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/randomize/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/slider/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/slider/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/tabs/index.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/tabs/index.js" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/eduruiz/code/tide-www/source/scripts/vendor.js">
+<testcase time="0" name="/home/eduruiz/code/tide-www/source/scripts/vendor.js" />
+</testsuite>
+</testsuites>

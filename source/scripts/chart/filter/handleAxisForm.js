@@ -3,7 +3,6 @@ import Exporting from 'highcharts/modules/exporting';
 import { hideNoMatchesAlert } from './handleNoMatchesAlert';
 import { submitChartFormInfo } from './handleChartForm';
 import { populateChartData, toggleLoading } from '../plotCharts';
-import { clearTableInfo } from '../updateTableInfo';
 
 Exporting(Highcharts);
 

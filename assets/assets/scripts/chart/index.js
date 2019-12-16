@@ -4322,27 +4322,22 @@ function downloadCharts() {
 }
 
 },{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":34,"highcharts/modules/exporting":35}],40:[function(require,module,exports){
+// export default function clearFilters(exception) {
+// const formContainer = document.querySelector('.js-form-filter');
+// formContainer.querySelectorAll('select').forEach((select) => {
+//   if (select.id !== exception) {
+//     const selectEl = select;
+//     selectEl.selectedIndex = 0;
+//   }
+// });
+// formContainer.querySelectorAll('input[type="text"]').forEach((input) => {
+//   if (input.id !== exception) {
+//     const inputEl = input;
+//     inputEl.value = '';
+//   }
+// });
+// }
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = clearFilters;
-
-function clearFilters(exception) {// const formContainer = document.querySelector('.js-form-filter');
-  // formContainer.querySelectorAll('select').forEach((select) => {
-  //   if (select.id !== exception) {
-  //     const selectEl = select;
-  //     selectEl.selectedIndex = 0;
-  //   }
-  // });
-  // formContainer.querySelectorAll('input[type="text"]').forEach((input) => {
-  //   if (input.id !== exception) {
-  //     const inputEl = input;
-  //     inputEl.value = '';
-  //   }
-  // });
-}
 
 },{}],41:[function(require,module,exports){
 "use strict";
@@ -4368,8 +4363,6 @@ var _handleNoMatchesAlert = require("./handleNoMatchesAlert");
 var _handleChartForm = require("./handleChartForm");
 
 var _plotCharts = require("../plotCharts");
-
-var _updateTableInfo = require("../updateTableInfo");
 
 (0, _exporting.default)(_highcharts.default);
 var chartsContainer = document.querySelector('.charts');
@@ -4437,7 +4430,7 @@ function handleAxisForm() {
   }
 }
 
-},{"../plotCharts":51,"../updateTableInfo":54,"./handleChartForm":42,"./handleNoMatchesAlert":43,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":34,"highcharts/modules/exporting":35}],42:[function(require,module,exports){
+},{"../plotCharts":51,"./handleChartForm":42,"./handleNoMatchesAlert":43,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":34,"highcharts/modules/exporting":35}],42:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4457,10 +4450,6 @@ var _highcharts = _interopRequireDefault(require("highcharts"));
 var _exporting = _interopRequireDefault(require("highcharts/modules/exporting"));
 
 var _handleNoMatchesAlert = require("./handleNoMatchesAlert");
-
-var _updateTableInfo = require("../updateTableInfo");
-
-var _showCity = require("./showCity");
 
 var _plotCharts = require("../plotCharts");
 
@@ -4521,7 +4510,7 @@ function handleChartForm() {
   }
 }
 
-},{"../plotCharts":51,"../updateTableInfo":54,"./handleNoMatchesAlert":43,"./showCity":46,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":34,"highcharts/modules/exporting":35}],43:[function(require,module,exports){
+},{"../plotCharts":51,"./handleNoMatchesAlert":43,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":34,"highcharts/modules/exporting":35}],43:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
