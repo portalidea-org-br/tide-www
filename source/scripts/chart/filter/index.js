@@ -9,7 +9,7 @@ import { hideNoMatchesAlert } from './handleNoMatchesAlert';
 import { updateTableInfo } from '../updateTableInfo';
 import { handleAxisForm } from './handleAxisForm';
 import { showCity, clearCity } from './showCity';
-import clearFilters from './clearFilters';
+// import clearFilters from './clearFilters';
 import './vueFilter';
 import config from '../../config';
 
@@ -64,7 +64,7 @@ export default function handleChartFilters() {
       const selectedMatPoints = matChart.getSelectedPoints();
       window.$vue.selectedCity = event.text.value;
 
-      clearFilters(event.target.id);
+      // clearFilters(event.target.id);
       showCity(event.text.value);
 
       if (selectedPtPoints.length > 0) {
