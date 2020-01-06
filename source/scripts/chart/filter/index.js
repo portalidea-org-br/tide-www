@@ -3,20 +3,20 @@ import Exporting from 'highcharts/modules/exporting';
 import axios from 'axios';
 import Awesomplete from 'awesomplete';
 import fuzzysort from 'fuzzysort';
-import { updateTableInfo, clearTableInfo } from '../updateTableInfo';
-import { populateChartData, toggleLoading } from '../plotCharts';
-import clearFilters from './clearFilters';
-import { highlightPoint } from './highlightPoint';
+// import Vue from 'vue';
+import { handleChartForm } from './handleChartForm';
+import { hideNoMatchesAlert } from './handleNoMatchesAlert';
+import { updateTableInfo } from '../updateTableInfo';
+import { handleAxisForm } from './handleAxisForm';
+import { showCity, clearCity } from './showCity';
+// import clearFilters from './clearFilters';
+import './vueFilter';
 import config from '../../config';
 
 Exporting(Highcharts);
 
 export default function handleChartFilters() {
-  const jsChartForm = document.getElementById('js-chart-form');
-  const cityInput = document.getElementById('city');
-  const highlightInput = document.getElementById('highlight');
-  const stateInput = document.getElementById('state');
-  const regionInput = document.getElementById('region');
+  const cityInput = document.querySelector('#js-city');
 
   function getCities() {
     const url = `${config.api.domain}cities`;
@@ -35,7 +35,7 @@ export default function handleChartFilters() {
       const cities = await getCities();
       const cityNames = cities.map(city => ({ label: `${city.name} - ${city.state.uf}`, value: city.id }));
 
-      const awesomplete = new Awesomplete(document.querySelector('#city'), {
+      const awesomplete = new Awesomplete(cityInput, {
         nChars: 1,
         maxItems: 5,
         autoFirst: true,
@@ -50,156 +50,36 @@ export default function handleChartFilters() {
     }
   }
 
-
-  function hideNoMatchesAlert() {
-    document.querySelector('.js-no-matches').setAttribute('hidden', true);
-  }
-
-  function clearHighlightedPoints() {
-    const ptChartDom = document.getElementById('pt-chart');
-    const matChartDom = document.getElementById('mat-chart');
-    const ptChart = Highcharts.charts[Highcharts.attr(ptChartDom, 'data-highcharts-chart')];
-    const matChart = Highcharts.charts[Highcharts.attr(matChartDom, 'data-highcharts-chart')];
-    const selectedPtPoints = ptChart.getSelectedPoints();
-    const selectedMatPoints = matChart.getSelectedPoints();
-
-    if (selectedPtPoints[0]) {
-      selectedPtPoints[0].select();
-      selectedMatPoints[0].select();
-    }
-  }
-
-
-  if (jsChartForm) {
-    jsChartForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const formData = new FormData(event.target);
-      const payload = {};
-
-      payload.grade = formData.get('grade');
-      payload.xAxis = formData.get('xAxis');
-
-      toggleLoading();
-      populateChartData(payload);
-      clearFilters();
-      clearTableInfo();
-      hideNoMatchesAlert();
-      toggleLoading();
-    });
-  }
-
-  function highlightPoints(parameter, value) {
-    const ptChartDom = document.getElementById('pt-chart');
-    const matChartDom = document.getElementById('mat-chart');
-    const ptChart = Highcharts.charts[Highcharts.attr(ptChartDom, 'data-highcharts-chart')];
-    const matChart = Highcharts.charts[Highcharts.attr(matChartDom, 'data-highcharts-chart')];
-
-    clearHighlightedPoints();
-
-    if (parameter === 'big-cities') {
-      ptChart.series[0].points.forEach((point) => {
-        if (point.options.is_big_town === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-
-      matChart.series[0].points.forEach((point) => {
-        if (point.options.is_big_town === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'capital') {
-      ptChart.series[0].points.forEach((point) => {
-        if (point.options.is_capital === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-
-      matChart.series[0].points.forEach((point) => {
-        if (point.options.is_capital === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'state') {
-      ptChart.series[0].points.forEach((point) => {
-        if (point.options.state === value) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-
-      matChart.series[0].points.forEach((point) => {
-        if (point.options.state === value) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'region') {
-      ptChart.series[0].points.forEach((point) => {
-        if (point.options.region === Number(value)) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-
-      matChart.series[0].points.forEach((point) => {
-        if (point.options.region === Number(value)) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'none') {
-      clearHighlightedPoints();
-    }
-  }
-
   if (cityInput) {
     cityInput.addEventListener('input', () => {
       hideNoMatchesAlert();
     }, false);
 
     cityInput.addEventListener('awesomplete-selectcomplete', (event) => {
-      clearFilters(event.target.id);
-      highlightPoint(event.text.value);
+      const ptChartDom = document.getElementById('pt-chart');
+      const matChartDom = document.getElementById('mat-chart');
+      const ptChart = Highcharts.charts[Highcharts.attr(ptChartDom, 'data-highcharts-chart')];
+      const matChart = Highcharts.charts[Highcharts.attr(matChartDom, 'data-highcharts-chart')];
+      const selectedPtPoints = ptChart.getSelectedPoints();
+      const selectedMatPoints = matChart.getSelectedPoints();
+      window.$vue.selectedCity = event.text.value;
+
+      // clearFilters(event.target.id);
+      showCity(event.text.value);
+
+      if (selectedPtPoints.length > 0) {
+        clearCity(selectedPtPoints[0]);
+      }
+
+      if (selectedMatPoints.length > 0) {
+        clearCity(selectedMatPoints[0]);
+      }
+
       updateTableInfo(event.text.value, window.chartData.xAxis, window.chartData.data);
     }, false);
   }
 
-  if (highlightInput) {
-    highlightInput.addEventListener('change', (event) => {
-      clearFilters(event.target.id);
-      clearTableInfo();
-      highlightPoints(event.target.value);
-    }, false);
-  }
-
-  if (stateInput) {
-    stateInput.addEventListener('change', (event) => {
-      clearFilters(event.target.id);
-      clearTableInfo();
-      highlightPoints('state', event.target.value);
-    }, false);
-  }
-
-  if (regionInput) {
-    regionInput.addEventListener('change', (event) => {
-      clearFilters(event.target.id);
-      clearTableInfo();
-      highlightPoints('region', event.target.value);
-    }, false);
-  }
-
   populateCitiesList();
+  handleChartForm();
+  handleAxisForm();
 }

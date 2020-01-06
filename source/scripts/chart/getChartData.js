@@ -13,7 +13,13 @@ export default function getChartData(receivedPayload) {
     chartData = receivedPayload;
   }
 
-  const url = `${config.api.domain}data?school_grade=${chartData.grade}&x=${chartData.xAxis}`;
+  let url = `${config.api.domain}data?school_grade=${chartData.grade}&x=${chartData.xAxis}`;
+  if (receivedPayload && receivedPayload.region) {
+    url += `&region_id=${receivedPayload.region}`;
+  }
+  if (receivedPayload && receivedPayload.state) {
+    url += `&state_id=${receivedPayload.state}`;
+  }
 
   chartData.xAxis = chartData.xAxis;
   // xAxis = newXAxis;
@@ -23,6 +29,10 @@ export default function getChartData(receivedPayload) {
       const response = await axios.get(url);
       chartData.data = response.data.data;
       window.chartData = chartData;
+      if (window.$vue.updateGlobalChartData) {
+        window.$vue.globalChartData = chartData.data;
+        window.$vue.updateGlobalChartData = false;
+      }
     } catch (error) {
       window.console.error(error);
     }

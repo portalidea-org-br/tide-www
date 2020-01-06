@@ -1,5 +1,5 @@
 ---
-title: Quem somos
+title: Quem Somos
 ---
 ## O portal IDeA é uma iniciativa da Fundação Tide Setubal e de pesquisadores reunidos em uma rede de grupos de pesquisa em educação e desigualdades.
 
@@ -12,7 +12,7 @@ José Francisco Soares, Professor Emérito da UFMG, concebeu o IDeA e liderou o 
 
 Erica Castilho Rodrigues, professora do Departamento de Estatística da UFOP, integrou a equipe de pesquisadores, sendo corresponsável pelo desenvolvimento do IDeA.
 
-Mauricio Ernica, professor da Faculdade de Educação da Unicamp, coordenou e integrou a equipe que desenvolveu o IDeA. 
+Mauricio Ernica, professor da Faculdade de Educação da Unicamp, coordenou e integrou a equipe que desenvolveu o IDeA.
 
 Victor Maia Senna Delgado, professor do Departamento de Economia da UFOP, integrou a equipe de pesquisadores.
 

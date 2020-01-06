@@ -78,6 +78,12 @@ p {
   margin-bottom: $leading * 1em;
 }
 
+.big-text {
+  font-weight: font-weight('bold');
+  font-size: ms(1);
+  color: palette('purple');
+}
+
 .simple-link:link,
 .simple-link:visited {
   font-weight: bold;

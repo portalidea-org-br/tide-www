@@ -8,6 +8,8 @@
   text-align: center;
   text-decoration: none;
 
+  cursor: pointer;
+
   background: transparent;
 
   border-width: 2px;
@@ -68,4 +70,38 @@
     background: palette('blue', 'dark');
     content: '';
   }
+}
+
+.button--like-text {
+  margin-bottom: 0;
+  text-decoration: underline;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+}
+
+.button--destak {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: palette('white');
+  background: palette('yellow');
+  border: 0;
+}
+
+.button--outline {
+  outline: 1px solid palette('red');
+  outline-offset: 1px;
+  outline-width: 2px;
+}
+
+.button--purple {
+  background: palette('purple');
+}
+
+.button--red {
+  background: palette('red');
+}
+
+.button--right {
+  align-self: flex-end;
 }

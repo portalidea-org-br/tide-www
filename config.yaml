@@ -53,9 +53,9 @@ menu:
     name: "Novidades"
     url: "/novidades"
     weight: 6
-  - identifier: "parceiros"
-    name: "Parceiros"
-    url: "/parceiros"
+  - identifier: "quem-somos"
+    name: "Quem Somos"
+    url: "/quem-somos"
     weight: 7
   - identifier: "contato"
     name: "Contato"

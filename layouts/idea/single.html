@@ -1,5 +1,9 @@
     {{ partial "head.html" . }}
-
+    {{ if eq (getenv "NODE_ENV") "development" }}
+      <link rel="preload" src="https://vuejs.org/js/vue.js" crossorigin="anonymous">
+    {{ else }}
+      <link rel="preload" src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js" crossorigin="anonymous">
+    {{ end }}
     <body>
 
       {{ partial "header.html" . }}
@@ -10,113 +14,295 @@
         </div>
       </section>
 
-      <div class="bg-light-gray">
-        <div class="container">
-          <form action="" method="post" id="js-chart-form" class="chart-form">
-            <div class="chart-form__group">
-              <label for="grade">
-                Série
-                <select name="grade" id="grade">
-                  <option value="5">5º ano</option>
-                  <option value="9">9º ano</option>
-                </select>
-              </label>
-              <label for="x">
-                Filtrar por
-                <select name="xAxis" id="xAxis">
-                  <option value="racial">Raça</option>
-                  <option value="sex">Gênero</option>
-                  <option value="nse">Nível Sócio Econômico</option>
-                </select>
-              </label>
-              <div class="chart-form__buttons">
-                <button type="submit" class="button">Filtrar</button>
-              </div>
+      <div id="app" class="bg-yellow-simple">
+        <form
+          @change="updateGlobalChartData = true; needRegenerateChart = true"
+          @submit="needRegenerateChart = false"
+          method="post"
+          id="js-axis-form"
+          class="chart-form">
+          <div class="bg-light-gray">
+            <div class="container">
+              <p class="big-text">
+                {{ .Content | markdownify }}
+              </p>
               <a
                 href="#tutorial"
                 class="chart-form__tutorial-link"
                 data-micromodal-trigger="js-modal-idea-video">
                 Ver tutorial
               </a>
+                <div class="chart-form__group">
+                  <strong>Série dos alunos:</strong>
+                  <ul class="chart-form__buttons">
+                    <li>
+                      <input type="radio" value="5" name="grade" id="5" checked="checked">
+                      <label for="5">5º ano</label>
+                    </li>
+                    <li>
+                      <input type="radio" value="9" name="grade" id="9">
+                      <label for="9">9º ano</label>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="chart-form__group">
+                  <strong>Desigualdade de:</strong>
+                  <ul class="chart-form__buttons">
+                    <li>
+                      <input type="radio" value="racial" name="xAxis" id="racial" checked="checked">
+                      <label for="racial">Raça</label>
+                    </li>
+                    <li>
+                      <input type="radio" value="sex" name="xAxis" id="sex">
+                      <label for="sex">Gênero</label>
+                    </li>
+                    <li>
+                      <input type="radio" value="nse" name="xAxis" id="nse">
+                      <label for="nse">Nível Sócio Econômico</label>
+                    </li>
+                  </ul>
+                  <div class="chart-form__footer">
+                      <transition name="fade">
+                        <span
+                          v-if="needRegenerateChart"
+                          class="chart-form__regenerate-alert"
+                        >
+                        Clique em gerar gráfico
+                        </span>
+                      </transition>
+                      <button
+                        type="button"
+                        class="js-show-advanced button--like-text"
+                        :class="{ active: showAdvancedFilters }"
+                        :disabled="!globalChartData"
+                        @click.prevent="toggleAdvancedFilters"
+                      >
+                      <transition name="fade">
+                        <span v-if="showAdvancedFilters ">
+                          {{ "{{ 'Fechar menu avançado' }}" }}
+                        </span>
+                      </transition>
+                      <transition name="fade">
+                        <span v-if="!showAdvancedFilters">
+                          {{ "{{ 'Menu avançado' }}" }}
+                        </span>
+                      </transition>
+                      </button>
+                    <button
+                      type="submit"
+                      class="button button--right button--red button--destak"
+                      :class="needRegenerateChart ? 'button--outline' : ''"
+                    >
+                      Gerar gráfico
+                    </button>
+                  </div>
+                </div>
             </div>
-            <div class="js-form-filter chart-form__group">
-              <span class="chart-form__clue">
-                Escolha uma das opções abaixo para destacar no gráfico:
-              </span>
-              <label for="highlight">
-                Destacar Cidades
-                <select name="highlight" id="highlight">
-                  <option value="none">Nenhuma</option>
-                  <option value="big-cities">100 maiores cidades</option>
-                  <option value="capital">Capitais</option>
-                </select>
-              </label>
-              <label for="region">
-                Destacar Região Brasileira
-                <select name="region" id="region">
-                  <option value="">Nenhuma</option>
-                  <option value="1">Centro Oeste</option>
-                  <option value="2">Nordeste</option>
-                  <option value="3">Norte</option>
-                  <option value="4">Sudeste</option>
-                  <option value="5">Sul</option>
-                </select>
-              </label>
-              <label for="city">
-                Destacar por Estado
-                <select id="state" name="state">
-                  <option value="">Estados</option>
-                  <option value="AC">Acre</option>
-                  <option value="AL">Alagoas</option>
-                  <option value="AP">Amapá</option>
-                  <option value="AM">Amazonas</option>
-                  <option value="BA">Bahia</option>
-                  <option value="CE">Ceará</option>
-                  <option value="DF">Distrito Federal</option>
-                  <option value="ES">Espírito Santo</option>
-                  <option value="GO">Goiás</option>
-                  <option value="MA">Maranhão</option>
-                  <option value="MT">Mato Grosso</option>
-                  <option value="MS">Mato Grosso do Sul</option>
-                  <option value="MG">Minas Gerais</option>
-                  <option value="PA">Pará</option>
-                  <option value="PB">Paraíba</option>
-                  <option value="PR">Paraná</option>
-                  <option value="PE">Pernambuco</option>
-                  <option value="PI">Piauí</option>
-                  <option value="RJ">Rio de Janeiro</option>
-                  <option value="RN">Rio Grande do Norte</option>
-                  <option value="RS">Rio Grande do Sul</option>
-                  <option value="RO">Rondônia</option>
-                  <option value="RR">Roraima</option>
-                  <option value="SC">Santa Catarina</option>
-                  <option value="SP">São Paulo</option>
-                  <option value="SE">Sergipe</option>
-                  <option value="TO">Tocantins</option>
-                </select>
-              </label>
-              <label for="city">
-                Município
-                <input id="city" type="text" placeholder="Ex. São Paulo" />
-              </label>
-              <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>
-            </div>
-          </form>
-        </div>
+          </div>
+        </form>
+
+        <form
+          method="post"
+          id="js-chart-form"
+          class="chart-form"
+          :disabled="filterFormLoading"
+          ref="js-chart-form"
+        >
+          <div
+            class="chart-form__advanced-filters-container js-advanced-filters-container"
+            :class="{ 'chart-form__advanced-filters-container--active': showAdvancedFilters }"
+          >
+              <div class="container">
+                <p class="big-text">
+                  Selecione os municípios que deseja ver no gráfico
+                </p>
+                <div class="chart-form__advanced-filters js-advanced-filters">
+                  <div class="chart-form__half">
+                    <div class="chart-form__group">
+                      <strong>Regiões:</strong>
+                      <ul class="chart-form__buttons">
+                        <li v-for="(region, index) in regions">
+                          <input
+                            v-model="selectedFilters.selectedRegion"
+                            type="radio"
+                            name="region"
+                            :value="index + 1"
+                            :id="`region-${region.id}`"
+                            :disabled="selectedFilters.selectedState || region.disabled"
+                            >
+                            <label :for="`region-${region.id}`"> {{ "{{ region.name }}" }}</label>
+                        </li>
+                      </ul>
+                      <button
+                        class="chart-form__clear-section"
+                        data-clear="region"
+                        @click.prevent="selectedFilters.selectedRegion = null"
+                        >
+                        Limpar seleção
+                      </button>
+                    </div>
+
+                    <div class="chart-form__group">
+                      <strong>Número de habitantes</strong>
+                      <ul class="chart-form__buttons">
+                        <li v-for="(inhabitant, index) in inhabitantsRange">
+                          <input
+                            v-model="selectedFilters.selectedInhabitants"
+                            type="radio"
+                            name="inhabitants"
+                            :value="inhabitant.value"
+                            :id="`inhabitant-${inhabitant.id}`"
+                            :disabled="inhabitant.disabled"
+                            >
+                            <label :for="`inhabitant-${inhabitant.id}`"> {{ "{{ inhabitant.label }}" }}</label>
+                        </li>
+                      </ul>
+                      <button
+                        class="chart-form__clear-section"
+                        data-clear="inhabitant"
+                        @click.prevent="selectedFilters.selectedInhabitants = null"
+                        >
+                        Limpar seleção
+                      </button>
+                    </div>
+
+                    <div class="chart-form__group">
+                      <label for="state">
+                        Estado
+                        <select
+                          v-model="selectedFilters.selectedState"
+                          id="state"
+                          name="state"
+                        >
+                          <option :value="null">Selecionar</option>
+                          <option
+                            v-for="(state, index) in states"
+                            :value="state.id"
+                            :disabled="state.disabled"
+                          >
+                            {{ "{{ state.name }}" }}
+                          </option>
+                        </select>
+                      </label>
+                      <button
+                        class="chart-form__clear-section"
+                        data-clear="region"
+                        @click.prevent="selectedFilters.selectedState = null"
+                        >
+                        Limpar seleção
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="chart-form__half">
+                    <div class="chart-form__group">
+                      <strong>nível de desigualdade:</strong>
+                      <ul class="chart-form__buttons">
+                        <li v-for="(inequality, index) in inequalityRange">
+                          <input
+                            v-model="selectedFilters.selectedInequality"
+                            type="radio"
+                            name="inequality"
+                            :value="inequality.id"
+                            :id="inequality.id"
+                            :disabled="inequality.disabled"
+                            >
+                            <label :for="inequality.id"> {{ "{{ inequality.name }}" }}</label>
+                        </li>
+                      </ul>
+                      <button
+                        class="chart-form__clear-section js-clear-inputs"
+                        @click.prevent="selectedFilters.selectedInequality = null"
+                        >
+                        Limpar seleção
+                      </button>
+                    </div>
+                    <div class="chart-form__group">
+                      <strong>Nível de aprendizagem:</strong>
+                      <ul class="chart-form__buttons">
+                        <li v-for="(quality, index) in qualityRange">
+                          <input
+                            v-model="selectedFilters.selectedQuality"
+                            type="radio"
+                            name="quality"
+                            :value="quality.id"
+                            :id="'quality-' + quality.id"
+                            :disabled="quality.disabled"
+                            >
+                            <label :for="'quality-' + quality.id"> {{ "{{ quality.name }}" }}</label>
+                        </li>
+                      </ul>
+                      <button
+                        class="chart-form__clear-section js-clear-inputs"
+                        @click.prevent="selectedFilters.selectedQuality = null"
+                        >
+                        Limpar seleção
+                      </button>
+                    </div>
+
+                    <div class="chart-form__group chart-form__submit">
+                      <input
+                        class="button button--like-text"
+                        type="reset"
+                        value="Limpar todos os filtros"
+                       @click.prevent="clearAllSelectedFilters"
+                      >
+
+                      <button class="button button--destak button--purple" type="submit">Filtrar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </form>
       </div>
 
       <div class="container">
         <div class="charts">
+
+          <div class="charts__city-finder">
+            <label for="city">
+              Selecione o seu município
+              <input id="js-city" type="text" placeholder="Ex. São Paulo" autocomplete="new-password">
+            </label>
+            <span class="js-no-matches chart-form__alert" hidden>Nenhum dado encontrado para essa cidade!</span>
+          </div>
+
           <section class="chart">
-            <div class="chart__header">
-              <h1>Português</h1>
-              <div class="chart__buttons">
-                <button class="js-download-pt-chart chart__button chart__button--download">Download do gráfico</button>
-                <button class="js-expand-pt-chart chart__button chart__button--expand">Expandir gráfico</button>
-                <button class="js-shrink-pt-chart chart__button chart__button--shrink">Reduzir gráfico</button>
+            <div class="chart__half chart__half--pt-chart">
+              <div class="chart__header">
+                <h1>Português</h1>
+                <div class="chart__buttons">
+                  <button class="js-download-pt-chart chart__button chart__button--download">Download do gráfico</button>
+                  <button class="js-expand-pt-chart chart__button chart__button--expand">Expandir gráfico</button>
+                  <button class="js-shrink-pt-chart chart__button chart__button--shrink">Reduzir gráfico</button>
+                </div>
+              </div>
+              <div class="js-pt-no-matches chart-form__alert" hidden>Não há informações da cidade com os filtros selecionados</div>
+              <div class="chart__main chart__main--pt" id="pt-chart"></div>
+            </div>
+
+            <div class="chart__half chart__half--mat-chart">
+              <div class="chart__header">
+                <h1>Matemática</h1>
+                <div class="chart__buttons">
+                  <button class="js-download-mat-chart chart__button chart__button--download">Download do gráfico</button>
+                  <button class="js-expand-mat-chart chart__button chart__button--expand">Expandir gráfico</button>
+                  <button class="js-shrink-mat-chart chart__button chart__button--shrink">Reduzir gráfico</button>
+                </div>
+              </div>
+              <div class="js-mat-no-matches chart-form__alert" hidden>Não há informações da cidade com os filtros selecionados</div>
+              <div class="chart__main chart__main--mat" id="mat-chart"></div>
+              <div class="chart__legend chart__legend--mat-legend">
+                <strong>Legenda:</strong>
+                <span class="chart__label chart__label-desigualdade-extrema">Desigualdade extrema</span>
+                <span class="chart__label chart__label-desigualdade-alta">Desigualdade alta</span>
+                <span class="chart__label chart__label-desigualdade">Desigualdade</span>
+                <span class="chart__label chart__label-equidade">Equidade</span>
+                <span class="chart__label chart__label-situacoes-atipicas">Situações atípicas</span>
               </div>
             </div>
-            <div class="chart__main" id="pt-chart"></div>
             <div class="chart__legend">
               <strong>Legenda:</strong>
               <span class="chart__label chart__label-desigualdade-extrema">Desigualdade extrema</span>
@@ -125,174 +311,162 @@
               <span class="chart__label chart__label-equidade">Equidade</span>
               <span class="chart__label chart__label-situacoes-atipicas">Situações atípicas</span>
             </div>
-            <div class="js-pt-table chart__table" hidden>
-              <h2></h2>
-              <h3>Português (2007 a 2015)</h3>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>Nível de aprendizado:</td>
-                    <td class="js-yAxis"></td>
-                  </tr>
-                  <tr>
-                    <td>Faixa do nível de aprendizado:</td>
-                    <td class="js-quality"></td>
-                  </tr>
-                  <tr>
-                    <td>Nível de desigualdade:</td>
-                    <td class="js-xAxis"></td>
-                  </tr>
-                  <tr>
-                    <td>Faixa de nível de desigualdade:</td>
-                    <td class="js-inequality"></td>
-                  </tr>
-                  <tr>
-                    <td>Número de alunos total</td>
-                    <td class="js-total-students"></td>
-                  </tr>
-                  <tr>
-                    <td class="js-unprivileged-title"></td>
-                    <td class="js-unprivileged-value"></td>
-                  </tr>
-                  <tr>
-                    <td class="js-privileged-title"></td>
-                    <td class="js-privileged-value"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="pt-crossed-table" hidden>
-              <h4>Faixas de nível de desigualdade</h4>
-              <table class="js-pt-crossed-table">
-                <thead>
-                  <tr>
-                    <th>Nível KL</th>
-                    <th>Limite Inferior</th>
-                    <th>Limite superior</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="js-baixa">
-                    <td>Baixa</td>
-                    <td>0</td>
-                    <td>2</td>
-                  </tr>
-                  <tr class="js-medio-baixa">
-                    <td>Médio-baixa</td>
-                    <td>2</td>
-                    <td>2,9</td>
-                  </tr>
-                  <tr class="js-media">
-                    <td>Média</td>
-                    <td>2,9</td>
-                    <td>3,8</td>
-                  </tr>
-                  <tr class="js-medio-alta">
-                    <td>Médio-alta</td>
-                    <td>3,8</td>
-                    <td>4,8</td>
-                  </tr>
-                  <tr class="js-alta">
-                    <td>Alta</td>
-                    <td>4,8</td>
-                    <td>10</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-          <section class="chart">
-            <div class="chart__header">
-              <h1>Matemática</h1>
-              <div class="chart__buttons">
-                <button class="js-download-mat-chart chart__button chart__button--download">Download do gráfico</button>
-                <button class="js-expand-mat-chart chart__button chart__button--expand">Expandir gráfico</button>
-                <button class="js-shrink-mat-chart chart__button chart__button--shrink">Reduzir gráfico</button>
+
+            <strong class="js-table-helper chart__table-helper"></strong>
+
+            <div class="chart__half chart__half--pt-table">
+              <div class="js-pt-table chart__table" hidden>
+                <h2></h2>
+                <h3>Português (2007 a 2015)</h3>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Nível de aprendizado:</td>
+                      <td class="js-yAxis"></td>
+                    </tr>
+                    <tr>
+                      <td>Faixa do nível de aprendizado:</td>
+                      <td class="js-quality"></td>
+                    </tr>
+                    <tr>
+                      <td>Nível de desigualdade:</td>
+                      <td class="js-xAxis"></td>
+                    </tr>
+                    <tr>
+                      <td>Faixa de nível de desigualdade:</td>
+                      <td class="js-inequality"></td>
+                    </tr>
+                    <tr>
+                      <td>Número de alunos total</td>
+                      <td class="js-total-students"></td>
+                    </tr>
+                    <tr>
+                      <td class="js-unprivileged-title"></td>
+                      <td class="js-unprivileged-value"></td>
+                    </tr>
+                    <tr>
+                      <td class="js-privileged-title"></td>
+                      <td class="js-privileged-value"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pt-crossed-table" hidden>
+                <h4>Faixas de nível de desigualdade</h4>
+                <table class="js-pt-crossed-table">
+                  <thead>
+                    <tr>
+                      <th>Nível KL</th>
+                      <th>Limite Inferior</th>
+                      <th>Limite superior</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="js-baixa">
+                      <td>Baixa</td>
+                      <td>0</td>
+                      <td>2</td>
+                    </tr>
+                    <tr class="js-medio-baixa">
+                      <td>Médio-baixa</td>
+                      <td>2</td>
+                      <td>2,9</td>
+                    </tr>
+                    <tr class="js-media">
+                      <td>Média</td>
+                      <td>2,9</td>
+                      <td>3,8</td>
+                    </tr>
+                    <tr class="js-medio-alta">
+                      <td>Médio-alta</td>
+                      <td>3,8</td>
+                      <td>4,8</td>
+                    </tr>
+                    <tr class="js-alta">
+                      <td>Alta</td>
+                      <td>4,8</td>
+                      <td>10</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
-            <div class="chart__main chart__main--mat" id="mat-chart"></div>
-            <div class="chart__legend chart__legend--mat-legend">
-              <strong>Legenda:</strong>
-              <span class="chart__label chart__label-desigualdade-extrema">Desigualdade extrema</span>
-              <span class="chart__label chart__label-desigualdade-alta">Desigualdade alta</span>
-              <span class="chart__label chart__label-desigualdade">Desigualdade</span>
-              <span class="chart__label chart__label-equidade">Equidade</span>
-              <span class="chart__label chart__label-situacoes-atipicas">Situações atípicas</span>
-            </div>
-            <div class="js-mat-table chart__table" hidden>
-              <h2></h2>
-              <h3>Matemática (2007 a 2015)</h3>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>Nível de aprendizado:</td>
-                    <td class="js-yAxis"></td>
-                  </tr>
-                  <tr>
-                    <td>Faixa do nível de aprendizado:</td>
-                    <td class="js-quality"></td>
-                  </tr>
-                  <tr>
-                    <td>Nível de desigualdade:</td>
-                    <td class="js-xAxis"></td>
-                  </tr>
-                  <tr>
-                    <td>Faixa de nível de desigualdade:</td>
-                    <td class="js-inequality"></td>
-                  </tr>
-                  <tr>
-                    <td>Número de alunos total</td>
-                    <td class="js-total-students"></td>
-                  </tr>
-                  <tr>
-                    <td class="js-unprivileged-title"></td>
-                    <td class="js-unprivileged-value"></td>
-                  </tr>
-                  <tr>
-                    <td class="js-privileged-title"></td>
-                    <td class="js-privileged-value"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="mat-crossed-table" hidden>
-              <h4>Faixas de nível de desigualdade</h4>
-              <table class="js-mat-crossed-table">
-                <thead>
-                  <tr>
-                    <th>Nível KL</th>
-                    <th>Limite Inferior</th>
-                    <th>Limite superior</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="js-baixa">
-                    <td>Baixa</td>
-                    <td>0</td>
-                    <td>2</td>
-                  </tr>
-                  <tr class="js-medio-baixa">
-                    <td>Médio-baixa</td>
-                    <td>2</td>
-                    <td>2,9</td>
-                  </tr>
-                  <tr class="js-media">
-                    <td>Média</td>
-                    <td>2,9</td>
-                    <td>3,8</td>
-                  </tr>
-                  <tr class="js-medio-alta">
-                    <td>Médio-alta</td>
-                    <td>3,8</td>
-                    <td>4,8</td>
-                  </tr>
-                  <tr class="js-alta">
-                    <td>Alta</td>
-                    <td>4,8</td>
-                    <td>10</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="chart__half chart__half--mat-table">
+              <div class="js-mat-table chart__table" hidden>
+                <h2></h2>
+                <h3>Matemática (2007 a 2015)</h3>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Nível de aprendizado:</td>
+                      <td class="js-yAxis"></td>
+                    </tr>
+                    <tr>
+                      <td>Faixa do nível de aprendizado:</td>
+                      <td class="js-quality"></td>
+                    </tr>
+                    <tr>
+                      <td>Nível de desigualdade:</td>
+                      <td class="js-xAxis"></td>
+                    </tr>
+                    <tr>
+                      <td>Faixa de nível de desigualdade:</td>
+                      <td class="js-inequality"></td>
+                    </tr>
+                    <tr>
+                      <td>Número de alunos total</td>
+                      <td class="js-total-students"></td>
+                    </tr>
+                    <tr>
+                      <td class="js-unprivileged-title"></td>
+                      <td class="js-unprivileged-value"></td>
+                    </tr>
+                    <tr>
+                      <td class="js-privileged-title"></td>
+                      <td class="js-privileged-value"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="mat-crossed-table" hidden>
+                <h4>Faixas de nível de desigualdade</h4>
+                <table class="js-mat-crossed-table">
+                  <thead>
+                    <tr>
+                      <th>Nível KL</th>
+                      <th>Limite Inferior</th>
+                      <th>Limite superior</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="js-baixa">
+                      <td>Baixa</td>
+                      <td>0</td>
+                      <td>2</td>
+                    </tr>
+                    <tr class="js-medio-baixa">
+                      <td>Médio-baixa</td>
+                      <td>2</td>
+                      <td>2,9</td>
+                    </tr>
+                    <tr class="js-media">
+                      <td>Média</td>
+                      <td>2,9</td>
+                      <td>3,8</td>
+                    </tr>
+                    <tr class="js-medio-alta">
+                      <td>Médio-alta</td>
+                      <td>3,8</td>
+                      <td>4,8</td>
+                    </tr>
+                    <tr class="js-alta">
+                      <td>Alta</td>
+                      <td>4,8</td>
+                      <td>10</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </section>
 
@@ -313,23 +487,6 @@
               e/ou amostra de alunos inferior a 75 para o cálculo das desigualdades entre grupos, foi utilizada a
               técnica de imputação de dados. Para mais informações, consulte a <a href="/projeto">Nota Técnica</a>.
             </p>
-          </div>
-          <div class="charts__helper">
-            <h4>Equipe IDeA</h4>
-            <ul class="unstyled-list">
-              <li>
-                José Francisco Soares, Professor Emérito da UFMG, concebeu o IDeA e liderou o seu desenvolvimento.
-              </li>
-              <li>
-                Erica Castilho Rodrigues, professora do Departamento de Estatística da UFOP, integrou a equipe de pesquisadores, sendo corresponsável pelo desenvolvimento do IDeA.
-              </li>
-              <li>
-                Mauricio Ernica, professor da Faculdade de Educação da Unicamp, coordenou e integrou a equipe que desenvolveu o IDeA.
-              </li>
-              <li>
-                Victor Maia Senna Delgado, professor do Departamento de Economia da UFOP, integrou a equipe de pesquisadores.
-              </li>
-            </ul>
           </div>
         </div>
       </div>
@@ -356,8 +513,13 @@
         </div>
       </div>
 
-
       {{ partial "footer.html" . }}
+
+      {{ if eq (getenv "NODE_ENV") "development" }}
+        <script src="https://vuejs.org/js/vue.js"></script>
+      {{ else }}
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+      {{ end }}
 
       {{ $vendorJS := resources.Get "assets/scripts/vendor.js" }}
       {{ $secureVendorJS := $vendorJS | resources.Minify | resources.Fingerprint "sha512" }}
@@ -381,8 +543,6 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.theme.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.min.js"></script>
 
-      <script type="text/javascript">
-      </script>
 
     </body>
 </html>

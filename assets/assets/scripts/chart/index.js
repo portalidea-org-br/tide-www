@@ -831,7 +831,8 @@ var _ = function (input, o) {
 	this.isOpened = false;
 
 	this.input = $(input);
-	this.input.setAttribute("autocomplete", "awesomplete");
+	this.input.setAttribute("autocomplete", "off");
+	this.input.setAttribute("aria-expanded", "false");
 	this.input.setAttribute("aria-owns", "awesomplete_list_" + this.count);
 	this.input.setAttribute("role", "combobox");
 
@@ -888,10 +889,10 @@ var _ = function (input, o) {
 				if(me.opened) {
 					if (c === 13 && me.selected) { // Enter
 						evt.preventDefault();
-						me.select();
+						me.select(undefined, undefined, evt);
 					}
 					else if (c === 9 && me.selected && me.tabSelect) {
-						me.select();
+						me.select(undefined, undefined, evt);
 					}
 					else if (c === 27) { // Esc
 						me.close({ reason: "esc" });
@@ -925,7 +926,7 @@ var _ = function (input, o) {
 
 					if (li && evt.button === 0) {  // Only select on left click
 						evt.preventDefault();
-						me.select(li, evt.target);
+						me.select(li, evt.target, evt);
 					}
 				}
 			}
@@ -992,6 +993,7 @@ _.prototype = {
 			return;
 		}
 
+		this.input.setAttribute("aria-expanded", "false");
 		this.ul.setAttribute("hidden", "");
 		this.isOpened = false;
 		this.index = -1;
@@ -1002,6 +1004,7 @@ _.prototype = {
 	},
 
 	open: function () {
+		this.input.setAttribute("aria-expanded", "true");
 		this.ul.removeAttribute("hidden");
 		this.isOpened = true;
 
@@ -1078,7 +1081,7 @@ _.prototype = {
 		}
 	},
 
-	select: function (selected, origin) {
+	select: function (selected, origin, originalEvent) {
 		if (selected) {
 			this.index = $.siblingIndex(selected);
 		} else {
@@ -1090,14 +1093,16 @@ _.prototype = {
 
 			var allowed = $.fire(this.input, "awesomplete-select", {
 				text: suggestion,
-				origin: origin || selected
+				origin: origin || selected,
+				originalEvent: originalEvent
 			});
 
 			if (allowed) {
 				this.replace(suggestion);
 				this.close({ reason: "select" });
 				$.fire(this.input, "awesomplete-selectcomplete", {
-					text: suggestion
+					text: suggestion,
+					originalEvent: originalEvent
 				});
 			}
 		}
@@ -1181,8 +1186,9 @@ _.ITEM = function (text, input, item_id) {
 	var html = input.trim() === "" ? text : text.replace(RegExp($.regExpEscape(input.trim()), "gi"), "<mark>$&</mark>");
 	return $.create("li", {
 		innerHTML: html,
+		"role": "option",
 		"aria-selected": "false",
-        "id": "awesomplete_list_" + this.count + "_item_" + item_id
+		"id": "awesomplete_list_" + this.count + "_item_" + item_id
 	});
 };
 
@@ -1360,7 +1366,6 @@ return _;
 },{}],7:[function(require,module,exports){
 module.exports = require('./lib/axios');
 },{"./lib/axios":9}],8:[function(require,module,exports){
-(function (process){
 'use strict';
 
 var utils = require('./../utils');
@@ -1369,7 +1374,6 @@ var buildURL = require('./../helpers/buildURL');
 var parseHeaders = require('./../helpers/parseHeaders');
 var isURLSameOrigin = require('./../helpers/isURLSameOrigin');
 var createError = require('../core/createError');
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || require('./../helpers/btoa');
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -1381,22 +1385,6 @@ module.exports = function xhrAdapter(config) {
     }
 
     var request = new XMLHttpRequest();
-    var loadEvent = 'onreadystatechange';
-    var xDomain = false;
-
-    // For IE 8/9 CORS support
-    // Only supports POST and GET calls and doesn't returns the response headers.
-    // DON'T do this for testing b/c XMLHttpRequest is mocked, not XDomainRequest.
-    if (process.env.NODE_ENV !== 'test' &&
-        typeof window !== 'undefined' &&
-        window.XDomainRequest && !('withCredentials' in request) &&
-        !isURLSameOrigin(config.url)) {
-      request = new window.XDomainRequest();
-      loadEvent = 'onload';
-      xDomain = true;
-      request.onprogress = function handleProgress() {};
-      request.ontimeout = function handleTimeout() {};
-    }
 
     // HTTP basic authentication
     if (config.auth) {
@@ -1411,8 +1399,8 @@ module.exports = function xhrAdapter(config) {
     request.timeout = config.timeout;
 
     // Listen for ready state
-    request[loadEvent] = function handleLoad() {
-      if (!request || (request.readyState !== 4 && !xDomain)) {
+    request.onreadystatechange = function handleLoad() {
+      if (!request || request.readyState !== 4) {
         return;
       }
 
@@ -1429,15 +1417,26 @@ module.exports = function xhrAdapter(config) {
       var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
       var response = {
         data: responseData,
-        // IE sends 1223 instead of 204 (https://github.com/axios/axios/issues/201)
-        status: request.status === 1223 ? 204 : request.status,
-        statusText: request.status === 1223 ? 'No Content' : request.statusText,
+        status: request.status,
+        statusText: request.statusText,
         headers: responseHeaders,
         config: config,
         request: request
       };
 
       settle(resolve, reject, response);
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle browser request cancellation (as opposed to a manual cancellation)
+    request.onabort = function handleAbort() {
+      if (!request) {
+        return;
+      }
+
+      reject(createError('Request aborted', config, 'ECONNABORTED', request));
 
       // Clean up request
       request = null;
@@ -1470,8 +1469,8 @@ module.exports = function xhrAdapter(config) {
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
-          cookies.read(config.xsrfCookieName) :
-          undefined;
+        cookies.read(config.xsrfCookieName) :
+        undefined;
 
       if (xsrfValue) {
         requestHeaders[config.xsrfHeaderName] = xsrfValue;
@@ -1542,13 +1541,13 @@ module.exports = function xhrAdapter(config) {
   });
 };
 
-}).call(this,require('_process'))
-},{"../core/createError":15,"./../core/settle":18,"./../helpers/btoa":22,"./../helpers/buildURL":23,"./../helpers/cookies":25,"./../helpers/isURLSameOrigin":27,"./../helpers/parseHeaders":29,"./../utils":31,"_process":36}],9:[function(require,module,exports){
+},{"../core/createError":15,"./../core/settle":19,"./../helpers/buildURL":23,"./../helpers/cookies":25,"./../helpers/isURLSameOrigin":27,"./../helpers/parseHeaders":29,"./../utils":31}],9:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
 var bind = require('./helpers/bind');
 var Axios = require('./core/Axios');
+var mergeConfig = require('./core/mergeConfig');
 var defaults = require('./defaults');
 
 /**
@@ -1578,7 +1577,7 @@ axios.Axios = Axios;
 
 // Factory for creating new instances
 axios.create = function create(instanceConfig) {
-  return createInstance(utils.merge(defaults, instanceConfig));
+  return createInstance(mergeConfig(axios.defaults, instanceConfig));
 };
 
 // Expose Cancel & CancelToken
@@ -1597,7 +1596,7 @@ module.exports = axios;
 // Allow use of default import syntax in TypeScript
 module.exports.default = axios;
 
-},{"./cancel/Cancel":10,"./cancel/CancelToken":11,"./cancel/isCancel":12,"./core/Axios":13,"./defaults":20,"./helpers/bind":21,"./helpers/spread":30,"./utils":31}],10:[function(require,module,exports){
+},{"./cancel/Cancel":10,"./cancel/CancelToken":11,"./cancel/isCancel":12,"./core/Axios":13,"./core/mergeConfig":18,"./defaults":21,"./helpers/bind":22,"./helpers/spread":30,"./utils":31}],10:[function(require,module,exports){
 'use strict';
 
 /**
@@ -1687,10 +1686,11 @@ module.exports = function isCancel(value) {
 },{}],13:[function(require,module,exports){
 'use strict';
 
-var defaults = require('./../defaults');
 var utils = require('./../utils');
+var buildURL = require('../helpers/buildURL');
 var InterceptorManager = require('./InterceptorManager');
 var dispatchRequest = require('./dispatchRequest');
+var mergeConfig = require('./mergeConfig');
 
 /**
  * Create a new instance of Axios
@@ -1714,13 +1714,14 @@ Axios.prototype.request = function request(config) {
   /*eslint no-param-reassign:0*/
   // Allow for axios('example/url'[, config]) a la fetch API
   if (typeof config === 'string') {
-    config = utils.merge({
-      url: arguments[0]
-    }, arguments[1]);
+    config = arguments[1] || {};
+    config.url = arguments[0];
+  } else {
+    config = config || {};
   }
 
-  config = utils.merge(defaults, {method: 'get'}, this.defaults, config);
-  config.method = config.method.toLowerCase();
+  config = mergeConfig(this.defaults, config);
+  config.method = config.method ? config.method.toLowerCase() : 'get';
 
   // Hook up interceptors middleware
   var chain = [dispatchRequest, undefined];
@@ -1739,6 +1740,11 @@ Axios.prototype.request = function request(config) {
   }
 
   return promise;
+};
+
+Axios.prototype.getUri = function getUri(config) {
+  config = mergeConfig(this.defaults, config);
+  return buildURL(config.url, config.params, config.paramsSerializer).replace(/^\?/, '');
 };
 
 // Provide aliases for supported request methods
@@ -1765,7 +1771,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = Axios;
 
-},{"./../defaults":20,"./../utils":31,"./InterceptorManager":14,"./dispatchRequest":16}],14:[function(require,module,exports){
+},{"../helpers/buildURL":23,"./../utils":31,"./InterceptorManager":14,"./dispatchRequest":16,"./mergeConfig":18}],14:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -1927,7 +1933,7 @@ module.exports = function dispatchRequest(config) {
   });
 };
 
-},{"../cancel/isCancel":12,"../defaults":20,"./../helpers/combineURLs":24,"./../helpers/isAbsoluteURL":26,"./../utils":31,"./transformData":19}],17:[function(require,module,exports){
+},{"../cancel/isCancel":12,"../defaults":21,"./../helpers/combineURLs":24,"./../helpers/isAbsoluteURL":26,"./../utils":31,"./transformData":20}],17:[function(require,module,exports){
 'use strict';
 
 /**
@@ -1945,12 +1951,86 @@ module.exports = function enhanceError(error, config, code, request, response) {
   if (code) {
     error.code = code;
   }
+
   error.request = request;
   error.response = response;
+  error.isAxiosError = true;
+
+  error.toJSON = function() {
+    return {
+      // Standard
+      message: this.message,
+      name: this.name,
+      // Microsoft
+      description: this.description,
+      number: this.number,
+      // Mozilla
+      fileName: this.fileName,
+      lineNumber: this.lineNumber,
+      columnNumber: this.columnNumber,
+      stack: this.stack,
+      // Axios
+      config: this.config,
+      code: this.code
+    };
+  };
   return error;
 };
 
 },{}],18:[function(require,module,exports){
+'use strict';
+
+var utils = require('../utils');
+
+/**
+ * Config-specific merge-function which creates a new config-object
+ * by merging two configuration objects together.
+ *
+ * @param {Object} config1
+ * @param {Object} config2
+ * @returns {Object} New object resulting from merging config2 to config1
+ */
+module.exports = function mergeConfig(config1, config2) {
+  // eslint-disable-next-line no-param-reassign
+  config2 = config2 || {};
+  var config = {};
+
+  utils.forEach(['url', 'method', 'params', 'data'], function valueFromConfig2(prop) {
+    if (typeof config2[prop] !== 'undefined') {
+      config[prop] = config2[prop];
+    }
+  });
+
+  utils.forEach(['headers', 'auth', 'proxy'], function mergeDeepProperties(prop) {
+    if (utils.isObject(config2[prop])) {
+      config[prop] = utils.deepMerge(config1[prop], config2[prop]);
+    } else if (typeof config2[prop] !== 'undefined') {
+      config[prop] = config2[prop];
+    } else if (utils.isObject(config1[prop])) {
+      config[prop] = utils.deepMerge(config1[prop]);
+    } else if (typeof config1[prop] !== 'undefined') {
+      config[prop] = config1[prop];
+    }
+  });
+
+  utils.forEach([
+    'baseURL', 'transformRequest', 'transformResponse', 'paramsSerializer',
+    'timeout', 'withCredentials', 'adapter', 'responseType', 'xsrfCookieName',
+    'xsrfHeaderName', 'onUploadProgress', 'onDownloadProgress', 'maxContentLength',
+    'validateStatus', 'maxRedirects', 'httpAgent', 'httpsAgent', 'cancelToken',
+    'socketPath'
+  ], function defaultToConfig2(prop) {
+    if (typeof config2[prop] !== 'undefined') {
+      config[prop] = config2[prop];
+    } else if (typeof config1[prop] !== 'undefined') {
+      config[prop] = config1[prop];
+    }
+  });
+
+  return config;
+};
+
+},{"../utils":31}],19:[function(require,module,exports){
 'use strict';
 
 var createError = require('./createError');
@@ -1964,8 +2044,7 @@ var createError = require('./createError');
  */
 module.exports = function settle(resolve, reject, response) {
   var validateStatus = response.config.validateStatus;
-  // Note: status is not exposed by XDomainRequest
-  if (!response.status || !validateStatus || validateStatus(response.status)) {
+  if (!validateStatus || validateStatus(response.status)) {
     resolve(response);
   } else {
     reject(createError(
@@ -1978,7 +2057,7 @@ module.exports = function settle(resolve, reject, response) {
   }
 };
 
-},{"./createError":15}],19:[function(require,module,exports){
+},{"./createError":15}],20:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2000,7 +2079,7 @@ module.exports = function transformData(data, headers, fns) {
   return data;
 };
 
-},{"./../utils":31}],20:[function(require,module,exports){
+},{"./../utils":31}],21:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2019,12 +2098,13 @@ function setContentTypeIfUnset(headers, value) {
 
 function getDefaultAdapter() {
   var adapter;
-  if (typeof XMLHttpRequest !== 'undefined') {
-    // For browsers use XHR adapter
-    adapter = require('./adapters/xhr');
-  } else if (typeof process !== 'undefined') {
+  // Only Node.JS has a process variable that is of [[Class]] process
+  if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
     // For node use HTTP adapter
     adapter = require('./adapters/http');
+  } else if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = require('./adapters/xhr');
   }
   return adapter;
 }
@@ -2033,6 +2113,7 @@ var defaults = {
   adapter: getDefaultAdapter(),
 
   transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Accept');
     normalizeHeaderName(headers, 'Content-Type');
     if (utils.isFormData(data) ||
       utils.isArrayBuffer(data) ||
@@ -2100,7 +2181,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 }).call(this,require('_process'))
-},{"./adapters/http":8,"./adapters/xhr":8,"./helpers/normalizeHeaderName":28,"./utils":31,"_process":36}],21:[function(require,module,exports){
+},{"./adapters/http":8,"./adapters/xhr":8,"./helpers/normalizeHeaderName":28,"./utils":31,"_process":36}],22:[function(require,module,exports){
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -2112,44 +2193,6 @@ module.exports = function bind(fn, thisArg) {
     return fn.apply(thisArg, args);
   };
 };
-
-},{}],22:[function(require,module,exports){
-'use strict';
-
-// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
-
-var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-
-function E() {
-  this.message = 'String contains an invalid character';
-}
-E.prototype = new Error;
-E.prototype.code = 5;
-E.prototype.name = 'InvalidCharacterError';
-
-function btoa(input) {
-  var str = String(input);
-  var output = '';
-  for (
-    // initialize result and counter
-    var block, charCode, idx = 0, map = chars;
-    // if the next str index does not exist:
-    //   change the mapping table to "="
-    //   check if d has no fractional digits
-    str.charAt(idx | 0) || (map = '=', idx % 1);
-    // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
-    output += map.charAt(63 & block >> 8 - idx % 1 * 8)
-  ) {
-    charCode = str.charCodeAt(idx += 3 / 4);
-    if (charCode > 0xFF) {
-      throw new E();
-    }
-    block = block << 8 | charCode;
-  }
-  return output;
-}
-
-module.exports = btoa;
 
 },{}],23:[function(require,module,exports){
 'use strict';
@@ -2213,6 +2256,11 @@ module.exports = function buildURL(url, params, paramsSerializer) {
   }
 
   if (serializedParams) {
+    var hashmarkIndex = url.indexOf('#');
+    if (hashmarkIndex !== -1) {
+      url = url.slice(0, hashmarkIndex);
+    }
+
     url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
   }
 
@@ -2244,50 +2292,50 @@ module.exports = (
   utils.isStandardBrowserEnv() ?
 
   // Standard browser envs support document.cookie
-  (function standardBrowserEnv() {
-    return {
-      write: function write(name, value, expires, path, domain, secure) {
-        var cookie = [];
-        cookie.push(name + '=' + encodeURIComponent(value));
+    (function standardBrowserEnv() {
+      return {
+        write: function write(name, value, expires, path, domain, secure) {
+          var cookie = [];
+          cookie.push(name + '=' + encodeURIComponent(value));
 
-        if (utils.isNumber(expires)) {
-          cookie.push('expires=' + new Date(expires).toGMTString());
+          if (utils.isNumber(expires)) {
+            cookie.push('expires=' + new Date(expires).toGMTString());
+          }
+
+          if (utils.isString(path)) {
+            cookie.push('path=' + path);
+          }
+
+          if (utils.isString(domain)) {
+            cookie.push('domain=' + domain);
+          }
+
+          if (secure === true) {
+            cookie.push('secure');
+          }
+
+          document.cookie = cookie.join('; ');
+        },
+
+        read: function read(name) {
+          var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+          return (match ? decodeURIComponent(match[3]) : null);
+        },
+
+        remove: function remove(name) {
+          this.write(name, '', Date.now() - 86400000);
         }
-
-        if (utils.isString(path)) {
-          cookie.push('path=' + path);
-        }
-
-        if (utils.isString(domain)) {
-          cookie.push('domain=' + domain);
-        }
-
-        if (secure === true) {
-          cookie.push('secure');
-        }
-
-        document.cookie = cookie.join('; ');
-      },
-
-      read: function read(name) {
-        var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
-        return (match ? decodeURIComponent(match[3]) : null);
-      },
-
-      remove: function remove(name) {
-        this.write(name, '', Date.now() - 86400000);
-      }
-    };
-  })() :
+      };
+    })() :
 
   // Non standard browser env (web workers, react-native) lack needed support.
-  (function nonStandardBrowserEnv() {
-    return {
-      write: function write() {},
-      read: function read() { return null; },
-      remove: function remove() {}
-    };
-  })()
+    (function nonStandardBrowserEnv() {
+      return {
+        write: function write() {},
+        read: function read() { return null; },
+        remove: function remove() {}
+      };
+    })()
 );
 
 },{"./../utils":31}],26:[function(require,module,exports){
@@ -2316,64 +2364,64 @@ module.exports = (
 
   // Standard browser envs have full support of the APIs needed to test
   // whether the request URL is of the same origin as current location.
-  (function standardBrowserEnv() {
-    var msie = /(msie|trident)/i.test(navigator.userAgent);
-    var urlParsingNode = document.createElement('a');
-    var originURL;
+    (function standardBrowserEnv() {
+      var msie = /(msie|trident)/i.test(navigator.userAgent);
+      var urlParsingNode = document.createElement('a');
+      var originURL;
 
-    /**
+      /**
     * Parse a URL to discover it's components
     *
     * @param {String} url The URL to be parsed
     * @returns {Object}
     */
-    function resolveURL(url) {
-      var href = url;
+      function resolveURL(url) {
+        var href = url;
 
-      if (msie) {
+        if (msie) {
         // IE needs attribute set twice to normalize properties
+          urlParsingNode.setAttribute('href', href);
+          href = urlParsingNode.href;
+        }
+
         urlParsingNode.setAttribute('href', href);
-        href = urlParsingNode.href;
+
+        // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+        return {
+          href: urlParsingNode.href,
+          protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+          host: urlParsingNode.host,
+          search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+          hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+          hostname: urlParsingNode.hostname,
+          port: urlParsingNode.port,
+          pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+            urlParsingNode.pathname :
+            '/' + urlParsingNode.pathname
+        };
       }
 
-      urlParsingNode.setAttribute('href', href);
+      originURL = resolveURL(window.location.href);
 
-      // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
-      return {
-        href: urlParsingNode.href,
-        protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
-        host: urlParsingNode.host,
-        search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
-        hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
-        hostname: urlParsingNode.hostname,
-        port: urlParsingNode.port,
-        pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
-                  urlParsingNode.pathname :
-                  '/' + urlParsingNode.pathname
-      };
-    }
-
-    originURL = resolveURL(window.location.href);
-
-    /**
+      /**
     * Determine if a URL shares the same origin as the current location
     *
     * @param {String} requestURL The URL to test
     * @returns {boolean} True if URL shares the same origin, otherwise false
     */
-    return function isURLSameOrigin(requestURL) {
-      var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
-      return (parsed.protocol === originURL.protocol &&
+      return function isURLSameOrigin(requestURL) {
+        var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+        return (parsed.protocol === originURL.protocol &&
             parsed.host === originURL.host);
-    };
-  })() :
+      };
+    })() :
 
   // Non standard browser envs (web workers, react-native) lack needed support.
-  (function nonStandardBrowserEnv() {
-    return function isURLSameOrigin() {
-      return true;
-    };
-  })()
+    (function nonStandardBrowserEnv() {
+      return function isURLSameOrigin() {
+        return true;
+      };
+    })()
 );
 
 },{"./../utils":31}],28:[function(require,module,exports){
@@ -2654,9 +2702,13 @@ function trim(str) {
  *
  * react-native:
  *  navigator.product -> 'ReactNative'
+ * nativescript
+ *  navigator.product -> 'NativeScript' or 'NS'
  */
 function isStandardBrowserEnv() {
-  if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
+  if (typeof navigator !== 'undefined' && (navigator.product === 'ReactNative' ||
+                                           navigator.product === 'NativeScript' ||
+                                           navigator.product === 'NS')) {
     return false;
   }
   return (
@@ -2738,6 +2790,32 @@ function merge(/* obj1, obj2, obj3, ... */) {
 }
 
 /**
+ * Function equal to merge with the difference being that no reference
+ * to original objects is kept.
+ *
+ * @see merge
+ * @param {Object} obj1 Object to merge
+ * @returns {Object} Result of all merge properties
+ */
+function deepMerge(/* obj1, obj2, obj3, ... */) {
+  var result = {};
+  function assignValue(val, key) {
+    if (typeof result[key] === 'object' && typeof val === 'object') {
+      result[key] = deepMerge(result[key], val);
+    } else if (typeof val === 'object') {
+      result[key] = deepMerge({}, val);
+    } else {
+      result[key] = val;
+    }
+  }
+
+  for (var i = 0, l = arguments.length; i < l; i++) {
+    forEach(arguments[i], assignValue);
+  }
+  return result;
+}
+
+/**
  * Extends object a by mutably adding to it the properties of object b.
  *
  * @param {Object} a The object to be extended
@@ -2775,11 +2853,25 @@ module.exports = {
   isStandardBrowserEnv: isStandardBrowserEnv,
   forEach: forEach,
   merge: merge,
+  deepMerge: deepMerge,
   extend: extend,
   trim: trim
 };
 
-},{"./helpers/bind":21,"is-buffer":35}],32:[function(require,module,exports){
+},{"./helpers/bind":22,"is-buffer":32}],32:[function(require,module,exports){
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+module.exports = function isBuffer (obj) {
+  return obj != null && obj.constructor != null &&
+    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+}
+
+},{}],33:[function(require,module,exports){
 (function (setImmediate){
 /*
 WHAT: SublimeText-like Fuzzy Search
@@ -3387,7 +3479,7 @@ return fuzzysortNew()
 // TODO: (performance) i have no idea how well optizmied the allowing typos algorithm is
 
 }).call(this,require("timers").setImmediate)
-},{"timers":37}],33:[function(require,module,exports){
+},{"timers":37}],34:[function(require,module,exports){
 /*
  Highcharts JS v7.0.0 (2018-12-11)
 
@@ -3824,7 +3916,7 @@ this.options.responsive,r=[],w=this.currentResponsive;h&&h.rules&&h.rules.forEac
 function(a,d){var r=a.condition;(r.callback||function(){return this.chartWidth<=h(r.maxWidth,Number.MAX_VALUE)&&this.chartHeight<=h(r.maxHeight,Number.MAX_VALUE)&&this.chartWidth>=h(r.minWidth,0)&&this.chartHeight>=h(r.minHeight,0)}).call(this)&&d.push(a._id)};y.prototype.currentOptions=function(h){function r(h,n,g,c){var m;a.objectEach(h,function(a,b){if(!c&&-1<["series","xAxis","yAxis"].indexOf(b))for(a=d(a),g[b]=[],m=0;m<a.length;m++)n[b][m]&&(g[b][m]={},r(a[m],n[b][m],g[b][m],c+1));else E(a)?
 (g[b]=G(a)?[]:{},r(a,n[b]||{},g[b],c+1)):g[b]=n[b]||null})}var v={};r(h,this.options,v,0);return v}})(J);return J});
 
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 /*
  Highcharts JS v7.0.0 (2018-12-11)
  Exporting module
@@ -3858,29 +3950,6 @@ e[d.nodeName]||(n=k.getElementsByTagName("svg")[0],w=k.createElementNS(d.namespa
 l=d.inlineWhitelist,h=d.unstyledElements,e={},n,k,d=z.createElement("iframe");r(d,{width:"1px",height:"1px",visibility:"hidden"});z.body.appendChild(d);k=d.contentWindow.document;k.open();k.write('\x3csvg xmlns\x3d"http://www.w3.org/2000/svg"\x3e\x3c/svg\x3e');k.close();a(this.container.querySelector("svg"));n.parentNode.removeChild(n)};H.menu=function(b,a,d,c){return["M",b,a+2.5,"L",b+d,a+2.5,"M",b,a+c/2+.5,"L",b+d,a+c/2+.5,"M",b,a+c-1.5,"L",b+d,a+c-1.5]};H.menuball=function(b,a,d,c){b=[];c=c/3-
 2;return b=b.concat(this.circle(d-c,a,c,c),this.circle(d-c,a+c+4,c,c),this.circle(d-c,a+2*(c+4),c,c))};l.prototype.renderExporting=function(){var b=this,a=b.options.exporting,d=a.buttons,c=b.isDirtyExporting||!b.exportSVGElements;b.buttonOffset=0;b.isDirtyExporting&&b.destroyExport();c&&!1!==a.enabled&&(b.exportEvents=[],b.exportingGroup=b.exportingGroup||b.renderer.g("exporting-group").attr({zIndex:3}).add(),E(d,function(a){b.addButton(a)}),b.isDirtyExporting=!1);q(b,"destroy",b.destroyExport)};
 q(l,"init",function(){var b=this;["exporting","navigation"].forEach(function(a){b[a]={update:function(d,c){b.isDirtyExporting=!0;p(!0,b.options[a],d);u(c,!0)&&b.redraw()}}})});l.prototype.callbacks.push(function(b){b.renderExporting();q(b,"redraw",b.renderExporting)})})(l)});
-
-},{}],35:[function(require,module,exports){
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-
-// The _isBuffer check is for Safari 5-7 support, because it's missing
-// Object.prototype.constructor. Remove this eventually
-module.exports = function (obj) {
-  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer)
-}
-
-function isBuffer (obj) {
-  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
-}
-
-// For Node v0.10 support. Remove this eventually.
-function isSlowBuffer (obj) {
-  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
-}
 
 },{}],36:[function(require,module,exports){
 // shim for using process in browser
@@ -4157,8 +4226,7 @@ exports.default = addTableDestak;
 
 function addTableDestak(cityId) {
   var ptCrossedTable = document.querySelector('.js-pt-crossed-table');
-  var matCrossedTable = document.querySelector('.js-mat-crossed-table');
-  var data = window.chartData.data; // get table rows
+  var matCrossedTable = document.querySelector('.js-mat-crossed-table'); // get table rows
 
   var ptRows = ptCrossedTable.querySelectorAll('tr');
   var matRows = matCrossedTable.querySelectorAll('tr');
@@ -4178,7 +4246,7 @@ function addTableDestak(cityId) {
   }
 
   function getCityInfo() {
-    return data.filter(function (item) {
+    return window.$vue.globalChartData.filter(function (item) {
       return item.city.id === cityId;
     });
   }
@@ -4253,31 +4321,7 @@ function downloadCharts() {
   }
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],40:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = clearFilters;
-
-function clearFilters(exception) {
-  var formContainer = document.querySelector('.js-form-filter');
-  formContainer.querySelectorAll('select').forEach(function (select) {
-    if (select.id !== exception) {
-      var selectEl = select;
-      selectEl.selectedIndex = 0;
-    }
-  });
-  formContainer.querySelectorAll('input[type="text"]').forEach(function (input) {
-    if (input.id !== exception) {
-      var inputEl = input;
-      inputEl.value = '';
-    }
-  });
-}
-
-},{}],41:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":34,"highcharts/modules/exporting":35}],40:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4285,7 +4329,208 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.handleAxisForm = handleAxisForm;
+exports.submitAxisInfo = submitAxisInfo;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _highcharts = _interopRequireDefault(require("highcharts"));
+
+var _exporting = _interopRequireDefault(require("highcharts/modules/exporting"));
+
+var _handleNoMatchesAlert = require("./handleNoMatchesAlert");
+
+var _handleChartForm = require("./handleChartForm");
+
+var _plotCharts = require("../plotCharts");
+
+(0, _exporting.default)(_highcharts.default);
+var chartsContainer = document.querySelector('.charts');
+
+function handleSelectedFilters() {
+  // console.log(window.$vue.$data.selectedFilters);
+  var values = Object.values(window.$vue.$data.selectedFilters);
+  var hasFilters = values.some(function (el) {
+    return el;
+  });
+
+  if (hasFilters) {
+    (0, _handleChartForm.submitChartFormInfo)();
+  }
+}
+
+function submitAxisInfo() {
+  return _submitAxisInfo.apply(this, arguments);
+}
+
+function _submitAxisInfo() {
+  _submitAxisInfo = (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee() {
+    var jsAxisForm, formData, payload;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            jsAxisForm = document.querySelector('#js-axis-form');
+            (0, _plotCharts.toggleLoading)();
+            window.$vue.toggleFilterFormLoading();
+            chartsContainer.scrollIntoView();
+            formData = new FormData(jsAxisForm);
+            payload = {};
+            payload.grade = formData.get('grade');
+            payload.xAxis = formData.get('xAxis');
+            _context.next = 10;
+            return (0, _plotCharts.populateChartData)(payload);
+
+          case 10:
+            window.$vue.toggleFilterFormLoading(); // clearTableInfo();
+
+            (0, _handleNoMatchesAlert.hideNoMatchesAlert)();
+            handleSelectedFilters();
+
+          case 13:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+  return _submitAxisInfo.apply(this, arguments);
+}
+
+function handleAxisForm() {
+  var jsAxisForm = document.querySelector('#js-axis-form');
+
+  if (jsAxisForm) {
+    jsAxisForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      submitAxisInfo(event);
+    });
+  }
+}
+
+},{"../plotCharts":50,"./handleChartForm":41,"./handleNoMatchesAlert":42,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":34,"highcharts/modules/exporting":35}],41:[function(require,module,exports){
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.handleChartForm = handleChartForm;
+exports.submitChartFormInfo = submitChartFormInfo;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _highcharts = _interopRequireDefault(require("highcharts"));
+
+var _exporting = _interopRequireDefault(require("highcharts/modules/exporting"));
+
+var _handleNoMatchesAlert = require("./handleNoMatchesAlert");
+
+var _plotCharts = require("../plotCharts");
+
+(0, _exporting.default)(_highcharts.default);
+
+function submitChartFormInfo() {
+  return _submitChartFormInfo.apply(this, arguments);
+}
+
+function _submitChartFormInfo() {
+  _submitChartFormInfo = (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee() {
+    var jsChartForm, formData, payload;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            jsChartForm = document.querySelector('#js-chart-form'); // const chartsContainer = document.querySelector('.charts');
+
+            formData = new FormData(jsChartForm);
+            payload = {};
+            payload.grade = formData.get('grade');
+            payload.xAxis = formData.get('xAxis');
+            payload.region = formData.get('region');
+            payload.state = formData.get('state');
+            payload.region = window.$vue.selectedFilters.selectedRegion;
+            payload.inhabitants = window.$vue.selectedFilters.selectedInhabitants;
+            payload.inequality = window.$vue.selectedFilters.selectedInequality;
+            payload.quality = window.$vue.selectedFilters.selectedQuality;
+            (0, _plotCharts.toggleLoading)();
+            window.$vue.showAdvancedFilters = false;
+            _context.next = 15;
+            return (0, _plotCharts.populateChartData)(payload);
+
+          case 15:
+            // clearTableInfo();
+            (0, _handleNoMatchesAlert.hideNoMatchesAlert)();
+
+          case 16:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+  return _submitChartFormInfo.apply(this, arguments);
+}
+
+function handleChartForm() {
+  var jsChartForm = document.querySelector('#js-chart-form');
+
+  if (jsChartForm) {
+    jsChartForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      submitChartFormInfo();
+    });
+  }
+}
+
+},{"../plotCharts":50,"./handleNoMatchesAlert":42,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":34,"highcharts/modules/exporting":35}],42:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.hideNoMatchesAlert = hideNoMatchesAlert;
+exports.showNoMatchesAlert = showNoMatchesAlert;
+
+function hideNoMatchesAlert() {
+  document.querySelector('.chart__main--pt').classList.remove('chart__main--margin-top');
+  document.querySelector('.chart__main--mat').classList.remove('chart__main--margin-top');
+  document.querySelector('.js-no-matches').setAttribute('hidden', true);
+  document.querySelector('.js-pt-no-matches').setAttribute('hidden', true);
+  document.querySelector('.js-mat-no-matches').setAttribute('hidden', true);
+}
+
+function showNoMatchesAlert(where) {
+  if (where === 'pt') {
+    document.querySelector('.chart__main--mat').classList.add('chart__main--margin-top');
+    return document.querySelector('.js-pt-no-matches').removeAttribute('hidden');
+  }
+
+  if (where === 'mat') {
+    document.querySelector('.chart__main--pt').classList.add('chart__main--margin-top');
+    return document.querySelector('.js-mat-no-matches').removeAttribute('hidden');
+  }
+
+  return document.querySelector('.js-no-matches').removeAttribute('hidden');
+}
+
+},{}],43:[function(require,module,exports){
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.highlightPoint = highlightPoint;
 
 var _highcharts = _interopRequireDefault(require("highcharts"));
@@ -4294,16 +4539,11 @@ var _exporting = _interopRequireDefault(require("highcharts/modules/exporting"))
 
 var _updateHelperText = _interopRequireDefault(require("../updateHelperText"));
 
-(0, _exporting.default)(_highcharts.default);
+var _showCity = require("./showCity");
 
-function hideNoMatchesAlert() {
-  document.querySelector('.js-no-matches').setAttribute('hidden', true);
-}
+var _handleNoMatchesAlert = require("./handleNoMatchesAlert");
 
-function showNoMatchesAlert() {
-  document.querySelector('.js-no-matches').removeAttribute('hidden');
-} // Highlight city
-
+(0, _exporting.default)(_highcharts.default); // Highlight city
 
 function highlightPoint(id) {
   var ptChartDom = document.getElementById('pt-chart');
@@ -4313,22 +4553,42 @@ function highlightPoint(id) {
 
   var matChart = _highcharts.default.charts[_highcharts.default.attr(matChartDom, 'data-highcharts-chart')];
 
-  var ptPoint = ptChart.get(id);
-  var matPoint = matChart.get(id);
+  var selectedPtPoints = ptChart.getSelectedPoints();
+  var selectedMatPoints = matChart.getSelectedPoints();
 
-  if (ptPoint === undefined || matPoint === undefined) {
-    return showNoMatchesAlert();
+  if (selectedPtPoints.length > 0) {
+    (0, _showCity.clearCity)(selectedPtPoints[0]); // selectedPtPoints[0].select();
   }
 
-  ptPoint.graphic.toFront();
-  ptPoint.select();
-  matPoint.graphic.toFront();
-  matPoint.select();
-  (0, _updateHelperText.default)(id);
+  if (selectedMatPoints.length > 0) {
+    (0, _showCity.clearCity)(selectedMatPoints[0]); // selectedMatPoints[0].select();
+  }
+
+  (0, _showCity.clearCityInput)();
+  window.$vue.selectedCity = id;
+  var ptPoint = ptChart.get(id);
+  var matPoint = matChart.get(id);
+  (0, _handleNoMatchesAlert.hideNoMatchesAlert)();
+
+  if (ptPoint === undefined) {
+    (0, _handleNoMatchesAlert.showNoMatchesAlert)('pt');
+  } else {
+    ptPoint.graphic.toFront();
+    ptPoint.select();
+  }
+
+  if (matPoint === undefined) {
+    (0, _handleNoMatchesAlert.showNoMatchesAlert)('mat');
+  } else {
+    matPoint.graphic.toFront();
+    matPoint.select();
+  }
+
+  (0, _updateHelperText.default)(window.$vue.selectedCity);
   return true;
 }
 
-},{"../updateHelperText":47,"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],42:[function(require,module,exports){
+},{"../updateHelperText":52,"./handleNoMatchesAlert":42,"./showCity":45,"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":34,"highcharts/modules/exporting":35}],44:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4352,24 +4612,26 @@ var _awesomplete = _interopRequireDefault(require("awesomplete"));
 
 var _fuzzysort = _interopRequireDefault(require("fuzzysort"));
 
+var _handleChartForm = require("./handleChartForm");
+
+var _handleNoMatchesAlert = require("./handleNoMatchesAlert");
+
 var _updateTableInfo = require("../updateTableInfo");
 
-var _plotCharts = require("../plotCharts");
+var _handleAxisForm = require("./handleAxisForm");
 
-var _clearFilters = _interopRequireDefault(require("./clearFilters"));
+var _showCity = require("./showCity");
 
-var _highlightPoint = require("./highlightPoint");
+require("./vueFilter");
 
 var _config = _interopRequireDefault(require("../../config"));
 
+// import Vue from 'vue';
+// import clearFilters from './clearFilters';
 (0, _exporting.default)(_highcharts.default);
 
 function handleChartFilters() {
-  var jsChartForm = document.getElementById('js-chart-form');
-  var cityInput = document.getElementById('city');
-  var highlightInput = document.getElementById('highlight');
-  var stateInput = document.getElementById('state');
-  var regionInput = document.getElementById('region');
+  var cityInput = document.querySelector('#js-city');
 
   function getCities() {
     var url = "".concat(_config.default.api.domain, "cities");
@@ -4411,7 +4673,7 @@ function handleChartFilters() {
                   value: city.id
                 };
               });
-              awesomplete = new _awesomplete.default(document.querySelector('#city'), {
+              awesomplete = new _awesomplete.default(cityInput, {
                 nChars: 1,
                 maxItems: 5,
                 autoFirst: true,
@@ -4434,157 +4696,589 @@ function handleChartFilters() {
     return _populateCitiesList.apply(this, arguments);
   }
 
-  function hideNoMatchesAlert() {
-    document.querySelector('.js-no-matches').setAttribute('hidden', true);
-  }
-
-  function clearHighlightedPoints() {
-    var ptChartDom = document.getElementById('pt-chart');
-    var matChartDom = document.getElementById('mat-chart');
-
-    var ptChart = _highcharts.default.charts[_highcharts.default.attr(ptChartDom, 'data-highcharts-chart')];
-
-    var matChart = _highcharts.default.charts[_highcharts.default.attr(matChartDom, 'data-highcharts-chart')];
-
-    var selectedPtPoints = ptChart.getSelectedPoints();
-    var selectedMatPoints = matChart.getSelectedPoints();
-
-    if (selectedPtPoints[0]) {
-      selectedPtPoints[0].select();
-      selectedMatPoints[0].select();
-    }
-  }
-
-  if (jsChartForm) {
-    jsChartForm.addEventListener('submit', function (event) {
-      event.preventDefault();
-      var formData = new FormData(event.target);
-      var payload = {};
-      payload.grade = formData.get('grade');
-      payload.xAxis = formData.get('xAxis');
-      (0, _plotCharts.toggleLoading)();
-      (0, _plotCharts.populateChartData)(payload);
-      (0, _clearFilters.default)();
-      (0, _updateTableInfo.clearTableInfo)();
-      hideNoMatchesAlert();
-      (0, _plotCharts.toggleLoading)();
-    });
-  }
-
-  function highlightPoints(parameter, value) {
-    var ptChartDom = document.getElementById('pt-chart');
-    var matChartDom = document.getElementById('mat-chart');
-
-    var ptChart = _highcharts.default.charts[_highcharts.default.attr(ptChartDom, 'data-highcharts-chart')];
-
-    var matChart = _highcharts.default.charts[_highcharts.default.attr(matChartDom, 'data-highcharts-chart')];
-
-    clearHighlightedPoints();
-
-    if (parameter === 'big-cities') {
-      ptChart.series[0].points.forEach(function (point) {
-        if (point.options.is_big_town === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-      matChart.series[0].points.forEach(function (point) {
-        if (point.options.is_big_town === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'capital') {
-      ptChart.series[0].points.forEach(function (point) {
-        if (point.options.is_capital === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-      matChart.series[0].points.forEach(function (point) {
-        if (point.options.is_capital === 1) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'state') {
-      ptChart.series[0].points.forEach(function (point) {
-        if (point.options.state === value) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-      matChart.series[0].points.forEach(function (point) {
-        if (point.options.state === value) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'region') {
-      ptChart.series[0].points.forEach(function (point) {
-        if (point.options.region === Number(value)) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-      matChart.series[0].points.forEach(function (point) {
-        if (point.options.region === Number(value)) {
-          point.select(true, true);
-          point.graphic.toFront();
-        }
-      });
-    }
-
-    if (parameter === 'none') {
-      clearHighlightedPoints();
-    }
-  }
-
   if (cityInput) {
     cityInput.addEventListener('input', function () {
-      hideNoMatchesAlert();
+      (0, _handleNoMatchesAlert.hideNoMatchesAlert)();
     }, false);
     cityInput.addEventListener('awesomplete-selectcomplete', function (event) {
-      (0, _clearFilters.default)(event.target.id);
-      (0, _highlightPoint.highlightPoint)(event.text.value);
+      var ptChartDom = document.getElementById('pt-chart');
+      var matChartDom = document.getElementById('mat-chart');
+
+      var ptChart = _highcharts.default.charts[_highcharts.default.attr(ptChartDom, 'data-highcharts-chart')];
+
+      var matChart = _highcharts.default.charts[_highcharts.default.attr(matChartDom, 'data-highcharts-chart')];
+
+      var selectedPtPoints = ptChart.getSelectedPoints();
+      var selectedMatPoints = matChart.getSelectedPoints();
+      window.$vue.selectedCity = event.text.value; // clearFilters(event.target.id);
+
+      (0, _showCity.showCity)(event.text.value);
+
+      if (selectedPtPoints.length > 0) {
+        (0, _showCity.clearCity)(selectedPtPoints[0]);
+      }
+
+      if (selectedMatPoints.length > 0) {
+        (0, _showCity.clearCity)(selectedMatPoints[0]);
+      }
+
       (0, _updateTableInfo.updateTableInfo)(event.text.value, window.chartData.xAxis, window.chartData.data);
     }, false);
   }
 
-  if (highlightInput) {
-    highlightInput.addEventListener('change', function (event) {
-      (0, _clearFilters.default)(event.target.id);
-      (0, _updateTableInfo.clearTableInfo)();
-      highlightPoints(event.target.value);
-    }, false);
-  }
-
-  if (stateInput) {
-    stateInput.addEventListener('change', function (event) {
-      (0, _clearFilters.default)(event.target.id);
-      (0, _updateTableInfo.clearTableInfo)();
-      highlightPoints('state', event.target.value);
-    }, false);
-  }
-
-  if (regionInput) {
-    regionInput.addEventListener('change', function (event) {
-      (0, _clearFilters.default)(event.target.id);
-      (0, _updateTableInfo.clearTableInfo)();
-      highlightPoints('region', event.target.value);
-    }, false);
-  }
-
   populateCitiesList();
+  (0, _handleChartForm.handleChartForm)();
+  (0, _handleAxisForm.handleAxisForm)();
 }
 
-},{"../../config":49,"../plotCharts":45,"../updateTableInfo":48,"./clearFilters":40,"./highlightPoint":41,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"awesomplete":6,"axios":7,"fuzzysort":32,"highcharts":33,"highcharts/modules/exporting":34}],43:[function(require,module,exports){
+},{"../../config":54,"../updateTableInfo":53,"./handleAxisForm":40,"./handleChartForm":41,"./handleNoMatchesAlert":42,"./showCity":45,"./vueFilter":46,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"awesomplete":6,"axios":7,"fuzzysort":33,"highcharts":34,"highcharts/modules/exporting":35}],45:[function(require,module,exports){
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.showCity = showCity;
+exports.clearCity = clearCity;
+exports.clearCityInput = clearCityInput;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _highcharts = _interopRequireDefault(require("highcharts"));
+
+var _exporting = _interopRequireDefault(require("highcharts/modules/exporting"));
+
+var _axios = _interopRequireDefault(require("axios"));
+
+var _updateHelperText = _interopRequireDefault(require("../updateHelperText"));
+
+var _handleNoMatchesAlert = require("./handleNoMatchesAlert");
+
+var _updateTableInfo = require("../updateTableInfo");
+
+var _addTableDestak = _interopRequireDefault(require("../addTableDestak"));
+
+var _formatItemsToHighCharts = _interopRequireDefault(require("../formatItemsToHighCharts"));
+
+var _config = _interopRequireDefault(require("../../config"));
+
+(0, _exporting.default)(_highcharts.default);
+
+function getCity(_x) {
+  return _getCity.apply(this, arguments);
+} // Highlight city
+
+
+function _getCity() {
+  _getCity = (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee(cityId) {
+    var city;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _axios.default.get("".concat(_config.default.api.domain, "data?school_grade=").concat(window.chartData.grade, "&x=").concat(window.chartData.xAxis, "&city_id=").concat(cityId));
+
+          case 2:
+            city = _context.sent;
+            return _context.abrupt("return", city.data.data);
+
+          case 4:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+  return _getCity.apply(this, arguments);
+}
+
+function showCity(_x2) {
+  return _showCity.apply(this, arguments);
+}
+
+function _showCity() {
+  _showCity = (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee2(id) {
+    var ptChartDom, matChartDom, ptChart, matChart, selectedPtPoints, selectedMatPoints, city, formatedItems, ptCity, matCity, ptPoint, matPoint;
+    return _regenerator.default.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            ptChartDom = document.getElementById('pt-chart');
+            matChartDom = document.getElementById('mat-chart');
+            ptChart = _highcharts.default.charts[_highcharts.default.attr(ptChartDom, 'data-highcharts-chart')];
+            matChart = _highcharts.default.charts[_highcharts.default.attr(matChartDom, 'data-highcharts-chart')];
+            selectedPtPoints = ptChart.getSelectedPoints();
+            selectedMatPoints = matChart.getSelectedPoints();
+
+            if (selectedPtPoints.length > 0) {
+              selectedPtPoints[0].select();
+            }
+
+            if (selectedMatPoints.length > 0) {
+              selectedMatPoints[0].select();
+            }
+
+            _context2.next = 10;
+            return getCity(id);
+
+          case 10:
+            city = _context2.sent;
+            formatedItems = (0, _formatItemsToHighCharts.default)(city);
+            ptCity = formatedItems[0];
+            matCity = formatedItems[1];
+            ptChart.series[0].addPoint(ptCity);
+            matChart.series[0].addPoint(matCity);
+            ptPoint = ptChart.get(id);
+            matPoint = matChart.get(id); // debugger;
+
+            (0, _handleNoMatchesAlert.hideNoMatchesAlert)();
+
+            if (ptPoint === undefined) {
+              (0, _handleNoMatchesAlert.showNoMatchesAlert)('pt');
+            } else {
+              ptPoint.graphic.toFront();
+              ptPoint.select();
+            }
+
+            if (matPoint === undefined) {
+              (0, _handleNoMatchesAlert.showNoMatchesAlert)('mat');
+            } else {
+              matPoint.graphic.toFront();
+              matPoint.select();
+            }
+
+            (0, _updateHelperText.default)(id);
+            (0, _updateTableInfo.updateTableInfo)(id);
+            (0, _addTableDestak.default)(id);
+            return _context2.abrupt("return", true);
+
+          case 25:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, this);
+  }));
+  return _showCity.apply(this, arguments);
+}
+
+function clearCity(city) {
+  if (document.querySelector('#js-city').value !== '') {
+    city.remove();
+  }
+}
+
+function clearCityInput() {
+  document.querySelector('#js-city').value = '';
+  window.$vue.selectedCity = null;
+}
+
+},{"../../config":54,"../addTableDestak":38,"../formatItemsToHighCharts":47,"../updateHelperText":52,"../updateTableInfo":53,"./handleNoMatchesAlert":42,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"axios":7,"highcharts":34,"highcharts/modules/exporting":35}],46:[function(require,module,exports){
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _handleAxisForm = require("./handleAxisForm");
+
+/* global Vue */
+var toPercentageFilter = function toPercentageFilter(value) {
+  return "".concat(Math.round(parseFloat(value) * 100), "%");
+};
+
+Vue.filter('toPercentage', toPercentageFilter);
+window.$vue = new Vue({
+  el: '#app',
+  data: {
+    chartData: null,
+    filteredChartData: null,
+    updateGlobalChartData: true,
+    globalChartData: null,
+    selectedFilters: {
+      selectedInequality: null,
+      selectedRegion: null,
+      selectedQuality: null,
+      selectedInhabitants: null
+    },
+    selectedCity: null,
+    needRegenerateChart: false,
+    regions: [{
+      name: 'centro oeste',
+      id: 1
+    }, {
+      name: 'nordeste',
+      id: 2
+    }, {
+      name: 'norte',
+      id: 3
+    }, {
+      name: 'sudeste',
+      id: 4
+    }, {
+      name: 'sul',
+      id: 5
+    }],
+    states: [{
+      id: 1,
+      name: 'Acre'
+    }, {
+      id: 2,
+      name: 'Alagoas'
+    }, {
+      id: 3,
+      name: 'Amapá'
+    }, {
+      id: 4,
+      name: 'Amazonas'
+    }, {
+      id: 5,
+      name: 'Bahia'
+    }, {
+      id: 6,
+      name: 'Ceará'
+    }, {
+      id: 7,
+      name: 'Distrito Federal'
+    }, {
+      id: 8,
+      name: 'Espírito Santo'
+    }, {
+      id: 9,
+      name: 'Goiás'
+    }, {
+      id: 10,
+      name: 'Maranhão'
+    }, {
+      id: 11,
+      name: 'Minas Gerais'
+    }, {
+      id: 12,
+      name: 'Mato Grosso do Sul'
+    }, {
+      id: 13,
+      name: 'Mato Grosso'
+    }, {
+      id: 14,
+      name: 'Pará'
+    }, {
+      id: 15,
+      name: 'Paraíba'
+    }, {
+      id: 16,
+      name: 'Paraná'
+    }, {
+      id: 17,
+      name: 'Pernambuco'
+    }, {
+      id: 18,
+      name: 'Piauí'
+    }, {
+      id: 19,
+      name: 'Rio de Janeiro'
+    }, {
+      id: 20,
+      name: 'Rio Grande do Norte'
+    }, {
+      id: 21,
+      name: 'Rio Grande do Sul'
+    }, {
+      id: 22,
+      name: 'Rondônia'
+    }, {
+      id: 23,
+      name: 'Roraima'
+    }, {
+      id: 24,
+      name: 'Santa Catarina'
+    }, {
+      id: 25,
+      name: 'São Paulo'
+    }, {
+      id: 26,
+      name: 'Sergipe'
+    }, {
+      id: 27,
+      name: 'Tocantins'
+    }],
+    inequalityRange: [{
+      name: 'equidade',
+      id: 'equidade'
+    }, {
+      name: 'desigualdade',
+      id: 'desigualdade'
+    }, {
+      name: 'alta',
+      id: 'desigualdade-alta'
+    }, {
+      name: 'extrema',
+      id: 'desigualdade-extrema'
+    }, {
+      name: 'situações atípicas',
+      id: 'situacoes-atipicas'
+    }],
+    qualityRange: [{
+      name: 'baixa',
+      id: 'baixa'
+    }, {
+      name: 'media-baixa',
+      id: 'medio-baixa'
+    }, {
+      name: 'media',
+      id: 'media'
+    }, {
+      name: 'media-alta',
+      id: 'medio-alta'
+    }, {
+      name: 'alta',
+      id: 'alta'
+    }],
+    inhabitantsRange: [{
+      label: 'Até 50 mil',
+      id: '1',
+      value: [0, 5000]
+    }, {
+      label: '50 a 100 mil',
+      id: '2',
+      value: [50000, 100000]
+    }, {
+      label: '100 a 500 mil',
+      id: '3',
+      value: [100000, 500000]
+    }, {
+      label: 'mais de 500 mil',
+      id: '4',
+      value: [500000, Infinity]
+    }],
+    filterFormLoading: false,
+    showAdvancedFilters: false
+  },
+  watch: {
+    // whenever question changes, this function will run
+    selectedFilters: {
+      // eslint-disable-next-line object-shorthand
+      handler: function handler() {
+        this.handleChartFiltersAvailability();
+      },
+      deep: true
+    },
+    globalChartData: {
+      // eslint-disable-next-line object-shorthand
+      handler: function handler() {
+        this.handleChartFiltersAvailability();
+      },
+      deep: true
+    }
+  },
+  created: function created() {},
+  mounted: function mounted() {// this.chartData = window.chartData.data;
+  },
+  methods: {
+    toggleFilterFormLoading: function toggleFilterFormLoading() {
+      this.filterFormLoading = !this.filterFormLoading;
+    },
+    toggleAdvancedFilters: function toggleAdvancedFilters() {
+      this.showAdvancedFilters = !this.showAdvancedFilters;
+    },
+    clearAllSelectedFilters: function () {
+      var _clearAllSelectedFilters = (0, _asyncToGenerator2.default)(
+      /*#__PURE__*/
+      _regenerator.default.mark(function _callee() {
+        var _this = this;
+
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                Object.keys(this.selectedFilters).forEach(function (key) {
+                  _this.selectedFilters[key] = null;
+                });
+                _context.next = 3;
+                return (0, _handleAxisForm.submitAxisInfo)();
+
+              case 3:
+                this.handleChartFiltersAvailability();
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      return function clearAllSelectedFilters() {
+        return _clearAllSelectedFilters.apply(this, arguments);
+      };
+    }(),
+    checkRegion: function checkRegion() {
+      var _this2 = this;
+
+      this.regions = this.regions.filter(function (item) {
+        var itContains = _this2.filteredChartData.some(function (city) {
+          return city.region.id === item.id;
+        });
+
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+
+        return item;
+      });
+    },
+    checkState: function checkState() {
+      var _this3 = this;
+
+      this.states = this.states.filter(function (item) {
+        var itContains = _this3.filteredChartData.some(function (city) {
+          return city.state.id === item.id;
+        });
+
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+
+        return item;
+      });
+    },
+    checkInequality: function checkInequality() {
+      var _this4 = this;
+
+      this.inequalityRange = this.inequalityRange.filter(function (item) {
+        var itContains = _this4.filteredChartData.some(function (city) {
+          return city.range_inequality === item.id;
+        });
+
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+
+        return item;
+      });
+    },
+    checkQuality: function checkQuality() {
+      var _this5 = this;
+
+      this.qualityRange = this.qualityRange.filter(function (item) {
+        var itContains = _this5.filteredChartData.some(function (city) {
+          return city.range_quality === item.id;
+        });
+
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+
+        return item;
+      });
+    },
+    checkInhabitants: function checkInhabitants() {
+      var _this6 = this;
+
+      this.inhabitantsRange = this.inhabitantsRange.filter(function (item) {
+        var itContains = _this6.filteredChartData.some(function (city) {
+          return city.city.inhabitants >= item.value[0] && city.city.inhabitants <= item.value[1];
+        });
+
+        if (!itContains) {
+          item.disabled = true;
+        } else {
+          item.disabled = false;
+        }
+
+        return item;
+      });
+    },
+    handleChartFiltersAvailability: function handleChartFiltersAvailability() {
+      var _this7 = this;
+
+      this.filteredChartData = this.globalChartData;
+
+      if (this.selectedFilters.selectedInhabitants) {
+        var minHabitants = this.selectedFilters.selectedInhabitants[0];
+        var maxHabitants = this.selectedFilters.selectedInhabitants[1];
+        this.filteredChartData = this.filteredChartData.filter(function (item) {
+          return item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants;
+        });
+      }
+
+      if (this.selectedFilters.selectedState) {
+        this.filteredChartData = this.filteredChartData.filter(function (item) {
+          return item.state.id === _this7.selectedFilters.selectedState;
+        });
+      }
+
+      if (this.selectedFilters.selectedRegion) {
+        this.filteredChartData = this.filteredChartData.filter(function (item) {
+          return item.region.id === _this7.selectedFilters.selectedRegion;
+        });
+      }
+
+      if (this.selectedFilters.selectedInequality) {
+        this.filteredChartData = this.filteredChartData.filter(function (item) {
+          return item.range_inequality === _this7.selectedFilters.selectedInequality;
+        });
+      }
+
+      if (this.selectedFilters.selectedQuality) {
+        this.filteredChartData = this.filteredChartData.filter(function (item) {
+          return item.range_quality === _this7.selectedFilters.selectedQuality;
+        });
+      }
+
+      this.checkRegion();
+      this.checkQuality();
+      this.checkInequality();
+      this.checkState();
+      this.checkInhabitants();
+    }
+  }
+});
+
+},{"./handleAxisForm":40,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5}],47:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = formatItemsToHighCharts;
+
+function formatItemsToHighCharts(items) {
+  return Object.keys(items).map(function (item) {
+    return {
+      // log: console.log(items[item]),
+      x: Number(items[item].x),
+      y: Number(items[item].y),
+      className: items[item].range_inequality,
+      id: Number(items[item].city.id),
+      city: items[item].city.name,
+      state: items[item].state.uf,
+      state_id: items[item].state.id,
+      region: items[item].region.id,
+      is_big_town: items[item].city.is_big_town,
+      is_capital: items[item].city.is_capital
+    };
+  });
+}
+
+},{}],48:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4615,6 +5309,15 @@ function getChartData(receivedPayload) {
   }
 
   var url = "".concat(_config.default.api.domain, "data?school_grade=").concat(chartData.grade, "&x=").concat(chartData.xAxis);
+
+  if (receivedPayload && receivedPayload.region) {
+    url += "&region_id=".concat(receivedPayload.region);
+  }
+
+  if (receivedPayload && receivedPayload.state) {
+    url += "&state_id=".concat(receivedPayload.state);
+  }
+
   chartData.xAxis = chartData.xAxis; // xAxis = newXAxis;
 
   function populateGlobalChartData() {
@@ -4638,20 +5341,26 @@ function getChartData(receivedPayload) {
               response = _context.sent;
               chartData.data = response.data.data;
               window.chartData = chartData;
-              _context.next = 11;
+
+              if (window.$vue.updateGlobalChartData) {
+                window.$vue.globalChartData = chartData.data;
+                window.$vue.updateGlobalChartData = false;
+              }
+
+              _context.next = 12;
               break;
 
-            case 8:
-              _context.prev = 8;
+            case 9:
+              _context.prev = 9;
               _context.t0 = _context["catch"](0);
               window.console.error(_context.t0);
 
-            case 11:
+            case 12:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, this, [[0, 8]]);
+      }, _callee, this, [[0, 9]]);
     }));
     return _populateGlobalChartData.apply(this, arguments);
   }
@@ -4659,7 +5368,7 @@ function getChartData(receivedPayload) {
   return populateGlobalChartData();
 }
 
-},{"../config":49,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"axios":7}],44:[function(require,module,exports){
+},{"../config":54,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"axios":7}],49:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4672,12 +5381,14 @@ var _downloadCharts = _interopRequireDefault(require("./downloadCharts"));
 
 var _filter = _interopRequireDefault(require("./filter"));
 
+require("./filter/vueFilter");
+
 (0, _plotCharts.populateChartData)();
 (0, _downloadCharts.default)();
 (0, _sizeToggle.default)();
 (0, _filter.default)();
 
-},{"./downloadCharts":39,"./filter":42,"./plotCharts":45,"./sizeToggle":46,"@babel/runtime/helpers/interopRequireDefault":2}],45:[function(require,module,exports){
+},{"./downloadCharts":39,"./filter":44,"./filter/vueFilter":46,"./plotCharts":50,"./sizeToggle":51,"@babel/runtime/helpers/interopRequireDefault":2}],50:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -4704,12 +5415,17 @@ var _addTableDestak = _interopRequireDefault(require("./addTableDestak"));
 
 var _getChartData = _interopRequireDefault(require("./getChartData"));
 
-var _clearFilters = _interopRequireDefault(require("./filter/clearFilters"));
+var _formatItemsToHighCharts = _interopRequireDefault(require("./formatItemsToHighCharts"));
+
+var _handleNoMatchesAlert = require("./filter/handleNoMatchesAlert");
+
+var _showCity = require("./filter/showCity");
 
 var _highlightPoint = require("./filter/highlightPoint");
 
 (0, _exporting.default)(_highcharts.default);
 var xAxisText;
+var isLoading = false;
 var ptChartElement = document.getElementById('pt-chart');
 var matChartElement = document.getElementById('mat-chart');
 
@@ -4854,7 +5570,7 @@ function drawChart(chartData, subject) {
       point: {
         events: {
           click: function click() {
-            (0, _clearFilters.default)();
+            // clearFilters();
             (0, _highlightPoint.highlightPoint)(this.id);
             (0, _updateTableInfo.updateTableInfo)(this.id);
             (0, _updateHelperText.default)(this.id);
@@ -4867,25 +5583,7 @@ function drawChart(chartData, subject) {
   });
 }
 
-function formatItemsToHighCharts(items) {
-  return Object.keys(items).map(function (item) {
-    return {
-      x: Number(items[item].x),
-      y: Number(items[item].y),
-      className: items[item].range_inequality,
-      id: Number(items[item].city.id),
-      city: items[item].city.name,
-      state: items[item].state.uf,
-      state_id: items[item].state.id,
-      region: items[item].region.id,
-      is_big_town: items[item].city.is_big_town,
-      is_capital: items[item].city.is_capital
-    };
-  });
-}
-
 function toggleLoading() {
-  var isLoading = false;
   var ptChartDom = document.getElementById('pt-chart');
   var matChartDom = document.getElementById('mat-chart');
 
@@ -4893,15 +5591,12 @@ function toggleLoading() {
 
   var matChart = _highcharts.default.charts[_highcharts.default.attr(matChartDom, 'data-highcharts-chart')];
 
-  if (!isLoading) {
-    ptChart.showLoading();
-    matChart.showLoading();
-  } else {
-    ptChart.hideLoading();
-    matChart.hideLoading();
+  if (!ptChart || !matChart) {
+    return;
   }
 
-  isLoading = !isLoading;
+  ptChart.showLoading();
+  matChart.showLoading();
 }
 
 function populateChartData(_x) {
@@ -4912,24 +5607,31 @@ function _populateChartData() {
   _populateChartData = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
   _regenerator.default.mark(function _callee(payload) {
-    var chartData, ptItems, matItems, formatedPtItems, formatedMatItems;
+    var chartData, ptItems, matItems, minHabitants, maxHabitants, formatedPtItems, formatedMatItems;
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 24;
+              _context.next = 32;
               break;
             }
 
             _context.prev = 1;
-            _context.next = 4;
+
+            if (payload && payload.grade === null) {
+              payload.grade = window.chartData.grade;
+            }
+
+            if (payload && payload.xAxis === null) {
+              payload.xAxis = window.chartData.xAxis;
+            }
+
+            _context.next = 6;
             return (0, _getChartData.default)(payload);
 
-          case 4:
-            (0, _updateHelperText.default)();
-            (0, _addTableDestak.default)();
-            (0, _updateTableInfo.updateTableInfo)();
+          case 6:
+            // let chartData = window.$vue.filteredChartData || window.chartData.data;
             chartData = window.chartData.data;
             chartData = chartData.filter(function (item) {
               return item.x !== null;
@@ -4940,8 +5642,46 @@ function _populateChartData() {
             matItems = chartData.filter(function (item) {
               return item.subject === 'Matemática';
             });
-            formatedPtItems = formatItemsToHighCharts(ptItems);
-            formatedMatItems = formatItemsToHighCharts(matItems);
+
+            if (payload && payload.inequality) {
+              ptItems = ptItems.filter(function (item) {
+                return item.range_inequality === payload.inequality;
+              });
+              matItems = matItems.filter(function (item) {
+                return item.range_inequality === payload.inequality;
+              });
+            }
+
+            if (payload && payload.quality) {
+              ptItems = ptItems.filter(function (item) {
+                return item.range_quality === payload.quality;
+              });
+              matItems = matItems.filter(function (item) {
+                return item.range_quality === payload.quality;
+              });
+            }
+
+            if (payload && payload.inhabitants) {
+              minHabitants = payload.inhabitants[0];
+              maxHabitants = payload.inhabitants[1];
+              ptItems = ptItems.filter(function (item) {
+                return item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants;
+              });
+              matItems = matItems.filter(function (item) {
+                return item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants;
+              });
+            }
+
+            if (ptItems.length === 0) {
+              (0, _handleNoMatchesAlert.showNoMatchesAlert)('pt');
+            }
+
+            if (matItems.length === 0) {
+              (0, _handleNoMatchesAlert.showNoMatchesAlert)('mat');
+            }
+
+            formatedPtItems = (0, _formatItemsToHighCharts.default)(ptItems);
+            formatedMatItems = (0, _formatItemsToHighCharts.default)(matItems);
 
             if (window.chartData.xAxis === 'racial') {
               xAxisText = 'Raça';
@@ -4955,28 +5695,42 @@ function _populateChartData() {
               xAxisText = 'NSE';
             }
 
-            drawChart(formatedPtItems, 'pt');
-            drawChart(formatedMatItems, 'mat');
-            _context.next = 24;
-            break;
+            _context.next = 22;
+            return drawChart(formatedPtItems, 'pt');
 
-          case 20:
-            _context.prev = 20;
-            _context.t0 = _context["catch"](1);
-            window.console.log(_context.t0);
-            toggleLoading();
+          case 22:
+            _context.next = 24;
+            return drawChart(formatedMatItems, 'mat');
 
           case 24:
+            if (!window.$vue.selectedCity) {
+              _context.next = 27;
+              break;
+            }
+
+            _context.next = 27;
+            return (0, _showCity.showCity)(window.$vue.selectedCity);
+
+          case 27:
+            _context.next = 32;
+            break;
+
+          case 29:
+            _context.prev = 29;
+            _context.t0 = _context["catch"](1);
+            window.console.log(_context.t0);
+
+          case 32:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 20]]);
+    }, _callee, this, [[1, 29]]);
   }));
   return _populateChartData.apply(this, arguments);
 }
 
-},{"./addTableDestak":38,"./filter/clearFilters":40,"./filter/highlightPoint":41,"./getChartData":43,"./updateHelperText":47,"./updateTableInfo":48,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":33,"highcharts/modules/exporting":34}],46:[function(require,module,exports){
+},{"./addTableDestak":38,"./filter/handleNoMatchesAlert":42,"./filter/highlightPoint":43,"./filter/showCity":45,"./formatItemsToHighCharts":47,"./getChartData":48,"./updateHelperText":52,"./updateTableInfo":53,"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5,"highcharts":34,"highcharts/modules/exporting":35}],51:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -5054,68 +5808,101 @@ function sizeToggle() {
   }
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],47:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":34,"highcharts/modules/exporting":35}],52:[function(require,module,exports){
 "use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = updateHelperText;
 
-function updateHelperText(cityId) {
-  var helperText = document.querySelector('.js-helper-text');
-  var _window$chartData = window.chartData,
-      data = _window$chartData.data,
-      xAxis = _window$chartData.xAxis;
-  var helperTextDictionary = {
-    racial: 'raça',
-    sex: 'gênero',
-    nse: 'nível sócio econômico',
-    baixa: 'baixa',
-    'medio-baixa': 'médio baixa',
-    media: 'média',
-    'medio-alta': 'médio alta',
-    alta: 'alta',
-    'desigualdade-extrema': 'desigualdade extrema',
-    'desigualdade-alta': 'desigualdade alta',
-    desigualdade: 'desigualdade',
-    equidade: 'equidade',
-    'situacoes-atipicas': 'situações atípicas'
-  };
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
-  if (!cityId) {
-    helperText.setAttribute('hidden', '');
-    return;
-  }
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
-  function getCityInfo() {
-    return data.filter(function (item) {
-      return item.city.id === cityId;
-    });
-  }
-
-  var cityInfo = getCityInfo(cityId);
-  var ptInfo = cityInfo.find(function (item) {
-    return item.subject === 'Português';
-  });
-  var matInfo = cityInfo.find(function (item) {
-    return item.subject === 'Matemática';
-  });
-  helperText.removeAttribute('hidden'); // city info
-
-  helperText.querySelector('.js-city').textContent = ptInfo.city.name;
-  helperText.querySelector('.js-uf').textContent = ptInfo.state.name;
-  helperText.querySelector('.js-inhabitants').textContent = ptInfo.city.inhabitants;
-  helperText.querySelector('.js-xAxis').textContent = helperTextDictionary[xAxis]; // pt info
-
-  helperText.querySelector('.js-pt-quality').textContent = helperTextDictionary[ptInfo.range_quality];
-  helperText.querySelector('.js-pt-inequality').textContent = helperTextDictionary[ptInfo.range_inequality]; // mat info
-
-  helperText.querySelector('.js-mat-quality').textContent = helperTextDictionary[matInfo.range_quality];
-  helperText.querySelector('.js-mat-inequality').textContent = helperTextDictionary[matInfo.range_inequality];
+function updateHelperText(_x) {
+  return _updateHelperText.apply(this, arguments);
 }
 
-},{}],48:[function(require,module,exports){
+function _updateHelperText() {
+  _updateHelperText = (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee(cityId) {
+    var helperText, xAxis, helperTextDictionary, getCityInfo, cityInfo, ptInfo, matInfo;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            getCityInfo = function _ref() {
+              return window.$vue.globalChartData.filter(function (item) {
+                return item.city.id === cityId;
+              });
+            };
+
+            helperText = document.querySelector('.js-helper-text');
+            xAxis = window.chartData.xAxis;
+            helperTextDictionary = {
+              racial: 'raça',
+              sex: 'gênero',
+              nse: 'nível sócio econômico',
+              baixa: 'baixa',
+              'medio-baixa': 'médio baixa',
+              media: 'média',
+              'medio-alta': 'médio alta',
+              alta: 'alta',
+              'desigualdade-extrema': 'desigualdade extrema',
+              'desigualdade-alta': 'desigualdade alta',
+              desigualdade: 'desigualdade',
+              equidade: 'equidade',
+              'situacoes-atipicas': 'situações atípicas'
+            };
+
+            if (cityId) {
+              _context.next = 7;
+              break;
+            }
+
+            helperText.setAttribute('hidden', '');
+            return _context.abrupt("return");
+
+          case 7:
+            _context.next = 9;
+            return getCityInfo(cityId);
+
+          case 9:
+            cityInfo = _context.sent;
+            ptInfo = cityInfo.find(function (item) {
+              return item.subject === 'Português';
+            });
+            matInfo = cityInfo.find(function (item) {
+              return item.subject === 'Matemática';
+            });
+            helperText.removeAttribute('hidden'); // city info
+
+            helperText.querySelector('.js-city').textContent = ptInfo.city.name;
+            helperText.querySelector('.js-uf').textContent = ptInfo.state.name;
+            helperText.querySelector('.js-inhabitants').textContent = ptInfo.city.inhabitants;
+            helperText.querySelector('.js-xAxis').textContent = helperTextDictionary[xAxis]; // pt info
+
+            helperText.querySelector('.js-pt-quality').textContent = helperTextDictionary[ptInfo.range_quality];
+            helperText.querySelector('.js-pt-inequality').textContent = helperTextDictionary[ptInfo.range_inequality]; // mat info
+
+            helperText.querySelector('.js-mat-quality').textContent = helperTextDictionary[matInfo.range_quality];
+            helperText.querySelector('.js-mat-inequality').textContent = helperTextDictionary[matInfo.range_inequality];
+
+          case 21:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
+  return _updateHelperText.apply(this, arguments);
+}
+
+},{"@babel/runtime/helpers/asyncToGenerator":1,"@babel/runtime/helpers/interopRequireDefault":2,"@babel/runtime/regenerator":5}],53:[function(require,module,exports){
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -5137,7 +5924,13 @@ var matTable = document.querySelector('.js-mat-table');
 function updateTableInfo(id) {
   var _window$chartData = window.chartData,
       xAxis = _window$chartData.xAxis,
-      data = _window$chartData.data;
+      data = _window$chartData.data,
+      grade = _window$chartData.grade;
+  var tableHelperDictionary = {
+    racial: 'raça',
+    sex: 'gênero',
+    nse: 'nível sócio econômico'
+  };
 
   function setCityInfo(info) {
     var ptInfo = info.find(function (item) {
@@ -5151,6 +5944,7 @@ function updateTableInfo(id) {
       return;
     }
 
+    document.querySelector('.js-table-helper').textContent = "\n      ".concat(grade, "\xBA ano | desigualdade: ").concat(tableHelperDictionary[xAxis], "\n    ");
     ptTable.removeAttribute('hidden');
     matTable.removeAttribute('hidden');
     ptTable.getElementsByTagName('h2')[0].textContent = "".concat(ptInfo.city.name, " - ").concat(ptInfo.state.uf);
@@ -5226,7 +6020,7 @@ function updateTableInfo(id) {
       matTable.setAttribute('hidden', '');
     }
 
-    return data.filter(function (item) {
+    return window.$vue.globalChartData.filter(function (item) {
       return item.city.id === cityId;
     });
   }
@@ -5254,7 +6048,7 @@ function clearTableInfo() {
   matTable.querySelector('.js-quality').textContent = '';
 }
 
-},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":33,"highcharts/modules/exporting":34}],49:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":2,"highcharts":34,"highcharts/modules/exporting":35}],54:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5268,4 +6062,4 @@ var _default = {
 };
 exports.default = _default;
 
-},{}]},{},[44]);
+},{}]},{},[49]);

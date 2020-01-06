@@ -5,9 +5,14 @@ Exporting(Highcharts);
 
 const ptTable = document.querySelector('.js-pt-table');
 const matTable = document.querySelector('.js-mat-table');
-
 function updateTableInfo(id) {
-  const { xAxis, data } = window.chartData;
+  const { xAxis, data, grade } = window.chartData;
+
+  const tableHelperDictionary = {
+    racial: 'raça',
+    sex: 'gênero',
+    nse: 'nível sócio econômico',
+  };
 
   function setCityInfo(info) {
     const ptInfo = info.find(item => item.subject === 'Português');
@@ -16,6 +21,10 @@ function updateTableInfo(id) {
     if (ptInfo === undefined || matInfo === undefined) {
       return;
     }
+
+    document.querySelector('.js-table-helper').textContent = `
+      ${grade}º ano | desigualdade: ${tableHelperDictionary[xAxis]}
+    `;
 
     ptTable.removeAttribute('hidden');
     matTable.removeAttribute('hidden');
@@ -115,7 +124,7 @@ function updateTableInfo(id) {
       ptTable.setAttribute('hidden', '');
       matTable.setAttribute('hidden', '');
     }
-    return data.filter(item => item.city.id === cityId);
+    return window.$vue.globalChartData.filter(item => item.city.id === cityId);
   }
 
   const newInfo = getCityInfo(id);

@@ -4,14 +4,18 @@ import { updateTableInfo } from './updateTableInfo';
 import updateHelperText from './updateHelperText';
 import addTableDestak from './addTableDestak';
 import getChartData from './getChartData';
-import clearFilters from './filter/clearFilters';
+import formatItemsToHighCharts from './formatItemsToHighCharts';
+import { showNoMatchesAlert } from './filter/handleNoMatchesAlert';
+import { clearCity, showCity } from './filter/showCity';
 import { highlightPoint } from './filter/highlightPoint';
 
 Exporting(Highcharts);
 
 let xAxisText;
+let isLoading = false;
 const ptChartElement = document.getElementById('pt-chart');
 const matChartElement = document.getElementById('mat-chart');
+
 
 Highcharts.setOptions({
   lang: {
@@ -154,7 +158,7 @@ function drawChart(chartData, subject) {
       point: {
         events: {
           click() {
-            clearFilters();
+            // clearFilters();
             highlightPoint(this.id);
             updateTableInfo(this.id);
             updateHelperText(this.id);
@@ -167,51 +171,69 @@ function drawChart(chartData, subject) {
   });
 }
 
-function formatItemsToHighCharts(items) {
-  return Object.keys(items).map(item => ({
-    x: Number(items[item].x),
-    y: Number(items[item].y),
-    className: items[item].range_inequality,
-    id: Number(items[item].city.id),
-    city: items[item].city.name,
-    state: items[item].state.uf,
-    state_id: items[item].state.id,
-    region: items[item].region.id,
-    is_big_town: items[item].city.is_big_town,
-    is_capital: items[item].city.is_capital,
-  }));
-}
-
 function toggleLoading() {
-  let isLoading = false;
   const ptChartDom = document.getElementById('pt-chart');
   const matChartDom = document.getElementById('mat-chart');
   const ptChart = Highcharts.charts[Highcharts.attr(ptChartDom, 'data-highcharts-chart')];
   const matChart = Highcharts.charts[Highcharts.attr(matChartDom, 'data-highcharts-chart')];
 
-  if (!isLoading) {
-    ptChart.showLoading();
-    matChart.showLoading();
-  } else {
-    ptChart.hideLoading();
-    matChart.hideLoading();
+  if (!ptChart || !matChart) {
+    return;
   }
-  isLoading = !isLoading;
+
+  ptChart.showLoading();
+  matChart.showLoading();
 }
 
 async function populateChartData(payload) {
   if (ptChartElement && matChartElement) {
     try {
+      if (payload && payload.grade === null) {
+        payload.grade = window.chartData.grade;
+      }
+
+      if (payload && payload.xAxis === null) {
+        payload.xAxis = window.chartData.xAxis;
+      }
+
       await getChartData(payload);
 
-      updateHelperText();
-      addTableDestak();
-      updateTableInfo();
-
+      // let chartData = window.$vue.filteredChartData || window.chartData.data;
       let chartData = window.chartData.data;
       chartData = chartData.filter(item => item.x !== null);
-      const ptItems = chartData.filter(item => item.subject === 'Português');
-      const matItems = chartData.filter(item => item.subject === 'Matemática');
+
+      let ptItems = chartData.filter(item => item.subject === 'Português');
+      let matItems = chartData.filter(item => item.subject === 'Matemática');
+
+      if (payload && payload.inequality) {
+        ptItems = ptItems.filter(item => item.range_inequality === payload.inequality);
+        matItems = matItems.filter(item => item.range_inequality === payload.inequality);
+      }
+
+      if (payload && payload.quality) {
+        ptItems = ptItems.filter(item => item.range_quality === payload.quality);
+        matItems = matItems.filter(item => item.range_quality === payload.quality);
+      }
+
+      if (payload && payload.inhabitants) {
+        const minHabitants = payload.inhabitants[0];
+        const maxHabitants = payload.inhabitants[1];
+
+        ptItems = ptItems.filter(
+          item => item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants,
+        );
+        matItems = matItems.filter(
+          item => item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants,
+        );
+      }
+
+      if (ptItems.length === 0) {
+        showNoMatchesAlert('pt');
+      }
+
+      if (matItems.length === 0) {
+        showNoMatchesAlert('mat');
+      }
 
       const formatedPtItems = formatItemsToHighCharts(ptItems);
       const formatedMatItems = formatItemsToHighCharts(matItems);
@@ -228,11 +250,13 @@ async function populateChartData(payload) {
         xAxisText = 'NSE';
       }
 
-      drawChart(formatedPtItems, 'pt');
-      drawChart(formatedMatItems, 'mat');
+      await drawChart(formatedPtItems, 'pt');
+      await drawChart(formatedMatItems, 'mat');
+      if (window.$vue.selectedCity) {
+        await showCity(window.$vue.selectedCity);
+      }
     } catch (err) {
       window.console.log(err);
-      toggleLoading();
     }
   }
 }
