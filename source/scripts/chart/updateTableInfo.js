@@ -6,7 +6,7 @@ Exporting(Highcharts);
 const ptTable = document.querySelector('.js-pt-table');
 const matTable = document.querySelector('.js-mat-table');
 function updateTableInfo(id) {
-  const { xAxis, data, grade } = window.chartData;
+  const { xAxis, grade } = window.chartData;
 
   const tableHelperDictionary = {
     racial: 'raça',

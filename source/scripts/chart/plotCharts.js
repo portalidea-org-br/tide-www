@@ -6,13 +6,12 @@ import addTableDestak from './addTableDestak';
 import getChartData from './getChartData';
 import formatItemsToHighCharts from './formatItemsToHighCharts';
 import { showNoMatchesAlert } from './filter/handleNoMatchesAlert';
-import { clearCity, showCity } from './filter/showCity';
-import { highlightPoint } from './filter/highlightPoint';
+import { showCity } from './filter/showCity';
+import highlightPoint from './filter/highlightPoint';
 
 Exporting(Highcharts);
 
 let xAxisText;
-let isLoading = false;
 const ptChartElement = document.getElementById('pt-chart');
 const matChartElement = document.getElementById('mat-chart');
 
@@ -187,16 +186,18 @@ function toggleLoading() {
 
 async function populateChartData(payload) {
   if (ptChartElement && matChartElement) {
+    const innerPayload = payload;
+
     try {
       if (payload && payload.grade === null) {
-        payload.grade = window.chartData.grade;
+        innerPayload.grade = window.chartData.grade;
       }
 
       if (payload && payload.xAxis === null) {
-        payload.xAxis = window.chartData.xAxis;
+        innerPayload.xAxis = window.chartData.xAxis;
       }
 
-      await getChartData(payload);
+      await getChartData(innerPayload);
 
       // let chartData = window.$vue.filteredChartData || window.chartData.data;
       let chartData = window.chartData.data;
@@ -205,19 +206,19 @@ async function populateChartData(payload) {
       let ptItems = chartData.filter(item => item.subject === 'Português');
       let matItems = chartData.filter(item => item.subject === 'Matemática');
 
-      if (payload && payload.inequality) {
-        ptItems = ptItems.filter(item => item.range_inequality === payload.inequality);
-        matItems = matItems.filter(item => item.range_inequality === payload.inequality);
+      if (innerPayload && innerPayload.inequality) {
+        ptItems = ptItems.filter(item => item.range_inequality === innerPayload.inequality);
+        matItems = matItems.filter(item => item.range_inequality === innerPayload.inequality);
       }
 
-      if (payload && payload.quality) {
-        ptItems = ptItems.filter(item => item.range_quality === payload.quality);
-        matItems = matItems.filter(item => item.range_quality === payload.quality);
+      if (innerPayload && innerPayload.quality) {
+        ptItems = ptItems.filter(item => item.range_quality === innerPayload.quality);
+        matItems = matItems.filter(item => item.range_quality === innerPayload.quality);
       }
 
-      if (payload && payload.inhabitants) {
-        const minHabitants = payload.inhabitants[0];
-        const maxHabitants = payload.inhabitants[1];
+      if (innerPayload && innerPayload.inhabitants) {
+        const minHabitants = innerPayload.inhabitants[0];
+        const maxHabitants = innerPayload.inhabitants[1];
 
         ptItems = ptItems.filter(
           item => item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants,
