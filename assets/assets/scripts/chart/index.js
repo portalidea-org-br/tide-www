@@ -4531,7 +4531,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.highlightPoint = highlightPoint;
+exports.default = highlightPoint;
 
 var _highcharts = _interopRequireDefault(require("highcharts"));
 
@@ -5125,14 +5125,16 @@ window.$vue = new Vue({
       var _this2 = this;
 
       this.regions = this.regions.filter(function (item) {
+        var innerItem = item;
+
         var itContains = _this2.filteredChartData.some(function (city) {
           return city.region.id === item.id;
         });
 
         if (!itContains) {
-          item.disabled = true;
+          innerItem.disabled = true;
         } else {
-          item.disabled = false;
+          innerItem.disabled = false;
         }
 
         return item;
@@ -5142,14 +5144,16 @@ window.$vue = new Vue({
       var _this3 = this;
 
       this.states = this.states.filter(function (item) {
+        var innerItem = item;
+
         var itContains = _this3.filteredChartData.some(function (city) {
           return city.state.id === item.id;
         });
 
         if (!itContains) {
-          item.disabled = true;
+          innerItem.disabled = true;
         } else {
-          item.disabled = false;
+          innerItem.disabled = false;
         }
 
         return item;
@@ -5159,14 +5163,16 @@ window.$vue = new Vue({
       var _this4 = this;
 
       this.inequalityRange = this.inequalityRange.filter(function (item) {
+        var innerItem = item;
+
         var itContains = _this4.filteredChartData.some(function (city) {
           return city.range_inequality === item.id;
         });
 
         if (!itContains) {
-          item.disabled = true;
+          innerItem.disabled = true;
         } else {
-          item.disabled = false;
+          innerItem.disabled = false;
         }
 
         return item;
@@ -5176,14 +5182,16 @@ window.$vue = new Vue({
       var _this5 = this;
 
       this.qualityRange = this.qualityRange.filter(function (item) {
+        var innerItem = item;
+
         var itContains = _this5.filteredChartData.some(function (city) {
           return city.range_quality === item.id;
         });
 
         if (!itContains) {
-          item.disabled = true;
+          innerItem.disabled = true;
         } else {
-          item.disabled = false;
+          innerItem.disabled = false;
         }
 
         return item;
@@ -5193,14 +5201,16 @@ window.$vue = new Vue({
       var _this6 = this;
 
       this.inhabitantsRange = this.inhabitantsRange.filter(function (item) {
+        var innerItem = item;
+
         var itContains = _this6.filteredChartData.some(function (city) {
           return city.city.inhabitants >= item.value[0] && city.city.inhabitants <= item.value[1];
         });
 
         if (!itContains) {
-          item.disabled = true;
+          innerItem.disabled = true;
         } else {
-          item.disabled = false;
+          innerItem.disabled = false;
         }
 
         return item;
@@ -5421,11 +5431,10 @@ var _handleNoMatchesAlert = require("./filter/handleNoMatchesAlert");
 
 var _showCity = require("./filter/showCity");
 
-var _highlightPoint = require("./filter/highlightPoint");
+var _highlightPoint = _interopRequireDefault(require("./filter/highlightPoint"));
 
 (0, _exporting.default)(_highcharts.default);
 var xAxisText;
-var isLoading = false;
 var ptChartElement = document.getElementById('pt-chart');
 var matChartElement = document.getElementById('mat-chart');
 
@@ -5571,7 +5580,7 @@ function drawChart(chartData, subject) {
         events: {
           click: function click() {
             // clearFilters();
-            (0, _highlightPoint.highlightPoint)(this.id);
+            (0, _highlightPoint.default)(this.id);
             (0, _updateTableInfo.updateTableInfo)(this.id);
             (0, _updateHelperText.default)(this.id);
             (0, _addTableDestak.default)(this.id);
@@ -5607,30 +5616,31 @@ function _populateChartData() {
   _populateChartData = (0, _asyncToGenerator2.default)(
   /*#__PURE__*/
   _regenerator.default.mark(function _callee(payload) {
-    var chartData, ptItems, matItems, minHabitants, maxHabitants, formatedPtItems, formatedMatItems;
+    var innerPayload, chartData, ptItems, matItems, minHabitants, maxHabitants, formatedPtItems, formatedMatItems;
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             if (!(ptChartElement && matChartElement)) {
-              _context.next = 32;
+              _context.next = 33;
               break;
             }
 
-            _context.prev = 1;
+            innerPayload = payload;
+            _context.prev = 2;
 
             if (payload && payload.grade === null) {
-              payload.grade = window.chartData.grade;
+              innerPayload.grade = window.chartData.grade;
             }
 
             if (payload && payload.xAxis === null) {
-              payload.xAxis = window.chartData.xAxis;
+              innerPayload.xAxis = window.chartData.xAxis;
             }
 
-            _context.next = 6;
-            return (0, _getChartData.default)(payload);
+            _context.next = 7;
+            return (0, _getChartData.default)(innerPayload);
 
-          case 6:
+          case 7:
             // let chartData = window.$vue.filteredChartData || window.chartData.data;
             chartData = window.chartData.data;
             chartData = chartData.filter(function (item) {
@@ -5643,27 +5653,27 @@ function _populateChartData() {
               return item.subject === 'Matemática';
             });
 
-            if (payload && payload.inequality) {
+            if (innerPayload && innerPayload.inequality) {
               ptItems = ptItems.filter(function (item) {
-                return item.range_inequality === payload.inequality;
+                return item.range_inequality === innerPayload.inequality;
               });
               matItems = matItems.filter(function (item) {
-                return item.range_inequality === payload.inequality;
+                return item.range_inequality === innerPayload.inequality;
               });
             }
 
-            if (payload && payload.quality) {
+            if (innerPayload && innerPayload.quality) {
               ptItems = ptItems.filter(function (item) {
-                return item.range_quality === payload.quality;
+                return item.range_quality === innerPayload.quality;
               });
               matItems = matItems.filter(function (item) {
-                return item.range_quality === payload.quality;
+                return item.range_quality === innerPayload.quality;
               });
             }
 
-            if (payload && payload.inhabitants) {
-              minHabitants = payload.inhabitants[0];
-              maxHabitants = payload.inhabitants[1];
+            if (innerPayload && innerPayload.inhabitants) {
+              minHabitants = innerPayload.inhabitants[0];
+              maxHabitants = innerPayload.inhabitants[1];
               ptItems = ptItems.filter(function (item) {
                 return item.city.inhabitants >= minHabitants && item.city.inhabitants <= maxHabitants;
               });
@@ -5695,37 +5705,37 @@ function _populateChartData() {
               xAxisText = 'NSE';
             }
 
-            _context.next = 22;
+            _context.next = 23;
             return drawChart(formatedPtItems, 'pt');
 
-          case 22:
-            _context.next = 24;
+          case 23:
+            _context.next = 25;
             return drawChart(formatedMatItems, 'mat');
 
-          case 24:
+          case 25:
             if (!window.$vue.selectedCity) {
-              _context.next = 27;
+              _context.next = 28;
               break;
             }
 
-            _context.next = 27;
+            _context.next = 28;
             return (0, _showCity.showCity)(window.$vue.selectedCity);
 
-          case 27:
-            _context.next = 32;
+          case 28:
+            _context.next = 33;
             break;
 
-          case 29:
-            _context.prev = 29;
-            _context.t0 = _context["catch"](1);
+          case 30:
+            _context.prev = 30;
+            _context.t0 = _context["catch"](2);
             window.console.log(_context.t0);
 
-          case 32:
+          case 33:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this, [[1, 29]]);
+    }, _callee, this, [[2, 30]]);
   }));
   return _populateChartData.apply(this, arguments);
 }
@@ -5924,7 +5934,6 @@ var matTable = document.querySelector('.js-mat-table');
 function updateTableInfo(id) {
   var _window$chartData = window.chartData,
       xAxis = _window$chartData.xAxis,
-      data = _window$chartData.data,
       grade = _window$chartData.grade;
   var tableHelperDictionary = {
     racial: 'raça',

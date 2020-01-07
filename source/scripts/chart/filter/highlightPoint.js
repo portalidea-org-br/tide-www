@@ -7,7 +7,7 @@ import { showNoMatchesAlert, hideNoMatchesAlert } from './handleNoMatchesAlert';
 Exporting(Highcharts);
 
 // Highlight city
-function highlightPoint(id) {
+export default function highlightPoint(id) {
   const ptChartDom = document.getElementById('pt-chart');
   const matChartDom = document.getElementById('mat-chart');
   const ptChart = Highcharts.charts[Highcharts.attr(ptChartDom, 'data-highcharts-chart')];
@@ -51,5 +51,3 @@ function highlightPoint(id) {
 
   return true;
 }
-
-export { highlightPoint };

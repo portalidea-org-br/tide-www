@@ -135,57 +135,62 @@ window.$vue = new Vue({
     },
     checkRegion() {
       this.regions = this.regions.filter((item) => {
+        const innerItem = item;
         const itContains = this.filteredChartData.some(city => city.region.id === item.id);
         if (!itContains) {
-          item.disabled = true;
+          innerItem.disabled = true;
         } else {
-          item.disabled = false;
+          innerItem.disabled = false;
         }
         return item;
       });
     },
     checkState() {
       this.states = this.states.filter((item) => {
+        const innerItem = item;
         const itContains = this.filteredChartData.some(city => city.state.id === item.id);
         if (!itContains) {
-          item.disabled = true;
+          innerItem.disabled = true;
         } else {
-          item.disabled = false;
+          innerItem.disabled = false;
         }
         return item;
       });
     },
     checkInequality() {
       this.inequalityRange = this.inequalityRange.filter((item) => {
+        const innerItem = item;
         const itContains = this.filteredChartData.some(city => city.range_inequality === item.id);
         if (!itContains) {
-          item.disabled = true;
+          innerItem.disabled = true;
         } else {
-          item.disabled = false;
+          innerItem.disabled = false;
         }
         return item;
       });
     },
     checkQuality() {
       this.qualityRange = this.qualityRange.filter((item) => {
+        const innerItem = item;
         const itContains = this.filteredChartData.some(city => city.range_quality === item.id);
         if (!itContains) {
-          item.disabled = true;
+          innerItem.disabled = true;
         } else {
-          item.disabled = false;
+          innerItem.disabled = false;
         }
         return item;
       });
     },
     checkInhabitants() {
       this.inhabitantsRange = this.inhabitantsRange.filter((item) => {
+        const innerItem = item;
         const itContains = this.filteredChartData.some(
           city => city.city.inhabitants >= item.value[0] && city.city.inhabitants <= item.value[1],
         );
         if (!itContains) {
-          item.disabled = true;
+          innerItem.disabled = true;
         } else {
-          item.disabled = false;
+          innerItem.disabled = false;
         }
         return item;
       });
