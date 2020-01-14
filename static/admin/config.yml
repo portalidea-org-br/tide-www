@@ -2,7 +2,7 @@ backend:
   name: github
   repo: AppCivico/tide-www # Path to your Github repository
   branch: master # Branch to update (optional; defaults to master)
-  base_url: https://portalidea.org.br
+  base_url: https://portalidea.org.br/auth
   accept_roles:
     - admin
     - editor
