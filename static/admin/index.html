@@ -1,12 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager</title>
-</head>
-<body>
-  <!-- Include the script that builds the page and powers Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager</title>
+  </head>
+  <body>
+    <!-- Include the script that builds the page and powers Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  </body>
+  <script>
+    function receiveMessage(event)
+    {
+      // Do we trust the sender of this message?  (might be
+      // different from what we originally opened, for example).
+      // if (event.origin !== "http://example.com")
+      //   return;
+
+      console.log(event)
+      // event.source is popup
+      // event.data is "hi there yourself!  the secret response is: rheeeeet!"
+    }
+    window.addEventListener("message", receiveMessage, false);
+  </script>
 </html>
