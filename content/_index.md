@@ -1,5 +1,5 @@
 ---
-title: 'O IDeA '
+title: O IDeA
 callToActionText: Conheça
 callToActionUrl: /Projeto/
 date: 2018-09-14T14:58:16.000Z
