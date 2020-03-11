@@ -2,7 +2,7 @@
 title: A relação rendimento escolar e classe social nos EUA
 date: '2020-03-11T13:53:55Z'
 tags:
-  - news
+  - notícias
 short_description: >-
   Artigo do professor Sean Reardon, Universidade de Stanford, sobre os padrões
   de associação entre renda familiar e  rendimentos escolares dos filhos durante
