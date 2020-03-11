@@ -8,7 +8,7 @@ short_description: >-
   de associação entre renda familiar e  rendimentos escolares dos filhos durante
   quase 60 anos (1943-2001) nos EUA.
 ---
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -47,9 +47,9 @@ short_description: >-
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -628,13 +628,13 @@ short_description: >-
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if !supportAnnotations]-->
+<!--\\[if !supportAnnotations]-->
 
-<!--\[endif]-->
+<!--\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -658,45 +658,38 @@ short_description: >-
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
 A estreita associação entre o nível socioeconômico das famílias e os resultados escolares dos seus filhos foi demonstrada nos anos de 1960 e desde então, invariavelmente, vem sendo verificada nos mais diversos países e contextos. O que varia, mostra a literatura, é a forma como essa associação acontece entre contextos e ao longo do tempo.
 
-\
-Sean Reardon, professor da Universidade de Stanford, analisou os padrões da associação entre, de um lado, a renda e a escolaridade das famílias e, de outro, os rendimentos escolares de seus filhos, observando-os em um período de quase 60 anos (1943-2001) da história norte-americana. Este é um dos trabalhos apresentados na pesquisa “[Educação, Pobreza e desigualdades”](https://portalidea.org.br/desigualdades-escolares/), disponível no Portal IDeA.
+Sean Reardon, professor da Universidade de Stanford, analisou os padrões da associação entre, de um lado, a renda e a escolaridade das famílias e, de outro, os rendimentos escolares de seus filhos, observando-os em um período de quase 60 anos (1943-2001) da história norte-americana. Este é um dos trabalhos apresentados na pesquisa [“Educação, Pobreza e desigualdades”](https://portalidea.org.br/desigualdades-escolares/eixo-2/#main-bibliography), disponível no Portal IDeA.
 
-
-
-A pesquisa procurou responder a seguinte pergunta: uma vez que, sobretudo a partir de meados da década de 1970, nos EUA houve um expressivo aumento na desigualdade entre a renda das mais ricos e dos mais pobres,houve também aumento na distância entre o desempenho acadêmico das crianças de famílias pobres em relação às de famílias mais ricas? Ao analisar os dados de desempenho acadêmico de grupos de estudantes definidos pela renda familiar e sua raça, o autor mostra que, se por um lado, houve diminuição da diferença nos desempenhos acadêmicos de crianças negras em relação às brancas, por outro, a diferença de resultados acadêmicos entre os estudantes mais pobres e mais ricos aumentou, sendo que era de 30% a 40% maior entre as crianças nascidas em 2001 do entre as nascidas em 1976. Além disso, Reardon mostra que, desde os anos 1970, houve aumento da dependência dos resultados escolares em relação à renda, controlado o grau de escolaridade das famílias; em suas palavras, “um dólar na renda (ou fatores correlacionados à renda) parece comprar mais desempenho acadêmico do que há algumas décadas”.
-
-
+A pesquisa procurou responder a seguinte pergunta: uma vez que, sobretudo a partir de meados da década de 1970, nos EUA houve um expressivo aumento na desigualdade entre a renda das mais ricos e dos mais pobres, houve também aumento na distância entre o desempenho acadêmico das crianças de famílias pobres em relação às de famílias mais ricas? Ao analisar os dados de desempenho acadêmico de grupos de estudantes definidos pela renda familiar e sua raça, o autor mostra que, se por um lado, houve diminuição da diferença nos desempenhos acadêmicos de crianças negras em relação às brancas, por outro, a diferença de resultados acadêmicos entre os estudantes mais pobres e mais ricos aumentou, sendo que era de 30% a 40% maior entre as crianças nascidas em 2001 do entre as nascidas em 1976. Além disso, Reardon mostra que, desde os anos 1970, houve aumento da dependência dos resultados escolares em relação à renda, controlado o grau de escolaridade das famílias; em suas palavras, “um dólar na renda (ou fatores correlacionados à renda) parece comprar mais desempenho acadêmico do que há algumas décadas”.
 
 Por que, desde os anos 1970, houve o aumento da desigualdade educacional entre ricos e pobres e por que aumentou a associação entre renda familiar e desempenho, controlada a escolaridade dos pais? O autor levanta três explicações. Primeiramente, houve aumento do investimento de tempo e dinheiro feito pelas famílias de maior renda no desenvolvimento cognitivo dos filhos. A segunda explicação recai nas próprias características do contexto familiar: as famílias mais ricas tendem a ter pais com níveis mais elevados de escolarização, que intensificaram suas práticas visando a escolarização de seus filhos, tornando seus investimentos mais rentáveis em termos escolares; essa mudança nas práticas familiares visando a escolarização não se verificou, com a mesma intensidade, entre as famílias mais pobres. Por fim, em uma terceira explicação, o autor enfatiza o aumento da segregação residencial por renda nos Estados Unidos; dentre outras razões, o orçamento escolar americano é, em boa medida, regido pelos impostos locais sobre patrimônio, os distritos escolares mais ricos são também aqueles que contam com as escolas com melhores recursos e que recebem estudantes de famílias mais ricas e mais escolarizadas.
 
-
-
 Apesar de lidar com o contexto americano, o extenso trabalho de pesquisa e as análises feitas pelo pesquisador oferecem uma série de indagações que podem inspirar, no contexto brasileiro, pesquisas e debates sobre como tem se dado a relação entre desempenho escolar e renda familiar.
 
-<!--\[if !supportAnnotations]-->
+<!--\\[if !supportAnnotations]-->
 
 - - -
 
-<!--\[endif]-->
+<!--\\[endif]-->
 
-<!--\[if !supportAnnotations]-->
+<!--\\[if !supportAnnotations]-->
 
-<!--\[endif]-->
+<!--\\[endif]-->
 
-<!--\[if !supportAnnotations]-->
+<!--\\[if !supportAnnotations]-->
 
 [](<>)
 
-<!--\[endif]-
+<!--\\[endif]-
 
-<!--\[if !supportAnnotations]-->
+<!--\\[if !supportAnnotations]-->
 
-<!--\[endif]-->
+<!--\\[endif]-->
 
 <!--EndFragment-->
