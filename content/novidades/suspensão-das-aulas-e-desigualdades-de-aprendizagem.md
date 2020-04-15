@@ -661,7 +661,7 @@ short_description: A necessária suspensão das aulas devido à pandemia poderá
 
 <!--StartFragment-->
 
-A suspensão das aulas nas escolas ao redor do mundo tem por objetivo conter o ritmo da expansão da pandemia de Covid-19. Segundo a [Unesco](ps://pt.unesco.org/covid19/globaleducationcoalition), em 25 de março de 2020, as escolas estavam fechadas em 165 países, incluindo o Brasil, o que afetava 87% dos estudantes do planeta. Essa medida drástica é necessária, dada a gravidade da pandemia. Entretanto, ela provavelmente terá consequências sobre as aprendizagens e as desigualdades escolares.
+A suspensão das aulas nas escolas ao redor do mundo tem por objetivo conter o ritmo da expansão da pandemia de Covid-19. Segundo a [Unesco](https://pt.unesco.org/covid19/globaleducationcoalition), em 25 de março de 2020, as escolas estavam fechadas em 165 países, incluindo o Brasil, o que afetava 87% dos estudantes do planeta. Essa medida drástica é necessária, dada a gravidade da pandemia. Entretanto, ela provavelmente terá consequências sobre as aprendizagens e as desigualdades escolares.
 
 Podemos formular hipóteses sobre essas consequências, apoiando-nos em pesquisas empíricas que investigaram os efeitos de longos períodos de interrupção das atividades escolares sobre as desigualdades de aprendizagem entre estudantes de diferentes grupos sociais. Alguns desses trabalhos estão apresentados na pesquisa “[Educação, Pobreza e desigualdades”](https://portalidea.org.br/desigualdades-escolares/eixo-5-uso-do-tempo-extraescolar-diagn%C3%B3sticos-e-interven%C3%A7%C3%B5es/#pt-text), disponível no Portal IDeA.
 
