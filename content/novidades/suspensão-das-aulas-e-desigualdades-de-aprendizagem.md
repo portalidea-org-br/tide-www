@@ -1,13 +1,12 @@
 ---
 title: Suspensão das aulas e desigualdades de aprendizagem
-date: '2020-03-31T09:05:45Z'
+date: 2020-03-31T09:05:45Z
 tags:
   - notícias
-short_description: >-
-  A necessária suspensão das aulas devido à pandemia poderá acarretar um
-  aprofundamento das desigualdades escolares.
+short_description: A necessária suspensão das aulas devido à pandemia poderá
+  acarretar um aprofundamento das desigualdades escolares.
 ---
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -46,9 +45,9 @@ short_description: >-
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -627,13 +626,13 @@ short_description: >-
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if !supportAnnotations]-->
+<!--\\[if !supportAnnotations]-->
 
-<!--\[endif]-->
+<!--\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -658,11 +657,11 @@ short_description: >-
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
-A suspensão das aulas nas escolas ao redor do mundo tem por objetivo conter o ritmo da expansão da pandemia de Covid-19. Segundo a [Unesco](https://en.unesco.org/themes/education-emergencies/coronavirus-school-closures), em 25 de março de 2020, as escolas estavam fechadas em 165 países, incluindo o Brasil, o que afetava 87% dos estudantes do planeta. Essa medida drástica é necessária, dada a gravidade da pandemia. Entretanto, ela provavelmente terá consequências sobre as aprendizagens e as desigualdades escolares.
+A suspensão das aulas nas escolas ao redor do mundo tem por objetivo conter o ritmo da expansão da pandemia de Covid-19. Segundo a [Unesco](ps://pt.unesco.org/covid19/globaleducationcoalition), em 25 de março de 2020, as escolas estavam fechadas em 165 países, incluindo o Brasil, o que afetava 87% dos estudantes do planeta. Essa medida drástica é necessária, dada a gravidade da pandemia. Entretanto, ela provavelmente terá consequências sobre as aprendizagens e as desigualdades escolares.
 
 Podemos formular hipóteses sobre essas consequências, apoiando-nos em pesquisas empíricas que investigaram os efeitos de longos períodos de interrupção das atividades escolares sobre as desigualdades de aprendizagem entre estudantes de diferentes grupos sociais. Alguns desses trabalhos estão apresentados na pesquisa “[Educação, Pobreza e desigualdades”](https://portalidea.org.br/desigualdades-escolares/eixo-5-uso-do-tempo-extraescolar-diagn%C3%B3sticos-e-interven%C3%A7%C3%B5es/#pt-text), disponível no Portal IDeA.
 
@@ -676,8 +675,6 @@ Para o caso brasileiro, não há pesquisas sobre as consequências de longas int
 
 Entretanto, a literatura norte-americana sobre as desigualdades de aprendizagem produzidas durante longos períodos de interrupção das aulas apresenta evidências inequívocas que devem ser levadas em conta, seja na compreensão do momento presente, seja na formulação das ações que serão tomadas quando as aulas puderem ser retomadas. A escola importa e, sem ela, as desigualdades de acesso aos saberes escolares aumentam; afinal, na ausência da escola, as diferenças de acesso à cultura escolar que são devidas exclusivamente aos grupos sociais atuam intensamente, tornando ainda maior a desvantagem dos grupos culturalmente mais distantes da escola.
 
-
-
 **Referências**
 
 Allington, R. L., McGill-Franzen, A.. (2003) The Impact of Summer Setback on the Reading Achievement Gap. The Phi Delta Kappan, Vol. 85, No. 1 (Sep., 2003), pp. 68-75.
@@ -687,7 +684,5 @@ Cooper, H., Nye, B., Charlton, K., Lindsay, J., & Greathouse, S. (1996). *The Ef
 Quinn, D. M., Cooc, N., McIntyre, J., & Gomez, C. J. (2016). *Seasonal Dynamics of Academic Achievement Inequality by Socioeconomic Status and Race/Ethnicity. Educational Researcher, 45(8), 443–453.*
 
 UNESCO. Global Monitoring os School Closures Caused by COVID-19. Disponível em[:https://en.unesco.org/themes/education-emergencies/coronavirus-school-closures. ](https://en.unesco.org/themes/education-emergencies/coronavirus-school-closures)Acesso em: 27/03/2020.
-
-
 
 - - -
