@@ -1,6 +1,5 @@
 .site-footer {
   padding-top: 2em;
-  padding-bottom: 1em;
   font-family: $roboto-font-stack;
   background: palette('red');
 }
@@ -108,8 +107,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   font-size: ms(-2);
   line-height: 2;
+  background-color: palette('red', 'dark');
 
   @media screen and (min-width: breakpoint('desktop')) {
     order: 7;
