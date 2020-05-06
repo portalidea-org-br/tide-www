@@ -16,7 +16,6 @@
       </ul>
     </nav>
     <span class="disclaimer">IDeA &middot; Copyright &copy; {{ dateFormat "2006" now }}</span>
-  <span class="by">Desenvolvido por <a href="https://appcivico.com">AppCívico</a></span>
 
   {{ with $.Site.Data.socialMedia }}
 
@@ -41,5 +40,10 @@
       {{ end }}
   </ul>
   {{ end }}
+
+  <span class="by">
+    <span class="by__text">Desenvolvido por:</span>
+    <a href="https://appcivico.com" target="_blank">AppCívico</a>
+  </span>
   </div>
 </footer>
