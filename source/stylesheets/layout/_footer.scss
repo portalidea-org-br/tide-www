@@ -105,18 +105,27 @@
 }
 
 .by {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: ms(-2);
   line-height: 2;
 
   @media screen and (min-width: breakpoint('desktop')) {
+    order: 7;
     font-size: ms(-1);
   }
 }
 
 .by a:link,
 .by a:visited {
+  width: 7rem;
+  height: 1.3rem;
+  margin-left: 0.5rem;
+  font-size: 0;
   text-decoration: none;
   color: palette('white');
+  background-image: image('appcivico.svg');
 }
 
 .social {
