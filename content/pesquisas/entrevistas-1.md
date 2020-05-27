@@ -1,8 +1,8 @@
 ---
-title: Entrevistas
-date: 2020-05-27T11:58:39Z
+title: Entrevista
+date: 2020-05-27T11:58:39.000Z
 areas:
-  - pesquisas
+  - Entrevistas
 file: /uploads/newsletter_02-entrevista-com-marília-carvalho-completa.pdf
 short_description: Entrevista com Marília Carvalho
 custom_link: /desigualdade-escolares
