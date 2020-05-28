@@ -1,12 +1,12 @@
 ---
 title: "Entrevistas "
-date: 2020-05-28T13:01:28Z
+date: 2020-05-28T13:01:28.000Z
 areas:
   - pesquisas
 short_description: Nessa seção apresentamos as íntegras das entrevistas dada ao Portal IDeA
 custom_link: /desigualdade-escolares
 ---
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -47,9 +47,9 @@ custom_link: /desigualdade-escolares
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -628,9 +628,9 @@ custom_link: /desigualdade-escolares
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -650,7 +650,7 @@ custom_link: /desigualdade-escolares
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
@@ -658,13 +658,11 @@ Marília Carvalho é Professora Livre Docente da Faculdade de Educação da USP,
 
 Em maio de 2020, o Portal IDeA conversou com a professora sobre três temas: o retrato atual das desigualdades educacionais por gênero; as principais explicações para elas existentes na literatura; e as prováveis consequências sobre essas desigualdades causadas pela quarentena necessária ao combate da Covid-19. Participaram da entrevista Mauricio Ernica e Viviane Ramos.
 
-
-
 **Portal IDeA: Há um fenômeno internacional: por todo o mundo, as desigualdades educacionais por gênero assumiram novos padrões nas últimas décadas do século XX. No Brasil, a mudança se consolidou apenas nos anos 1980, como o fruto de transformações que vinham se processando lentamente na escolarização das gerações nascidas a partir de 1950. Até então, as desvantagens educacionais das mulheres eram profundas: elas tiveram menor acesso à matrícula escolar e completaram menos anos de estudo, além de sofrerem os efeitos de um currículo diferenciado, orientado para atividades do âmbito doméstico, e das desigualdades no valor dos diplomas. No Brasil, por exemplo, até 1961, o diploma da Escola Normal, a principal via de escolarização secundária das mulheres, não permitia o acesso ao Ensino Superior. A partir de 1980, no entanto, as mulheres já eram mais escolarizadas que os homens e tinham maiores níveis de aprendizagem, sobretudo em língua materna. No entanto, outras diferenciações perduram, como a de orientação para as carreiras, o que é especialmente visível no Ensino Superior.**
 
 **Do seu ponto de vista, quais são as principais características, hoje, das desigualdades educacionais por gênero?**
 
-**Marília Carvalho:**Hoje já não há o problema que as mulheres enfrentaram até os anos de 1980, no Brasil. Até então, elas tinham menor acesso à escolarização. Hoje, em termos de acesso, há igualdade entre meninos e meninas. As desigualdades começam a aparecer na progressão da escolaridade. Na medida que a escolaridade vai avançando, os meninos vão ficando para trás. Por exemplo, no Ensino Fundamental, se observamos o conjunto dos nove anos, a proporção de meninos e meninas matriculados é muito parecida. Entretanto, os meninos estão mais concentrados nos anos iniciais. À medida que se observa os anos finais do Ensino Fundamental, a maioria feminina vai se ampliando, ao ponto de chegar a quase 60% no 9o ano. No Ensino Médio, 60% dos estudantes são mulheres. No Ensino Superior, as mulheres também são maioria.
+**Marília Carvalho:** Hoje já não há o problema que as mulheres enfrentaram até os anos de 1980, no Brasil. Até então, elas tinham menor acesso à escolarização. Hoje, em termos de acesso, há igualdade entre meninos e meninas. As desigualdades começam a aparecer na progressão da escolaridade. Na medida que a escolaridade vai avançando, os meninos vão ficando para trás. Por exemplo, no Ensino Fundamental, se observamos o conjunto dos nove anos, a proporção de meninos e meninas matriculados é muito parecida. Entretanto, os meninos estão mais concentrados nos anos iniciais. À medida que se observa os anos finais do Ensino Fundamental, a maioria feminina vai se ampliando, ao ponto de chegar a quase 60% no 9o ano. No Ensino Médio, 60% dos estudantes são mulheres. No Ensino Superior, as mulheres também são maioria.
 
 Isso acontece porque, onde há reprovação, os meninos reprovam mais. Com a reprovação, aumenta a defasagem entre a idade e o ano escolar adequado. Com o tempo, aumenta também a evasão. Por isso, há uma proporção maior de rapazes chegando ao final do Ensino Médio com dois, três anos de atraso e há uma proporção menor de rapazes concluindo o Ensino Médio.
 
@@ -674,11 +672,11 @@ Outra consequência é a maior presença feminina no Ensino Superior. Mas no Ens
 
 **Portal IDeA: As desigualdades educacionais por gênero assumem padrões diferentes conforme variam classe social e raça?**
 
-**Marília Carvalho:**A desigualdade educacional por gênero, essa tendência das mulheres terem uma escolarização melhor e mais linear, percorre as classes sociais e se expressa, no caso brasileiro, tanto entre os negros (pretos e pardos) como entre os brancos. No entanto, cabem duas observações.
+**Marília Carvalho:** A desigualdade educacional por gênero, essa tendência das mulheres terem uma escolarização melhor e mais linear, percorre as classes sociais e se expressa, no caso brasileiro, tanto entre os negros (pretos e pardos) como entre os brancos. No entanto, cabem duas observações.
 
 A primeira: é preciso prestar atenção no fato de que, quando se fala que os meninos estão indo pior na escola, não estão conseguindo chegar nas séries finais do Ensino Fundamental na idade adequada ou mesmo que não estão concluindo Ensino Fundamental e entrar Ensino Médio, nós estamos falando principalmente de meninos e rapazes mais pobres e negros. Ou seja, um atributo reforça o outro. A segunda: se pensarmos no mercado de trabalho, o rendimento médio mais baixo é o da mulher negra, depois vem o da mulher branca, depois o do homem negro e depois o do homem branco, que tem a média mais alta.
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -719,9 +717,9 @@ A primeira: é preciso prestar atenção no fato de que, quando se fala que os m
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -1300,9 +1298,9 @@ A primeira: é preciso prestar atenção no fato de que, quando se fala que os m
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -1322,13 +1320,13 @@ A primeira: é preciso prestar atenção no fato de que, quando se fala que os m
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
 No entanto, na educação a sequência não necessariamente é essa. Quase todos esses indicadores de acesso, permanência, evasão e adequação entre idade e ano escolar, em geral, mostram que a pior situação é a dos meninos negros. Em seguida, vem as meninas negras, depois os homens brancos e, na melhor situação, estão as meninas brancas. Ou seja, os melhores resultados educacionais são das mulheres brancas e os piores são os dos meninos negros.
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -1369,9 +1367,9 @@ No entanto, na educação a sequência não necessariamente é essa. Quase todos
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -1950,9 +1948,9 @@ No entanto, na educação a sequência não necessariamente é essa. Quase todos
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -1972,19 +1970,17 @@ No entanto, na educação a sequência não necessariamente é essa. Quase todos
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
 **Portal IDeA: O que explica essas desigualdades?**
 
-**Marília Carvalho:**Acho importante ressaltar que, embora existam semelhanças nos resultados– ou seja, em muitos lugares as mulheres estão indo melhor na escola do que os homens –, os processos que produzem esses resultados podem ser muito diferentes. Na explicação desses resultados, acho muito importante abandonarmos ideias gerais, como "a menina", "a mulher", "o menino", “o homem”. É muito diferente ser menino ou menina numa cidade grande, numa cidade pequena, numa área rural, ser rico, pobre ou de setores médios, ser preto ou branco. Enfim, ao explicar porque esses resultados acontecem, é importante ter em mente que resultados parecidos podem ter sido gestados por processos muito diferentes.
-
-
+**Marília Carvalho:** Acho importante ressaltar que, embora existam semelhanças nos resultados– ou seja, em muitos lugares as mulheres estão indo melhor na escola do que os homens –, os processos que produzem esses resultados podem ser muito diferentes. Na explicação desses resultados, acho muito importante abandonarmos ideias gerais, como "a menina", "a mulher", "o menino", “o homem”. É muito diferente ser menino ou menina numa cidade grande, numa cidade pequena, numa área rural, ser rico, pobre ou de setores médios, ser preto ou branco. Enfim, ao explicar porque esses resultados acontecem, é importante ter em mente que resultados parecidos podem ter sido gestados por processos muito diferentes.
 
 **Portal IDeA: Você poderia mencionar pesquisas que deram contribuições relevantes para elucidar esses processos particulares?**
 
-**Marília Carvalho:**As pesquisas que acho mais interessantes são as que focalizam um grupo específico e nos permitem, então, pensar as diferenças nos processos.
+**Marília Carvalho:** As pesquisas que acho mais interessantes são as que focalizam um grupo específico e nos permitem, então, pensar as diferenças nos processos.
 
 Ana Gomes, do grupo de Minas Gerais que trabalha com os Xakriabá, estudou algumas aldeias em São José das Missões, no Norte de Minas. Ela constatou que havia mais moças do que rapazes terminando o Ensino Fundamental e chegando ao Ensino Médio. Entre os povos Xakriabá que ela estava estudando, o processo acontecia de um modo muito específico e muito diferente do que acontecia com as meninas que eu estudei aqui na periferia pobre de São Paulo. Lá, dentro da aldeia, só tinha escola de Ensino Fundamental 1. Então, para continuar os estudos no Fundamental 2, era preciso ir para a cidade. As moças tinham uma oportunidade que aceitavam: elas iam morar em casas de família, onde trabalhavam durante o dia como empregadas domésticas e podiam estudar à noite. Muitas vezes, o esquema era de exploração: como pagamento, recebiam a moradia, a alimentação e a liberdade para estudar à noite. Mas havia essa oportunidade e as moças a aceitavam. Qual emprego equivalente os rapazes teriam na cidade, com moradia, alimentação, condições para continuar os estudos? Um emprego que eles aceitassem, que não ferisse os projetos de vida? Então, naquelas condições, as moças estavam se escolarizando mais, inclusive terminando o Ensino Médio e fazendo alguns cursos técnicos. Mais escolarizadas, algumas iam trabalhar na Prefeitura local ou até voltavam para as aldeias para trabalharem como assistentes de saúde e para trabalhar na educação. 
 
@@ -1996,11 +1992,9 @@ Há estudos interessantes, também, sobre grupos rurais. No Rio Grande do Sul, N
 
 Enfim, esses são alguns processos, em locais muitos específicos. Eu acho que nós temos conseguido produzir acúmulos, mas esses estudos ainda são raros. Poucas pessoas atentas às desigualdades na educação têm efetivamente considerado as questões de gênero e os acúmulos mais importantes são produzidos por esses trabalhos específicos, que colocam luzes sobre essas diferenças dos processos.
 
-
-
 **Portal IDeA: Nos seus trabalhos, você debate a tese da existência entre uma homologia entre características femininas e a escola mas, para o caso das meninas de classes populares urbanas, você introduz um outro elemento explicativo: o significado particular que a escola tem para as meninas. Eu queria que você falasse um pouquinho sobre esses dois princípios explicativos das vantagens escolares das das meninas.**
 
-**Marília Carvalho:** Precisamos ser muito cautelosos ao pensarmos essa homologia, porque ela pode nos levar à universalização da explicação. Essa é uma hipótese que vem da França, ao menos inicialmente. Ela também foi construída apoiando-se no trabalho de Paul Willis, na Inglaterra, sobre a relação dos meninos contra a escola. <!--\[if gte mso 9]><xml>
+**Marília Carvalho:** Precisamos ser muito cautelosos ao pensarmos essa homologia, porque ela pode nos levar à universalização da explicação. Essa é uma hipótese que vem da França, ao menos inicialmente. Ela também foi construída apoiando-se no trabalho de Paul Willis, na Inglaterra, sobre a relação dos meninos contra a escola. <!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -2041,9 +2035,9 @@ Enfim, esses são alguns processos, em locais muitos específicos. Eu acho que n
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -2622,9 +2616,9 @@ Enfim, esses são alguns processos, em locais muitos específicos. Eu acho que n
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -2644,7 +2638,7 @@ Enfim, esses são alguns processos, em locais muitos específicos. Eu acho que n
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
@@ -2662,16 +2656,16 @@ Essas meninas são socializadas nas suas famílias de forma muito diferente dos 
 
 A partir dessa diferença, as meninas produziam um sentido muito distinto para o ato de sair de casa e ir para a escola do que isso significava para os seus irmãos. Uma mãe nos disse que, se chegasse em casa e as filhas não tivessem feito os trabalhos de casa que deveriam ter feito, elas não poderiam ir para a escola, deveriam ficar em casa e fazer o trabalho doméstico. Eram duas irmãs, uma de 11 e outra de 13 anos, que faziam todo o trabalho da casa: lavar, passar, cozinhar, limpar. A mãe trabalhava fora durante muitas horas e o trabalho doméstico era responsabilidade dessas duas meninas. Então, para elas, a punição era não poder ir para a escola. Não ir para a escola era algo negativo. Elas tinham um irmão de 14 anos, tinha praticamente sido reprovado no ano anterior por falta e a mãe ficava em cima dele para que ele fosse à escola. Ele não fazia nada desse trabalho doméstico e nem trabalhava para obter renda, a responsabilidade dele era só estudar. As pesquisadoras perguntaram: “e esse menino, não faz alguma coisa em casa?”. A mãe respondeu: "ele é muito desajeitado, ele não sabe fazer o trabalho doméstico". A relação, portanto, que estava sendo aprendida e reforçada pela mãe junto aos seus filhos era a seguinte: para o menino, a escola era o castigo e, para as meninas, ir para a escola era uma vantagem e não ir, um castigo. Quando a mãe dizia "eu trabalho o dia inteiro e elas vão sair com as amigas para ir pra escola", se via que, na percepção dela e possivelmente das meninas também, a escola era também um momento de lazer.
 
-<!--\[if !mso]>
+<!--\\[if !mso]>
 <style>
 v\:* {behavior:url(#default#VML);}
 o\:* {behavior:url(#default#VML);}
 w\:* {behavior:url(#default#VML);}
 .shape {behavior:url(#default#VML);}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -2712,9 +2706,9 @@ w\:* {behavior:url(#default#VML);}
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -3293,9 +3287,9 @@ w\:* {behavior:url(#default#VML);}
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -3315,16 +3309,16 @@ w\:* {behavior:url(#default#VML);}
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <o:shapedefaults v:ext="edit" spidmax="1027"/>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <o:shapelayout v:ext="edit">
   <o:idmap v:ext="edit" data="1"/>
- </o:shapelayout></xml><!\[endif]-->
+ </o:shapelayout></xml><!\\[endif]-->
 
 <!--StartFragment-->
 
@@ -3336,7 +3330,7 @@ Enquanto isso, para o irmão, a escola é uma chatice. Para ir à escola, ele te
 
 Eu não quero generalizar, mas para essas meninas de classes populares de periferias urbanas, a responsabilização precoce pelo trabalho doméstico, além de permitir a relação positiva com a escola, as levava a ter uma grande organização, autonomia e disciplina, todas essas palavras que expressam valores que a escola preza.
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -3377,9 +3371,9 @@ Eu não quero generalizar, mas para essas meninas de classes populares de perife
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -3958,9 +3952,9 @@ Eu não quero generalizar, mas para essas meninas de classes populares de perife
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -3980,7 +3974,7 @@ Eu não quero generalizar, mas para essas meninas de classes populares de perife
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
@@ -3988,11 +3982,9 @@ Então, elas não tinham que ser tão controladas dentro da sala de aula, elas f
 
 Há ainda um outro aprendizado mais sutil que se dá no interior das famílias e que tem a ver com aquele ditado do senso comum, segundo o qual o homem é a cabeça, mas a mulher é o pescoço. Ou seja, tem a ver com a ideia de que as mulheres conseguem o que querem contornando, sem enfrentamento direto. As meninas aprendem isso no seu processo de socialização e a gente vê isso o tempo todo na sala de aula. Não é que as meninas não fazem bagunça, mas elas fazem uma bagunça que incomoda menos. Um garoto de 10, 12 anos, em uma pesquisa por volta de 2001 ou 2002, me dizia: "as meninas são mais espertas do que nós. Quando a professora manda parar, elas param, mas a gente \[os meninos] continua.” Então, as meninas demonstram uma capacidade maior de contornar a autoridade, de não enfrentar diretamente a professora, a diretora, o inspetor de alunos. Elas até continuam fazendo o que queriam, mas de uma forma que chama menos atenção, que incomoda menos e que, portanto, gera menos punições e gera menos confrontos que tornam inviável a permanência delas em sala de aula e na escola. É muito mais frequente a gente encontrar casos de meninos cujas mães são chamadas toda semana na escola porque é bagunceiro, foi expulso da sala, por esses conflitos. São padrões gerais, é claro que existem variações individuais, mas esse é um aprendizado da socialização feminina, pelo menos nos grupos que a gente estudou.
 
-
-
 **Portal IDeA: Nessa mesma perspectiva de estudar processos singulares, vocês estudaram grupos de meninos que mantinham uma relação positiva com a escola. Nessa pesquisa vocês discutem a tese de que a masculinidade, principalmente a masculinidade popular, se opõe à escola.**
 
-**Marília Carvalho:**Esse foi um trabalho muito bonito, especificamente focado nos meninos bem sucedidos, que uma aluna minha desenvolveu, a Cíntia Toledo. Ela trabalhou, no mestrado, com meninos estudantes do Ensino Fundamental 1. Essa é uma discussão complicada, porque o debate existente é herdeiro do trabalho do Paul Willis, *Aprendendo a ser trabalhador*. Paul Willis fez sua pesquisa nos anos de 1970, ainda no ciclo positivo do capitalismo, em uma cidade na Inglaterra em que a revolução industrial se originou. Nela, os meninos saiam da escola direto para a fábrica, para metalúrgicas. Eles terminavam o equivalente ao Ensino Médio e tinham emprego garantido nas fábricas onde seus pais também trabalhavam. Ele adotou uma perspectiva antropológica, fez uma pesquisa de campo longa na escola e observou que esse grupo de meninos ia desenvolvendo, dentro da própria escola, uma cultura que, justamente, desvalorizava a cultura <!--\[if gte mso 9]><xml>
+**Marília Carvalho:** Esse foi um trabalho muito bonito, especificamente focado nos meninos bem sucedidos, que uma aluna minha desenvolveu, a Cíntia Toledo. Ela trabalhou, no mestrado, com meninos estudantes do Ensino Fundamental 1. Essa é uma discussão complicada, porque o debate existente é herdeiro do trabalho do Paul Willis, *Aprendendo a ser trabalhador*. Paul Willis fez sua pesquisa nos anos de 1970, ainda no ciclo positivo do capitalismo, em uma cidade na Inglaterra em que a revolução industrial se originou. Nela, os meninos saiam da escola direto para a fábrica, para metalúrgicas. Eles terminavam o equivalente ao Ensino Médio e tinham emprego garantido nas fábricas onde seus pais também trabalhavam. Ele adotou uma perspectiva antropológica, fez uma pesquisa de campo longa na escola e observou que esse grupo de meninos ia desenvolvendo, dentro da própria escola, uma cultura que, justamente, desvalorizava a cultura <!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -4033,9 +4025,9 @@ Há ainda um outro aprendizado mais sutil que se dá no interior das famílias e
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -4614,9 +4606,9 @@ Há ainda um outro aprendizado mais sutil que se dá no interior das famílias e
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -4636,7 +4628,7 @@ Há ainda um outro aprendizado mais sutil que se dá no interior das famílias e
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
@@ -4650,17 +4642,13 @@ A escola em que a Cíntia Toledo fez sua pesquisa se situa em um bairro popular 
 
 Nos estudantes que observamos, a gente não percebeu de forma alguma a associação entre ir bem na escola, ter notas boas, se dar bem com a professora e feminilidade. Os meninos eram absolutamente reconhecidos como masculinos, heterossexuais, mesmo sendo ótimos alunos, sendo tratados por todos os colegas como o melhor aluno da classe. Então, não foi confirmada a hipótese que poderia ser formulada a partir da literatura tributária da obra de Paul Willis, de que os meninos, para construir sua masculinidade, teriam de ir mal na escola. Muito embora a gente já tenha assistido também, principalmente entre os jovens rapazes, disputas do tipo "quantas vezes você já foi expulso?" ou "você não tem coragem de ir na sala da diretora e falar isso ou aquilo pra ela". Há nas escolas também uma masculinidade, talvez de protesto, talvez de confronto, que se afirma pelo conflito com a escola.
 
-
-
 **Portal IDeA: Não podemos supor que existam masculinidades diferentes, possíveis e legítimas na escola e que talvez elas operem nas mesmas pessoas, gerando conflitos internos?**
 
-**Marília Carvalho:**Havia uma tendência entre alguns desses meninos, desses bem pequenos que a Cíntia estudou, a afirmar sua masculinidade no pátio, no jogo de futebol. De modo geral, era mais importante ser bom no futebol, nos esportes em geral, do que necessariamente ter nota baixa ou ter confrontos com a professora. Sendo bom no futebol, qualquer que fosse a nota que ele tivesse, ele seria valorizado pelos colegas. Mas se valorizava muito, também, ser bom aluno, o que gerava admiração. Talvez a indisciplina, principalmente no final do Fundamental 1, quando se está mais próximo da pré-adolescência, talvez aí a indisciplina esteja mais associada à masculinidade. Mas, como você disse, é uma das masculinidades possíveis, é uma das formas possíveis de afirmar a heterossexualidade e de construir uma identidade masculina.
-
-
+**Marília Carvalho:** Havia uma tendência entre alguns desses meninos, desses bem pequenos que a Cíntia estudou, a afirmar sua masculinidade no pátio, no jogo de futebol. De modo geral, era mais importante ser bom no futebol, nos esportes em geral, do que necessariamente ter nota baixa ou ter confrontos com a professora. Sendo bom no futebol, qualquer que fosse a nota que ele tivesse, ele seria valorizado pelos colegas. Mas se valorizava muito, também, ser bom aluno, o que gerava admiração. Talvez a indisciplina, principalmente no final do Fundamental 1, quando se está mais próximo da pré-adolescência, talvez aí a indisciplina esteja mais associada à masculinidade. Mas, como você disse, é uma das masculinidades possíveis, é uma das formas possíveis de afirmar a heterossexualidade e de construir uma identidade masculina.
 
 **Portal IDeA: Gostaria, agora, de voltar a discutir os aspectos simbólicos e identitários associados às desigualdades educacionais por gênero. Esses aspectos aparecem fortemente nas trajetórias e nas orientações para carreiras educacionais e profissionais e, por isso, no Ensino Superior eles estão bem marcados. O que se sabe sobre a construção das desigualdades, em função do gênero, nas trajetórias e orientações para carreiras educacionais e profissionais ao longo da escolarização básica?**
 
-**Marília Carvalho:**Vou começar por um aspecto que acho importante: a escola é um lugar onde se aprende a ler, escrever, contar, e tal, mas ela também é um lugar onde se aprende relações de gênero, tal como essas relações estão definidas na sociedade. Quem conclui o Ensino Fundamental está completamente formado em relação ao que é ser homem e ser mulher nos padrões mais tradicionais. Por quê? Porque não faz parte da formação das professoras, da grande maioria, qualquer discussão a respeito das relações de gênero. Como não bastasse, nos anos recentes, qualquer tentativa de discutir essas desigualdades tem que enfrentar a enorme barreira que foi colocada na discussão de gênero nas escolas, como se a gente quisesse transformar as crianças em agentes de sexualidade, transformar todo mundo em homossexual. Enfim, criou-se uma confusão imensa entre educação sexual, discussão de gênero e passou-se a perseguir o debate de gênero, o que, quando não tem silenciado, tem dificultado ainda mais os trabalhos com o tema.
+**Marília Carvalho:** Vou começar por um aspecto que acho importante: a escola é um lugar onde se aprende a ler, escrever, contar, e tal, mas ela também é um lugar onde se aprende relações de gênero, tal como essas relações estão definidas na sociedade. Quem conclui o Ensino Fundamental está completamente formado em relação ao que é ser homem e ser mulher nos padrões mais tradicionais. Por quê? Porque não faz parte da formação das professoras, da grande maioria, qualquer discussão a respeito das relações de gênero. Como não bastasse, nos anos recentes, qualquer tentativa de discutir essas desigualdades tem que enfrentar a enorme barreira que foi colocada na discussão de gênero nas escolas, como se a gente quisesse transformar as crianças em agentes de sexualidade, transformar todo mundo em homossexual. Enfim, criou-se uma confusão imensa entre educação sexual, discussão de gênero e passou-se a perseguir o debate de gênero, o que, quando não tem silenciado, tem dificultado ainda mais os trabalhos com o tema.
 
 Então, o que as meninas e os meninos encontram na escola? Encontram uma instituição toda organizada em termos de gênero. Como as professoras, na sua grande maioria, não discutiram o tema em sua formação, elas usam o repertório que elas têm, que vem de sua socialização e que é marcado pelas desigualdades no modo de entender gênero e relações de poder. Quantas professoras não vivem situações até de violência nos seus casamentos, nas suas vidas, não vivem uma imensa pressão pela heterossexualidade? Todas as pressões que existem na sociedade estão sendo reproduzidas na vida das professoras e na sua atuação profissional. Então, não são só as crianças que, na escola, reproduzem representações do masculino e do feminino tais como "menina não é boa em matemática", "o menino não gosta de poesia". Essas representações são gerais, percorrem a instituição e estão no comportamento das professoras, no dia-a-dia da sala de aula. Se a professora não faz um exercício permanente de questionamento, de crítica, o tempo todo ela irá reproduzir esse tipo de coisa.
 
@@ -4668,7 +4656,7 @@ Uma das professoras que a gente estava observando, por exemplo, era uma professo
 
 Um outro exemplo, de uma professora muito bacana também e que, tempos depois, refletindo sobre esse evento que eu vou relatar, se perguntava: "nossa, como eu fiz isso?” Ela me mostrou um caderno lindo, organizado, com letra bonita e em que não faltava nada. Ela me mostrou o caderno e disse: "parece um caderno de menina, né? Mas não é". Era do menino mais bagunceiro da sala de aula, um grupo da então 4a série do Ensino Fundamental, que tinha uns 11 anos de idade. Ele era suficientemente esperto e tinha formação escolar suficiente para fazer rapidamente as lições, sempre com essa organização. Ele trabalhava bem em casa, fazia a lição em casa, mas na sala de aula, na maior parte do tempo ele ficava andando, indo e voltando, havia inclusive uma certa permissividade da professora e dos colegas. Ele fazia piada, incomodava todo mundo, mas era visto como bacana, como legal e o caderno dele era ótimo, até parecia caderno de menina.
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -4709,9 +4697,9 @@ Um outro exemplo, de uma professora muito bacana também e que, tempos depois, r
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -5290,9 +5278,9 @@ Um outro exemplo, de uma professora muito bacana também e que, tempos depois, r
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -5312,7 +5300,7 @@ Um outro exemplo, de uma professora muito bacana também e que, tempos depois, r
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
@@ -5328,21 +5316,17 @@ As irmãs mais velhas das meninas que entrevistamos tinham clareza da necessidad
 
 Enquanto isso, os meninos reproduziam as ocupações dos pais. Muitos pais falavam que já levavam os filhos para ajudar em trabalhos na construção civil, "ah, eu já levo ele para me ajudar a bater uma laje". Um menino já trabalhava com os tios numa oficina mecânica e achava bacana, queria seguir essa carreira, e sabia que, para isso, não seria preciso uma escolarização mais longa. Então, os meninos se encaminhavam cedo para trajetórias orientadas para ocupações que exigiam menor escolaridade e até reforçavam esse enfado, esse conflito deles com a escola.
 
-
-
 **Portal IDeA: Gostaria que você comentasse um aspecto que vocês desenvolvem no artigo sobre aspirações profissionais: chega um momento na vida das meninas em que suas aspirações precisam ser autorizadas, chega uma hora em que a família vai confirmar, recusar ou modificar essas aspirações e pode haver um ajuste dessas aspirações ao mundo do possível percebido pela família.**
 
-**Marília Carvalho:**A negociação é mais visível nos casos que saem um pouco do padrão. Uma menina que queria ser jogadora de futebol nos contou que a família, principalmente mãe, a desanimava dizendo que “isso não é coisa para menina”. Também vimos diferenças no modo como as famílias lidavam com as aspirações de meninos e meninas. Em uma família, o menino estudava numa escola pública diferenciada, que tinha uma qualidade superior, e a menina, filha mais nova, não. A mãe dizia "ele vai ser médico" e dirigia a ele todos os incentivos, embora, de acordo com a professora, esse caminho fosse improvável porque ele tinha muita dificuldade na escola. Apesar da menina estar indo bem na escola, a mãe não tinha grandes expectativas em relação a ela.
-
-
+**Marília Carvalho:** A negociação é mais visível nos casos que saem um pouco do padrão. Uma menina que queria ser jogadora de futebol nos contou que a família, principalmente mãe, a desanimava dizendo que “isso não é coisa para menina”. Também vimos diferenças no modo como as famílias lidavam com as aspirações de meninos e meninas. Em uma família, o menino estudava numa escola pública diferenciada, que tinha uma qualidade superior, e a menina, filha mais nova, não. A mãe dizia "ele vai ser médico" e dirigia a ele todos os incentivos, embora, de acordo com a professora, esse caminho fosse improvável porque ele tinha muita dificuldade na escola. Apesar da menina estar indo bem na escola, a mãe não tinha grandes expectativas em relação a ela.
 
 **Portal IDeA: Notamos, em pesquisa de campo realizada em uma periferia de Campinas, uma forte regulação sexual das meninas, após a puberdade. Essa regulação tem consequências sobre suas trajetórias escolares?**
 
-**Marília Carvalho:**Houve um caso que nos chamou a atenção. Uma mãe, cuja filha mais velha tinha acabado de completar 10 anos, me contou: "agora que ela fez 10 anos, eu parei de trabalhar". Não entendi de imediato o que ela quis dizer, precisei esticar a conversa até entender a preocupação daquela mãe: ela queria era estar ao lado da filha o tempo todo, porque a partir daquele momento ela passaria a ser cada vez mais assediada. Ela falava do controle sexual, de não deixar a menina sozinha em casa, porque era perigoso. Não dá pra gente dizer que essa mãe não tivesse motivos para se preocupar, mas evidentemente sua preocupação gerava um controle muito grande sobre a menina. Ao mesmo tempo, quando essa mãe falava do seu filho mais novo, de 8 anos, ela dizia que ele iria namorar bastante, que iria conhecer vários tipos de moças. Então, as diferenças entre a construção das sexualidades de um e de outro eram muitos grandes, e isso pode ter consequências depois, em trajetórias.
+**Marília Carvalho:** Houve um caso que nos chamou a atenção. Uma mãe, cuja filha mais velha tinha acabado de completar 10 anos, me contou: "agora que ela fez 10 anos, eu parei de trabalhar". Não entendi de imediato o que ela quis dizer, precisei esticar a conversa até entender a preocupação daquela mãe: ela queria era estar ao lado da filha o tempo todo, porque a partir daquele momento ela passaria a ser cada vez mais assediada. Ela falava do controle sexual, de não deixar a menina sozinha em casa, porque era perigoso. Não dá pra gente dizer que essa mãe não tivesse motivos para se preocupar, mas evidentemente sua preocupação gerava um controle muito grande sobre a menina. Ao mesmo tempo, quando essa mãe falava do seu filho mais novo, de 8 anos, ela dizia que ele iria namorar bastante, que iria conhecer vários tipos de moças. Então, as diferenças entre a construção das sexualidades de um e de outro eram muitos grandes, e isso pode ter consequências depois, em trajetórias.
 
 Há uma generalização recorrente a respeito dos impactos da gravidez na adolescência sobre as trajetórias escolares, mas que se sustenta pouco. É evidente que, se uma moça engravida e ainda está na escola, seja no Ensino Fundamental, seja no Ensino Médio, a vida escolar será atrapalhada. Ela terá dificuldades porque terá de arcar com a responsabilidade sozinha, porque criança é responsabilidade de mãe e o pai do bebê dificilmente assume parte dela. Mas não é esse o motivo principal das dificuldades escolares que as moças podem ter. Há estudos interessantes que, inclusive, mostram a relação inversa. São as moças que já vinham com vários problemas na escola, que já estavam com a escolaridade atrasada ou que já tinham abandonado a escola, aquelas que, mais frequentemente, engravidam antes dos 18 anos. Ou seja, o sentido da explicação talvez seja outro do que o discurso corrente sugere. Ao invés da evasão escolar ser decorrência da gravidez, talvez os problemas com a escola tenham antecedido a gravidez. E não necessariamente a gravidez é indesejada.
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -5383,9 +5367,9 @@ Há uma generalização recorrente a respeito dos impactos da gravidez na adoles
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -5964,9 +5948,9 @@ Há uma generalização recorrente a respeito dos impactos da gravidez na adoles
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -5986,17 +5970,15 @@ Há uma generalização recorrente a respeito dos impactos da gravidez na adoles
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
 Inclusive, a idade em que se começa a ter relações amorosas mais permanentes varia entre os grupos sociais. A maior parte das mães que eu entrevistei tinha engravidado dos primeiros filhos com 16, 17 anos. Então, a referência de juventude, de transição para a vida adulta pode se dar em idades muito diferentes das idades das classes médias e altas.
 
-
-
 **Portal IDeA: Vamos ao nosso último tema. Por causa da pandemia de Covid-19, as escolas estão fechadas em todo o mundo. Precisam estar. Porém, o fechamento produzirá efeitos. Que consequências você imagina que serão produzidas?**
 
-**Marília Carvalho:**Até aqui eu pude falar do que estudei, mas agora estamos no terreno das hipóteses, das suspeitas. A partir do que conhecemos, o que podemos supor? Continuarei a falar do grupo que estudei: as camadas populares urbanas. Suas casas são pequenas, as pessoas estão sendo obrigadas a permanecer em lugares com muitas restrições e o dinheiro está faltando para colocar comida na mesa, pagar as contas; isso está pesando.
+**Marília Carvalho:** Até aqui eu pude falar do que estudei, mas agora estamos no terreno das hipóteses, das suspeitas. A partir do que conhecemos, o que podemos supor? Continuarei a falar do grupo que estudei: as camadas populares urbanas. Suas casas são pequenas, as pessoas estão sendo obrigadas a permanecer em lugares com muitas restrições e o dinheiro está faltando para colocar comida na mesa, pagar as contas; isso está pesando.
 
 E há questões que afetam as mulheres adultas e também as meninas. Se a intensificação do trabalho doméstico está pesando para as mulheres adultas – e esse tem sido um alerta dos movimentos feministas – com certeza deve estar pesando também para as meninas. O trabalho doméstico se intensificou porque as pessoas estão em casa o tempo inteiro, as crianças pequenas não estão nem na escola nem na creche, tem mais comida para ser feita, tem a sujeira, a necessidade de organização. Então, essas meninas que já dividiam os trabalhos com suas mães, com certeza estão mais carregadas agora. Os meninos, que já não dividiam o trabalho doméstico, devem continuar não participando. Por isso, as meninas, com a retomada das atividades escolares a distância, no caso em São Paulo, terão agora que conciliar as coisas. Outra preocupação que os movimentos feministas têm manifestado em relação às mulheres adultas e que certamente também atinge as meninas, é a violência doméstica. As crianças em geral estão sujeitas à violência doméstica, mas as meninas em maior proporção do que os meninos. Então, é possível que essa convivência mais intensa no espaço doméstico faça recrudescer, aflorar mais violentamente as relações de abuso, inclusive sexual.
 
@@ -6006,23 +5988,19 @@ Por fim, com a ajuda dos meus alunos, pensei em possíveis vantagens para as men
 
 Além disso, o ensino a distância exacerba duas exigências escolares: a autonomia e a disciplina. De modo geral, as meninas estão mais capacitadas do que os meninos para responder às propostas de ensino a distância que a escola fizer. Isso me leva à hipótese de que a evasão poderá aumentar esse ano, e se aumentar poderá ser maior entre os meninos do que entre as meninas. Acho que elas ainda vão conseguir manter algum vínculo, não ficarão completamente fora do mundo escolar.
 
-
-
 **Portal IDeA: Os meninos mais pobres são o grupo com os piores resultados escolares, e a situação deles deve piorar.**
 
-**Marília Carvalho:**Por isso eu acho que eles podem sofrer mais com esse período de interrupção, podem evadir mais. Quando a conexão com a escola é frágil, sustentada por um fio fino como a obrigação de ir presencialmente para o espaço escolar, esse fio pode se romper mais facilmente. Retomando a discussão teórica do início de nossa conversa, penso que esse é um grande desafio que nos coloca a discussão de gênero na educação escolar. Estamos habituados às situações em que as meninas e as mulheres são as vítimas, são mais oprimidas, estão mais fragilizadas e em desvantagem. Mas, no caso da educação escolar, precisamos ter a coragem de dizer que são os meninos, especialmente os mais pobres, o elo mais frágil.
+**Marília Carvalho:** Por isso eu acho que eles podem sofrer mais com esse período de interrupção, podem evadir mais. Quando a conexão com a escola é frágil, sustentada por um fio fino como a obrigação de ir presencialmente para o espaço escolar, esse fio pode se romper mais facilmente. Retomando a discussão teórica do início de nossa conversa, penso que esse é um grande desafio que nos coloca a discussão de gênero na educação escolar. Estamos habituados às situações em que as meninas e as mulheres são as vítimas, são mais oprimidas, estão mais fragilizadas e em desvantagem. Mas, no caso da educação escolar, precisamos ter a coragem de dizer que são os meninos, especialmente os mais pobres, o elo mais frágil.
 
 A desvantagem se inverteu e a política pública, se for focalizada por gênero, precisa priorizar os meninos, se é para focalizar em alguém para fazer uma política afirmativa. O grupo mais prejudicado na escola, que está tendo mais problemas, não são as meninas, nós não estamos precisando de políticas públicas prioritárias para melhorar a relação das meninas com a escola. Nós estamos precisando, prioritariamente, melhorar a relação dos meninos com a escola. A política pública tem que ter a coragem de inverter a relação mais habitual no combate à desigualdade de gênero, inclusive para que esses meninos construam, em suas vidas, relações de gênero mais igualitárias. Quanto mais eles se afastarem da escola, quanto menos escolarizados eles forem, lerem pouco, tiverem pouco contato com a cultura escolar, mais fácil será eles se enfronharam no machismo mais básico, na violência física, no que é chamado de masculinidade tóxica, naquela masculinidade que gera as relações mais desiguais e faz mal inclusive para eles. Eu ainda acredito que a permanência maior dos meninos na escola, a relação mais positiva deles com a escola e com o aprendizado poderia ajudar na construção de relações de gênero mais igualitárias. Então, inclusive por isso, é importante que, nesse momento, a política priorize a relação dos meninos com a escola. No retorno da quarentena, o problema será maior e vamos precisar de políticas para atender especificamente esses meninos que terão esse período todo fora da escola.
 
-
-
 **Portal IDeA: Você conhece iniciativas no país que priorizam a educação escolar dos meninos?**
 
-**Marília Carvalho:**Esse é um ponto cego da política pública e por isso eu falo de coragem. A lógica dominante, ao falar de gênero, é falar das mulheres. As políticas públicas sobre relações de gênero foram políticas para as mulheres. Em outros países, tem iniciativas que priorizam a educação escolar dos meninos. Há, por exemplo, iniciativas na Inglaterra muito interessantes, em que os pesquisadores são chamados à escola por causa de meninos altamente violentos, que fazem bullying com os colegas, e eles fazem propostas que eu acho muito interessantes. De cara, procuram identificar naquele mesmo espaço escolar diferentes masculinidades que estão tentando existir e até mesmo sendo reprimidas pela predominância dessa masculinidade agressiva e tóxica. A partir da identificação dessas outras masculinidades que já existem no ambiente, começam a fazer intervenções. Por exemplo, colocando os meninos em atividades que são consideradas femininas: o cuidado de crianças menores, literatura, poesia, arte, dança. Partem de algo que já existe na escola, porque a masculinidade não é, nunca é, única, homogênea. Dentro da escola há sempre diferentes formas de masculinidade e feminilidade e é possível mostrar caminhos que rompem com a predominância de algo que faz mal para todo mundo.
+**Marília Carvalho:** Esse é um ponto cego da política pública e por isso eu falo de coragem. A lógica dominante, ao falar de gênero, é falar das mulheres. As políticas públicas sobre relações de gênero foram políticas para as mulheres. Em outros países, tem iniciativas que priorizam a educação escolar dos meninos. Há, por exemplo, iniciativas na Inglaterra muito interessantes, em que os pesquisadores são chamados à escola por causa de meninos altamente violentos, que fazem bullying com os colegas, e eles fazem propostas que eu acho muito interessantes. De cara, procuram identificar naquele mesmo espaço escolar diferentes masculinidades que estão tentando existir e até mesmo sendo reprimidas pela predominância dessa masculinidade agressiva e tóxica. A partir da identificação dessas outras masculinidades que já existem no ambiente, começam a fazer intervenções. Por exemplo, colocando os meninos em atividades que são consideradas femininas: o cuidado de crianças menores, literatura, poesia, arte, dança. Partem de algo que já existe na escola, porque a masculinidade não é, nunca é, única, homogênea. Dentro da escola há sempre diferentes formas de masculinidade e feminilidade e é possível mostrar caminhos que rompem com a predominância de algo que faz mal para todo mundo.
 
 No Brasil, realmente, eu não conheço sequer quem tenha efetivamente prestado atenção nisso. Eu diria que, de modo geral, as pessoas sequer percebem o problema que está na frente delas o tempo todo, tão naturalizado que está. É um ponto cego, a gente não enxerga e não consegue interferir.
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -6063,9 +6041,9 @@ No Brasil, realmente, eu não conheço sequer quem tenha efetivamente prestado a
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -6644,9 +6622,9 @@ No Brasil, realmente, eu não conheço sequer quem tenha efetivamente prestado a
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -6666,13 +6644,11 @@ No Brasil, realmente, eu não conheço sequer quem tenha efetivamente prestado a
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
 Nem no âmbito da sala de aula, nem no da escola e muito menos em termos de política pública. Eu nunca vi isso ser tratado como política pública no Brasil.
-
-
 
 **Referências**
 
@@ -6680,7 +6656,7 @@ ARTES, A.C.A; CARVALHO, M.P. O trabalho como fator determinante da defasagem esc
 
 CARVALHO, M.P. SENKEVICS, A.S.; LOGES, T.A.. O sucesso escolar de meninas de camadas populares: qual o papel da socialização familiar? Em: *Educação e Pesquisa*40 (3), p. 717–734. 2014.
 
-CORREA, H.. Antecedentes do baixo nível de escolarização alcançado por uma coorte de jovens mães brasileiras. Educação e Pesquisa, São Paulo, v. 40, n.2, p. 499-516, jun. 2014. *[https://www.scielo.br/scielo.php?pid=S1517-97022014000200013&script=sci_abstract&tlng=pt](*https://www.scielo.br/scielo.php?pid=S1517-97022014000200013&script=sci_abstract&tlng=pt*)*
+CORREA, H.. Antecedentes do baixo nível de escolarização alcançado por uma coorte de jovens mães brasileiras. Educação e Pesquisa, São Paulo, v. 40, n.2, p. 499-516, jun. 2014. *\[https://www.scielo.br/scielo.php?pid=S1517-97022014000200013&script=sci_abstract&tlng=pt](*https://www.scielo.br/scielo.php?pid=S1517-97022014000200013&script=sci_abstract&tlng=pt*)*
 
 DUQUE-ARRAZOLA, L.. In: MADEIRA, F.R. *Quem mandou nascer mulher?* Estudos sobre crianças e adolescentes pobres no Brasil. Rio de Janeiro; Rosa dos Tempos; 1997
 
@@ -6694,7 +6670,7 @@ SENKEVICS, A.S.; CARVALHO, M.P. Casa, rua, escola: gênero e escolarização em 
 
 SENKEVICS, A.S.; CARVALHO, M.P. O que você quer ser quando crescer? Escolarização e gênero entre camadas populares urbanas. Revista Brasileira de Estudos Pedagógicos, Brasília, v. 97, n. 245, p. 179-194, jan./abr. 2016.<http://dx.doi.org/10.1590/S2176-6681/380613879>
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -6735,9 +6711,9 @@ SENKEVICS, A.S.; CARVALHO, M.P. O que você quer ser quando crescer? Escolariza�
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -7316,9 +7292,9 @@ SENKEVICS, A.S.; CARVALHO, M.P. O que você quer ser quando crescer? Escolariza�
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -7338,13 +7314,13 @@ SENKEVICS, A.S.; CARVALHO, M.P. O que você quer ser quando crescer? Escolariza�
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
 TEIXEIRA, I.A.V. ; GOMES, A.M.R. . A escola indígena tem gênero? Explorações a partir da vida das mulheres e professoras Xakriabá.. Práxis Educativa (Impresso), v. 7, p. 55-83, 2012.<https://www.revistas2.uepg.br/index.php/praxiseducativa/article/view/5057/3325>
 
-TOLEDO, C.T.; CARVALHO, M.P.. Masculinidades e desempenho escolar: a construção de hierarquias entre pares. *Cadernos de Pesquisa,*48 (169), 2018. p. 1002–1023. *[https://www.scielo.br/scielo.php?script=sci_abstract&pid=S0100-15742018000301002&lng=en&nrm=iso&tlng=pt](*https://www.scielo.br/scielo.php?script=sci_abstract&pid=S0100-15742018000301002&lng=en&nrm=iso&tlng=pt*)*
+TOLEDO, C.T.; CARVALHO, M.P.. Masculinidades e desempenho escolar: a construção de hierarquias entre pares. *Cadernos de Pesquisa,*48 (169), 2018. p. 1002–1023. *\[https://www.scielo.br/scielo.php?script=sci_abstract&pid=S0100-15742018000301002&lng=en&nrm=iso&tlng=pt](*https://www.scielo.br/scielo.php?script=sci_abstract&pid=S0100-15742018000301002&lng=en&nrm=iso&tlng=pt*)*
 
 WILLIS, P.. Aprendendo a ser trabalhador. Porto Alegre: Artes Médicas, 1991.
 
@@ -7374,15 +7350,11 @@ WILLIS, P.. Aprendendo a ser trabalhador. Porto Alegre: Artes Médicas, 1991.
 
 <!--EndFragment-->
 
-
-
 <!--EndFragment-->
 
 <!--EndFragment-->
 
 <!--EndFragment-->
-
-
 
 <!--EndFragment-->
 
