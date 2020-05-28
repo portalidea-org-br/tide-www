@@ -6,7 +6,7 @@ areas:
 short_description: Nessa seção apresentamos as íntegras das entrevistas dada ao Portal IDeA
 custom_link: /desigualdade-escolares
 ---
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -47,9 +47,9 @@ custom_link: /desigualdade-escolares
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -628,9 +628,9 @@ custom_link: /desigualdade-escolares
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -650,7 +650,7 @@ custom_link: /desigualdade-escolares
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -676,7 +676,7 @@ Outra consequência é a maior presença feminina no Ensino Superior. Mas no Ens
 
 A primeira: é preciso prestar atenção no fato de que, quando se fala que os meninos estão indo pior na escola, não estão conseguindo chegar nas séries finais do Ensino Fundamental na idade adequada ou mesmo que não estão concluindo Ensino Fundamental e entrar Ensino Médio, nós estamos falando principalmente de meninos e rapazes mais pobres e negros. Ou seja, um atributo reforça o outro. A segunda: se pensarmos no mercado de trabalho, o rendimento médio mais baixo é o da mulher negra, depois vem o da mulher branca, depois o do homem negro e depois o do homem branco, que tem a média mais alta.
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -717,9 +717,9 @@ A primeira: é preciso prestar atenção no fato de que, quando se fala que os m
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -1298,9 +1298,9 @@ A primeira: é preciso prestar atenção no fato de que, quando se fala que os m
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -1320,13 +1320,13 @@ A primeira: é preciso prestar atenção no fato de que, quando se fala que os m
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
 No entanto, na educação a sequência não necessariamente é essa. Quase todos esses indicadores de acesso, permanência, evasão e adequação entre idade e ano escolar, em geral, mostram que a pior situação é a dos meninos negros. Em seguida, vem as meninas negras, depois os homens brancos e, na melhor situação, estão as meninas brancas. Ou seja, os melhores resultados educacionais são das mulheres brancas e os piores são os dos meninos negros.
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -1367,9 +1367,9 @@ No entanto, na educação a sequência não necessariamente é essa. Quase todos
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -1948,9 +1948,9 @@ No entanto, na educação a sequência não necessariamente é essa. Quase todos
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -1970,7 +1970,7 @@ No entanto, na educação a sequência não necessariamente é essa. Quase todos
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -1994,7 +1994,7 @@ Enfim, esses são alguns processos, em locais muitos específicos. Eu acho que n
 
 **Portal IDeA: Nos seus trabalhos, você debate a tese da existência entre uma homologia entre características femininas e a escola mas, para o caso das meninas de classes populares urbanas, você introduz um outro elemento explicativo: o significado particular que a escola tem para as meninas. Eu queria que você falasse um pouquinho sobre esses dois princípios explicativos das vantagens escolares das das meninas.**
 
-**Marília Carvalho:** Precisamos ser muito cautelosos ao pensarmos essa homologia, porque ela pode nos levar à universalização da explicação. Essa é uma hipótese que vem da França, ao menos inicialmente. Ela também foi construída apoiando-se no trabalho de Paul Willis, na Inglaterra, sobre a relação dos meninos contra a escola. <!--\\[if gte mso 9]><xml>
+**Marília Carvalho:** Precisamos ser muito cautelosos ao pensarmos essa homologia, porque ela pode nos levar à universalização da explicação. Essa é uma hipótese que vem da França, ao menos inicialmente. Ela também foi construída apoiando-se no trabalho de Paul Willis, na Inglaterra, sobre a relação dos meninos contra a escola. <!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -2035,9 +2035,9 @@ Enfim, esses são alguns processos, em locais muitos específicos. Eu acho que n
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -2616,9 +2616,9 @@ Enfim, esses são alguns processos, em locais muitos específicos. Eu acho que n
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -2638,7 +2638,7 @@ Enfim, esses são alguns processos, em locais muitos específicos. Eu acho que n
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -2656,16 +2656,16 @@ Essas meninas são socializadas nas suas famílias de forma muito diferente dos 
 
 A partir dessa diferença, as meninas produziam um sentido muito distinto para o ato de sair de casa e ir para a escola do que isso significava para os seus irmãos. Uma mãe nos disse que, se chegasse em casa e as filhas não tivessem feito os trabalhos de casa que deveriam ter feito, elas não poderiam ir para a escola, deveriam ficar em casa e fazer o trabalho doméstico. Eram duas irmãs, uma de 11 e outra de 13 anos, que faziam todo o trabalho da casa: lavar, passar, cozinhar, limpar. A mãe trabalhava fora durante muitas horas e o trabalho doméstico era responsabilidade dessas duas meninas. Então, para elas, a punição era não poder ir para a escola. Não ir para a escola era algo negativo. Elas tinham um irmão de 14 anos, tinha praticamente sido reprovado no ano anterior por falta e a mãe ficava em cima dele para que ele fosse à escola. Ele não fazia nada desse trabalho doméstico e nem trabalhava para obter renda, a responsabilidade dele era só estudar. As pesquisadoras perguntaram: “e esse menino, não faz alguma coisa em casa?”. A mãe respondeu: "ele é muito desajeitado, ele não sabe fazer o trabalho doméstico". A relação, portanto, que estava sendo aprendida e reforçada pela mãe junto aos seus filhos era a seguinte: para o menino, a escola era o castigo e, para as meninas, ir para a escola era uma vantagem e não ir, um castigo. Quando a mãe dizia "eu trabalho o dia inteiro e elas vão sair com as amigas para ir pra escola", se via que, na percepção dela e possivelmente das meninas também, a escola era também um momento de lazer.
 
-<!--\\[if !mso]>
+<!--\\\[if !mso]>
 <style>
 v\:* {behavior:url(#default#VML);}
 o\:* {behavior:url(#default#VML);}
 w\:* {behavior:url(#default#VML);}
 .shape {behavior:url(#default#VML);}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -2706,9 +2706,9 @@ w\:* {behavior:url(#default#VML);}
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -3287,9 +3287,9 @@ w\:* {behavior:url(#default#VML);}
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -3309,16 +3309,16 @@ w\:* {behavior:url(#default#VML);}
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <o:shapedefaults v:ext="edit" spidmax="1027"/>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <o:shapelayout v:ext="edit">
   <o:idmap v:ext="edit" data="1"/>
- </o:shapelayout></xml><!\\[endif]-->
+ </o:shapelayout></xml><!\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -3330,7 +3330,7 @@ Enquanto isso, para o irmão, a escola é uma chatice. Para ir à escola, ele te
 
 Eu não quero generalizar, mas para essas meninas de classes populares de periferias urbanas, a responsabilização precoce pelo trabalho doméstico, além de permitir a relação positiva com a escola, as levava a ter uma grande organização, autonomia e disciplina, todas essas palavras que expressam valores que a escola preza.
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -3371,9 +3371,9 @@ Eu não quero generalizar, mas para essas meninas de classes populares de perife
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -3952,9 +3952,9 @@ Eu não quero generalizar, mas para essas meninas de classes populares de perife
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -3974,7 +3974,7 @@ Eu não quero generalizar, mas para essas meninas de classes populares de perife
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -3984,7 +3984,7 @@ Há ainda um outro aprendizado mais sutil que se dá no interior das famílias e
 
 **Portal IDeA: Nessa mesma perspectiva de estudar processos singulares, vocês estudaram grupos de meninos que mantinham uma relação positiva com a escola. Nessa pesquisa vocês discutem a tese de que a masculinidade, principalmente a masculinidade popular, se opõe à escola.**
 
-**Marília Carvalho:** Esse foi um trabalho muito bonito, especificamente focado nos meninos bem sucedidos, que uma aluna minha desenvolveu, a Cíntia Toledo. Ela trabalhou, no mestrado, com meninos estudantes do Ensino Fundamental 1. Essa é uma discussão complicada, porque o debate existente é herdeiro do trabalho do Paul Willis, *Aprendendo a ser trabalhador*. Paul Willis fez sua pesquisa nos anos de 1970, ainda no ciclo positivo do capitalismo, em uma cidade na Inglaterra em que a revolução industrial se originou. Nela, os meninos saiam da escola direto para a fábrica, para metalúrgicas. Eles terminavam o equivalente ao Ensino Médio e tinham emprego garantido nas fábricas onde seus pais também trabalhavam. Ele adotou uma perspectiva antropológica, fez uma pesquisa de campo longa na escola e observou que esse grupo de meninos ia desenvolvendo, dentro da própria escola, uma cultura que, justamente, desvalorizava a cultura <!--\\[if gte mso 9]><xml>
+**Marília Carvalho:** Esse foi um trabalho muito bonito, especificamente focado nos meninos bem sucedidos, que uma aluna minha desenvolveu, a Cíntia Toledo. Ela trabalhou, no mestrado, com meninos estudantes do Ensino Fundamental 1. Essa é uma discussão complicada, porque o debate existente é herdeiro do trabalho do Paul Willis, *Aprendendo a ser trabalhador*. Paul Willis fez sua pesquisa nos anos de 1970, ainda no ciclo positivo do capitalismo, em uma cidade na Inglaterra em que a revolução industrial se originou. Nela, os meninos saiam da escola direto para a fábrica, para metalúrgicas. Eles terminavam o equivalente ao Ensino Médio e tinham emprego garantido nas fábricas onde seus pais também trabalhavam. Ele adotou uma perspectiva antropológica, fez uma pesquisa de campo longa na escola e observou que esse grupo de meninos ia desenvolvendo, dentro da própria escola, uma cultura que, justamente, desvalorizava a cultura <!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -4025,9 +4025,9 @@ Há ainda um outro aprendizado mais sutil que se dá no interior das famílias e
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -4606,9 +4606,9 @@ Há ainda um outro aprendizado mais sutil que se dá no interior das famílias e
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -4628,7 +4628,7 @@ Há ainda um outro aprendizado mais sutil que se dá no interior das famílias e
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -4656,7 +4656,7 @@ Uma das professoras que a gente estava observando, por exemplo, era uma professo
 
 Um outro exemplo, de uma professora muito bacana também e que, tempos depois, refletindo sobre esse evento que eu vou relatar, se perguntava: "nossa, como eu fiz isso?” Ela me mostrou um caderno lindo, organizado, com letra bonita e em que não faltava nada. Ela me mostrou o caderno e disse: "parece um caderno de menina, né? Mas não é". Era do menino mais bagunceiro da sala de aula, um grupo da então 4a série do Ensino Fundamental, que tinha uns 11 anos de idade. Ele era suficientemente esperto e tinha formação escolar suficiente para fazer rapidamente as lições, sempre com essa organização. Ele trabalhava bem em casa, fazia a lição em casa, mas na sala de aula, na maior parte do tempo ele ficava andando, indo e voltando, havia inclusive uma certa permissividade da professora e dos colegas. Ele fazia piada, incomodava todo mundo, mas era visto como bacana, como legal e o caderno dele era ótimo, até parecia caderno de menina.
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -4697,9 +4697,9 @@ Um outro exemplo, de uma professora muito bacana também e que, tempos depois, r
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -5278,9 +5278,9 @@ Um outro exemplo, de uma professora muito bacana também e que, tempos depois, r
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -5300,7 +5300,7 @@ Um outro exemplo, de uma professora muito bacana também e que, tempos depois, r
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -5326,7 +5326,7 @@ Enquanto isso, os meninos reproduziam as ocupações dos pais. Muitos pais falav
 
 Há uma generalização recorrente a respeito dos impactos da gravidez na adolescência sobre as trajetórias escolares, mas que se sustenta pouco. É evidente que, se uma moça engravida e ainda está na escola, seja no Ensino Fundamental, seja no Ensino Médio, a vida escolar será atrapalhada. Ela terá dificuldades porque terá de arcar com a responsabilidade sozinha, porque criança é responsabilidade de mãe e o pai do bebê dificilmente assume parte dela. Mas não é esse o motivo principal das dificuldades escolares que as moças podem ter. Há estudos interessantes que, inclusive, mostram a relação inversa. São as moças que já vinham com vários problemas na escola, que já estavam com a escolaridade atrasada ou que já tinham abandonado a escola, aquelas que, mais frequentemente, engravidam antes dos 18 anos. Ou seja, o sentido da explicação talvez seja outro do que o discurso corrente sugere. Ao invés da evasão escolar ser decorrência da gravidez, talvez os problemas com a escola tenham antecedido a gravidez. E não necessariamente a gravidez é indesejada.
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -5367,9 +5367,9 @@ Há uma generalização recorrente a respeito dos impactos da gravidez na adoles
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -5948,9 +5948,9 @@ Há uma generalização recorrente a respeito dos impactos da gravidez na adoles
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -5970,7 +5970,7 @@ Há uma generalização recorrente a respeito dos impactos da gravidez na adoles
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -6000,7 +6000,7 @@ A desvantagem se inverteu e a política pública, se for focalizada por gênero,
 
 No Brasil, realmente, eu não conheço sequer quem tenha efetivamente prestado atenção nisso. Eu diria que, de modo geral, as pessoas sequer percebem o problema que está na frente delas o tempo todo, tão naturalizado que está. É um ponto cego, a gente não enxerga e não consegue interferir.
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -6041,9 +6041,9 @@ No Brasil, realmente, eu não conheço sequer quem tenha efetivamente prestado a
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -6622,9 +6622,9 @@ No Brasil, realmente, eu não conheço sequer quem tenha efetivamente prestado a
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -6644,7 +6644,7 @@ No Brasil, realmente, eu não conheço sequer quem tenha efetivamente prestado a
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -6654,9 +6654,9 @@ Nem no âmbito da sala de aula, nem no da escola e muito menos em termos de pol�
 
 ARTES, A.C.A; CARVALHO, M.P. O trabalho como fator determinante da defasagem escolar dos meninos no Brasil: mito ou realidade? Cadernos Pagu, v. 34, p. 41-74, 2010.<https://doi.org/10.1590/S0104-83332010000100004>
 
-CARVALHO, M.P. SENKEVICS, A.S.; LOGES, T.A.. O sucesso escolar de meninas de camadas populares: qual o papel da socialização familiar? Em: *Educação e Pesquisa*40 (3), p. 717–734. 2014.
+CARVALHO, M.P. SENKEVICS, A.S.; LOGES, T.A.. O sucesso escolar de meninas de camadas populares: qual o papel da socialização familiar? Em: *Educação e Pesquisa* 40 (3), p. 717–734. 2014.
 
-CORREA, H.. Antecedentes do baixo nível de escolarização alcançado por uma coorte de jovens mães brasileiras. Educação e Pesquisa, São Paulo, v. 40, n.2, p. 499-516, jun. 2014. *\[https://www.scielo.br/scielo.php?pid=S1517-97022014000200013&script=sci_abstract&tlng=pt](*https://www.scielo.br/scielo.php?pid=S1517-97022014000200013&script=sci_abstract&tlng=pt*)*
+CORREA, H.. Antecedentes do baixo nível de escolarização alcançado por uma coorte de jovens mães brasileiras. Educação e Pesquisa, São Paulo, v. 40, n.2, p. 499-516, jun. 2014. 
 
 DUQUE-ARRAZOLA, L.. In: MADEIRA, F.R. *Quem mandou nascer mulher?* Estudos sobre crianças e adolescentes pobres no Brasil. Rio de Janeiro; Rosa dos Tempos; 1997
 
@@ -6670,7 +6670,7 @@ SENKEVICS, A.S.; CARVALHO, M.P. Casa, rua, escola: gênero e escolarização em 
 
 SENKEVICS, A.S.; CARVALHO, M.P. O que você quer ser quando crescer? Escolarização e gênero entre camadas populares urbanas. Revista Brasileira de Estudos Pedagógicos, Brasília, v. 97, n. 245, p. 179-194, jan./abr. 2016.<http://dx.doi.org/10.1590/S2176-6681/380613879>
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -6711,9 +6711,9 @@ SENKEVICS, A.S.; CARVALHO, M.P. O que você quer ser quando crescer? Escolariza�
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -7292,9 +7292,9 @@ SENKEVICS, A.S.; CARVALHO, M.P. O que você quer ser quando crescer? Escolariza�
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -7314,13 +7314,13 @@ SENKEVICS, A.S.; CARVALHO, M.P. O que você quer ser quando crescer? Escolariza�
 	font-size:11.0pt;
 	font-family:"Calibri",sans-serif;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
 TEIXEIRA, I.A.V. ; GOMES, A.M.R. . A escola indígena tem gênero? Explorações a partir da vida das mulheres e professoras Xakriabá.. Práxis Educativa (Impresso), v. 7, p. 55-83, 2012.<https://www.revistas2.uepg.br/index.php/praxiseducativa/article/view/5057/3325>
 
-TOLEDO, C.T.; CARVALHO, M.P.. Masculinidades e desempenho escolar: a construção de hierarquias entre pares. *Cadernos de Pesquisa,*48 (169), 2018. p. 1002–1023. *\[https://www.scielo.br/scielo.php?script=sci_abstract&pid=S0100-15742018000301002&lng=en&nrm=iso&tlng=pt](*https://www.scielo.br/scielo.php?script=sci_abstract&pid=S0100-15742018000301002&lng=en&nrm=iso&tlng=pt*)*
+TOLEDO, C.T.; CARVALHO, M.P.. Masculinidades e desempenho escolar: a construção de hierarquias entre pares. *Cadernos de Pesquisa,*48 (169), 2018. p. 1002–1023. 
 
 WILLIS, P.. Aprendendo a ser trabalhador. Porto Alegre: Artes Médicas, 1991.
 
