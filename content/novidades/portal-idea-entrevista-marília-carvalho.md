@@ -6,7 +6,7 @@ tags:
 short_description: "Entrevista com a professora e pesquisadora Marília Carvalho
   sobre educação e relações de gênero. "
 ---
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -45,9 +45,9 @@ short_description: "Entrevista com a professora e pesquisadora Marília Carvalho
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -626,9 +626,9 @@ short_description: "Entrevista com a professora e pesquisadora Marília Carvalho
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -652,7 +652,7 @@ short_description: "Entrevista com a professora e pesquisadora Marília Carvalho
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -660,7 +660,7 @@ Marília Carvalho, professora da Faculdade de Educação da USP, pesquisa educa�
 
 **Portal IDeA: Por todo o mundo, as desigualdades educacionais por gênero assumiram novos padrões nas últimas décadas do século XX. No Brasil, a partir de 1980, as mulheres já eram mais escolarizadas que os homens e tinham maiores níveis de aprendizagem, sobretudo em língua materna. No entanto, outras diferenciações perduram, como as associadas aos aspectos identitários e culturais da educação escolar. Quais são as principais características, hoje, das desigualdades educacionais por gênero?**
 
-**Marília Carvalho:**Hoje, em termos de acesso, há igualdade entre meninos e meninas. As desigualdades começam a aparecer na progressão da escolaridade. Na medida que a escolaridade vai avançando, o percentual de meninas matriculadas é maior que o de meninos. Por consequência, quando se observa o conjunto da população, as mulheres têm, em média, mais anos de estudo do que os homens.
+**Marília Carvalho:** Hoje, em termos de acesso, há igualdade entre meninos e meninas. As desigualdades começam a aparecer na progressão da escolaridade. Na medida que a escolaridade vai avançando, o percentual de meninas matriculadas é maior que o de meninos. Por consequência, quando se observa o conjunto da população, as mulheres têm, em média, mais anos de estudo do que os homens.
 
 **Portal IDeA: As desigualdades educacionais por gênero assumem padrões diferentes conforme variam classe social e raça?**
 
@@ -672,7 +672,7 @@ Marília Carvalho, professora da Faculdade de Educação da USP, pesquisa educa�
 
 **Portal IDeA: Entretanto, é recorrente na literatura a hipótese da homologia entre características femininas e a escola.**
 
-**Marília Carvalho:**Precisamos ser muito cautelosos ao pensarmos essa homologia, porque ela pode nos levar à universalização da explicação. No caso de gênero, esses universalismos são tentadores, mais do que para se pensar raça. No caso do debate sobre raça, está bem estabelecido que não se pode dizer "os negros são assim". Há uma forte percepção de que isso é racialismo ou racismo direto, pois não se pode atribuir a origem de comportamentos sociais a características biológicas.
+**Marília Carvalho:** Precisamos ser muito cautelosos ao pensarmos essa homologia, porque ela pode nos levar à universalização da explicação. No caso de gênero, esses universalismos são tentadores, mais do que para se pensar raça. No caso do debate sobre raça, está bem estabelecido que não se pode dizer "os negros são assim". Há uma forte percepção de que isso é racialismo ou racismo direto, pois não se pode atribuir a origem de comportamentos sociais a características biológicas.
 
 No entanto, não se hesita em fazer isso no debate sobre gênero. Não se hesita em supor que "as meninas são mais obedientes", "as meninas são mais organizadas", "as meninas amadurecem mais cedo", "os meninos são mais indisciplinados", "os meninos são mais agressivos". Tudo isso é preconceito, é sexismo, da mesma forma que é racismo dizer que os negros são mais violentos. Quando a gente generaliza, a gente acaba por cair em uma suposta natureza feminina e uma suposta natureza masculina. Ao se pensar assim, a gente deixa o território da explicação sociológica e transfere a explicação desses atributos para a natureza.
 
@@ -680,7 +680,7 @@ No debate sobre gênero, esses universais são muito poderosos porque eles não 
 
 **Portal IDeA: E a que resultados vocês chegaram em suas pesquisas?**
 
-**Marília Carvalho:**Optei por tentar construir um conhecimento localizado, de modo que seja possível entender esses resultados gerais como frutos de processos particulares e específicos. Estudei e orientei pesquisas sobre meninas e meninos de setores populares de bairros periféricos de São Paulo e acredito há várias semelhanças com outras cidades grandes brasileiras.
+**Marília Carvalho:** Optei por tentar construir um conhecimento localizado, de modo que seja possível entender esses resultados gerais como frutos de processos particulares e específicos. Estudei e orientei pesquisas sobre meninas e meninos de setores populares de bairros periféricos de São Paulo e acredito há várias semelhanças com outras cidades grandes brasileiras.
 
 Estudamos famílias que tinham pelo menos uma menina e um menino em idade escolar. Apesar de um discurso igualitário num primeiro momento, meninas e meninos eram socializados de modos muito diferentes. Elas, desde muito cedo, são responsabilizadas pelo trabalho doméstico do dia-a-dia e têm poucas possibilidades de circulação fora de casa. Não sem razão, porque viviam em bairros marcados pela violência. Várias mães também manifestaram preocupação com os meninos, mas eles eram frequentadores dos campinhos de futebol, empinavam pipa, circulavam de bicicleta.
 
