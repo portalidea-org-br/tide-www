@@ -297,7 +297,7 @@ collections:
         label: "Custom link"
         name: "custom_link"
         widget: "hidden"
-        default: "/desigualdade-escolares"
+        default: "/desigualdades-escolares"
       -
         label: "Texto em português"
         name: "texto_portugues"
