@@ -1,10 +1,10 @@
 ---
-title: 'Educação, pobreza e desigualdades'
-date: '2019-06-19T15:21:05Z'
+title: Educação, pobreza e desigualdades
+date: 2019-06-19T15:21:05Z
 areas:
-  - ''
+  - pesquisas
 file: /uploads/pesquisa-diagramada_ed.-pobreza-e-desigualdades-v1.pdf
-short_description: 'Maria Alice Nogueira, Tânia F. Resende e Viviane Coelho C. Ramos'
+short_description: Maria Alice Nogueira, Tânia F. Resende e Viviane Coelho C. Ramos
 custom_link: /desigualdades-escolares
 ---
 Esta publicação é parte dos resultados de um trabalho de pesquisa desenvolvido pelo Observatório Sociológico Família-Escola (OSFE), da Faculdade de Educação da Universidade Federal de Minas Gerais (UFMG), no âmbito do projeto Rede de Grupos de Pesquisa em Educação e Desigualdades, fomentado pela Fundação Tide Setubal. Seu objetivo é o de propiciar – a pesquisadores, estudantes, gestores, profissionais do terceiro setor e público em geral – um diretório de estudos que focaliza as relações entre educação, pobreza e desigualdades, de modo a estimular ou colaborar com pesquisas sobre o tema, bem como contribuir para a reflexão sobre políticas públicas e iniciativas da sociedade civil nessa área.
