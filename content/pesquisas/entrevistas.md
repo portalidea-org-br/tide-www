@@ -3,7 +3,7 @@ title: "Entrevistas "
 date: 2020-05-28T13:01:28.000Z
 areas:
   - entrevistas
-file: /uploads/newsletter_02-entrevista-com-marília-carvalho-completa.pdf
+file: /uploads/argentina_martinicgregorio_secundarias_rurais.pdf
 short_description: Nessa seção apresentamos as íntegras das entrevistas dada ao Portal IDeA
 custom_link: /desigualdade-escolares
 ---
