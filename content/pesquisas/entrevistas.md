@@ -5,7 +5,7 @@ areas:
   - entrevistas
 file: /uploads/argentina_martinicgregorio_secundarias_rurais.pdf
 short_description: Nessa seção apresentamos as íntegras das entrevistas dada ao Portal IDeA
-custom_link: /desigualdade-escolares
+custom_link: ""
 ---
 <!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
