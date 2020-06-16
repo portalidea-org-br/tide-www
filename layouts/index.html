@@ -165,6 +165,7 @@
             </noscript>
           </div>
 
+          {{ with first 3 (where .Site.RegularPages "Section" "novidades") }}
           <div class="home-block home-block-news">
             <h1>Novidades</h1>
             <div class="slider slider--home-block" id="js-novidades">
@@ -172,7 +173,7 @@
             </div>
             <noscript>
               <div class="slider slider--home-block">
-                {{ range first 3 (where .Site.RegularPages "Section" "novidades") }}
+                {{ range . }}
                   <section>
                     <div class="home-block-news__content">
                       <header>
@@ -186,6 +187,8 @@
               </div>
             </noscript>
           </div>
+          {{ end }}
+
         </div>
 
         {{ partial "contact.html" . }}
