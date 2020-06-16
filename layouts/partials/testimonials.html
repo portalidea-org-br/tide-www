@@ -1,3 +1,4 @@
+{{ with first 3 (sort ((where .Site.Pages ".Params.role" "testimonials") "weight" "desc")) }}
 <section class="testimonials">
   <div class="container">
     <h4>Conheça mais sobre o debate</h4>
@@ -7,26 +8,26 @@
   </div>
   <noscript>
     <div class="slider">
-      {{ range first 3 (sort ((where .Site.Pages ".Params.role" "testimonials") "weight" "desc")) }}
-
-      <blockquote>
-        <div class="testimonials__content">
-          <figure>
-            {{ with .Params.video }}
-              <a href="#video">
+      {{ range . }}
+        <blockquote>
+          <div class="testimonials__content">
+            <figure>
+              {{ with .Params.video }}
+                <a href="#video">
+              {{ end }}
+                <img src="{{ .Params.Image }}" alt="{{ .Params.Alt }}">
+              {{ with .Params.video }}
+                </a>
+              {{ end }}
+            </figure>
+            <p>{{ .Content | plainify }}</p>
+            {{ if .Params.Name }}
+            <footer><cite>{{ .Params.Name }}</cite></footer>
             {{ end }}
-              <img src="{{ .Params.Image }}" alt="{{ .Params.Alt }}">
-            {{ with .Params.video }}
-              </a>
-            {{ end }}
-          </figure>
-          <p>{{ .Content | plainify }}</p>
-          {{ if .Params.Name }}
-          <footer><cite>{{ .Params.Name }}</cite></footer>
-          {{ end }}
-        </div>
-      </blockquote>
+          </div>
+        </blockquote>
       {{ end }}
     </div>
   </noscript>
 </section>
+{{ end }}
