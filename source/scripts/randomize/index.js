@@ -1,6 +1,9 @@
 import Axios from 'axios';
 
 function shufleAndSelect(array, items) {
+  if (array.length === 0 || !items) {
+    return false;
+  }
   // Shuffle array
   const shuffled = array.sort(() => 0.5 - Math.random());
 
@@ -136,20 +139,24 @@ export default async function initRamdomize() {
   await Axios.get('/inspirese/index.json')
     .then(response => response.data.inspirese)
     .then(response => shufleAndSelect(response, 3))
-    .then(response => mountInspireHtml(response, 'js-inspire'));
+    .then(response => mountInspireHtml(response, 'js-inspire'))
+    .catch(error => window.console.log(error));
 
   await Axios.get('/novidades/index.json')
     .then(response => response.data.novidades)
     .then(response => shufleAndSelect(response, 3))
-    .then(response => mountNovidadesHtml(response, 'js-novidades'));
+    .then(response => mountNovidadesHtml(response, 'js-novidades'))
+    .catch(error => window.console.log(error));
 
   await Axios.get('/depoimentos/index.json')
     .then(response => response.data.depoimentos)
     .then(response => shufleAndSelect(response, 3))
-    .then(response => mountDepoimentosHtml(response, 'js-depoimentos'));
+    .then(response => mountDepoimentosHtml(response, 'js-depoimentos'))
+    .catch(error => window.console.log(error));
 
   await Axios.get('/pesquisas/index.json')
     .then(response => response.data.pesquisas)
     .then(response => shufleAndSelect(response, 2))
-    .then(response => mountPesquisasHtml(response, 'js-pesquisas'));
+    .then(response => mountPesquisasHtml(response, 'js-pesquisas'))
+    .catch(error => window.console.log(error));
 }

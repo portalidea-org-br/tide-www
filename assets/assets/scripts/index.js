@@ -12344,7 +12344,11 @@ var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/
 var _axios = _interopRequireDefault(require("axios"));
 
 function shufleAndSelect(array, items) {
-  // Shuffle array
+  if (array.length === 0 || !items) {
+    return false;
+  } // Shuffle array
+
+
   var shuffled = array.sort(function () {
     return 0.5 - Math.random();
   }); // Get sub-array of first n elements after shuffled
@@ -12441,6 +12445,8 @@ function _initRamdomize() {
               return shufleAndSelect(response, 3);
             }).then(function (response) {
               return mountInspireHtml(response, 'js-inspire');
+            }).catch(function (error) {
+              return window.console.log(error);
             });
 
           case 2:
@@ -12451,6 +12457,8 @@ function _initRamdomize() {
               return shufleAndSelect(response, 3);
             }).then(function (response) {
               return mountNovidadesHtml(response, 'js-novidades');
+            }).catch(function (error) {
+              return window.console.log(error);
             });
 
           case 4:
@@ -12461,6 +12469,8 @@ function _initRamdomize() {
               return shufleAndSelect(response, 3);
             }).then(function (response) {
               return mountDepoimentosHtml(response, 'js-depoimentos');
+            }).catch(function (error) {
+              return window.console.log(error);
             });
 
           case 6:
@@ -12471,6 +12481,8 @@ function _initRamdomize() {
               return shufleAndSelect(response, 2);
             }).then(function (response) {
               return mountPesquisasHtml(response, 'js-pesquisas');
+            }).catch(function (error) {
+              return window.console.log(error);
             });
 
           case 8:
