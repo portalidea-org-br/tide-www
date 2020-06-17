@@ -1,8 +1,9 @@
 ---
 title: Suspensão das aulas e desigualdades de aprendizagem
-date: 2020-04-16T08:03:47Z
+date: 2020-04-16T08:03:47.000Z
 tags:
   - notícias
+alt: ""
 short_description: A necessária suspensão das aulas devido à pandemia poderá
   acarretar um aprofundamento das desigualdades escolares.
 ---
