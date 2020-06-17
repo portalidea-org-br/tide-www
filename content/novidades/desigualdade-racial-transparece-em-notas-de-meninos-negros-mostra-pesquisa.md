@@ -1,6 +1,5 @@
 ---
-title: "&quot;Desigualdade racial transparece em notas de meninos negros, mostra
-  pesquisa&quot;"
+title: Desigualdade racial transparece em notas de meninos negros, mostra pesquisa
 date: 2020-05-27T08:26:40.000Z
 tags:
   - Na mídia
