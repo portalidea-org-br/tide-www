@@ -1,6 +1,6 @@
 ---
-title: "Ou isso ou aquilo: aprendizagem ou equidade"
-date: 2020-07-07T20:53:29Z
+title: "Isto e aquilo: aprendizagem e equidade"
+date: 2020-07-07T20:53:29.000Z
 tags:
   - notícias
 short_description: "As análises a partir dos dados do IDeA mostram que os
