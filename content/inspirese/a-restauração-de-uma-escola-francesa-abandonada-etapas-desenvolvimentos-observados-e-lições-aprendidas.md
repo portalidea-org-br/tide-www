@@ -1,10 +1,10 @@
 ---
 title: "A restauração de uma escola francesa abandonada: etapas,
   desenvolvimentos observados e lições aprendidas"
-date: 2020-09-09T16:22:30Z
+date: 2020-09-09T16:22:30.000Z
 paises:
   - França
-alt: aaa
+alt: aas
 file: /uploads/broccolichi-lagerze_escola-frissay_versao_final.pdf
 author: Sylvain Broccolichi e Brigitte Larguèze
 short_description: Relata a implementação de estratégias voltadas a evitar o
