@@ -1,7 +1,7 @@
 ---
 title: "Com o fechamento das escolas pela Covid-19, as crianças do mundo vão ao
   trabalho "
-date: 2020-10-04T15:26:33Z
+date: 2020-10-04T15:26:33.000Z
 tags:
   - Na mídia
 short_description: "A reportagem do The New York Times apresenta o cenário atual
@@ -9,13 +9,13 @@ short_description: "A reportagem do The New York Times apresenta o cenário atua
   escolas pela pandemia, estão trabalhando para ajudar no sustento de suas
   famílias. "
 ---
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -55,9 +55,9 @@ short_description: "A reportagem do The New York Times apresenta o cenário atua
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -636,9 +636,9 @@ short_description: "A reportagem do The New York Times apresenta o cenário atua
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -665,7 +665,7 @@ short_description: "A reportagem do The New York Times apresenta o cenário atua
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
@@ -673,13 +673,13 @@ Leia a reportagem original do The New York Times, publicada no dia 27 de setembr
 
 <!--EndFragment-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -719,9 +719,9 @@ Leia a reportagem original do The New York Times, publicada no dia 27 de setembr
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -1300,9 +1300,9 @@ Leia a reportagem original do The New York Times, publicada no dia 27 de setembr
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -1329,7 +1329,7 @@ Leia a reportagem original do The New York Times, publicada no dia 27 de setembr
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
@@ -1339,7 +1339,7 @@ Representantes das Nações Unidas estimam que pelo menos 24 milhões de crianç
 
 O trabalho infantil é apresentado como uma das facetas de um desastre global para essa faixa etária. Os autores ainda citam a fome extrema que assola as crianças em países como Afeganistão e Sudão do Sul, o aumento de casamentos forçados de meninas na África e Ásia, o tráfico de crianças, a explosão da gravidez precoce em Uganda e a prostituição das adolescentes no Quênia.
 
-Diante desse cenário, ativistas pela infância perguntam: se há a abertura de outras da sociedade (restaures, bares, academias etc.) por que não abrir as escolas ou, pelo menos, discutir sua abertura? Cornelius Williams acredita que os líderes mundiais que realmente acreditam na educação “deveriam usar os recursos para as escolas”, mas não o estão fazendo, o que o leva a questionar “ isso é porque os adultos têm agência, têm uma voz mais forte e o poder do voto?”.
+Diante desse cenário, ativistas pela infância perguntam: se há a abertura de outras áreas da sociedade (restaurantes, bares, academias etc.) por que não abrir as escolas ou, pelo menos, discutir sua abertura? Cornelius Williams afirma que os líderes mundiais que realmente acreditam na educação “deveriam usar os recursos para as escolas”, mas não o estão fazendo, o que o leva a questionar “ isso é porque os adultos têm agência, têm uma voz mais forte e o poder do voto?”.
 
 Por outro lado, o governo da Índia, por exemplo, afirma que o corona vírus não lhes deixa alternativa. No país as novas infecções chegam a 100.000 por dia e as crianças seriam, na opinião dos representantes governamentais, um vetor de propagação já que teriam dificuldade em manter o distanciamento social.
 
