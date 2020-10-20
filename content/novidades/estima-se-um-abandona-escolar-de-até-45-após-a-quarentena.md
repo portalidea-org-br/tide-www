@@ -1,18 +1,18 @@
 ---
 title: "Estima-se um abandona escolar de até 45% após a quarentena "
-date: 2020-10-20T15:23:52Z
+date: 2020-10-20T15:23:52.000Z
 tags:
   - Na mídia
 short_description: Reportagem do jornal argentino La Nación sobre a previsão de
   evasão escolar no país após a quarentena
 ---
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -52,9 +52,9 @@ short_description: Reportagem do jornal argentino La Nación sobre a previsão d
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -633,9 +633,9 @@ short_description: Reportagem do jornal argentino La Nación sobre a previsão d
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -662,7 +662,7 @@ short_description: Reportagem do jornal argentino La Nación sobre a previsão d
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
@@ -670,13 +670,13 @@ Leia a reportagem original do jornal La Nación, publicada no dia 3 de julho de 
 
 <!--EndFragment-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -716,9 +716,9 @@ Leia a reportagem original do jornal La Nación, publicada no dia 3 de julho de 
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -1297,9 +1297,9 @@ Leia a reportagem original do jornal La Nación, publicada no dia 3 de julho de 
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -1326,11 +1326,11 @@ Leia a reportagem original do jornal La Nación, publicada no dia 3 de julho de 
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
-Uma pesquisa feita pela Fundación Voz mostrou que o abandono escolar pós pandemia na Argentina pode variar entre 25 e 45% dependendo dos “contextos geográficos, tecnológicos, entre outros”, tanto pela dificuldade de acompanhar o ensino a distância quanto pela necessidade de trabalhar auxiliar financeiramente as famílias. Dados das Nações Unidas para o país apontam que 10.500.000 meninos, meninas e adolescentes não tiveram aulas (70% destes nas escolas públicas), principalmente por falta de Internet e equipamentos.
+Uma pesquisa feita pela Fundación Voz mostrou que o abandono escolar pós pandemia na Argentina pode variar entre 25 e 45% dependendo dos “contextos geográficos, tecnológicos, entre outros”, tanto pela dificuldade de acompanhar o ensino a distância quanto pela necessidade de trabalhar para auxiliar financeiramente as famílias. Dados das Nações Unidas para o país apontam que 10.500.000 meninos, meninas e adolescentes não tiveram aulas (70% destes nas escolas públicas), principalmente por falta de Internet e equipamentos.
 
 A reportagem do jornal argentino La Nación entrevistou 4 jovens entre 15 e 22 anos de diferentes cidades do país para saber mais sobre os desafios enfrentados por eles para continuarem sua trajetória académica, como estão lidando com o momento de pandemia, em especial os diferentes tipos de apoio que estão recebendo, e seus projetos de futuro.
 
