@@ -1,8 +1,8 @@
 ---
 title: A escola combate ou reforça a desigualdade?
-date: 2020-11-21T09:53:43Z
+date: 2020-11-21T09:53:43.000Z
 tags:
-  - news
+  - notícias
 short_description: Podcast da Folha de São Paulo discute desigualdades educacionais no Brasil
 ---
 A terceira temporada do [podcast Folha na Sala](https://www1.folha.uol.com.br/podcasts/folha-na-sala/), produzida pelo Jornal Folha de São Paulo, discutirá o lugar da escola no cenário de desigualdades sociais e educacionais do país, abordado temas como a origem do sistema escolar, democratização de acesso, desigualdades de aprendizagem entre grupos e evasão. Para discutir esses temas, o programa entrevistou vários especialistas na área, entre eles os professores Chico Soares e Maurício Ernica, pesquisadores da equipe desenvolvedora do IDeA.
