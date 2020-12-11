@@ -1,19 +1,19 @@
 ---
-title: "O Impacto da COVID-19 na educação : Percepções do relatório “Education
-  at a Glance” OCDE 2020"
-date: 2020-12-11T11:31:10Z
+title: "O Impacto da COVID-19 na educação: Percepções do relatório “Education at
+  a Glance” OCDE 2020"
+date: 2020-12-11T11:31:10.000Z
 tags:
   - notícias
 short_description: A equipe do Portal IDeA resumiu e traduziu os principais
   pontos do relatório da OCDE sobre o impacto da COVID-19 na educação
 ---
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -53,9 +53,9 @@ short_description: A equipe do Portal IDeA resumiu e traduziu os principais
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 9]><xml>
+<!--\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="376">
@@ -634,9 +634,9 @@ short_description: A equipe do Portal IDeA resumiu e traduziu os principais
   <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
    Name="Smart Link"/>
  </w:LatentStyles>
-</xml><!\[endif]-->
+</xml><!\\[endif]-->
 
-<!--\[if gte mso 10]>
+<!--\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -663,91 +663,55 @@ short_description: A equipe do Portal IDeA resumiu e traduziu os principais
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\[endif]-->
+<!\\[endif]-->
 
 <!--StartFragment-->
 
 **Introdução**
 
- 
-
 A pandemia da COVID-19 afetou todo o mundo, atingindo com mais força os mais vulneráveis inclusive nas questões educacionais. O *lockdown* interrompeu as atividades presenciais na maioria dos países da OCDE e parceiros, durando em média 10 semanas. Contudo, os alunos com *backgrounds* mais privilegiados puderam encontrar alternativas educacionais mesmo com o fechamento das escolas, ao contrário de seus pares menos privilegiados. Essa situação deixou ainda mais clara as inadequações e desigualdades dos sistemas educacionais, desde o acesso à tecnologia e à ambientes propícios à aprendizagem, até uma falta de alinhamento entre recursos e necessidades. A perda de aprendizagem nesse período também se reflete nas habilidades relacionadas à produtividade. Estima-se que o PIB dos países pode ser, em média, 1.5% menor durante o restante deste século. 
-
- 
 
 A pandemia também teve grande impacto nas universidades com o fechamento dos campi e a proibição de entrada de alunos estrangeiros. Apesar da rapidez da resposta dada por estas instituições, adotando aulas online, a crise levanta questões sobre o próprio valor da educação universitária, incluindo seu papel como espaço de *networking* e oportunidades de socialização. 
 
- 
-
 Sem dúvidas a reabertura das escolas e universidades trará benefícios para os alunos e a economia. Contudo, estes benefícios devem ser contrapostos aos riscos de saúde. Portanto, é necessária uma coordenação eficaz entre as autoridades de saúde e educação, em seus diferentes níveis, assim como a participação e autonomia local para se desenhar as melhores respostas e protocolos para cada contexto. Algumas medidas a serem tomadas incluem distanciamento físico, protocolos de higiene e treinamento de pessoal. 
-
- 
 
 No entanto, os desafios não acabam com a crise imediata. Os gastos em educação poderão ficar comprometidos nos próximos anos, visto que o dinheiro público irá ser direcionado para a saúde e bem estar social. Da mesma forma, o financiamento privado também ficará mais restrito com o enfraquecimento da economia e o aumento do desemprego. No ensino superior, a diminuição da mobilidade internacional e restrições de viagem reduzem os fundos provenientes dos alunos internacionais, tanto nas instituições como na economia do anfitrião. Em uma perspectiva mais ampla, o *lockdown* escancarou e aumentou a desigualdade entre os trabalhadores, visto que a opção do teletrabalho ficou restrita, em grosso modo, aos profissionais com maiores níveis educacionais. 
 
- 
-
 **Financiamento público da educação nos países da OCDE** 
-
- 
 
 Espera-se uma queda de 6% na economia global em 2020, com uma média de 9.2% de desemprego nos países da OCDE, mesmo se uma segunda onda de infecções for evitada. Esse cenário influencia diretamente a educação, pois depende do dinheiro de impostos, além de ser essencial para a arrecadação de impostos futuros. Como não há nenhuma garantia que os mercados irão oferecer um acesso equitável às oportunidades educacionais, o financiamento público dos serviços educacionais é necessário para garantir que todos tenham acesso à educação. 
 
- 
-
 No entanto, o financiamento governamental normalmente flutua em resposta a choques externos e o governo muda as prioridades do seu investimento. A desaceleração da economia, associada à dispersão do vírus, poderá afetar este financiamento nos países da OCDE e parceiros, uma vez que os impostos baseados em renda irão diminuir e os fundos emergenciais serão usados para cobrir gastos com saúde e bem estar social. 
-
- 
 
 **Mobilidade internacional de estudantes**
 
 Além da perda financeira das instituições de ensino superior e dos países anfitriões, a mobilidade internacional de estudantes é tradicionalmente um facilitador para a imigração de talentos estrangeiros, contribuindo para a produção de conhecimento e inovação. Esse cenário é especialmente relevante nos programas de doutoramento, no qual, na média da OCDE, 1 entre cada 5 alunos vem de fora do país. 
 
- 
-
 **Tempo sem aulas presenciais**
 
 É difícil estimar com precisão o número de semanas de aula presencial afetadas durante a pandemia, pois em alguns países as escolas e autoridades locais têm autonomia para organizar seu calendário e abertura. Contudo, segundo a UNESCO, no fim de junho de 2020, algum nível de fechamento de escola estava em andamento por pelo menos 7 semanas em 2 países (4%), 8-12 semanas em 6 países (13%), 12-16 semanas em 24 países (52%), 16-18 semanas em 13 países (28%) e mais de 18 semanas na China. 
-
- 
 
 **Medidas de ensino durante o fechamento das escolas**
 
 Os países usaram uma variedade de recursos para continuar a aprendizagem dos alunos fora das escolas, incluindo material impresso, educação por rádio, programas educativos de televisão e instrução online. O uso de plataformas online foi o recurso mais utilizado nos países da OCDE e parceiros. 
 
-
-
 **O preparo dos professores para o uso da aprendizagem digital** 
 
 Grande parte dos sistemas educacionais dos países da OCDE não estavam preparados para o ensino digital. Dados do PISA de 2018 apontavam que o número de diretores de escola na OCDE que consideravam que ‘a falta ou inadequação da tecnologia prejudicava um pouco ou muito a aprendizagem’ variava de 2% em Cingapura a 30% na Itália e França. Da mesma forma, mesmo antes da pandemia, na média dos países da OCDE, 18% dos professores achavam altamente necessário o treinamento em Tecnologias de Informação e Comunicação (TIC). Entre os professores de ensino médio, em média 36% já haviam de algum tipo de treinamento online. 
-
- 
 
 **A educação profissional durante o *lockdown***
 
 Os programas de educação profissional tiveram uma dupla desvantagem com fechamento das instituições de ensino e de grande parte das empresas nas quais os alunos realizavam suas atividades práticas as quais, em alguns países, representam mais de 60% do tempo total de aprendizagem dos alunos. Além disso, a pandemia trouxe incertezas para o futuro econômico das empresas que recebem os alunos durante seus estudos e após a formatura. Algumas medidas sugeridas pela OCDE para apoiar a continuidade desta modalidade de ensino são: 1) aumentar o uso de plataformas online quando apropriado; 2) extensões ou perdão de financiamentos, taxas e pagamentos tanto dos alunos como das empresas; 3) apoio para o pagamento de salários dos aprendizes permitindo a continuação do contato com os empregadores e, quando possível, seu trabalho remoto; 4) fornecer alternativas baseadas no ensino escolar, quando for impossível para o aluno assegurar um estágio; 5) fornecer avaliação flexível das habilidades dos alunos e recompensar suas qualificações, especialmente em setores que podem ser acionados rapidamente durante a crise de COVID-19 como, por exemplo, o setor de saúde; 6)  informar e engajar os alunos, fornecedores e parceiros sobre as novas diretrizes, assegurando que todos estejam cientes sobre os regulamentos e práticas; 7) investir no ensino profissional para mitigar a possível falta de certas habilidades no futuro e minimizar o choque da crise. 
 
- 
-
- 
-
 **Quando e como reabrir as escolas** 
 
 O período fora das escolas mostrou a todos os benefícios do contato próximo com os professores e colegas para a aprendizagem, o desenvolvimento social e de saúde dos estudantes. Essa conscientização pode ajudar no engajamento público em favor das escolas e dos professores, em especial no contexto atual no qual os custos com a saúde e a economia geral podem diminuir o financiamento educacional. 
 
- 
-
 Há benefícios inquestionáveis na reabertura das instituições educacionais. Se não remediada, a perda de aprendizagem que já ocorreu afetará ainda mais a economia dos países, reduzir a produtividade e crescimento. A reabertura também trará benefícios econômicos para as famílias que poderão retornar ao trabalho. Contudo, esses benefícios devem considerar os riscos à saúde e as medidas necessárias para minimizar os riscos. Evidências de epidemias passadas sugerem que o fechamento das escolas pode prevenir em até 15% as infecções. 
-
- 
 
 Várias medidas podem ser tomadas para gerenciar os riscos da reabertura: 1) desenvolver protocolos de distanciamento físico, como, por exemplo, evitando atividades com grandes aglomerações, intercalar os horários de entrada e saída de aula, assim como o momento das refeições, mudar as aulas para outros espaços ou para áreas externas, atender os alunos em diferentes turnos para diminuir o tamanho da turma; 2) estabelecer protocolos e práticas de higiene, incluindo: lavagem das mãos, etiqueta respiratória, uso de equipamento de proteção, procedimentos de limpeza dos espaços e na preparação dos alimentos; 3) proteção dos professores, pessoal administrativo e alunos que tenham maior risco de contaminação, incluindo planos para cobrir a ausência de professores e a continuação da oferta de ensino online para os estudantes que não possam comparecer presencialmente; 4) treinamento de todo o quadro de funcionário das escolas sobre como lidar com o vírus, reconhecer os riscos e tomar as medidas necessárias, incluindo um possível fechamento total ou parcial da escola quando necessário. 
 
- 
-
 No momento da reabertura, há dois pontos principais a serem abordados: 1) fazer um balanço do que foi aprendido durante a crise e diagnosticar a perda de aprendizagem dos alunos; 2) a partir do que já foi feito, construir uma infraestrutura para aprendizagem online e remota, considerando que, até atingirmos uma imunização adequada pela vacinação, o ensino presencial pode ser novamente interrompido. Sendo assim, os planos de a reabertura das escolas devem considerar modalidades mistas de ensino/aprendizagem. 
-
- 
 
 **Tamanho da sala de aula, um parâmetro essencial para reabrir as escolas** 
 
