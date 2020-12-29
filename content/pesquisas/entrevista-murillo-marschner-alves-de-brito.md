@@ -3,6 +3,7 @@ title: Entrevista Murillo Marschner Alves de Brito
 date: 2020-12-11T11:36:46.000Z
 areas:
   - entrevistas
+file: /uploads/entrevista-prof.murillo.pdf
 short_description: "Entrevista com o professor Murillo Marschner Alves de Brito,
   do Departamento de Sociologia da USP, sobre as pesquisas nacionais e
   internacionais que abordam a expansão, transformação e desigualdades dos
