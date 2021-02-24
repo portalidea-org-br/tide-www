@@ -1,8 +1,8 @@
 ---
 title: "Evento FAPESP -Educação: COVID-19 e desigualdades sociais"
-date: 2021-02-24T18:30:21Z
+date: 2021-02-24T18:30:21.000Z
 tags:
-  - news
+  - Notícias
 short_description: Evento FAPESP reúne especialistas para discutir os impactos
   da COVID-19 na educação
 ---
