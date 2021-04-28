@@ -1,9 +1,9 @@
 ---
 title: '"Quem mais precisa da escola é quem recebe menos dela" - Fundação Tide
   Setubal entrevista Mauricio Ernica'
-date: 2021-04-28T10:45:13Z
+date: 2021-04-28T10:45:13.000Z
 tags:
-  - namidia
+  - na midia
 short_description: Entrevista com o Prof. Maurício Ernica sobre as desigualdades
   educacionais no cenário da pandemia.
 ---
