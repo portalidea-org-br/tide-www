@@ -1,6 +1,8 @@
 ---
 title: Entrevista Sabine Righetti
-date: 2021-05-21T14:54:26Z
+date: 2021-05-21T14:54:26.000Z
+areas:
+  - entrevistas
 short_description: Entrevista com Sabine Righetti, jornalista, pesquisadora
   doutora do LabJor (Unicamp) e co-fundadora da Bori, sobre divulgação
   científica de pesquisas nas ciências humanas e sociais
