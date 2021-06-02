@@ -1,7 +1,9 @@
 ---
 title: "Desigualdades de aprendizado no ensino fundamental brasileiro: insumos e
   processos escolares"
-date: 2021-06-02T09:55:44Z
+date: 2021-06-02T09:55:44.000Z
+areas:
+  - pesquisas
 file: /uploads/xavier-et-al-2021-desigualdades-resumo-executivo-2.pdf
 short_description: 'Resumo executivo da pesquisa "Desigualdades de aprendizado
   no ensino fundamental brasileiro: insumos e processos escolares" desenvolvida
