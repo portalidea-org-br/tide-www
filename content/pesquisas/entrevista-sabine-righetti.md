@@ -7,13 +7,13 @@ short_description: Entrevista com Sabine Righetti, jornalista, pesquisadora
   doutora do LabJor (Unicamp) e co-fundadora da Bori, sobre divulgação
   científica de pesquisas nas ciências humanas e sociais
 ---
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -53,9 +53,9 @@ short_description: Entrevista com Sabine Righetti, jornalista, pesquisadora
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="371">
@@ -624,9 +624,9 @@ short_description: Entrevista com Sabine Righetti, jornalista, pesquisadora
   <w:LsdException Locked="false" Priority="52"
    Name="List Table 7 Colorful Accent 6"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -653,19 +653,19 @@ short_description: Entrevista com Sabine Righetti, jornalista, pesquisadora
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
 O Portal IDeA conversou com Sabine Righetti, jornalista, pesquisadora do [Labjor (Unicamp)](http://www.labjor.unicamp.br/) e co-fundadora da [Bori,](https://abori.com.br/) sobre a relação entre as pesquisas em ciências humanas e sociais e o debate público, seus desafios e iniciativas para facilitar este diálogo. 
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -705,9 +705,9 @@ O Portal IDeA conversou com Sabine Righetti, jornalista, pesquisadora do [Labjor
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="371">
@@ -1276,9 +1276,9 @@ O Portal IDeA conversou com Sabine Righetti, jornalista, pesquisadora do [Labjor
   <w:LsdException Locked="false" Priority="52"
    Name="List Table 7 Colorful Accent 6"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -1305,7 +1305,7 @@ O Portal IDeA conversou com Sabine Righetti, jornalista, pesquisadora do [Labjor
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -1315,13 +1315,13 @@ Sabine Righetti: Melhores decisões -- públicas ou individuais -- são tomadas 
 
  Quando a gente fala em revisão de conhecimento científico para tomadas de decisão, estamos falando de todas as áreas -- biológicas, exatas, humanas, sociais aplicadas. Agora, na pandemia, isso está muito evidente. As ciências sociais aplicadas estão dedicadas aos impactos da Covid na vida das pessoas, na educação, na economia e tem produzido muito conhecimento com informações úteis para políticas públicas. No [blog](https://abori.com.br/blog/pesquisa-com-profissionais-de-saude-na-pandemia-da-base-a-denuncia-na-oea-contra-governo/) da [](https://abori.com.br/blog/pesquisa-com-profissionais-de-saude-na-pandemia-da-base-a-denuncia-na-oea-contra-governo/) Bori falamos sobre a importância dessa produção. Olhando para a produção de humanas e sociais é possível gerenciar a pandemia e reduzir seus danos de maneira mais acertada.
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -1361,9 +1361,9 @@ Sabine Righetti: Melhores decisões -- públicas ou individuais -- são tomadas 
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="371">
@@ -1932,9 +1932,9 @@ Sabine Righetti: Melhores decisões -- públicas ou individuais -- são tomadas 
   <w:LsdException Locked="false" Priority="52"
    Name="List Table 7 Colorful Accent 6"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -1961,19 +1961,19 @@ Sabine Righetti: Melhores decisões -- públicas ou individuais -- são tomadas 
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 **Portal IDeA: Quais as diferenças na construção das mensagens entre o discurso dos pesquisadores - especialmente das ciências humanas e sociais - e a forma como o debate se constrói no debate público?**
 
 Sabine Righetti: O debate público é muito pautado pelo jornalismo e, no jornalismo, costumamos dizer que a notícia é "o dono que morde o cachorro". Isso porque o cachorro morder o dono é esperado, mas o contrário -- o que sai do esperado, o que dá errado -- , sim, é notícia. Trazendo isso para a nossa discussão e, especificamente, para educação: a mensagem sobre educação no debate público é fortemente pautada pelo "o dono que morde o cachorro": a escola fechada, a nota baixa no IDEB, o mau desempenho no PISA em comparação a outros países etc. Discutimos problemas, mas não chegamos em nenhuma solução. Há muitas análises, propostas e soluções sobretudo nas mensagens das ciências sociais e humanas -- só que elas não chegam ao debate público.
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -2013,9 +2013,9 @@ Sabine Righetti: O debate público é muito pautado pelo jornalismo e, no jornal
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="371">
@@ -2584,9 +2584,9 @@ Sabine Righetti: O debate público é muito pautado pelo jornalismo e, no jornal
   <w:LsdException Locked="false" Priority="52"
    Name="List Table 7 Colorful Accent 6"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -2613,7 +2613,7 @@ Sabine Righetti: O debate público é muito pautado pelo jornalismo e, no jornal
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -2621,13 +2621,13 @@ Sabine Righetti: O debate público é muito pautado pelo jornalismo e, no jornal
 
 Sabine Righetti: A forma mais eficiente de se levar pesquisa para o debate público é a imprensa. A questão é que a imprensa de educação no país é muito pautada por questões factuais -- que são importantes -- e pouco pautada pela produção do conhecimento. Jornalistas de educação se dedicam muito à cobertura de indicadores educacionais, grandes eventos como Enem, agenda política de secretários e do Ministro e questões do dia a dia das escolas (como denúncias), mas dificilmente se debruçam em estudos que tratam de educação -- e raramente trazem um pesquisador de educação para comentar algo factual. Esse distanciamento precisa ser enfrentado por meio de treinamentos/imersões/sensibilizações para jornalistas de educação e para pesquisadores de educação também. É preciso construir uma ponte entre esses dois mundos, apresentar e explicar um mundo ao outro. Isso é um pouco do que tentamos fazer na Agência Bori.
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -2667,9 +2667,9 @@ Sabine Righetti: A forma mais eficiente de se levar pesquisa para o debate públ
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="371">
@@ -3238,9 +3238,9 @@ Sabine Righetti: A forma mais eficiente de se levar pesquisa para o debate públ
   <w:LsdException Locked="false" Priority="52"
    Name="List Table 7 Colorful Accent 6"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -3267,7 +3267,7 @@ Sabine Righetti: A forma mais eficiente de se levar pesquisa para o debate públ
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
@@ -3275,13 +3275,13 @@ Sabine Righetti: A forma mais eficiente de se levar pesquisa para o debate públ
 
 Sabine Righetti: Alguns cientistas têm feito um esforço pessoal para levar informação para redes sociais -- e isso cresceu muito na pandemia. É o caso do Átila Iamarino, Natália Pasternak, Hugo Fernandes e do Pirulla -- todos formados em ciências biológicas! Tenho uma hipótese de que alguns cientistas dessa geração foram para a academia justamente influenciados por divulgadores de ciência como o astrofísico Carl Sagan e, talvez por isso, integram a divulgação na sua própria prática científica. Mas, talvez, a trajetória de pesquisadores de humanas e sociais seja diferente. E talvez até falar sobre conhecimento científico em humanas nas redes sociais possa "pegar mal" entre colegas/pares da academia. Estamos estudando essa hipótese em uma pesquisa atualmente em andamento. O que costumo dizer é que não podemos esperar que pesquisadores -- especialmente de humanas -- decidam fazer divulgação por conta própria, mas precisamos criar mecanismos institucionais para que isso aconteça, como treinamentos e até valorização institucional de pesquisadores que também fazem divulgação!
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <o:OfficeDocumentSettings>
   <o:AllowPNG/>
  </o:OfficeDocumentSettings>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:WordDocument>
   <w:View>Normal</w:View>
   <w:Zoom>0</w:Zoom>
@@ -3321,9 +3321,9 @@ Sabine Righetti: Alguns cientistas têm feito um esforço pessoal para levar inf
    <m:intLim m:val="subSup"/>
    <m:naryLim m:val="undOvr"/>
   </m:mathPr></w:WordDocument>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 9]><xml>
+<!--\\\[if gte mso 9]><xml>
  <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
   DefSemiHidden="false" DefQFormat="false" DefPriority="99"
   LatentStyleCount="371">
@@ -3892,9 +3892,9 @@ Sabine Righetti: Alguns cientistas têm feito um esforço pessoal para levar inf
   <w:LsdException Locked="false" Priority="52"
    Name="List Table 7 Colorful Accent 6"/>
  </w:LatentStyles>
-</xml><!\\[endif]-->
+</xml><!\\\[endif]-->
 
-<!--\\[if gte mso 10]>
+<!--\\\[if gte mso 10]>
 <style>
  /* Style Definitions */
  table.MsoNormalTable
@@ -3921,7 +3921,7 @@ Sabine Righetti: Alguns cientistas têm feito um esforço pessoal para levar inf
 	mso-bidi-theme-font:minor-bidi;
 	mso-fareast-language:EN-US;}
 </style>
-<!\\[endif]-->
+<!\\\[endif]-->
 
 <!--StartFragment-->
 
