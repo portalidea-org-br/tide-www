@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "audit-deps": "rimraf -f package-lock.json && synp --source-file yarn.lock && npm audit & rimraf -f package-lock.json",
-    "prebuild": "npm-run-all --parallel lint clean",
+    "prebuild": "npm-run-all --parallel clean",
     "build:assets": "npm-run-all --parallel build:img build:css build:js",
     "build:js": "npm-run-all compile:js",
     "build:css": "npm-run-all compile:sass compress:css",
